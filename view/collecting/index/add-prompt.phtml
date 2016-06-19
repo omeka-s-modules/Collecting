@@ -1,0 +1,37 @@
+<h3>Add Prompt</h3>
+
+<h4>Prompt Type</h4>
+<select name="type">
+    <option>Select a prompt type...</option>
+    <option value="property">Property</option>
+    <option value="media">Media</option>
+    <option value="supplementary">Supplementary</option>
+</select>
+
+<h4>Property</h4>
+<?php echo $this->propertySelect(['name' => 'property']); ?>
+
+<h4>Media Type</h4>
+<select name="media">
+    <option>Select a media type</option>
+    <option value="upload">Upload</option>
+    <option value="url">URL</option>
+    <option value="html">HTML</option>
+</select>
+
+<h4>Input Type</h4>
+<select name="input">
+    <option>Select an input type</option>
+    <option value="text">Text box (one line)</option>
+    <option value="textarea">Text box (multiple line)</option>
+    <option value="select">Select menu</option>
+</select>
+
+<h4>Select Menu Options</h4>
+<textarea name="options" style="width:100%;" rows="3" placeholder="Option One&#13;&#10;Option Two&#13;&#10;..."></textarea>
+
+<h4>Prompt Text</h4>
+<textarea name="text" style="width:100%;" rows="3"></textarea>
+
+<a href="#" class="button">Save Changes</a>
+

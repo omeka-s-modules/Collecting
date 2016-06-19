@@ -1,0 +1,33 @@
+<?php
+echo $this->pageTitle('Collecting Forms');
+?>
+<table class="tablesaw">
+    <thead>
+    <tr>
+        <th>Label</th>
+        <th>Owner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Share your photo
+            <ul class="actions">
+                <li><a href="<?php echo $this->escapeHtml($this->url(null, ['action' => 'edit'], true)); ?>" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
+                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
+            </ul>
+        </td>
+        <td>Jim Safley</td>
+    </tr>
+    <tr>
+        <td>
+            Contribute your story
+            <ul class="actions">
+                <li><a href="#" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
+                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
+            </ul>
+        </td>
+        <td>Jim Safley</td>
+    </tr>
+    </tbody>
+</table>
