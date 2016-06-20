@@ -1,6 +1,11 @@
 <?php
 echo $this->pageTitle('Collecting Forms');
 ?>
+
+<div id="page-actions">
+    <?php echo $this->hyperlink($this->translate('Add new form'), $this->url(null, ['action' => 'add'], true), ['class' => 'button']); ?>
+</div>
+
 <table class="tablesaw">
     <thead>
     <tr>

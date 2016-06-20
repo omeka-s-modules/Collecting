@@ -10,6 +10,11 @@ return [
             'Collecting\Controller\Index' => 'Collecting\Controller\IndexController',
         ],
     ],
+    'block_layouts' => [
+        'invokables' => [
+            'collecting' => 'Collecting\Site\BlockLayout\Collecting',
+        ],
+    ],
     'navigation' => [
         'site' => [
             [
