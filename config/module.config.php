@@ -15,6 +15,11 @@ return [
             'collecting' => 'Collecting\Site\BlockLayout\Collecting',
         ],
     ],
+    'entity_manager' => [
+        'mapping_classes_paths' => [
+            OMEKA_PATH . '/modules/Collecting/src/Entity',
+        ],
+    ],
     'navigation' => [
         'site' => [
             [
