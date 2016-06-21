@@ -27,7 +27,8 @@ ALTER TABLE collecting_input ADD CONSTRAINT FK_C6E2CFC9730468B0 FOREIGN KEY (col
     {
         $conn = $serviceLocator->get('Omeka\Connection');
         $conn->exec('
-DROP TABLE IF EXISTS mapping;
-DROP TABLE IF EXISTS mapping_marker');
+DROP TABLE IF EXISTS collecting_prompt;
+DROP TABLE IF EXISTS collecting_form;
+DROP TABLE IF EXISTS collecting_input;');
     }
 }
