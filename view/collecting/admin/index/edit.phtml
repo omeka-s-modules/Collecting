@@ -10,29 +10,11 @@ $form->prepare();
     <button>Save</button>
 </div>
 
-<?php // echo $this->formCollection($form, false); ?>
-
-<div class="field required">
-    <div class="field-meta">
-        <label for="o-module-collecting:label">Label</label>
-    </div>
-    <div class="inputs">
-        <input type="text" name="o-module-collecting:label" required="required" value="Share your photo">
-    </div>
-</div>
-
-<div class="field">
-    <div class="field-meta">
-        <label for="o-module-collecting:description">Description</label>
-    </div>
-    <div class="inputs">
-        <textarea name="o-module-collecting:description">Do you have a photograph you'd like to share? Use this form to upload and describe it!</textarea>
-    </div>
-</div>
+<?php echo $this->formCollection($form, false); ?>
 
 <h3>Prompts</h3>
 
-<a type="button" class="button sidebar-content" data-sidebar-content-url="<?php echo $this->escapeHtml($this->url(null, ['action' => 'add-prompt'], true)); ?>">Add Prompt</a>
+<?php echo $this->hyperlink('Add Prompt', '#', ['class' => 'button sidebar-content', 'data-sidebar-content-url' => $this->url(null, ['action' => 'add-prompt'], true)]); ?>
 
 <table class="tablesaw">
     <thead>

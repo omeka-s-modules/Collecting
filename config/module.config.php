@@ -7,7 +7,8 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'Collecting\Controller\Index' => 'Collecting\Controller\IndexController',
+            'Collecting\Controller\Admin\Index' => 'Collecting\Controller\Admin\IndexController',
+            'Collecting\Controller\Admin\Form' => 'Collecting\Controller\Admin\FormController',
         ],
     ],
     'block_layouts' => [
@@ -30,10 +31,35 @@ return [
         'site' => [
             [
                 'label' => 'Collecting', // @translate
-                'route' => 'admin/site/collecting',
+                'route' => 'admin/site/slug/collecting/default',
                 'action' => 'index',
-                'resource' => 'Collecting\Controller\Index',
                 'useRouteMatch' => true,
+                'pages' => [
+                    [
+                        'route' => 'admin/site/slug/collecting/id',
+                        'visible' => false,
+                    ],
+                    [
+                        'route' => 'admin/site/slug/collecting/default',
+                        'visible' => false,
+                    ],
+                ],
+            ],
+        ],
+        'Collecting' => [
+            [
+                'label' => 'Forms', // @translate
+                'route' => 'admin/site/slug/collecting/default',
+                'action' => 'index',
+                'useRouteMatch' => true,
+            ],
+            [
+                'label' => 'Admin', // @translate
+                'route' => 'admin/site/slug/collecting/default',
+                'action' => 'admin',
+                'useRouteMatch' => true,
+                'resource' => 'Omeka\Entity\Site',
+                'privilege' => 'create',
             ],
         ],
     ],
@@ -43,16 +69,42 @@ return [
                 'child_routes' => [
                     'site' => [
                         'child_routes' => [
-                            'collecting' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => '/s/:site-slug/collecting[/:action]',
-                                    'defaults' => [
-                                        '__NAMESPACE__' => 'Collecting\Controller',
-                                        'controller' => 'index',
-                                        'action' => 'index',
+                            'slug' => [
+                                'child_routes' => [
+                                    'collecting' => [
+                                        'type' => 'Literal',
+                                        'options' => [
+                                            'route' => '/collecting',
+                                            'defaults' => [
+                                                '__NAMESPACE__' => 'Collecting\Controller\Admin',
+                                                'controller' => 'index',
+                                                'action' => 'index',
+                                            ],
+                                        ],
+                                        'may_terminate' => true,
+                                        'child_routes' => [
+                                            'id' => [
+                                                'type' => 'Segment',
+                                                'options' => [
+                                                    'route' => '/:id/:action',
+                                                    'constraints' => [
+                                                        'id' => '\d+',
+                                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                                    ],
+                                                ],
+                                            ],
+                                            'default' => [
+                                                'type' => 'Segment',
+                                                'options' => [
+                                                    'route' => '/:action',
+                                                    'constraints' => [
+                                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                                    ],
+                                                ],
+                                            ],
+                                        ],
                                     ],
-                                ],
+                                ]
                             ],
                         ],
                     ],
