@@ -47,6 +47,9 @@ class IndexController extends AbstractActionController
             ->read('collecting_forms', $this->params('id'))->getContent();
         $form = $this->getForm(CollectingForm::class);
         $form->setData($collectingForm->jsonSerialize());
+        if ($this->getRequest()->isPost()) {
+            var_dump($this->params()->fromPost());exit;
+        }
 
         $view = new ViewModel;
         $view->setVariable('site', $site);
@@ -54,20 +57,5 @@ class IndexController extends AbstractActionController
         $view->setVariable('collectingForm', $collectingForm);
         return $view;
     }
-
-    public function addPromptAction()
-    {
-        $request = $this->getRequest();
-        if (!$request->isXmlHttpRequest()) {
-            throw new Exception\NotFoundException;
-        }
-
-        $view = new ViewModel;
-        $view->setTerminal(true);
-        return $view;
-    }
-
-    public function editPromptAction()
-    {}
 }
 

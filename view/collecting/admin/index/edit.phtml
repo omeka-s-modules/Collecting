@@ -3,6 +3,7 @@ $this->headScript()->appendFile($this->assetUrl('js/sortable.js', 'Omeka'));
 echo $this->pageTitle('Edit Form: “Share your photo”');
 $form->prepare();
 ?>
+
 <?php echo $this->form()->openTag($form); ?>
 
 <div id="page-actions">
@@ -14,7 +15,7 @@ $form->prepare();
 
 <h3>Prompts</h3>
 
-<?php echo $this->hyperlink('Add Prompt', '#', ['class' => 'button sidebar-content', 'data-sidebar-content-url' => $this->url(null, ['action' => 'add-prompt'], true)]); ?>
+<a href="#" class="button">Add Prompt</a>
 
 <table class="tablesaw">
     <thead>
@@ -25,61 +26,78 @@ $form->prepare();
     </tr>
     </thead>
     <tbody id="prompts">
-    <tr class="prompt">
+    <?php foreach ($collectingForm->prompts() as $prompt): ?>
+    <?php
+    $namePrefix = 'o-module-collecting:collecting_prompts[' . $prompt->id() . ']';
+    $propertyId = null;
+    if ($property = $prompt->property()) {
+        $propertyId = $property->id();
+    }
+    ?>
+    <tr class="prompt" data-prompt="<?php echo $this->escapeHtml(json_encode($prompt->jsonSerialize())); ?>">
         <td><span class="sortable-handle"></span></td>
         <td>
-            Property
-            <ul class="actions">
-                <li><a href="#" class="sidebar-content o-icon-edit" aria-label="Edit" title="Edit" data-sidebar-content-url="<?php echo $this->escapeHtml($this->url(null, ['action' => 'edit-prompt'], true)); ?>"></a></li>
-                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
-            </ul>
-        </td>
-        <td>Give your photo a title</td>
-    </tr>
-    <tr>
-        <td><span class="sortable-handle"></span></td>
-        <td>
-            Property
+            <?php echo $prompt->type(); ?>
             <ul class="actions">
                 <li><a href="#" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
                 <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
             </ul>
+            <input type="hidden" name="<?php echo $namePrefix; ?>[o:id]" value="<?php echo $prompt->id(); ?>">
+            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:type]" value="<?php echo $this->escapeHtml($prompt->type()); ?>">
+            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:text]" value="<?php echo $this->escapeHtml($prompt->text()); ?>">
+            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:input_type]" value="<?php echo $this->escapeHtml($prompt->inputType()); ?>">
+            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:select_options]" value="<?php echo $this->escapeHtml($prompt->selectOptions()); ?>">
+            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:media_type]" value="<?php echo $this->escapeHtml($prompt->mediaType()); ?>">
+            <input type="hidden" name="<?php echo $namePrefix; ?>[o:property][o:id]" value="<?php echo $propertyId; ?>">
         </td>
-        <td>Describe your photo</td>
+        <td><?php echo $prompt->text(); ?></td>
     </tr>
-    <tr>
-        <td><span class="sortable-handle"></span></td>
-        <td>
-            Media
-            <ul class="actions">
-                <li><a href="#" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
-                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
-            </ul>
-        </td>
-        <td>Upload your photo here</td>
-    </tr>
-    <tr>
-        <td><span class="sortable-handle"></span></td>
-        <td>
-            Supplementary
-            <ul class="actions">
-                <li><a href="#" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
-                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
-            </ul>
-        </td>
-        <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent luctus
-        arcu vel neque suscipit, at aliquam nibh eleifend. Nunc tortor.?</td>
-    </tr>
+    <?php endforeach; ?>
     </tbody>
 </table>
+
 <?php echo $this->form()->closeTag(); ?>
 
 <div class="sidebar">
-    <a href="#"
-        class="sidebar-close o-icon-close"
-        aria-label="Close"
-        title="Close"></a>
-    <div class="sidebar-content"></div>
+    <a href="#" class="sidebar-close o-icon-close" aria-label="Close" title="Close"></a>
+    <div class="sidebar-content">
+        <h3>Prompt</h3>
+
+        <h4>Prompt Type</h4>
+        <select name="type">
+            <option>Select a prompt type...</option>
+            <option value="property">Property</option>
+            <option value="media">Media</option>
+            <option value="input">Supplementary</option>
+        </select>
+
+        <h4>Property</h4>
+        <?php echo $this->propertySelect(['name' => 'property']); ?>
+
+        <h4>Media Type</h4>
+        <select name="media">
+            <option>Select a media type</option>
+            <option value="upload">Upload</option>
+            <option value="url">URL</option>
+            <option value="html">HTML</option>
+        </select>
+
+        <h4>Input Type</h4>
+        <select name="input">
+            <option>Select an input type</option>
+            <option value="text">Text box (one line)</option>
+            <option value="textarea">Text box (multiple line)</option>
+            <option value="select">Select menu</option>
+        </select>
+
+        <h4>Select Menu Options</h4>
+        <textarea name="options" style="width:100%;" rows="3" placeholder="Option One&#13;&#10;Option Two&#13;&#10;..."></textarea>
+
+        <h4>Prompt Text</h4>
+        <textarea name="text" style="width:100%;" rows="3"></textarea>
+
+        <a href="#" class="button">Save Changes</a>
+    </div>
 </div>
 
 <script>

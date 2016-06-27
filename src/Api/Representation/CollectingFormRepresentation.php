@@ -15,6 +15,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         return [
             'o-module-collecting:label' => $this->label(),
             'o-module-collecting:description' => $this->description(),
+            'o-module-collecting:collecting_prompts' => $this->prompts(),
         ];
     }
 
@@ -32,5 +33,15 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     {
         return $this->getAdapter('users')
             ->getRepresentation($this->resource->getOwner());
+    }
+
+    public function prompts()
+    {
+        $prompts = [];
+        $promptsAdapter = $this->getAdapter('collecting_prompts');
+        foreach ($this->resource->getCollectingPrompts() as $prompt) {
+            $prompts[] = $promptsAdapter->getRepresentation($prompt);
+        }
+        return $prompts;
     }
 }

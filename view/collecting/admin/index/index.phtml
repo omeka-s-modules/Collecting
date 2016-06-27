@@ -3,7 +3,7 @@ echo $this->pageTitle('Collecting');
 ?>
 
 <div id="page-actions">
-    <?php echo $this->hyperlink($this->translate('Add new form'), $this->url(null, ['action' => 'add'], true), ['class' => 'button']); ?>
+    <a href="<?php echo $this->url(null, ['action' => 'add'], true); ?>" class="button">Add new form</a>
 </div>
 <nav class="section-nav">
     <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
@@ -26,8 +26,8 @@ echo $this->pageTitle('Collecting');
         <td>
             <?php echo $collectingForm->label(); ?>
             <ul class="actions">
-                <li><?php echo $this->hyperlink(null, $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $collectingForm->id()], true), ['class' => 'o-icon-edit', 'aria-label' => 'Edit', 'title' => 'Edit']); ?></li>
-                <li><?php echo $this->hyperlink(null, '#', ['class' => 'o-icon-delete', 'aria-label' => 'Delete', 'title' => 'Delete']); ?></li>
+                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $collectingForm->id()], true); ?>" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
+                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
             </ul>
         </td>
         <td><?php echo $ownerName; ?></td>

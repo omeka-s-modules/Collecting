@@ -1,6 +1,7 @@
 <?php
 namespace Collecting\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Omeka\Entity\AbstractEntity;
 use Omeka\Entity\User;
 
@@ -49,6 +50,10 @@ class CollectingForm extends AbstractEntity
      */
     protected $collectingPrompts;
 
+    public function __construct() {
+        $this->collectingPrompts = new ArrayCollection;
+    }
+
     public function getId()
     {
         return $this->id;
@@ -82,5 +87,10 @@ class CollectingForm extends AbstractEntity
     public function getOwner()
     {
         return $this->owner;
+    }
+
+    public function getCollectingPrompts()
+    {
+        return $this->collectingPrompts;
     }
 }
