@@ -15,7 +15,7 @@ $form->prepare();
 
 <h3>Prompts</h3>
 
-<a href="#" class="button">Add Prompt</a>
+<a href="#" id="prompt-add" class="button">Add Prompt</a>
 
 <table class="tablesaw">
     <thead>
@@ -34,13 +34,14 @@ $form->prepare();
         $propertyId = $property->id();
     }
     ?>
-    <tr class="prompt" data-prompt="<?php echo $this->escapeHtml(json_encode($prompt->jsonSerialize())); ?>">
+    <tr class="prompt" data-prompt-data="<?php echo $this->escapeHtml(json_encode($prompt->jsonSerialize())); ?>">
         <td><span class="sortable-handle"></span></td>
         <td>
             <?php echo $prompt->type(); ?>
             <ul class="actions">
-                <li><a href="#" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
-                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
+                <li><a href="#" class="prompt-edit o-icon-edit" aria-label="Edit" title="Edit"></a></li>
+                <li><a href="#" class="prompt-delete o-icon-delete" aria-label="Delete" title="Delete"></a></li>
+                <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="Undo Delete" title="Undo Delete" style="display: none;"></a></li>
             </ul>
             <input type="hidden" name="<?php echo $namePrefix; ?>[o:id]" value="<?php echo $prompt->id(); ?>">
             <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:type]" value="<?php echo $this->escapeHtml($prompt->type()); ?>">
@@ -58,52 +59,216 @@ $form->prepare();
 
 <?php echo $this->form()->closeTag(); ?>
 
-<div class="sidebar">
+<div id="prompt-sidebar" class="sidebar">
     <a href="#" class="sidebar-close o-icon-close" aria-label="Close" title="Close"></a>
     <div class="sidebar-content">
         <h3>Prompt</h3>
 
-        <h4>Prompt Type</h4>
-        <select name="type">
-            <option>Select a prompt type...</option>
-            <option value="property">Property</option>
-            <option value="media">Media</option>
-            <option value="input">Supplementary</option>
-        </select>
+        <div class="sidebar-section">
+            <h4>Prompt Type</h4>
+            <select id="prompt-type" name="type">
+                <option>Select a prompt type...</option>
+                <option value="property">Property</option>
+                <option value="media">Media</option>
+                <option value="input">Supplementary</option>
+            </select>
+        </div>
 
-        <h4>Property</h4>
-        <?php echo $this->propertySelect(['name' => 'property']); ?>
+        <div class="sidebar-section">
+            <h4>Prompt Text</h4>
+            <textarea id="prompt-text" name="text" style="width:100%;" rows="3"></textarea>
+        </div>
 
-        <h4>Media Type</h4>
-        <select name="media">
-            <option>Select a media type</option>
-            <option value="upload">Upload</option>
-            <option value="url">URL</option>
-            <option value="html">HTML</option>
-        </select>
+        <div class="sidebar-section">
+            <h4>Property</h4>
+            <?php echo $this->propertySelect(['name' => 'property', 'options' => ['empty_option' => 'Select a property...'], 'attributes' => ['id' => 'prompt-property']]); ?>
+        </div>
 
-        <h4>Input Type</h4>
-        <select name="input">
-            <option>Select an input type</option>
-            <option value="text">Text box (one line)</option>
-            <option value="textarea">Text box (multiple line)</option>
-            <option value="select">Select menu</option>
-        </select>
+        <div class="sidebar-section">
+            <h4>Media Type</h4>
+            <select id="prompt-media-type" name="media-type">
+                <option>Select a media type</option>
+                <option value="upload">Upload</option>
+                <option value="url">URL</option>
+                <option value="html">HTML</option>
+            </select>
+        </div>
 
-        <h4>Select Menu Options</h4>
-        <textarea name="options" style="width:100%;" rows="3" placeholder="Option One&#13;&#10;Option Two&#13;&#10;..."></textarea>
+        <div class="sidebar-section">
+            <h4>Input Type</h4>
+            <select id="prompt-input-type" name="input-type">
+                <option value="text">Text box (one line)</option>
+                <option value="textarea">Text box (multiple line)</option>
+                <option value="select">Select menu</option>
+            </select>
+        </div>
 
-        <h4>Prompt Text</h4>
-        <textarea name="text" style="width:100%;" rows="3"></textarea>
+        <div class="sidebar-section">
+            <h4>Select Menu Options</h4>
+            <textarea id="prompt-select-options" name="select-options" style="width:100%;" rows="3" placeholder="Option One&#13;&#10;Option Two&#13;&#10;..."></textarea>
+        </div>
 
-        <a href="#" class="button">Save Changes</a>
+        <a id="prompt-save" href="#" class="button">Save Changes</a>
     </div>
 </div>
 
 <script>
 $(document).ready( function() {
-    new Sortable(document.getElementById('prompts'), {
-        handle: '.sortable-handle'
-    });
+
+// Enable prompt sorting.
+new Sortable(document.getElementById('prompts'), {
+    handle: '.sortable-handle'
+});
+
+// Reset the prompt sidebar.
+var resetSidebar = function() {
+    $('#prompt-type').prop('selectedIndex', 0)
+        .prop('disabled', false).css('background-color', '#ffffff');
+    $('#prompt-text').val('').closest('.sidebar-section').hide();
+    $('#prompt-property').prop('selectedIndex', 0).closest('.sidebar-section').hide();
+    $('#prompt-media-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
+    $('#prompt-input-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
+    $('#prompt-select-options').val('').closest('.sidebar-section').hide();
+    $('#prompt-save').hide();
+}
+
+// Show the default prompt sidebar for a prompt type.
+var showDefaultSidebar = function(type) {
+    resetSidebar();
+    switch (type) {
+        case 'property':
+            $('#prompt-property').closest('.sidebar-section').show();
+            $('#prompt-input-type').closest('.sidebar-section').show();
+            break;
+        case 'media':
+            $('#prompt-media-type').closest('.sidebar-section').show();
+            break;
+        case 'input':
+            $('#prompt-input-type').closest('.sidebar-section').show();
+            break;
+        default:
+            // invalid or no prompt type
+            return;
+    }
+    $('#prompt-text').closest('.sidebar-section').show();
+    $('#prompt-save').show();
+}
+
+// Populate the prompt sidebar for type="property".
+var populatePropertyType = function(prompt) {
+    showDefaultSidebar('property');
+    var text = prompt.find('input[name$=":text]"]').val();
+    var propertyId = prompt.find('input[name$="[o:property][o:id]"]').val();
+    var inputType = prompt.find('input[name$=":input_type]"]').val();
+    $('#prompt-type').val('property');
+    $('#prompt-text').val(text);
+    $('#prompt-property').val(propertyId);
+    $('#prompt-input-type').val(inputType);
+    if ('select' === inputType) {
+        var selectOptions = prompt.find('input[name$=":select_options]"]').val();
+        $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
+    }
+}
+
+// Populate the prompt sidebar for type="media".
+var populateMediaType = function(prompt) {
+    showDefaultSidebar('media');
+    var text = prompt.find('input[name$=":text]"]').val();
+    var mediaType = prompt.find('input[name$=":media_type]"]').val();
+    $('#prompt-type').val('media');
+    $('#prompt-text').val(text);
+    $('#prompt-media-type').val(mediaType);
+}
+
+// Populate the prompt sidebar for type="input".
+var populateInputType = function(prompt) {
+    showDefaultSidebar('input');
+    var text = prompt.find('input[name$=":text]"]').val();
+    var inputType = prompt.find('input[name$=":input_type]"]').val();
+    $('#prompt-type').val('input');
+    $('#prompt-text').val(text);
+    $('#prompt-input-type').val(inputType);
+    if ('select' === inputType) {
+        var selectOptions = prompt.find('input[name$=":select_options]"]').val();
+        $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
+    }
+}
+
+// Handle the add prompt button.
+$('#prompt-add').on('click', function(e) {
+    e.preventDefault();
+    resetSidebar();
+    Omeka.openSidebar($('#prompt-sidebar'));
+});
+
+// Handle the delete prompt icon.
+$('#prompts').on('click', '.prompt-delete', function(e) {
+    e.preventDefault();
+    var deleteIcon = $(this);
+    var prompt = deleteIcon.closest('.prompt');
+    prompt.find(':input').prop('disabled', true);
+    prompt.addClass('delete');
+    prompt.find('.prompt-undo-delete').show();
+    deleteIcon.hide();
+});
+
+// Handle the undo delete prompt icon.
+$('#prompts').on('click', '.prompt-undo-delete', function(e) {
+    e.preventDefault();
+    var undoIcon = $(this);
+    var prompt = undoIcon.closest('.prompt');
+    prompt.find(':input').prop('disabled', false);
+    prompt.removeClass('delete');
+    prompt.find('.prompt-delete').show();
+    undoIcon.hide();
+});
+
+// Handle the edit prompt icon.
+$('#prompts').on('click', '.prompt-edit', function(e) {
+    e.preventDefault();
+    var prompt = $(this).closest('.prompt');
+    var type = prompt.find('input[name$=":type]"]').val();
+    switch (type) {
+        case 'property':
+            populatePropertyType(prompt);
+            break;
+        case 'media':
+            populateMediaType(prompt);
+            break;
+        case 'input':
+            populateInputType(prompt);
+            break;
+        default:
+            // invalid or no prompt type
+            return;
+    }
+    // A prompt type cannot be changed once it's saved.
+    $('#prompt-type').prop('disabled', true).css('background-color', '#dfdfdf');
+    Omeka.openSidebar($('#prompt-sidebar'));
+});
+
+// Handle changing the prompt's type.
+$('#prompt-type').on('change', function() {
+    var typeSelect = $(this);
+    var type = typeSelect.val();
+    showDefaultSidebar(type);
+    typeSelect.val(type);
+});
+
+// Handle changing the prompt's input type.
+$('#prompt-input-type').on('change', function() {
+    var inputType = $(this).val();
+    var selectOptionsSection = $('#prompt-select-options').closest('.sidebar-section');
+    if ('select' === inputType) {
+        selectOptionsSection.show();
+    } else {
+        selectOptionsSection.hide();
+    }
+});
+
+$('#prompt-save').on('click', function(e) {
+    e.preventDefault();
+});
+
 });
 </script>

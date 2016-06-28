@@ -47,8 +47,15 @@ class IndexController extends AbstractActionController
             ->read('collecting_forms', $this->params('id'))->getContent();
         $form = $this->getForm(CollectingForm::class);
         $form->setData($collectingForm->jsonSerialize());
+
         if ($this->getRequest()->isPost()) {
-            var_dump($this->params()->fromPost());exit;
+            $data = $this->params()->fromPost();
+            $form->setData($data);
+            if ($form->isValid()) {
+                var_dump($data);exit;
+            } else {
+                $this->messenger()->addError('There was an error during validation');
+            }
         }
 
         $view = new ViewModel;
