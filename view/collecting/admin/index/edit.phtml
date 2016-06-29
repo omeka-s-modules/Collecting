@@ -2,6 +2,27 @@
 $this->headScript()->appendFile($this->assetUrl('js/sortable.js', 'Omeka'));
 echo $this->pageTitle('Edit Form: “Share your photo”');
 $form->prepare();
+$promptRow = <<<EOD
+<tr class="prompt">
+    <td><span class="sortable-handle"></span></td>
+    <td>
+        <span class="prompt-type-span"></span>
+        <ul class="actions">
+            <li><a href="#" class="prompt-edit o-icon-edit" aria-label="Edit" title="Edit"></a></li>
+            <li><a href="#" class="prompt-delete o-icon-delete" aria-label="Delete" title="Delete"></a></li>
+            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="Undo Delete" title="Undo Delete" style="display: none;"></a></li>
+        </ul>
+        <input type="hidden" class="prompt-id" name="o-module-collecting:collecting_prompts[__INDEX__][o:id]">
+        <input type="hidden" class="prompt-type" name="o-module-collecting:collecting_prompts[__INDEX__][o-module-collecting:type]">
+        <input type="hidden" class="prompt-text" name="o-module-collecting:collecting_prompts[__INDEX__][o-module-collecting:text]">
+        <input type="hidden" class="prompt-input-type" name="o-module-collecting:collecting_prompts[__INDEX__][o-module-collecting:input_type]">
+        <input type="hidden" class="prompt-select-options" name="o-module-collecting:collecting_prompts[__INDEX__][o-module-collecting:select_options]">
+        <input type="hidden" class="prompt-media-type" name="o-module-collecting:collecting_prompts[__INDEX__][o-module-collecting:media_type]">
+        <input type="hidden" class="prompt-property-id" name="o-module-collecting:collecting_prompts[__INDEX__][o:property][o:id]">
+    </td>
+    <td><span class="prompt-text-span"></span></td>
+</tr>
+EOD;
 ?>
 
 <?php echo $this->form()->openTag($form); ?>
@@ -15,6 +36,9 @@ $form->prepare();
 
 <h3>Prompts</h3>
 
+<span id="prompts-span" data-prompts-data="<?php echo $this->escapeHtml(json_encode($collectingForm->prompts())); ?>"
+    data-prompt-row-template="<?php echo $this->escapeHtml($promptRow); ?>"></span>
+
 <a href="#" id="prompt-add" class="button">Add Prompt</a>
 
 <table class="tablesaw">
@@ -25,36 +49,7 @@ $form->prepare();
         <th>Text</th>
     </tr>
     </thead>
-    <tbody id="prompts">
-    <?php foreach ($collectingForm->prompts() as $prompt): ?>
-    <?php
-    $namePrefix = 'o-module-collecting:collecting_prompts[' . $prompt->id() . ']';
-    $propertyId = null;
-    if ($property = $prompt->property()) {
-        $propertyId = $property->id();
-    }
-    ?>
-    <tr class="prompt" data-prompt-data="<?php echo $this->escapeHtml(json_encode($prompt->jsonSerialize())); ?>">
-        <td><span class="sortable-handle"></span></td>
-        <td>
-            <?php echo $prompt->type(); ?>
-            <ul class="actions">
-                <li><a href="#" class="prompt-edit o-icon-edit" aria-label="Edit" title="Edit"></a></li>
-                <li><a href="#" class="prompt-delete o-icon-delete" aria-label="Delete" title="Delete"></a></li>
-                <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="Undo Delete" title="Undo Delete" style="display: none;"></a></li>
-            </ul>
-            <input type="hidden" name="<?php echo $namePrefix; ?>[o:id]" value="<?php echo $prompt->id(); ?>">
-            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:type]" value="<?php echo $this->escapeHtml($prompt->type()); ?>">
-            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:text]" value="<?php echo $this->escapeHtml($prompt->text()); ?>">
-            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:input_type]" value="<?php echo $this->escapeHtml($prompt->inputType()); ?>">
-            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:select_options]" value="<?php echo $this->escapeHtml($prompt->selectOptions()); ?>">
-            <input type="hidden" name="<?php echo $namePrefix; ?>[o-module-collecting:media_type]" value="<?php echo $this->escapeHtml($prompt->mediaType()); ?>">
-            <input type="hidden" name="<?php echo $namePrefix; ?>[o:property][o:id]" value="<?php echo $propertyId; ?>">
-        </td>
-        <td><?php echo $prompt->text(); ?></td>
-    </tr>
-    <?php endforeach; ?>
-    </tbody>
+    <tbody id="prompts"></tbody>
 </table>
 
 <?php echo $this->form()->closeTag(); ?>
@@ -115,10 +110,20 @@ $form->prepare();
 <script>
 $(document).ready( function() {
 
-// Enable prompt sorting.
-new Sortable(document.getElementById('prompts'), {
-    handle: '.sortable-handle'
-});
+// Populate a prompt row with data.
+var populatePromptRow = function(promptRow, promptData) {
+    promptRow.find('.prompt-type-span').text(promptData['o-module-collecting:type']);
+    promptRow.find('.prompt-text-span').text(promptData['o-module-collecting:text']);
+    promptRow.find('.prompt-id').val(promptData['o:id']);
+    promptRow.find('.prompt-type').val(promptData['o-module-collecting:type']);
+    promptRow.find('.prompt-text').val(promptData['o-module-collecting:text']);
+    promptRow.find('.prompt-input-type').val(promptData['o-module-collecting:input_type']);
+    promptRow.find('.prompt-select-options').val(promptData['o-module-collecting:select_options']);
+    promptRow.find('.prompt-media-type').val(promptData['o-module-collecting:media_type']);
+    if (promptData['o:property']) {
+        promptRow.find('.prompt-property-id').val(promptData['o:property']['o:id']);
+    }
+}
 
 // Reset the prompt sidebar.
 var resetSidebar = function() {
@@ -157,15 +162,15 @@ var showDefaultSidebar = function(type) {
 // Populate the prompt sidebar for type="property".
 var populatePropertyType = function(prompt) {
     showDefaultSidebar('property');
-    var text = prompt.find('input[name$=":text]"]').val();
-    var propertyId = prompt.find('input[name$="[o:property][o:id]"]').val();
-    var inputType = prompt.find('input[name$=":input_type]"]').val();
+    var text = prompt.find('.prompt-text').val();
+    var propertyId = prompt.find('.prompt-property-id').val();
+    var inputType = prompt.find('.prompt-input-type').val();
     $('#prompt-type').val('property');
     $('#prompt-text').val(text);
     $('#prompt-property').val(propertyId);
     $('#prompt-input-type').val(inputType);
     if ('select' === inputType) {
-        var selectOptions = prompt.find('input[name$=":select_options]"]').val();
+        var selectOptions = prompt.find('.prompt-select-options').val();
         $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
     }
 }
@@ -173,8 +178,8 @@ var populatePropertyType = function(prompt) {
 // Populate the prompt sidebar for type="media".
 var populateMediaType = function(prompt) {
     showDefaultSidebar('media');
-    var text = prompt.find('input[name$=":text]"]').val();
-    var mediaType = prompt.find('input[name$=":media_type]"]').val();
+    var text = prompt.find('.prompt-text').val();
+    var mediaType = prompt.find('.prompt-media-type').val();
     $('#prompt-type').val('media');
     $('#prompt-text').val(text);
     $('#prompt-media-type').val(mediaType);
@@ -183,22 +188,34 @@ var populateMediaType = function(prompt) {
 // Populate the prompt sidebar for type="input".
 var populateInputType = function(prompt) {
     showDefaultSidebar('input');
-    var text = prompt.find('input[name$=":text]"]').val();
-    var inputType = prompt.find('input[name$=":input_type]"]').val();
+    var text = prompt.find('.prompt-text').val();
+    var inputType = prompt.find('.prompt-input-type').val();
     $('#prompt-type').val('input');
     $('#prompt-text').val(text);
     $('#prompt-input-type').val(inputType);
     if ('select' === inputType) {
-        var selectOptions = prompt.find('input[name$=":select_options]"]').val();
+        var selectOptions = prompt.find('.prompt-select-options').val();
         $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
     }
 }
 
-// Handle the add prompt button.
-$('#prompt-add').on('click', function(e) {
-    e.preventDefault();
-    resetSidebar();
-    Omeka.openSidebar($('#prompt-sidebar'));
+// Handle changing the prompt's type.
+$('#prompt-type').on('change', function() {
+    var typeSelect = $(this);
+    var type = typeSelect.val();
+    showDefaultSidebar(type);
+    typeSelect.val(type);
+});
+
+// Handle changing the prompt's input type.
+$('#prompt-input-type').on('change', function() {
+    var inputType = $(this).val();
+    var selectOptionsSection = $('#prompt-select-options').closest('.sidebar-section');
+    if ('select' === inputType) {
+        selectOptionsSection.show();
+    } else {
+        selectOptionsSection.hide();
+    }
 });
 
 // Handle the delete prompt icon.
@@ -227,8 +244,9 @@ $('#prompts').on('click', '.prompt-undo-delete', function(e) {
 $('#prompts').on('click', '.prompt-edit', function(e) {
     e.preventDefault();
     var prompt = $(this).closest('.prompt');
-    var type = prompt.find('input[name$=":type]"]').val();
-    switch (type) {
+    prompt.siblings().removeClass('prompt-editing');
+    prompt.addClass('prompt-editing');
+    switch (prompt.find('.prompt-type').val()) {
         case 'property':
             populatePropertyType(prompt);
             break;
@@ -247,27 +265,50 @@ $('#prompts').on('click', '.prompt-edit', function(e) {
     Omeka.openSidebar($('#prompt-sidebar'));
 });
 
-// Handle changing the prompt's type.
-$('#prompt-type').on('change', function() {
-    var typeSelect = $(this);
-    var type = typeSelect.val();
-    showDefaultSidebar(type);
-    typeSelect.val(type);
+// Handle the add prompt button.
+$('#prompt-add').on('click', function(e) {
+    e.preventDefault();
+    resetSidebar();
+    promptRows.children('.prompt').removeClass('prompt-editing');
+    Omeka.openSidebar($('#prompt-sidebar'));
 });
 
-// Handle changing the prompt's input type.
-$('#prompt-input-type').on('change', function() {
-    var inputType = $(this).val();
-    var selectOptionsSection = $('#prompt-select-options').closest('.sidebar-section');
-    if ('select' === inputType) {
-        selectOptionsSection.show();
-    } else {
-        selectOptionsSection.hide();
-    }
-});
-
+// Handle saving the prompt.
 $('#prompt-save').on('click', function(e) {
     e.preventDefault();
+    var promptData = {
+        'o-module-collecting:type': $('#prompt-type').val(),
+        'o-module-collecting:text': $('#prompt-text').val(),
+        'o-module-collecting:input_type': $('#prompt-input-type').val(),
+        'o-module-collecting:select_options': $('#prompt-select-options').val(),
+        'o-module-collecting:media_type': $('#prompt-media-type').val(),
+        'o:property': {'o:id': $('#prompt-property').val()},
+    };
+    var promptRow = promptRows.children('.prompt-editing');
+    if (!promptRow.length) {
+        var index = promptRows.children('.prompt').length;
+        promptRow = $(promptRowTemplate.replace(/__INDEX__/g, index));
+        promptRows.append(promptRow);
+    }
+    populatePromptRow(promptRow, promptData);
+    Omeka.closeSidebar($('#prompt-sidebar'));
+});
+
+var promptsSpan = $('#prompts-span');
+var promptRows = $('#prompts');
+var promptRowTemplate = promptsSpan.data('promptRowTemplate');
+
+// Append existing prompts on load.
+$.each(promptsSpan.data('promptsData'), function() {
+    var index = promptRows.children('.prompt').length;
+    var promptRow = $(promptRowTemplate.replace(/__INDEX__/g, index));
+    populatePromptRow(promptRow, this);
+    promptRows.append(promptRow);
+});
+
+// Enable prompt sorting.
+new Sortable(document.getElementById('prompts'), {
+    handle: '.sortable-handle'
 });
 
 });
