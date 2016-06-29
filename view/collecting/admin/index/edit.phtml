@@ -110,10 +110,30 @@ EOD;
 <script>
 $(document).ready( function() {
 
-// Populate a prompt row with data.
-var populatePromptRow = function(promptRow, promptData) {
+/**
+ * Populate a prompt row with the provided data.
+ *
+ * @param {Object} promptData
+ */
+var populatePromptRow = function(promptData) {
+
+    // Detect whether a row is currently being edited. If one is, populate that
+    // one. If one isn't, create a new row using the row template, populate it,
+    // and append it to the prompts table.
+    var promptRows = $('#prompts');
+    var promptRow = promptRows.children('.prompt-editing');
+    if (!promptRow.length) {
+        var index = promptRows.children('.prompt').length;
+        var promptRowTemplate = $('#prompts-span').data('promptRowTemplate');
+        promptRow = $(promptRowTemplate.replace(/__INDEX__/g, index));
+        promptRows.append(promptRow);
+    }
+
+    // Populate the visual elements.
     promptRow.find('.prompt-type-span').text(promptData['o-module-collecting:type']);
     promptRow.find('.prompt-text-span').text(promptData['o-module-collecting:text']);
+
+    // Populate the hidden inputs.
     promptRow.find('.prompt-id').val(promptData['o:id']);
     promptRow.find('.prompt-type').val(promptData['o-module-collecting:type']);
     promptRow.find('.prompt-text').val(promptData['o-module-collecting:text']);
@@ -125,7 +145,9 @@ var populatePromptRow = function(promptRow, promptData) {
     }
 }
 
-// Reset the prompt sidebar.
+/**
+ * Reset the sidebar to its default state (i.e. no selected type).
+ */
 var resetSidebar = function() {
     $('#prompt-type').prop('selectedIndex', 0)
         .prop('disabled', false).css('background-color', '#ffffff');
@@ -137,8 +159,12 @@ var resetSidebar = function() {
     $('#prompt-save').hide();
 }
 
-// Show the default prompt sidebar for a prompt type.
-var showDefaultSidebar = function(type) {
+/**
+ * Set the sidebar to the default state of the provided type and show it.
+ *
+ * @param {String} type
+ */
+var setSidebarForType = function(type) {
     resetSidebar();
     switch (type) {
         case 'property':
@@ -159,51 +185,11 @@ var showDefaultSidebar = function(type) {
     $('#prompt-save').show();
 }
 
-// Populate the prompt sidebar for type="property".
-var populatePropertyType = function(prompt) {
-    showDefaultSidebar('property');
-    var text = prompt.find('.prompt-text').val();
-    var propertyId = prompt.find('.prompt-property-id').val();
-    var inputType = prompt.find('.prompt-input-type').val();
-    $('#prompt-type').val('property');
-    $('#prompt-text').val(text);
-    $('#prompt-property').val(propertyId);
-    $('#prompt-input-type').val(inputType);
-    if ('select' === inputType) {
-        var selectOptions = prompt.find('.prompt-select-options').val();
-        $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
-    }
-}
-
-// Populate the prompt sidebar for type="media".
-var populateMediaType = function(prompt) {
-    showDefaultSidebar('media');
-    var text = prompt.find('.prompt-text').val();
-    var mediaType = prompt.find('.prompt-media-type').val();
-    $('#prompt-type').val('media');
-    $('#prompt-text').val(text);
-    $('#prompt-media-type').val(mediaType);
-}
-
-// Populate the prompt sidebar for type="input".
-var populateInputType = function(prompt) {
-    showDefaultSidebar('input');
-    var text = prompt.find('.prompt-text').val();
-    var inputType = prompt.find('.prompt-input-type').val();
-    $('#prompt-type').val('input');
-    $('#prompt-text').val(text);
-    $('#prompt-input-type').val(inputType);
-    if ('select' === inputType) {
-        var selectOptions = prompt.find('.prompt-select-options').val();
-        $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
-    }
-}
-
 // Handle changing the prompt's type.
 $('#prompt-type').on('change', function() {
     var typeSelect = $(this);
     var type = typeSelect.val();
-    showDefaultSidebar(type);
+    setSidebarForType(type);
     typeSelect.val(type);
 });
 
@@ -240,36 +226,61 @@ $('#prompts').on('click', '.prompt-undo-delete', function(e) {
     undoIcon.hide();
 });
 
+// Handle the add prompt button.
+$('#prompt-add').on('click', function(e) {
+    e.preventDefault();
+    resetSidebar();
+    $('#prompts > .prompt').removeClass('prompt-editing');
+    Omeka.openSidebar($('#prompt-sidebar'));
+});
+
 // Handle the edit prompt icon.
 $('#prompts').on('click', '.prompt-edit', function(e) {
     e.preventDefault();
+
     var prompt = $(this).closest('.prompt');
+    var type = prompt.find('.prompt-type').val();
+    var text = prompt.find('.prompt-text').val();
+
     prompt.siblings().removeClass('prompt-editing');
     prompt.addClass('prompt-editing');
-    switch (prompt.find('.prompt-type').val()) {
+
+    setSidebarForType(type);
+    switch (type) {
         case 'property':
-            populatePropertyType(prompt);
+            var inputType = prompt.find('.prompt-input-type').val();
+            $('#prompt-type').val('property');
+            $('#prompt-text').val(text);
+            $('#prompt-property').val(prompt.find('.prompt-property-id').val());
+            $('#prompt-input-type').val(inputType);
+            if ('select' === inputType) {
+                var selectOptions = prompt.find('.prompt-select-options').val();
+                $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
+            }
             break;
         case 'media':
-            populateMediaType(prompt);
+            var mediaType = prompt.find('.prompt-media-type').val();
+            $('#prompt-type').val('media');
+            $('#prompt-text').val(text);
+            $('#prompt-media-type').val(mediaType);
             break;
         case 'input':
-            populateInputType(prompt);
+            var inputType = prompt.find('.prompt-input-type').val();
+            $('#prompt-type').val('input');
+            $('#prompt-text').val(text);
+            $('#prompt-input-type').val(inputType);
+            if ('select' === inputType) {
+                var selectOptions = prompt.find('.prompt-select-options').val();
+                $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
+            }
             break;
         default:
             // invalid or no prompt type
             return;
     }
+
     // A prompt type cannot be changed once it's saved.
     $('#prompt-type').prop('disabled', true).css('background-color', '#dfdfdf');
-    Omeka.openSidebar($('#prompt-sidebar'));
-});
-
-// Handle the add prompt button.
-$('#prompt-add').on('click', function(e) {
-    e.preventDefault();
-    resetSidebar();
-    promptRows.children('.prompt').removeClass('prompt-editing');
     Omeka.openSidebar($('#prompt-sidebar'));
 });
 
@@ -284,26 +295,13 @@ $('#prompt-save').on('click', function(e) {
         'o-module-collecting:media_type': $('#prompt-media-type').val(),
         'o:property': {'o:id': $('#prompt-property').val()},
     };
-    var promptRow = promptRows.children('.prompt-editing');
-    if (!promptRow.length) {
-        var index = promptRows.children('.prompt').length;
-        promptRow = $(promptRowTemplate.replace(/__INDEX__/g, index));
-        promptRows.append(promptRow);
-    }
-    populatePromptRow(promptRow, promptData);
+    populatePromptRow(promptData);
     Omeka.closeSidebar($('#prompt-sidebar'));
 });
 
-var promptsSpan = $('#prompts-span');
-var promptRows = $('#prompts');
-var promptRowTemplate = promptsSpan.data('promptRowTemplate');
-
 // Append existing prompts on load.
-$.each(promptsSpan.data('promptsData'), function() {
-    var index = promptRows.children('.prompt').length;
-    var promptRow = $(promptRowTemplate.replace(/__INDEX__/g, index));
-    populatePromptRow(promptRow, this);
-    promptRows.append(promptRow);
+$.each($('#prompts-span').data('promptsData'), function() {
+    populatePromptRow(this);
 });
 
 // Enable prompt sorting.
