@@ -62,7 +62,7 @@ EOD;
         <div class="sidebar-section">
             <h4>Prompt Type</h4>
             <select id="prompt-type" name="type">
-                <option>Select a prompt type...</option>
+                <option value="">Select a prompt type...</option>
                 <option value="property">Property</option>
                 <option value="media">Media</option>
                 <option value="input">Supplementary</option>
@@ -82,7 +82,7 @@ EOD;
         <div class="sidebar-section">
             <h4>Media Type</h4>
             <select id="prompt-media-type" name="media-type">
-                <option>Select a media type</option>
+                <option value="">Select a media type</option>
                 <option value="upload">Upload</option>
                 <option value="url">URL</option>
                 <option value="html">HTML</option>
@@ -287,6 +287,7 @@ $('#prompts').on('click', '.prompt-edit', function(e) {
 // Handle saving the prompt.
 $('#prompt-save').on('click', function(e) {
     e.preventDefault();
+
     var promptData = {
         'o-module-collecting:type': $('#prompt-type').val(),
         'o-module-collecting:text': $('#prompt-text').val(),
@@ -295,6 +296,32 @@ $('#prompt-save').on('click', function(e) {
         'o-module-collecting:media_type': $('#prompt-media-type').val(),
         'o:property': {'o:id': $('#prompt-property').val()},
     };
+
+    // Validate the data before populating the row.
+    switch (promptData['o-module-collecting:type']) {
+        case 'property':
+            if (!$.isNumeric(promptData['o:property']['o:id'])) {
+                alert('You must select a property.');
+                return;
+            }
+            break;
+        case 'media':
+            if (!promptData['o-module-collecting:media_type']) {
+                alert('You must select a media type.');
+                return;
+            }
+            break;
+        case 'input':
+            if (!promptData['o-module-collecting:text']) {
+                alert('You must provide prompt text.');
+                return;
+            }
+            break;
+        default:
+            // invalid or no prompt type
+            return;
+    }
+
     populatePromptRow(promptData);
     Omeka.closeSidebar($('#prompt-sidebar'));
 });
