@@ -3,6 +3,7 @@ namespace Collecting\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Omeka\Entity\AbstractEntity;
+use Omeka\Entity\Site;
 use Omeka\Entity\User;
 
 /**
@@ -87,6 +88,16 @@ class CollectingForm extends AbstractEntity
     public function getOwner()
     {
         return $this->owner;
+    }
+
+    public function setSite(Site $site = null)
+    {
+        $this->site = $site;
+    }
+
+    public function getSite()
+    {
+        return $this->site;
     }
 
     public function getCollectingPrompts()

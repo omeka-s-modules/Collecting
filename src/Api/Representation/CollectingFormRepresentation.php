@@ -5,6 +5,11 @@ use Omeka\Api\Representation\AbstractEntityRepresentation;
 
 class CollectingFormRepresentation extends AbstractEntityRepresentation
 {
+    public function getControllerName()
+    {
+        return 'collecting';
+    }
+
     public function getJsonLdType()
     {
         return 'o-module-collecting:Form';
@@ -17,6 +22,21 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             'o-module-collecting:description' => $this->description(),
             'o-module-collecting:collecting_prompts' => $this->prompts(),
         ];
+    }
+
+    public function adminUrl($action = null, $canonical = false)
+    {
+        $url = $this->getViewHelper('Url');
+        return $url(
+            'admin/site/slug/collecting/id',
+            [
+                'site-slug' => $this->site()->slug(),
+                'controller' => $this->getControllerName(),
+                'action' => $action,
+                'id' => $this->id(),
+            ],
+            ['force_canonical' => $canonical]
+        );
     }
 
     public function label()
@@ -33,6 +53,12 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     {
         return $this->getAdapter('users')
             ->getRepresentation($this->resource->getOwner());
+    }
+
+    public function site()
+    {
+        return $this->getAdapter('sites')
+            ->getRepresentation($this->resource->getSite());
     }
 
     public function prompts()

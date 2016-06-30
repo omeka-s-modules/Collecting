@@ -27,7 +27,7 @@ echo $this->pageTitle('Collecting');
             <?php echo $collectingForm->label(); ?>
             <ul class="actions">
                 <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $collectingForm->id()], true); ?>" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
-                <li><a href="#" class="o-icon-delete" aria-label="Delete" title="Delete"></a></li>
+                <li><a href="#" class="sidebar-content o-icon-delete" aria-label="Delete" title="Delete" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>"></a></li>
             </ul>
         </td>
         <td><?php echo $ownerName; ?></td>
@@ -35,3 +35,15 @@ echo $this->pageTitle('Collecting');
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<div class="sidebar">
+    <a href="#" class="sidebar-close o-icon-close" aria-label="Close" title="Close"></a>
+    <div class="sidebar-content"></div>
+</div>
+
+<script>
+$(document).ready(function() {
+
+
+
+});
