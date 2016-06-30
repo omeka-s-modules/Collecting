@@ -28,7 +28,7 @@ EOD;
 <?php echo $this->form()->openTag($form); ?>
 
 <div id="page-actions">
-    <a href="#" class="delete button">Delete</a>
+    <a href="#" class="sidebar-content delete button" data-sidebar-selector="#delete-confirm-sidebar" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>">Delete</a>
     <button>Save</button>
 </div>
 
@@ -105,6 +105,11 @@ EOD;
 
         <a id="prompt-save" href="#" class="button">Save Changes</a>
     </div>
+</div>
+
+<div id="delete-confirm-sidebar" class="sidebar">
+    <a href="#" class="sidebar-close o-icon-close" aria-label="Close" title="Close"></a>
+    <div class="sidebar-content"></div>
 </div>
 
 <script>
