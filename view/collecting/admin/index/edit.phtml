@@ -212,6 +212,10 @@ $('#prompts').on('click', '.prompt-delete', function(e) {
     prompt.find(':input').prop('disabled', true);
     prompt.addClass('delete');
     prompt.find('.prompt-undo-delete').show();
+    prompt.find('.prompt-edit').hide();
+    if (prompt.hasClass('prompt-editing')) {
+        Omeka.closeSidebar($('#prompt-sidebar'));
+    }
     deleteIcon.hide();
 });
 
@@ -223,6 +227,7 @@ $('#prompts').on('click', '.prompt-undo-delete', function(e) {
     prompt.find(':input').prop('disabled', false);
     prompt.removeClass('delete');
     prompt.find('.prompt-delete').show();
+    prompt.find('.prompt-edit').show();
     undoIcon.hide();
 });
 
