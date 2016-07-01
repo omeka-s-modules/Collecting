@@ -76,7 +76,7 @@ class IndexController extends AbstractActionController
                     return $this->redirect()->toUrl($collectingForm->url('show'));
                 }
             } else {
-                $this->messenger()->addError('There was an error during validation.');
+                $this->messenger()->addError($this->translate('There was an error during validation.'));
             }
         }
 
@@ -105,12 +105,12 @@ class IndexController extends AbstractActionController
             if ($form->isValid()) {
                 $response = $this->api()->delete('collecting_forms', $this->params('id'));
                 if ($response->isError()) {
-                    $this->messenger()->addError('Form could not be deleted');
+                    $this->messenger()->addError($this->translate('The collecting form could not be deleted.'));
                 } else {
-                    $this->messenger()->addSuccess('Form successfully deleted');
+                    $this->messenger()->addSuccess($this->translate('Successfully deleted the collecting form.'));
                 }
             } else {
-                $this->messenger()->addError('Form could not be deleted');
+                $this->messenger()->addError($this->translate('There was an error during validation.'));
             }
         }
         return $this->redirect()->toRoute(

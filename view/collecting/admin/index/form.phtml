@@ -9,15 +9,15 @@ $pageTitle = $isEdit
 $promptsData = $isEdit
     ? json_encode($collectingForm->prompts())
     : '[]';
-$promptRowTemplate = <<<EOD
+$promptRowTemplate = '
 <tr class="prompt">
     <td><span class="sortable-handle"></span></td>
     <td>
         <span class="prompt-type-span"></span>
         <ul class="actions">
-            <li><a href="#" class="prompt-edit o-icon-edit" aria-label="Edit" title="Edit"></a></li>
-            <li><a href="#" class="prompt-delete o-icon-delete" aria-label="Delete" title="Delete"></a></li>
-            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="Undo Delete" title="Undo Delete" style="display: none;"></a></li>
+            <li><a href="#" class="prompt-edit o-icon-edit" aria-label="' . $this->translate('Edit') . '" title="' . $this->translate('Edit') . '"></a></li>
+            <li><a href="#" class="prompt-delete o-icon-delete" aria-label="' . $this->translate('Delete') . '" title="' . $this->translate('Delete') . '"></a></li>
+            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="' . $this->translate('Undo Delete') . '" title="' . $this->translate('Undo Delete') . '" style="display: none;"></a></li>
         </ul>
         <input type="hidden" class="prompt-id" name="o-module-collecting:collecting_prompts[__INDEX__][o:id]">
         <input type="hidden" class="prompt-type" name="o-module-collecting:collecting_prompts[__INDEX__][o-module-collecting:type]">
@@ -28,8 +28,7 @@ $promptRowTemplate = <<<EOD
         <input type="hidden" class="prompt-property-id" name="o-module-collecting:collecting_prompts[__INDEX__][o:property][o:id]">
     </td>
     <td><span class="prompt-text-span"></span></td>
-</tr>
-EOD;
+</tr>';
 
 echo $this->pageTitle($pageTitle);
 echo $this->form()->openTag($form);
@@ -37,14 +36,14 @@ echo $this->form()->openTag($form);
 
 <div id="page-actions">
     <?php if ($isEdit): ?>
-    <a href="#" class="sidebar-content delete button" data-sidebar-selector="#delete-confirm-sidebar" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>">Delete</a>
+    <a href="#" class="sidebar-content delete button" data-sidebar-selector="#delete-confirm-sidebar" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>"><?php echo $this->translate('Delete'); ?></a>
     <?php endif; ?>
-    <button>Save</button>
+    <button><?php echo $this->translate('Save'); ?></button>
 </div>
 
 <?php echo $this->formCollection($form, false); ?>
 
-<h3>Prompts</h3>
+<h3><?php echo $this->translate('Prompts'); ?></h3>
 
 <span id="prompts-span"
     data-prompts-data="<?php echo $this->escapeHtml($promptsData); ?>"
@@ -56,8 +55,8 @@ echo $this->form()->openTag($form);
     <thead>
     <tr>
         <th></th>
-        <th>Type</th>
-        <th>Text</th>
+        <th><?php echo $this->translate('Type'); ?></th>
+        <th><?php echo $this->translate('Text'); ?></th>
     </tr>
     </thead>
     <tbody id="prompts"></tbody>
@@ -66,12 +65,12 @@ echo $this->form()->openTag($form);
 <?php echo $this->form()->closeTag(); ?>
 
 <div id="prompt-sidebar" class="sidebar">
-    <a href="#" class="sidebar-close o-icon-close" aria-label="Close" title="Close"></a>
+    <a href="#" class="sidebar-close o-icon-close" aria-label="<?php echo $this->translate('Close'); ?>" title="<?php echo $this->translate('Close'); ?>"></a>
     <div class="sidebar-content">
-        <h3>Prompt</h3>
+        <h3><?php echo $this->translate('Prompt'); ?></h3>
 
         <div class="sidebar-section">
-            <h4>Prompt Type</h4>
+            <h4><?php echo $this->translate('Prompt Type'); ?></h4>
             <select id="prompt-type" name="type">
                 <option value="">Select a prompt type...</option>
                 <option value="property">Property</option>
@@ -81,17 +80,17 @@ echo $this->form()->openTag($form);
         </div>
 
         <div class="sidebar-section">
-            <h4>Prompt Text</h4>
+            <h4><?php echo $this->translate('Prompt Text'); ?></h4>
             <textarea id="prompt-text" name="text" style="width:100%;" rows="3"></textarea>
         </div>
 
         <div class="sidebar-section">
-            <h4>Property</h4>
+            <h4><?php echo $this->translate('Property'); ?></h4>
             <?php echo $this->propertySelect(['name' => 'property', 'options' => ['empty_option' => 'Select a property...'], 'attributes' => ['id' => 'prompt-property']]); ?>
         </div>
 
         <div class="sidebar-section">
-            <h4>Media Type</h4>
+            <h4><?php echo $this->translate('Media Type'); ?></h4>
             <select id="prompt-media-type" name="media-type">
                 <option value="">Select a media type</option>
                 <option value="upload">Upload</option>
@@ -101,7 +100,7 @@ echo $this->form()->openTag($form);
         </div>
 
         <div class="sidebar-section">
-            <h4>Input Type</h4>
+            <h4><?php echo $this->translate('Input Type'); ?></h4>
             <select id="prompt-input-type" name="input-type">
                 <option value="text">Text box (one line)</option>
                 <option value="textarea">Text box (multiple line)</option>
@@ -110,15 +109,15 @@ echo $this->form()->openTag($form);
         </div>
 
         <div class="sidebar-section">
-            <h4>Select Menu Options</h4>
+            <h4><?php echo $this->translate('Select Menu Options'); ?></h4>
             <textarea id="prompt-select-options" name="select-options" style="width:100%;" rows="3" placeholder="Option One&#13;&#10;Option Two&#13;&#10;..."></textarea>
         </div>
 
-        <a id="prompt-save" href="#" class="button">Save Changes</a>
+        <a id="prompt-save" href="#" class="button"><?php echo $this->translate('Save Changes'); ?></a>
     </div>
 </div>
 
 <div id="delete-confirm-sidebar" class="sidebar">
-    <a href="#" class="sidebar-close o-icon-close" aria-label="Close" title="Close"></a>
+    <a href="#" class="sidebar-close o-icon-close" aria-label="<?php echo $this->translate('Close'); ?>" title="<?php echo $this->translate('Close'); ?>"></a>
     <div class="sidebar-content"></div>
 </div>

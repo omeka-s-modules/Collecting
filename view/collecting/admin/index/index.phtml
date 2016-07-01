@@ -1,9 +1,9 @@
 <?php
-echo $this->pageTitle('Collecting');
+echo $this->pageTitle($this->translate('Collecting'));
 ?>
 
 <div id="page-actions">
-    <a href="<?php echo $this->url('admin/site/slug/collecting/default', ['action' => 'add'], true); ?>" class="button">Add new form</a>
+    <a href="<?php echo $this->url('admin/site/slug/collecting/default', ['action' => 'add'], true); ?>" class="button"><?php echo $this->translate('Add new form'); ?></a>
 </div>
 <nav class="section-nav">
     <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
@@ -12,8 +12,8 @@ echo $this->pageTitle('Collecting');
 <table class="tablesaw">
     <thead>
     <tr>
-        <th>Label</th>
-        <th>Owner</th>
+        <th><?php echo $this->translate('Label'); ?></th>
+        <th><?php echo $this->translate('Owner'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -26,8 +26,8 @@ echo $this->pageTitle('Collecting');
         <td>
             <?php echo $collectingForm->label(); ?>
             <ul class="actions">
-                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $collectingForm->id()], true); ?>" class="o-icon-edit" aria-label="Edit" title="Edit"></a></li>
-                <li><a href="#" class="sidebar-content o-icon-delete" aria-label="Delete" title="Delete" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>"></a></li>
+                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $collectingForm->id()], true); ?>" class="o-icon-edit" aria-label="<?php echo $this->translate('Edit'); ?>" title="<?php echo $this->translate('Edit'); ?>"></a></li>
+                <li><a href="#" class="sidebar-content o-icon-delete" aria-label="<?php echo $this->translate('Delete'); ?>" title="<?php echo $this->translate('Delete'); ?>" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>"></a></li>
             </ul>
         </td>
         <td><?php echo $ownerName; ?></td>
@@ -37,13 +37,6 @@ echo $this->pageTitle('Collecting');
 </table>
 
 <div class="sidebar">
-    <a href="#" class="sidebar-close o-icon-close" aria-label="Close" title="Close"></a>
+    <a href="#" class="sidebar-close o-icon-close" aria-label="<?php echo $this->translate('Close'); ?>" title="<?php echo $this->translate('Close'); ?>"></a>
     <div class="sidebar-content"></div>
 </div>
-
-<script>
-$(document).ready(function() {
-
-
-
-});
