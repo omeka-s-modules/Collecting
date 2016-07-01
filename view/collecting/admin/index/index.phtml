@@ -3,7 +3,7 @@ echo $this->pageTitle('Collecting');
 ?>
 
 <div id="page-actions">
-    <a href="<?php echo $this->url(null, ['action' => 'add'], true); ?>" class="button">Add new form</a>
+    <a href="<?php echo $this->url('admin/site/slug/collecting/default', ['action' => 'add'], true); ?>" class="button">Add new form</a>
 </div>
 <nav class="section-nav">
     <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
