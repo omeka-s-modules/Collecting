@@ -44,28 +44,39 @@ class IndexController extends AbstractActionController
     {
         $site = $this->currentSite();
         $form = $this->getForm(CollectingForm::class);
+        $isEdit = (bool) ('edit' === $this->params('action'));
 
         $view = new ViewModel;
         $view->setTemplate('collecting/admin/index/form');
         $view->setVariable('site', $site);
         $view->setVariable('form', $form);
-        $view->setVariable('isEdit', false);
+        $view->setVariable('isEdit', $isEdit);
 
-        if ('edit' === $this->params('action')) {
+        if ($isEdit) {
             $collectingForm = $this->api()
                 ->read('collecting_forms', $this->params('id'))->getContent();
             $form->setData($collectingForm->jsonSerialize());
             $view->setVariable('collectingForm', $collectingForm);
-            $view->setVariable('isEdit', true);
         }
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
             $form->setData($data);
             if ($form->isValid()) {
-                var_dump($data);exit;
+                $response = $isEdit
+                    ? $this->api()->update('collecting_forms', $collectingForm->id(), $data)
+                    : $this->api()->create('collecting_forms', $data);
+                if ($response->isError()) {
+                    $form->setMessages($response->getErrors());
+                } else {
+                    $successMessage = $isEdit
+                        ? $this->translate('Successfully updated the collecting form.')
+                        : $this->translate('Successfully added the collecting form.');
+                    $this->messenger()->addSuccess($successMessage);
+                    return $this->redirect()->toUrl($collectingForm->url('show'));
+                }
             } else {
-                $this->messenger()->addError('There was an error during validation');
+                $this->messenger()->addError('There was an error during validation.');
             }
         }
 
