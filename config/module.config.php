@@ -86,10 +86,13 @@ return [
                                             'id' => [
                                                 'type' => 'Segment',
                                                 'options' => [
-                                                    'route' => '/:id/:action',
+                                                    'route' => '/:id[/:action]',
                                                     'constraints' => [
                                                         'id' => '\d+',
                                                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                                    ],
+                                                    'defaults' => [
+                                                        'action' => 'show',
                                                     ],
                                                 ],
                                             ],
