@@ -9,6 +9,15 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class IndexController extends AbstractActionController
 {
+    public function adminAction()
+    {
+        $site = $this->currentSite();
+
+        $view = new ViewModel;
+        $view->setVariable('site', $site);
+        return $view;
+    }
+
     public function indexAction()
     {
         $site = $this->currentSite();
@@ -21,33 +30,34 @@ class IndexController extends AbstractActionController
         return $view;
     }
 
-    public function adminAction()
-    {
-        $site = $this->currentSite();
-
-        $view = new ViewModel;
-        $view->setVariable('site', $site);
-        return $view;
-    }
-
     public function addAction()
     {
-        $site = $this->currentSite();
-        $form = $this->getForm(CollectingForm::class);
-
-        $view = new ViewModel;
-        $view->setVariable('site', $site);
-        $view->setVariable('form', $form);
-        return $view;
+        return $this->handleAddEdit();
     }
 
     public function editAction()
     {
+        return $this->handleAddEdit();
+    }
+
+    protected function handleAddEdit()
+    {
         $site = $this->currentSite();
-        $collectingForm = $this->api()
-            ->read('collecting_forms', $this->params('id'))->getContent();
         $form = $this->getForm(CollectingForm::class);
-        $form->setData($collectingForm->jsonSerialize());
+
+        $view = new ViewModel;
+        $view->setTemplate('collecting/admin/index/form');
+        $view->setVariable('site', $site);
+        $view->setVariable('form', $form);
+        $view->setVariable('isEdit', false);
+
+        if ('edit' === $this->params('action')) {
+            $collectingForm = $this->api()
+                ->read('collecting_forms', $this->params('id'))->getContent();
+            $form->setData($collectingForm->jsonSerialize());
+            $view->setVariable('collectingForm', $collectingForm);
+            $view->setVariable('isEdit', true);
+        }
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
@@ -59,10 +69,6 @@ class IndexController extends AbstractActionController
             }
         }
 
-        $view = new ViewModel;
-        $view->setVariable('site', $site);
-        $view->setVariable('form', $form);
-        $view->setVariable('collectingForm', $collectingForm);
         return $view;
     }
 
