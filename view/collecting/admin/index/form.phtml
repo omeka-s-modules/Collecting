@@ -92,7 +92,7 @@ echo $this->form()->openTag($form);
         <div class="sidebar-section">
             <h4><?php echo $this->translate('Media Type'); ?></h4>
             <select id="prompt-media-type" name="media-type">
-                <option value="">Select a media type</option>
+                <option value="">Select a media type...</option>
                 <option value="upload">Upload</option>
                 <option value="url">URL</option>
                 <option value="html">HTML</option>
@@ -102,6 +102,7 @@ echo $this->form()->openTag($form);
         <div class="sidebar-section">
             <h4><?php echo $this->translate('Input Type'); ?></h4>
             <select id="prompt-input-type" name="input-type">
+                <option value="">Select an input type...</option>
                 <option value="text">Text box (one line)</option>
                 <option value="textarea">Text box (multiple line)</option>
                 <option value="select">Select menu</option>

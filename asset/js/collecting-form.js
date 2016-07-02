@@ -209,6 +209,10 @@ $(document).ready(function() {
                     alert('You must select a property.');
                     return;
                 }
+                if (!promptData['o-module-collecting:input_type']) {
+                    alert('You must select an input type.');
+                    return;
+                }
                 break;
             case 'media':
                 if (!promptData['o-module-collecting:media_type']) {
@@ -219,6 +223,10 @@ $(document).ready(function() {
             case 'input':
                 if (!promptData['o-module-collecting:text']) {
                     alert('You must provide prompt text.');
+                    return;
+                }
+                if (!promptData['o-module-collecting:input_type']) {
+                    alert('You must select an input type.');
                     return;
                 }
                 break;

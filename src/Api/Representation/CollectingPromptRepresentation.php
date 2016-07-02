@@ -19,6 +19,7 @@ class CollectingPromptRepresentation extends AbstractRepresentation
             $property = $property->getReference();
         }
         return [
+            'o:id' => $this->resource->getId(),
             'o-module-collecting:type' => $this->type(),
             'o-module-collecting:text' => $this->text(),
             'o-module-collecting:input_type' => $this->inputType(),

@@ -55,15 +55,13 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             $promptsToRetain = [];
             $propertyAdapter = $this->getAdapter('properties');
             foreach ($request->getValue('o-module-collecting:prompt', []) as $promptData) {
-                if (!$promptData = $this->validatePromptData($promptData)) {
-                    // Do not hydrate an invlaid prompt.
-                    continue;
-                }
+                $promptData = $this->validatePromptData($promptData, $errorStore);
                 if ($entity->getPrompts()->containsKey($promptData['o:id'])) {
                     // Update an existing prompt.
                     $prompt = $entity->getPrompts()->get($promptData['o:id']);
                 } else {
-                    // Create a new prompt.
+                    // Create a new prompt. Note that the owning form and the
+                    // prompt type can only be set when creating a new prompt.
                     $prompt = new CollectingPrompt;
                     $prompt->setForm($entity);
                     $prompt->setType($promptData['o-module-collecting:type']);
@@ -92,15 +90,12 @@ class CollectingFormAdapter extends AbstractEntityAdapter
     /**
      * Validate prompt data.
      *
-     * @param array $promptData
+     * @param array $data
+     * @param ErrorStore $errorStore
      * @return bool Returns false if the prompt data does not validate.
      */
-    protected function validatePromptData($data)
+    protected function validatePromptData(array $data, ErrorStore $errorStore)
     {
-        if (!is_array($data)) {
-            return false;
-        }
-
         // Set the default data array.
         $validatedData = [
             'o:id' => null,
@@ -136,28 +131,27 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         switch ($validatedData['o-module-collecting:type']) {
             case 'property':
                 if (null === $validatedData['o:property']['o:id']) {
-                    return false;
+                    $errorStore->addError('o:property', 'A property prompt must have a property.');
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
-                    return false;
+                    $errorStore->addError('o-module-collecting:input_type', 'A property prompt must have an input type.');
                 }
                 break;
             case 'media':
                 if (null === $validatedData['o-module-collecting:media_type']) {
-                    return false;
+                    $errorStore->addError('o-module-collecting:media_type', 'A media prompt must have a media type.');
                 }
                 break;
             case 'input':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    return false;
+                    $errorStore->addError('o-module-collecting:text', 'An input prompt must have text.');
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
-                    return false;
+                    $errorStore->addError('o-module-collecting:input_type', 'An input prompt must have an input type.');
                 }
                 break;
             default:
-                // Invalid or no prompt type.
-                return false;
+                $errorStore->addError('o-module-collecting:type', 'Prompts must have a type.');
         }
 
         return $validatedData;
