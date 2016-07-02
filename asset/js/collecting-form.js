@@ -14,6 +14,7 @@ var populatePromptRow = function(promptData) {
         var index = promptRows.children('.prompt').length;
         var promptRowTemplate = $('#prompts-span').data('promptRowTemplate');
         promptRow = $(promptRowTemplate.replace(/__INDEX__/g, index));
+        promptRow.find('.prompt-id').val(promptData['o:id']);
         promptRows.append(promptRow);
     }
 
@@ -22,7 +23,6 @@ var populatePromptRow = function(promptData) {
     promptRow.find('.prompt-text-span').text(promptData['o-module-collecting:text']);
 
     // Populate the hidden inputs.
-    promptRow.find('.prompt-id').val(promptData['o:id']);
     promptRow.find('.prompt-type').val(promptData['o-module-collecting:type']);
     promptRow.find('.prompt-text').val(promptData['o-module-collecting:text']);
     promptRow.find('.prompt-input-type').val(promptData['o-module-collecting:input_type']);

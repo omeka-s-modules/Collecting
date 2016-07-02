@@ -2,21 +2,22 @@
 namespace Collecting\Api\Representation;
 
 use Collecting\Entity\CollectingPrompt;
-use Omeka\Api\Representation\AbstractEntityRepresentation;
+use Omeka\Api\Representation\AbstractRepresentation;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
-class CollectingPromptRepresentation extends AbstractEntityRepresentation
+class CollectingPromptRepresentation extends AbstractRepresentation
 {
-    public function getJsonLdType()
+    public function __construct(CollectingPrompt $resource, ServiceLocatorInterface $serviceLocator)
     {
-        return 'o-module-collecting:Prompt';
+        $this->resource = $resource;
+        $this->setServiceLocator($serviceLocator);
     }
 
-    public function getJsonLd()
+    public function jsonSerialize()
     {
         if ($property = $this->property()) {
             $property = $property->getReference();
         }
-
         return [
             'o-module-collecting:type' => $this->type(),
             'o-module-collecting:text' => $this->text(),

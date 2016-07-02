@@ -24,7 +24,6 @@ return [
     'api_adapters' => [
         'invokables' => [
             'collecting_forms' => 'Collecting\Api\Adapter\CollectingFormAdapter',
-            'collecting_prompts' => 'Collecting\Api\Adapter\CollectingPromptAdapter',
         ],
     ],
     'navigation' => [

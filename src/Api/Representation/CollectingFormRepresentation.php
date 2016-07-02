@@ -17,10 +17,14 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
 
     public function getJsonLd()
     {
+        if ($site = $this->site()) {
+            $site = $site->getReference();
+        }
         return [
+            'o:site' => $site,
             'o-module-collecting:label' => $this->label(),
             'o-module-collecting:description' => $this->description(),
-            'o-module-collecting:collecting_prompts' => $this->prompts(),
+            'o-module-collecting:prompt' => $this->prompts(),
         ];
     }
 
@@ -64,9 +68,8 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     public function prompts()
     {
         $prompts = [];
-        $promptsAdapter = $this->getAdapter('collecting_prompts');
-        foreach ($this->resource->getCollectingPrompts() as $prompt) {
-            $prompts[] = $promptsAdapter->getRepresentation($prompt);
+        foreach ($this->resource->getPrompts() as $prompt) {
+            $prompts[]= new CollectingPromptRepresentation($prompt, $this->getServiceLocator());
         }
         return $prompts;
     }

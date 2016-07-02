@@ -18,11 +18,11 @@ class CollectingInput extends AbstractEntity
     /**
      * @ManyToOne(
      *     targetEntity="CollectingPrompt",
-     *     inversedBy="collectingInputs"
+     *     inversedBy="inputs"
      * )
      * @JoinColumn(nullable=false)
      */
-    protected $collectingPrompt;
+    protected $prompt;
 
     /**
      * @Column(type="text")

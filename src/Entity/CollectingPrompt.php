@@ -19,22 +19,21 @@ class CollectingPrompt extends AbstractEntity
     /**
      * @ManyToOne(
      *     targetEntity="CollectingForm",
-     *     inversedBy="collectingPrompts"
+     *     inversedBy="prompts"
      * )
      * @JoinColumn(nullable=false)
      */
-    protected $collectingForm;
+    protected $form;
 
     /**
      * @OneToMany(
      *     targetEntity="CollectingInput",
-     *     mappedBy="collectingPrompt",
+     *     mappedBy="prompt",
      *     orphanRemoval=true,
      *     cascade={"persist", "remove", "detach"}
      * )
-     * @OrderBy({"position" = "ASC"})
      */
-    protected $collectingInputs;
+    protected $inputs;
 
     /**
      * @Column(type="integer")
@@ -93,6 +92,16 @@ class CollectingPrompt extends AbstractEntity
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setForm(CollectingForm $form)
+    {
+        $this->form = $form;
+    }
+
+    public function getForm()
+    {
+        return $this->form;
     }
 
     public function setPosition($position)

@@ -43,16 +43,17 @@ class CollectingForm extends AbstractEntity
     /**
      * @OneToMany(
      *     targetEntity="CollectingPrompt",
-     *     mappedBy="collectingForm",
+     *     mappedBy="form",
+     *     indexBy="id",
      *     orphanRemoval=true,
-     *     cascade={"persist", "remove", "detach"}
+     *     cascade={"all"}
      * )
      * @OrderBy({"position" = "ASC"})
      */
-    protected $collectingPrompts;
+    protected $prompts;
 
     public function __construct() {
-        $this->collectingPrompts = new ArrayCollection;
+        $this->prompts = new ArrayCollection;
     }
 
     public function getId()
@@ -100,8 +101,8 @@ class CollectingForm extends AbstractEntity
         return $this->site;
     }
 
-    public function getCollectingPrompts()
+    public function getPrompts()
     {
-        return $this->collectingPrompts;
+        return $this->prompts;
     }
 }

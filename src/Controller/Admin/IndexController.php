@@ -30,6 +30,18 @@ class IndexController extends AbstractActionController
         return $view;
     }
 
+    public function showAction()
+    {
+        $site = $this->currentSite();
+        $collectingForm = $this->api()
+            ->read('collecting_forms', $this->params('id'))->getContent();
+
+        $view = new ViewModel;
+        $view->setVariable('site', $site);
+        $view->setVariable('collectingForm', $collectingForm);
+        return $view;
+    }
+
     public function addAction()
     {
         return $this->handleAddEdit();
@@ -61,14 +73,18 @@ class IndexController extends AbstractActionController
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
+            $data['o:site']['o:id'] = $site->id();
             $form->setData($data);
             if ($form->isValid()) {
                 $response = $isEdit
                     ? $this->api()->update('collecting_forms', $collectingForm->id(), $data)
                     : $this->api()->create('collecting_forms', $data);
                 if ($response->isError()) {
-                    $form->setMessages($response->getErrors());
+                    $errors = $response->getErrors();
+                    $form->setMessages($errors);
+                    $this->messenger()->addErrors($errors);
                 } else {
+                    $collectingForm = $response->getContent();
                     $successMessage = $isEdit
                         ? $this->translate('Successfully updated the collecting form.')
                         : $this->translate('Successfully added the collecting form.');
