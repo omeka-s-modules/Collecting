@@ -70,10 +70,10 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                     $entity->getPrompts()->add($prompt);
                 }
                 $prompt->setPosition($position++);
-                $prompt->setText($promptData['o-module-collecting:text'] ?: null);
-                $prompt->setInputType($promptData['o-module-collecting:input_type'] ?: null);
-                $prompt->setSelectOptions($promptData['o-module-collecting:select_options'] ?: null);
-                $prompt->setMediaType($promptData['o-module-collecting:media_type'] ?: null);
+                $prompt->setText($promptData['o-module-collecting:text']);
+                $prompt->setInputType($promptData['o-module-collecting:input_type']);
+                $prompt->setSelectOptions($promptData['o-module-collecting:select_options']);
+                $prompt->setMediaType($promptData['o-module-collecting:media_type']);
                 if (is_numeric($promptData['o:property']['o:id'])) {
                     $property = $propertyAdapter->findEntity($promptData['o:property']['o:id']);
                     $prompt->setProperty($property);
@@ -100,40 +100,58 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         if (!is_array($data)) {
             return false;
         }
-        // Set the default data.
-        $data = [
-            'o:id' => isset($data['o:id'])
-                ? trim($data['o:id']) : null,
-            'o-module-collecting:type' => isset($data['o-module-collecting:type'])
-                ? trim($data['o-module-collecting:type']) : null,
-            'o-module-collecting:text' => isset($data['o-module-collecting:text'])
-                ? trim($data['o-module-collecting:text']) : null,
-            'o-module-collecting:input_type' => isset($data['o-module-collecting:input_type'])
-                ? trim($data['o-module-collecting:input_type']) : null,
-            'o-module-collecting:select_options' => isset($data['o-module-collecting:select_options'])
-                ? trim($data['o-module-collecting:select_options']) : null,
-            'o-module-collecting:media_type' => isset($data['o-module-collecting:media_type'])
-                ? trim($data['o-module-collecting:media_type']) : null,
-            'o:property' => ['o:id' => isset($data['o:property']['o:id'])
-                ? trim($data['o:property']['o:id']) : null],
+
+        // Set the default data array.
+        $validatedData = [
+            'o:id' => null,
+            'o-module-collecting:type' => null,
+            'o-module-collecting:text' => null,
+            'o-module-collecting:input_type' => null,
+            'o-module-collecting:select_options' => null,
+            'o-module-collecting:media_type' => null,
+            'o:property' => ['o:id' => null],
         ];
+
+        // Populate the default data array with the passed data.
+        if (isset($data['o:id']) && is_numeric($data['o:id'])) {
+            $validatedData['o:id'] = $data['o:id'];
+        }
+        if (isset($data['o-module-collecting:type']) && '' !== trim($data['o-module-collecting:type'])) {
+            $validatedData['o-module-collecting:type'] = $data['o-module-collecting:type'];
+        }
+        if (isset($data['o-module-collecting:text']) && '' !== trim($data['o-module-collecting:text'])) {
+            $validatedData['o-module-collecting:text'] = $data['o-module-collecting:text'];
+        }
+        if (isset($data['o-module-collecting:input_type']) && '' !== trim($data['o-module-collecting:input_type'])) {
+            $validatedData['o-module-collecting:input_type'] = $data['o-module-collecting:input_type'];
+        }
+        if (isset($data['o-module-collecting:media_type']) && '' !== trim($data['o-module-collecting:media_type'])) {
+            $validatedData['o-module-collecting:media_type'] = $data['o-module-collecting:media_type'];
+        }
+        if (isset($data['o:property']['o:id']) && is_numeric($data['o:property']['o:id'])) {
+            $validatedData['o:property']['o:id'] = $data['o:property']['o:id'];
+        }
+
         // Do the validation.
-        switch ($data['o-module-collecting:type']) {
+        switch ($validatedData['o-module-collecting:type']) {
             case 'property':
-                if (!is_numeric($data['o:property']['o:id'])) {
+                if (null === $validatedData['o:property']['o:id']) {
                     return false;
                 }
-                if (!$data['o-module-collecting:input_type']) {
+                if (null === $validatedData['o-module-collecting:input_type']) {
                     return false;
                 }
                 break;
             case 'media':
-                if (!$data['o-module-collecting:media_type']) {
+                if (null === $validatedData['o-module-collecting:media_type']) {
                     return false;
                 }
                 break;
             case 'input':
-                if (!$data['o-module-collecting:input_type']) {
+                if (null === $validatedData['o-module-collecting:text']) {
+                    return false;
+                }
+                if (null === $validatedData['o-module-collecting:input_type']) {
                     return false;
                 }
                 break;
@@ -141,7 +159,8 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 // Invalid or no prompt type.
                 return false;
         }
-        return $data;
+
+        return $validatedData;
     }
 
     public function validateEntity(EntityInterface $entity, ErrorStore $errorStore)
