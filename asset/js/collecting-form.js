@@ -19,7 +19,8 @@ var populatePromptRow = function(promptData) {
     }
 
     // Populate the visual elements.
-    promptRow.find('.prompt-type-span').html(promptData['o-module-collecting:type']);
+    var typeText = $('#prompt-type option[value="' + promptData['o-module-collecting:type'] + '"]').text();
+    promptRow.find('.prompt-type-span').html(typeText);
     promptRow.find('.prompt-text-span').html(promptData['o-module-collecting:text']);
 
     // Populate the hidden inputs.

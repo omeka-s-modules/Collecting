@@ -5,6 +5,11 @@ return [
             OMEKA_PATH . '/modules/Collecting/view',
         ],
     ],
+    'view_helpers' => [
+        'invokables' => [
+            'collecting' => 'Collecting\View\Helper\Collecting',
+        ],
+    ],
     'controllers' => [
         'invokables' => [
             'Collecting\Controller\Admin\Index' => 'Collecting\Controller\Admin\IndexController',

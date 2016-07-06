@@ -89,6 +89,15 @@ class CollectingPrompt extends AbstractEntity
         ];
     }
 
+    public static function getMediaTypes()
+    {
+        return [
+            'upload' => 'Upload', // @translate
+            'url' => 'URL', // @translate
+            'html' => 'HTML', // @translate
+        ];
+    }
+
     public function getId()
     {
         return $this->id;

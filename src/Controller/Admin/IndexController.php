@@ -77,22 +77,18 @@ class IndexController extends AbstractActionController
             $form->setData($data);
             if ($form->isValid()) {
                 $response = $isEdit
-                    ? $this->api()->update('collecting_forms', $collectingForm->id(), $data)
-                    : $this->api()->create('collecting_forms', $data);
-                if ($response->isError()) {
-                    $errors = $response->getErrors();
-                    $form->setMessages($errors);
-                    $this->messenger()->addErrors($errors);
-                } else {
+                    ? $this->api($form)->update('collecting_forms', $collectingForm->id(), $data)
+                    : $this->api($form)->create('collecting_forms', $data);
+                if ($response->isSuccess()) {
                     $collectingForm = $response->getContent();
                     $successMessage = $isEdit
-                        ? $this->translate('Successfully updated the collecting form.')
-                        : $this->translate('Successfully added the collecting form.');
+                        ? $this->translate('Collecting form successfully updated')
+                        : $this->translate('Collecting form successfully created');
                     $this->messenger()->addSuccess($successMessage);
                     return $this->redirect()->toUrl($collectingForm->url('show'));
                 }
             } else {
-                $this->messenger()->addError($this->translate('There was an error during validation.'));
+                $this->messenger()->addErrors($form->getMessages());
             }
         }
 
@@ -119,14 +115,12 @@ class IndexController extends AbstractActionController
             $form = $this->getForm(ConfirmForm::class);
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
-                $response = $this->api()->delete('collecting_forms', $this->params('id'));
-                if ($response->isError()) {
-                    $this->messenger()->addError($this->translate('The collecting form could not be deleted.'));
-                } else {
-                    $this->messenger()->addSuccess($this->translate('Successfully deleted the collecting form.'));
+                $response = $this->api($form)->delete('collecting_forms', $this->params('id'));
+                if ($response->isSuccess()) {
+                    $this->messenger()->addSuccess($this->translate('Collecting form successfully deleted'));
                 }
             } else {
-                $this->messenger()->addError($this->translate('There was an error during validation.'));
+                $this->messenger()->addErrors($form->getMessages());
             }
         }
         return $this->redirect()->toRoute(

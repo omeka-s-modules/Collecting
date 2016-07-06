@@ -73,9 +73,9 @@ echo $this->form()->openTag($form);
             <h4><?php echo $this->translate('Prompt Type'); ?></h4>
             <select id="prompt-type" name="type">
                 <option value="">Select a prompt type...</option>
-                <option value="property">Property</option>
-                <option value="media">Media</option>
-                <option value="input">Supplementary</option>
+                <?php foreach ($this->collecting()->types() as $key => $value): ?>
+                <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
 
@@ -93,9 +93,9 @@ echo $this->form()->openTag($form);
             <h4><?php echo $this->translate('Media Type'); ?></h4>
             <select id="prompt-media-type" name="media-type">
                 <option value="">Select a media type...</option>
-                <option value="upload">Upload</option>
-                <option value="url">URL</option>
-                <option value="html">HTML</option>
+                <?php foreach ($this->collecting()->mediaTypes() as $key => $value): ?>
+                <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
 
@@ -103,9 +103,9 @@ echo $this->form()->openTag($form);
             <h4><?php echo $this->translate('Input Type'); ?></h4>
             <select id="prompt-input-type" name="input-type">
                 <option value="">Select an input type...</option>
-                <option value="text">Text box (one line)</option>
-                <option value="textarea">Text box (multiple line)</option>
-                <option value="select">Select menu</option>
+                <?php foreach ($this->collecting()->inputTypes() as $key => $value): ?>
+                <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
 
