@@ -165,5 +165,12 @@ class CollectingFormAdapter extends AbstractEntityAdapter
     }
 
     public function buildQuery(QueryBuilder $qb, array $query)
-    {}
+    {
+        if (isset($query['site_id'])) {
+            $qb->andWhere($qb->expr()->eq(
+                $this->getEntityClass() . '.site',
+                $this->createNamedParameter($qb, $query['site_id']))
+            );
+        }
+    }
 }

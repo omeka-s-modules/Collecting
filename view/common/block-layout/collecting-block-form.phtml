@@ -1,3 +1,2 @@
 <p>Select which collecting forms the user can complete:</p>
-<label><input type="checkbox" name="form[]" value="1">Share your photo</label><br>
-<label><input type="checkbox" name="form[]" value="2">Contribute your story</label>
+<?php echo $this->formMultiCheckbox()->setSeparator('<br>')->render($formCheckboxes); ?>

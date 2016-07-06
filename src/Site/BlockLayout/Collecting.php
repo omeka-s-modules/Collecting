@@ -6,6 +6,7 @@ use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Entity\SitePageBlock;
 use Omeka\Site\BlockLayout\AbstractBlockLayout;
 use Omeka\Stdlib\ErrorStore;
+use Zend\Form\Element\MultiCheckbox;
 use Zend\View\Renderer\PhpRenderer;
 
 class Collecting extends AbstractBlockLayout
@@ -21,7 +22,21 @@ class Collecting extends AbstractBlockLayout
     public function form(PhpRenderer $view, SiteRepresentation $site,
         SitePageBlockRepresentation $block = null)
     {
-        return $view->partial('common/block-layout/collecting-block-form');
+        $forms = $view->api()
+            ->search('collecting_forms', ['site_id' => $site->id()])
+            ->getContent();
+        $formCheckboxes = new MultiCheckbox('o:block[__blockIndex__][o:data][forms]');
+        $valueOptions = [];
+        foreach ($forms as $form) {
+            $valueOptions[$form->id()] = $form->label();
+        }
+        $formCheckboxes->setValueOptions($valueOptions);
+        if ($block) {
+            $formCheckboxes->setValue($block->dataValue('forms'));
+        }
+        return $view->partial('common/block-layout/collecting-block-form', [
+            'formCheckboxes' => $formCheckboxes,
+        ]);
     }
 
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
