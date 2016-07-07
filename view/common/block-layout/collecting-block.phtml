@@ -1,0 +1,6 @@
+<select>
+    <option>Select a form to complete...</option>
+    <?php foreach ($this->forms as $form): ?>
+    <option><?php echo $form->label(); ?></option>
+    <?php endforeach; ?>
+</select>
