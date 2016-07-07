@@ -120,6 +120,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         if (isset($data['o-module-collecting:input_type']) && '' !== trim($data['o-module-collecting:input_type'])) {
             $validatedData['o-module-collecting:input_type'] = $data['o-module-collecting:input_type'];
         }
+        if (isset($data['o-module-collecting:select_options']) && '' !== trim($data['o-module-collecting:select_options'])) {
+            $validatedData['o-module-collecting:select_options'] = $this->sanitizeSelectOptions($data['o-module-collecting:select_options']);
+        }
         if (isset($data['o-module-collecting:media_type']) && '' !== trim($data['o-module-collecting:media_type'])) {
             $validatedData['o-module-collecting:media_type'] = $data['o-module-collecting:media_type'];
         }
@@ -172,5 +175,20 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 $this->createNamedParameter($qb, $query['site_id']))
             );
         }
+    }
+
+    /**
+     * Sanitize the select options for insertion into the database.
+     *
+     * @param string $terms
+     * @return string
+     */
+    protected function sanitizeSelectOptions($options)
+    {
+        $options = explode("\n", $options);
+        $options = array_map('trim', $options); // trim all values
+        $options = array_filter($options); // remove empty values
+        $options = array_unique($options); // remove duplicate values
+        return trim(implode("\n", $options));
     }
 }
