@@ -41,12 +41,12 @@ class Collecting extends AbstractBlockLayout
 
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
-        $forms = [];
+        $collectingForms = [];
         foreach ($block->dataValue('forms', []) as $formId) {
-            $forms[] = $view->api()->read('collecting_forms', $formId)->getContent();
+            $collectingForms[] = $view->api()->read('collecting_forms', $formId)->getContent();
         }
         return $view->partial('common/block-layout/collecting-block', [
-            'forms' => $forms,
+            'collectingForms' => $collectingForms,
         ]);
     }
 }

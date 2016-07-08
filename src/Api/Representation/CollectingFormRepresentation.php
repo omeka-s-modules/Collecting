@@ -92,11 +92,17 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             return $this->form; // build the form object only once
         }
 
-        $form = new Form;
+        $url = $this->getViewHelper('Url');
+
+        $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
         $form->setAttribute('enctype', 'multipart/form-data');
-        $form->add(new Element\Csrf('csrf'));
-        $form->add((new Element\Hidden('collecting_form'))->setValue($this->id()));
+        $form->setAttribute('action', $url('site/collecting', ['form-id' => $this->id()], true));
+
+        // Add the CSRF element first so getInputFilter() knows about it.
+        $csrfElement = (new Element\Csrf(sprintf('csrf_%s', $this->id())))
+            ->setCsrfValidatorOptions(['timeout' => 3600]);
+        $form->add($csrfElement);
 
         foreach ($this->prompts() as $prompt) {
             switch ($prompt->type()) {
@@ -139,7 +145,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             }
         }
 
-        $form->add((new Element\Submit('submit'))->setValue('Submit'));
+        $form->add((new Element\Submit('submit'))->setValue('Submit')); // @translate
         return $form;
     }
 }

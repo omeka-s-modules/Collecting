@@ -14,6 +14,7 @@ return [
         'invokables' => [
             'Collecting\Controller\Admin\Index' => 'Collecting\Controller\Admin\IndexController',
             'Collecting\Controller\Admin\Form' => 'Collecting\Controller\Admin\FormController',
+            'Collecting\Controller\Site\Index' => 'Collecting\Controller\Site\IndexController',
         ],
     ],
     'block_layouts' => [
@@ -69,6 +70,22 @@ return [
     ],
     'router' => [
         'routes' => [
+            'site' => [
+                'child_routes' => [
+                    'collecting' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => '/collecting/:form-id',
+                            'defaults' => [
+                                '__NAMESPACE__' => 'Collecting\Controller\Site',
+                            ],
+                            'constraints' => [
+                                'form-id' => '\d+',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
             'admin' => [
                 'child_routes' => [
                     'site' => [
