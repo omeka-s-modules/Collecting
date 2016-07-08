@@ -19,7 +19,7 @@ class CollectingPromptRepresentation extends AbstractRepresentation
             $property = $property->getReference();
         }
         return [
-            'o:id' => $this->resource->getId(),
+            'o:id' => $this->id(),
             'o-module-collecting:type' => $this->type(),
             'o-module-collecting:text' => $this->text(),
             'o-module-collecting:input_type' => $this->inputType(),
@@ -27,6 +27,11 @@ class CollectingPromptRepresentation extends AbstractRepresentation
             'o-module-collecting:media_type' => $this->mediaType(),
             'o:property' => $property,
         ];
+    }
+
+    public function id()
+    {
+        return $this->resource->getId();
     }
 
     public function type()

@@ -2,9 +2,16 @@
 namespace Collecting\Api\Representation;
 
 use Omeka\Api\Representation\AbstractEntityRepresentation;
+use Zend\Form\Element;
+use Zend\Form\Form;
 
 class CollectingFormRepresentation extends AbstractEntityRepresentation
 {
+    /**
+     * @var Form
+     */
+    protected $form;
+
     public function getControllerName()
     {
         return 'collecting';
@@ -72,5 +79,67 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             $prompts[]= new CollectingPromptRepresentation($prompt, $this->getServiceLocator());
         }
         return $prompts;
+    }
+
+    /**
+     * Get the object used to validate and render this form.
+     *
+     * @return Form
+     */
+    public function getForm()
+    {
+        if ($this->form) {
+            return $this->form; // build the form object only once
+        }
+
+        $form = new Form;
+        $this->form = $form; // cache the form
+        $form->setAttribute('enctype', 'multipart/form-data');
+        $form->add(new Element\Csrf('csrf'));
+        $form->add((new Element\Hidden('collecting_form'))->setValue($this->id()));
+
+        foreach ($this->prompts() as $prompt) {
+            switch ($prompt->type()) {
+                case 'property':
+                    // Note that there's no break here. When building the form
+                    // we handle property and input prompts the same.
+                case 'input':
+                    $name = sprintf('prompt_%s', $prompt->id());
+                    switch ($prompt->inputType()) {
+                        case 'text':
+                            $element = new Element\Text($name);
+                            $form->add($element);
+                            break;
+                        case 'textarea':
+                            $element = new Element\Textarea($name);
+                            $form->add($element);
+                            break;
+                        case 'select':
+                            $selectOptions = explode("\n", $prompt->selectOptions());
+                            $element = (new Element\Select($name))
+                                ->setEmptyOption('Please choose one...') // @translate
+                                ->setValueOptions(array_combine($selectOptions, $selectOptions));
+                            $form->add($element);
+                            $form->getInputFilter()->get($name)->setRequired(false);
+                            break;
+                        default:
+                            // Invalid prompt input type. Do nothing.
+                            continue 2;
+                    }
+                    $label = (!$prompt->text() && $prompt->property())
+                        ? $prompt->property()->label()
+                        : $prompt->text();
+                    $element->setLabel($label);
+                    break;
+                case 'media':
+                    break;
+                default:
+                    // Invalid prompt type. Do nothing.
+                    continue 2;
+            }
+        }
+
+        $form->add((new Element\Submit('submit'))->setValue('Submit'));
+        return $form;
     }
 }
