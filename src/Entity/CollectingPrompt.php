@@ -21,7 +21,10 @@ class CollectingPrompt extends AbstractEntity
      *     targetEntity="CollectingForm",
      *     inversedBy="prompts"
      * )
-     * @JoinColumn(nullable=false)
+     * @JoinColumn(
+     *     nullable=false,
+     *     onDelete="CASCADE"
+     * )
      */
     protected $form;
 
@@ -30,7 +33,7 @@ class CollectingPrompt extends AbstractEntity
      *     targetEntity="CollectingInput",
      *     mappedBy="prompt",
      *     orphanRemoval=true,
-     *     cascade={"persist", "remove", "detach"}
+     *     cascade={"all"}
      * )
      */
     protected $inputs;

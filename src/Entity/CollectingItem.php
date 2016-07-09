@@ -6,7 +6,7 @@ use Omeka\Entity\AbstractEntity;
 /**
  * @Entity
  */
-class CollectingInput extends AbstractEntity
+class CollectingItem extends AbstractEntity
 {
     /**
      * @Id
@@ -16,33 +16,37 @@ class CollectingInput extends AbstractEntity
     protected $id;
 
     /**
-     * @ManyToOne(
-     *     targetEntity="CollectingPrompt",
-     *     inversedBy="inputs"
+     * @OneToOne(
+     *     targetEntity="Omeka\Entity\Item"
      * )
      * @JoinColumn(
-     *     nullable=false,
-     *     onDelete="CASCADE"
-     * )
-     */
-    protected $prompt;
-
-    /**
-     * @ManyToOne(
-     *     targetEntity="CollectingItem",
-     *     inversedBy="inputs"
-     * )
-     * @JoinColumn(
-     *     nullable=false,
-     *     onDelete="CASCADE"
+     *     nullable=true,
+     *     onDelete="SET NULL"
      * )
      */
     protected $item;
 
     /**
-     * @Column(type="text")
+     * @ManyToOne(
+     *     targetEntity="CollectingForm",
+     *     inversedBy="items"
+     * )
+     * @JoinColumn(
+     *     nullable=false,
+     *     onDelete="CASCADE"
+     * )
      */
-    protected $text;
+    protected $form;
+
+    /**
+     * @OneToMany(
+     *     targetEntity="CollectingInput",
+     *     mappedBy="item",
+     *     orphanRemoval=true,
+     *     cascade={"all"}
+     * )
+     */
+    protected $inputs;
 
     public function getId()
     {

@@ -29,14 +29,24 @@ class CollectingForm extends AbstractEntity
     protected $description;
 
     /**
-     * @ManyToOne(targetEntity="Omeka\Entity\Site")
-     * @JoinColumn(onDelete="SET NULL")
+     * @ManyToOne(
+     *     targetEntity="Omeka\Entity\Site"
+     * )
+     * @JoinColumn(
+     *     nullable=true,
+     *     onDelete="SET NULL"
+     * )
      */
     protected $site;
 
     /**
-     * @ManyToOne(targetEntity="Omeka\Entity\User")
-     * @JoinColumn(onDelete="SET NULL")
+     * @ManyToOne(
+     *     targetEntity="Omeka\Entity\User"
+     * )
+     * @JoinColumn(
+     *     nullable=true,
+     *     onDelete="SET NULL"
+     * )
      */
     protected $owner;
 
