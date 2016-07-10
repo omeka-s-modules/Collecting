@@ -65,12 +65,15 @@ class IndexController extends AbstractActionController
                     // property types as inputs so the relationship between the
                     // prompt and the user input isn't lost.
                 case 'input':
-                    $inputData[] = [
-                        'item_id' => null,
-                        'property_id' => $prompt->property() ? $prompt->property()->id() : null,
-                        'prompt_id' => $prompt->id(),
-                        'text' => $postedPrompts[$prompt->id()],
-                    ];
+                    // Do not save empty inputs.
+                    if ('' !== trim($postedPrompts[$prompt->id()])) {
+                        $inputData[] = [
+                            'item_id' => null,
+                            'property_id' => $prompt->property() ? $prompt->property()->id() : null,
+                            'prompt_id' => $prompt->id(),
+                            'text' => $postedPrompts[$prompt->id()],
+                        ];
+                    }
                     break;
                 case 'media':
                     break;
