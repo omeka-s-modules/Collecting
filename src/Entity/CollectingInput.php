@@ -1,6 +1,8 @@
 <?php
 namespace Collecting\Entity;
 
+use Collecting\Entity\CollectingItem;
+use Collecting\Entity\CollectingPrompt;
 use Omeka\Entity\AbstractEntity;
 
 /**
@@ -47,5 +49,25 @@ class CollectingInput extends AbstractEntity
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setPrompt(CollectingPrompt $prompt)
+    {
+        $this->prompt = $prompt;
+    }
+
+    public function getPrompt()
+    {
+        return $this->prompt;
+    }
+
+    public function setItem(CollectingItem $item)
+    {
+        $this->item = $item;
+    }
+
+    public function getItem()
+    {
+        return $this->item;
     }
 }

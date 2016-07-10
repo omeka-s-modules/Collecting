@@ -1,6 +1,7 @@
 <?php
 namespace Collecting\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Omeka\Entity\AbstractEntity;
 use Omeka\Entity\Property;
 
@@ -99,6 +100,10 @@ class CollectingPrompt extends AbstractEntity
             'url' => 'URL', // @translate
             'html' => 'HTML', // @translate
         ];
+    }
+
+    public function __construct() {
+        $this->inputs = new ArrayCollection;
     }
 
     public function getId()
