@@ -17,17 +17,17 @@ echo $this->pageTitle($this->translate('Collecting'));
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($collectingForms as $collectingForm): ?>
+    <?php foreach ($cForms as $cForm): ?>
     <?php
-    $owner = $collectingForm->owner();
+    $owner = $cForm->owner();
     $ownerName = $owner ? $owner->name() : null;
     ?>
     <tr>
         <td>
-            <?php echo $collectingForm->label(); ?>
+            <?php echo $cForm->label(); ?>
             <ul class="actions">
-                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $collectingForm->id()], true); ?>" class="o-icon-edit" aria-label="<?php echo $this->translate('Edit'); ?>" title="<?php echo $this->translate('Edit'); ?>"></a></li>
-                <li><a href="#" class="sidebar-content o-icon-delete" aria-label="<?php echo $this->translate('Delete'); ?>" title="<?php echo $this->translate('Delete'); ?>" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>"></a></li>
+                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $cForm->id()], true); ?>" class="o-icon-edit" aria-label="<?php echo $this->translate('Edit'); ?>" title="<?php echo $this->translate('Edit'); ?>"></a></li>
+                <li><a href="#" class="sidebar-content o-icon-delete" aria-label="<?php echo $this->translate('Delete'); ?>" title="<?php echo $this->translate('Delete'); ?>" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $cForm->id()], true); ?>"></a></li>
             </ul>
         </td>
         <td><?php echo $ownerName; ?></td>

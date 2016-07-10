@@ -4,10 +4,10 @@ $this->headScript()->appendFile($this->assetUrl('js/sortable.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'));
 
 $pageTitle = $isEdit
-    ? sprintf($this->translate('Edit Form: “%s”'), $collectingForm->label())
+    ? sprintf($this->translate('Edit Form: “%s”'), $cForm->label())
     : $this->translate('Add Form');
 $promptsData = $isEdit
-    ? json_encode($collectingForm->prompts())
+    ? json_encode($cForm->prompts())
     : '[]';
 $promptRowTemplate = '
 <tr class="prompt">
@@ -36,7 +36,7 @@ echo $this->form()->openTag($form);
 
 <div id="page-actions">
     <?php if ($isEdit): ?>
-    <a href="#" class="sidebar-content delete button" data-sidebar-selector="#delete-confirm-sidebar" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $collectingForm->id()], true); ?>"><?php echo $this->translate('Delete'); ?></a>
+    <a href="#" class="sidebar-content delete button" data-sidebar-selector="#delete-confirm-sidebar" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $cForm->id()], true); ?>"><?php echo $this->translate('Delete'); ?></a>
     <?php endif; ?>
     <button><?php echo $this->translate('Save'); ?></button>
 </div>

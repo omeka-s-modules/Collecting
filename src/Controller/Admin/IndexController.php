@@ -21,24 +21,24 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
         $site = $this->currentSite();
-        $collectingForms = $this->api()
+        $cForms = $this->api()
             ->search('collecting_forms', ['site_id' => $site->id()])->getContent();
 
         $view = new ViewModel;
         $view->setVariable('site', $site);
-        $view->setVariable('collectingForms', $collectingForms);
+        $view->setVariable('cForms', $cForms);
         return $view;
     }
 
     public function showAction()
     {
         $site = $this->currentSite();
-        $collectingForm = $this->api()
+        $cForm = $this->api()
             ->read('collecting_forms', $this->params('id'))->getContent();
 
         $view = new ViewModel;
         $view->setVariable('site', $site);
-        $view->setVariable('collectingForm', $collectingForm);
+        $view->setVariable('cForm', $cForm);
         return $view;
     }
 
@@ -65,10 +65,10 @@ class IndexController extends AbstractActionController
         $view->setVariable('isEdit', $isEdit);
 
         if ($isEdit) {
-            $collectingForm = $this->api()
+            $cForm = $this->api()
                 ->read('collecting_forms', $this->params('id'))->getContent();
-            $form->setData($collectingForm->jsonSerialize());
-            $view->setVariable('collectingForm', $collectingForm);
+            $form->setData($cForm->jsonSerialize());
+            $view->setVariable('cForm', $cForm);
         }
 
         if ($this->getRequest()->isPost()) {
@@ -77,15 +77,15 @@ class IndexController extends AbstractActionController
             $form->setData($data);
             if ($form->isValid()) {
                 $response = $isEdit
-                    ? $this->api($form)->update('collecting_forms', $collectingForm->id(), $data)
+                    ? $this->api($form)->update('collecting_forms', $cForm->id(), $data)
                     : $this->api($form)->create('collecting_forms', $data);
                 if ($response->isSuccess()) {
-                    $collectingForm = $response->getContent();
+                    $cForm = $response->getContent();
                     $successMessage = $isEdit
                         ? $this->translate('Collecting form successfully updated')
                         : $this->translate('Collecting form successfully created');
                     $this->messenger()->addSuccess($successMessage);
-                    return $this->redirect()->toUrl($collectingForm->url('show'));
+                    return $this->redirect()->toUrl($cForm->url('show'));
                 }
             } else {
                 $this->messenger()->addErrors($form->getMessages());
@@ -98,14 +98,14 @@ class IndexController extends AbstractActionController
     public function deleteConfirmAction()
     {
         $site = $this->currentSite();
-        $collectingForm = $this->api()
+        $cForm = $this->api()
             ->read('collecting_forms', $this->params('id'))->getContent();
 
         $view = new ViewModel;
         $view->setTerminal(true);
         $view->setTemplate('common/delete-confirm-details');
         $view->setVariable('resourceLabel', 'collecting form');
-        $view->setVariable('resource', $collectingForm);
+        $view->setVariable('resource', $cForm);
         return $view;
     }
 

@@ -12,28 +12,29 @@ class IndexController extends AbstractActionController
         if (!$this->getRequest()->isPost()) {
             return $this->redirect()->toRoute('site', [], true);
         }
-        $collectingForm = $this->api()
+        $cForm = $this->api()
             ->read('collecting_forms', $this->params('form-id'))
             ->getContent();
-        $form = $collectingForm->getForm();
+        $form = $cForm->getForm();
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
-            $collectingData = $this->getCollectingData($collectingForm);
-            $response = $this->api($form)->create('items', $collectingData['itemData']);
+            $cData = $this->getCollectingData($cForm);
+            $response = $this->api($form)->create('items', $cData['itemData']);
             if ($response->isSuccess()) {
-                // @todo save input data (along with newly created item)
+                // @todo save collecting item
+                // @todo save collecting inputs
                 exit('item created');
             }
         } else {
             $this->messenger()->addErrors($form->getMessages());
         }
         $view = new ViewModel;
-        $view->setVariable('collectingForm', $collectingForm);
+        $view->setVariable('cForm', $cForm);
         $view->setVariable('refererUri', $this->getRequest()->getHeader('Referer')->getUri());
         return $view;
     }
 
-    protected function getCollectingData(CollectingFormRepresentation $collectingForm)
+    protected function getCollectingData(CollectingFormRepresentation $cForm)
     {
         // Derive the prompt IDs from the form names.
         $postedPrompts = [];
@@ -48,7 +49,7 @@ class IndexController extends AbstractActionController
 
         // Note that we're iterating the known prompts, not the ones submitted
         // with the form. This way we accept only valid prompts.
-        foreach ($collectingForm->prompts() as $prompt) {
+        foreach ($cForm->prompts() as $prompt) {
             if (!isset($postedPrompts[$prompt->id()])) {
                 // This prompt was not found in the POSTed data.
                 continue;
