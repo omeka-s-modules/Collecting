@@ -18,12 +18,15 @@ class IndexController extends AbstractActionController
         $form = $cForm->getForm();
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
-            $cData = $this->getCollectingData($cForm);
-            $response = $this->api($form)->create('items', $cData['itemData']);
+            $pData = $this->getPromptData($cForm);
+            $response = $this->api($form)->create('items', $pData['itemData']);
             if ($response->isSuccess()) {
-                // @todo save collecting item
-                // @todo save collecting inputs
-                exit('item created');
+                $cItemData = [
+                    'o:item' => ['o:id' => $response->getContent()->id()],
+                    'o-module-collecting:form' => ['o:id' => $cForm->id()],
+                    'o-module-collecting:input' => $pData['inputData'],
+                ];;
+                $response = $this->api($form)->create('collecting_items', $cItemData);
             }
         } else {
             $this->messenger()->addErrors($form->getMessages());
@@ -34,7 +37,7 @@ class IndexController extends AbstractActionController
         return $view;
     }
 
-    protected function getCollectingData(CollectingFormRepresentation $cForm)
+    protected function getPromptData(CollectingFormRepresentation $cForm)
     {
         // Derive the prompt IDs from the form names.
         $postedPrompts = [];
@@ -68,10 +71,8 @@ class IndexController extends AbstractActionController
                     // Do not save empty inputs.
                     if ('' !== trim($postedPrompts[$prompt->id()])) {
                         $inputData[] = [
-                            'item_id' => null,
-                            'property_id' => $prompt->property() ? $prompt->property()->id() : null,
-                            'prompt_id' => $prompt->id(),
-                            'text' => $postedPrompts[$prompt->id()],
+                            'o-module-collecting:prompt' => $prompt->id(),
+                            'o-module-collecting:text' => $postedPrompts[$prompt->id()],
                         ];
                     }
                     break;

@@ -79,4 +79,9 @@ class CollectingItem extends AbstractEntity
     {
         return $this->form;
     }
+
+    public function getInputs()
+    {
+        return $this->inputs;
+    }
 }
