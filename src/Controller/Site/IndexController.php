@@ -19,8 +19,14 @@ class IndexController extends AbstractActionController
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
             $pData = $this->getPromptData($cForm);
-            $response = $this->api($form)->create('items', $pData['itemData']);
+            // Create the Omeka item.
+            $itemData = $pData['itemData'];
+            $itemData['o:item_set'] = [
+                'o:id' => $cForm->itemSet() ? $cForm->itemSet()->id() : null,
+            ];
+            $response = $this->api($form)->create('items', $itemData);
             if ($response->isSuccess()) {
+                // Create the Collecting item.
                 $cItemData = [
                     'o:item' => ['o:id' => $response->getContent()->id()],
                     'o-module-collecting:form' => ['o:id' => $cForm->id()],

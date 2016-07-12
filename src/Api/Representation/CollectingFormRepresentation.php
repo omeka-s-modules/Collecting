@@ -27,10 +27,14 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         if ($site = $this->site()) {
             $site = $site->getReference();
         }
+        if ($itemSet = $this->itemSet()) {
+            $itemSet = $itemSet->getReference();
+        }
         return [
-            'o:site' => $site,
             'o-module-collecting:label' => $this->label(),
             'o-module-collecting:description' => $this->description(),
+            'o:site' => $site,
+            'o:item_set' => $itemSet,
             'o-module-collecting:prompt' => $this->prompts(),
         ];
     }
@@ -58,6 +62,12 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     public function description()
     {
         return $this->resource->getDescription();
+    }
+
+    public function itemSet()
+    {
+        return $this->getAdapter('item_sets')
+            ->getRepresentation($this->resource->getItemSet());
     }
 
     public function owner()

@@ -3,6 +3,7 @@ namespace Collecting\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Omeka\Entity\AbstractEntity;
+use Omeka\Entity\ItemSet;
 use Omeka\Entity\Site;
 use Omeka\Entity\User;
 
@@ -27,6 +28,17 @@ class CollectingForm extends AbstractEntity
      * @Column(type="text", nullable=true)
      */
     protected $description;
+
+    /**
+     * @ManyToOne(
+     *     targetEntity="Omeka\Entity\ItemSet"
+     * )
+     * @JoinColumn(
+     *     nullable=true,
+     *     onDelete="SET NULL"
+     * )
+     */
+    protected $itemSet;
 
     /**
      * @ManyToOne(
@@ -89,6 +101,16 @@ class CollectingForm extends AbstractEntity
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function setItemSet(ItemSet $itemSet = null)
+    {
+        $this->itemSet = $itemSet;
+    }
+
+    public function getItemSet()
+    {
+        return $this->itemSet;
     }
 
     public function setOwner(User $owner = null)

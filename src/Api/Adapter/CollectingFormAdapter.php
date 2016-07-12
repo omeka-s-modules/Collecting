@@ -33,7 +33,8 @@ class CollectingFormAdapter extends AbstractEntityAdapter
 
         // Hydrate the site. The site cannot be reassigned after creation.
         if (Request::CREATE === $request->getOperation()) {
-            if (isset($data['o:site']['o:id'])) {
+            if (isset($data['o:site']['o:id']) && is_numeric($data['o:site']['o:id'])
+            ) {
                 $site = $this->getAdapter('sites')->findEntity($data['o:site']['o:id']);
                 $entity->setSite($site);
             } else {
@@ -47,6 +48,12 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         }
         if ($this->shouldHydrate($request, 'o-module-collecting:description')) {
             $entity->setDescription($request->getValue('o-module-collecting:description'));
+        }
+        if ($this->shouldHydrate($request, 'o:item_set')) {
+            $itemSet = (isset($data['o:item_set']['o:id']) && is_numeric($data['o:item_set']['o:id']))
+                ? $this->getAdapter('item_sets')->findEntity($data['o:item_set']['o:id'])
+                : null;
+            $entity->setItemSet($itemSet);
         }
 
         // Hydrate the form prompts.

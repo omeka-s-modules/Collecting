@@ -67,13 +67,18 @@ class IndexController extends AbstractActionController
         if ($isEdit) {
             $cForm = $this->api()
                 ->read('collecting_forms', $this->params('id'))->getContent();
-            $form->setData($cForm->jsonSerialize());
+            $data = $cForm->jsonSerialize();
+            $form->setData($data);
+            if ($data['o:item_set']) {
+                $form->get('item_set_id')->setValue($data['o:item_set']->id());
+            }
             $view->setVariable('cForm', $cForm);
         }
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
             $data['o:site']['o:id'] = $site->id();
+            $data['o:item_set']['o:id'] = $this->params()->fromPost('item_set_id');
             $form->setData($data);
             if ($form->isValid()) {
                 $response = $isEdit
