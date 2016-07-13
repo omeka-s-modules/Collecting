@@ -24,7 +24,7 @@ class IndexController extends AbstractActionController
             $itemData['o:item_set'] = [
                 'o:id' => $cForm->itemSet() ? $cForm->itemSet()->id() : null,
             ];
-            $response = $this->api($form)->create('items', $itemData);
+            $response = $this->api($form)->create('items', $itemData, $this->params()->fromFiles());
             if ($response->isSuccess()) {
                 // Create the Collecting item.
                 $cItemData = [
@@ -83,6 +83,17 @@ class IndexController extends AbstractActionController
                     }
                     break;
                 case 'media':
+                    if ('upload' === $prompt->mediaType()) {
+                        $itemData['o:media'][$prompt->id()] = [
+                            'file_index' => $prompt->id(),
+                            'o:ingester' => 'upload',
+                        ];
+                    } elseif ('url' === $prompt->mediaType()) {
+                        $itemData['o:media'][$prompt->id()] = [
+                            'ingest_url' => $this->params()->fromPost('ingest_url_' . $prompt->id()),
+                            'o:ingester' => 'url',
+                        ];
+                    }
                     break;
                 default:
                     // Invalid prompt type. Do nothing.

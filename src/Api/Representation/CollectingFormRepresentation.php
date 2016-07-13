@@ -115,12 +115,12 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $form->add($csrfElement);
 
         foreach ($this->prompts() as $prompt) {
+            $name = sprintf('prompt_%s', $prompt->id());
             switch ($prompt->type()) {
                 case 'property':
                     // Note that there's no break here. When building the form
                     // we handle property and input prompts the same.
                 case 'input':
-                    $name = sprintf('prompt_%s', $prompt->id());
                     switch ($prompt->inputType()) {
                         case 'text':
                             $element = new Element\Text($name);
@@ -148,6 +148,27 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                     $element->setLabel($label);
                     break;
                 case 'media':
+                    switch ($prompt->mediaType()) {
+                        case 'upload':
+                            // Note that the file index maps to the prompt ID.
+                            $fileElementName = sprintf('file[%s]', $prompt->id());
+                            $element = (new Element\File($fileElementName))
+                                ->setLabel($prompt->text());
+                            $form->add($element);
+                            break;
+                        case 'url':
+                            $urlElementName = sprintf('ingest_url_%s', $prompt->id());
+                            $element = (new Element\Url($urlElementName))
+                                ->setLabel($prompt->text());
+                            $form->add($element);
+                            break;
+                        case 'html':
+                            break;
+                        default:
+                            continue 2;
+                    }
+                    // A hidden element marks the existence of this prompt.
+                    $form->add(new Element\Hidden($name));
                     break;
                 default:
                     // Invalid prompt type. Do nothing.
