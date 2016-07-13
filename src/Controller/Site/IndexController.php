@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-    public function indexAction()
+    public function submitAction()
     {
         if (!$this->getRequest()->isPost()) {
             return $this->redirect()->toRoute('site', [], true);
@@ -33,13 +33,23 @@ class IndexController extends AbstractActionController
                     'o-module-collecting:input' => $pData['inputData'],
                 ];;
                 $response = $this->api($form)->create('collecting_items', $cItemData);
+                $this->messenger()->addSuccess($this->translate('Form successfully submitted'));
+                return $this->redirect()->toRoute(null, ['action' => 'success'], true);
             }
         } else {
             $this->messenger()->addErrors($form->getMessages());
         }
+        $view->setVariable('cForm', $cForm);
+        return $view;
+    }
+
+    public function successAction()
+    {
+        $cForm = $this->api()
+            ->read('collecting_forms', $this->params('form-id'))
+            ->getContent();
         $view = new ViewModel;
         $view->setVariable('cForm', $cForm);
-        $view->setVariable('refererUri', $this->getRequest()->getHeader('Referer')->getUri());
         return $view;
     }
 

@@ -107,7 +107,10 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
         $form->setAttribute('enctype', 'multipart/form-data');
-        $form->setAttribute('action', $url('site/collecting', ['form-id' => $this->id()], true));
+        $form->setAttribute('action', $url('site/collecting', [
+            'action' => 'submit',
+            'form-id' => $this->id(),
+        ], true));
 
         // Add the CSRF element first so getInputFilter() knows about it.
         $csrfElement = (new Element\Csrf(sprintf('csrf_%s', $this->id())))
