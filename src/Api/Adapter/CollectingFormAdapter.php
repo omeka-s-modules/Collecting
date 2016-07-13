@@ -148,6 +148,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 }
                 break;
             case 'media':
+                if (null === $validatedData['o-module-collecting:text']) {
+                    $errorStore->addError('o-module-collecting:text', 'A media prompt must have text.');
+                }
                 if (null === $validatedData['o-module-collecting:media_type']) {
                     $errorStore->addError('o-module-collecting:media_type', 'A media prompt must have a media type.');
                 }

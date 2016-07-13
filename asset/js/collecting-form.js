@@ -216,6 +216,10 @@ $(document).ready(function() {
                 }
                 break;
             case 'media':
+                if (!promptData['o-module-collecting:text']) {
+                    alert('You must provide prompt text.');
+                    return;
+                }
                 if (!promptData['o-module-collecting:media_type']) {
                     alert('You must select a media type.');
                     return;
