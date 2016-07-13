@@ -1,2 +1,4 @@
 <?php echo $this->messages(); ?>
+<?php if (!$this->item): ?>
 <?php echo $this->form($cForm->getForm()); ?>
+<?php endif; ?>

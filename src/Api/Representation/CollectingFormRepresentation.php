@@ -108,7 +108,6 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $this->form = $form; // cache the form
         $form->setAttribute('enctype', 'multipart/form-data');
         $form->setAttribute('action', $url('site/collecting', [
-            'action' => 'submit',
             'form-id' => $this->id(),
         ], true));
 

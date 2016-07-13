@@ -7,49 +7,51 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-    public function submitAction()
+    public function indexAction()
     {
         if (!$this->getRequest()->isPost()) {
             return $this->redirect()->toRoute('site', [], true);
         }
+
         $cForm = $this->api()
             ->read('collecting_forms', $this->params('form-id'))
             ->getContent();
+        $item = null;
+        $cItem = null;
+
         $form = $cForm->getForm();
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
             $pData = $this->getPromptData($cForm);
+
             // Create the Omeka item.
             $itemData = $pData['itemData'];
             $itemData['o:item_set'] = [
                 'o:id' => $cForm->itemSet() ? $cForm->itemSet()->id() : null,
             ];
-            $response = $this->api($form)->create('items', $itemData, $this->params()->fromFiles());
+            $response = $this->api($form)
+                ->create('items', $itemData, $this->params()->fromFiles());
             if ($response->isSuccess()) {
+                $item = $response->getContent();
+
                 // Create the Collecting item.
                 $cItemData = [
-                    'o:item' => ['o:id' => $response->getContent()->id()],
+                    'o:item' => ['o:id' => $item->id()],
                     'o-module-collecting:form' => ['o:id' => $cForm->id()],
                     'o-module-collecting:input' => $pData['inputData'],
                 ];;
-                $response = $this->api($form)->create('collecting_items', $cItemData);
+                $cItem = $this->api($form)
+                    ->create('collecting_items', $cItemData)->getContent();
                 $this->messenger()->addSuccess($this->translate('Form successfully submitted'));
-                return $this->redirect()->toRoute(null, ['action' => 'success'], true);
             }
         } else {
             $this->messenger()->addErrors($form->getMessages());
         }
-        $view->setVariable('cForm', $cForm);
-        return $view;
-    }
 
-    public function successAction()
-    {
-        $cForm = $this->api()
-            ->read('collecting_forms', $this->params('form-id'))
-            ->getContent();
         $view = new ViewModel;
         $view->setVariable('cForm', $cForm);
+        $view->setVariable('item', $item);
+        $view->setVariable('cItem', $cItem);
         return $view;
     }
 
