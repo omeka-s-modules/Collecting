@@ -111,13 +111,19 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             'form-id' => $this->id(),
         ], true));
 
-        // Add the CSRF element first so getInputFilter() knows about it.
-        $csrfElement = (new Element\Csrf(sprintf('csrf_%s', $this->id())))
-            ->setCsrfValidatorOptions(['timeout' => 3600]);
-        $form->add($csrfElement);
+        $form->add([
+            'type' => 'csrf',
+            'name' => sprintf('csrf_%s', $this->id()),
+            'options' => [
+                'csrf_options' => ['timeout' => 3600],
+            ],
+        ]);
 
         foreach ($this->prompts() as $prompt) {
             $name = sprintf('prompt_%s', $prompt->id());
+            $label = ($prompt->property() && !$prompt->text())
+                ? $prompt->property()->label()
+                : $prompt->text();
             switch ($prompt->type()) {
                 case 'property':
                     // Note that there's no break here. When building the form
@@ -125,52 +131,72 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 case 'input':
                     switch ($prompt->inputType()) {
                         case 'text':
-                            $element = new Element\Text($name);
-                            $form->add($element);
+                            $form->add([
+                                'type' => 'text',
+                                'name' => $name,
+                                'options' => [
+                                    'label' => $label,
+                                ],
+                            ]);
                             break;
                         case 'textarea':
-                            $element = new Element\Textarea($name);
-                            $form->add($element);
+                            $form->add([
+                                'type' => 'textarea',
+                                'name' => $name,
+                                'options' => [
+                                    'label' => $label,
+                                ],
+                            ]);
                             break;
                         case 'select':
-                            $selectOptions = explode("\n", $prompt->selectOptions());
-                            $element = (new Element\Select($name))
-                                ->setEmptyOption('Please choose one...') // @translate
-                                ->setValueOptions(array_combine($selectOptions, $selectOptions));
-                            $form->add($element);
-                            $form->getInputFilter()->get($name)->setRequired(false);
+                            $selectOptions = explode(PHP_EOL, $prompt->selectOptions());
+                            $form->add([
+                                'type' => 'select',
+                                'name' => $name,
+                                'options' => [
+                                    'label' => $label,
+                                    'empty_option' => 'Please choose one...', // @translate
+                                    'value_options' => array_combine($selectOptions, $selectOptions),
+                                ],
+                            ]);
                             break;
                         default:
                             // Invalid prompt input type. Do nothing.
                             continue 2;
                     }
-                    $label = (!$prompt->text() && $prompt->property())
-                        ? $prompt->property()->label()
-                        : $prompt->text();
-                    $element->setLabel($label);
                     break;
                 case 'media':
                     switch ($prompt->mediaType()) {
                         case 'upload':
+                            // A hidden element marks the existence of this prompt.
+                            $form->add([
+                                'type' => 'hidden',
+                                'name' => $name,
+                            ]);
                             // Note that the file index maps to the prompt ID.
-                            $fileElementName = sprintf('file[%s]', $prompt->id());
-                            $element = (new Element\File($fileElementName))
-                                ->setLabel($prompt->text());
-                            $form->add($element);
+                            $form->add([
+                                'type' => 'file',
+                                'name' => sprintf('file[%s]', $prompt->id()),
+                                'options' => [
+                                    'label' => $prompt->text(),
+                                ],
+                            ]);
                             break;
                         case 'url':
-                            $urlElementName = sprintf('ingest_url_%s', $prompt->id());
-                            $element = (new Element\Url($urlElementName))
-                                ->setLabel($prompt->text());
-                            $form->add($element);
+                            $form->add([
+                                'type' => 'url',
+                                'name' => $name,
+                                'options' => [
+                                    'label' => $prompt->text(),
+                                ],
+                            ]);
                             break;
                         case 'html':
                             break;
                         default:
+                            // Invalid prompt media type. Do nothing.
                             continue 2;
                     }
-                    // A hidden element marks the existence of this prompt.
-                    $form->add(new Element\Hidden($name));
                     break;
                 default:
                     // Invalid prompt type. Do nothing.

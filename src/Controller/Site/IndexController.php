@@ -97,13 +97,13 @@ class IndexController extends AbstractActionController
                 case 'media':
                     if ('upload' === $prompt->mediaType()) {
                         $itemData['o:media'][$prompt->id()] = [
-                            'file_index' => $prompt->id(),
                             'o:ingester' => 'upload',
+                            'file_index' => $prompt->id(),
                         ];
                     } elseif ('url' === $prompt->mediaType()) {
                         $itemData['o:media'][$prompt->id()] = [
-                            'ingest_url' => $this->params()->fromPost('ingest_url_' . $prompt->id()),
                             'o:ingester' => 'url',
+                            'ingest_url' => $postedPrompts[$prompt->id()],
                         ];
                     }
                     break;
