@@ -150,10 +150,13 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                 'name' => $name,
                             ]);
                             // Note that the file index maps to the prompt ID.
-                            $element = new Element\PromptFile(sprintf('file[%s]', $prompt->id()));
-                            $element->setLabel($prompt->text())
-                                ->setIsRequired($prompt->required());
-                            $form->add($element);
+                            $form->add([
+                                'type' => 'file',
+                                'name' => sprintf('file[%s]', $prompt->id()),
+                                'options' => [
+                                    'label' => $prompt->text(),
+                                ],
+                            ]);
                             break;
                         case 'url':
                             $element = new Element\PromptUrl($name);
