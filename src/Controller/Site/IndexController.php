@@ -7,7 +7,7 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-    public function indexAction()
+    public function submitAction()
     {
         if (!$this->getRequest()->isPost()) {
             return $this->redirect()->toRoute('site', [], true);
@@ -42,7 +42,8 @@ class IndexController extends AbstractActionController
                 ];;
                 $cItem = $this->api($form)
                     ->create('collecting_items', $cItemData)->getContent();
-                $this->messenger()->addSuccess($this->translate('Form successfully submitted'));
+
+                return $this->redirect()->toRoute(null, ['action' => 'success'], true);
             }
         } else {
             $this->messenger()->addErrors($form->getMessages());
@@ -50,10 +51,11 @@ class IndexController extends AbstractActionController
 
         $view = new ViewModel;
         $view->setVariable('cForm', $cForm);
-        $view->setVariable('item', $item);
-        $view->setVariable('cItem', $cItem);
         return $view;
     }
+
+    public function successAction()
+    {}
 
     protected function getPromptData(CollectingFormRepresentation $cForm)
     {

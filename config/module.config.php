@@ -76,7 +76,7 @@ return [
                     'collecting' => [
                         'type' => 'Segment',
                         'options' => [
-                            'route' => '/collecting/:form-id',
+                            'route' => '/collecting/:form-id/:action',
                             'defaults' => [
                                 '__NAMESPACE__' => 'Collecting\Controller\Site',
                             ],

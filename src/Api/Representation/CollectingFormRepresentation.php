@@ -108,6 +108,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $form->setAttribute('enctype', 'multipart/form-data')
             ->setAttribute('action', $url('site/collecting', [
                 'form-id' => $this->id(),
+                'action' => 'submit',
             ], true));
 
         foreach ($this->prompts() as $prompt) {
