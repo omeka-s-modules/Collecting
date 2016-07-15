@@ -50,7 +50,7 @@ echo $this->form()->openTag($form);
     data-prompts-data="<?php echo $this->escapeHtml($promptsData); ?>"
     data-prompt-row-template="<?php echo $this->escapeHtml($promptRowTemplate); ?>"></span>
 
-<a href="#" id="prompt-add" class="button">Add Prompt</a>
+<a href="#" id="prompt-add" class="button"><?php echo $this->translate('Add prompt'); ?></a>
 
 <table class="tablesaw">
     <thead>

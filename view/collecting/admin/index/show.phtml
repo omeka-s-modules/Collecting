@@ -1,1 +1,49 @@
-<pre><?php echo json_encode($cForm, JSON_PRETTY_PRINT); ?></pre>
+<?php
+echo $this->pageTitle(sprintf($this->translate('Form: “%s”'), $cForm->label()));
+$description = $cForm->description() ?: $this->translate('[none]');
+$itemSetLabel = $cForm->itemSet()
+    ? $cForm->itemSet()->label()
+    : $this->translate('[none]');
+?>
+
+<div id="page-actions">
+    <?php if ($cForm->userIsAllowed('update')): ?>
+    <?php echo $cForm->link($this->translate('Edit form'), 'edit', ['class' => 'button']); ?>
+    <?php endif; ?>
+</div>
+
+<div class="property">
+    <h4><?php echo $this->translate('Label'); ?></h4>
+    <div class="value"><?php echo $this->escapeHtml($cForm->label()); ?></div>
+</div>
+
+<div class="property">
+    <h4><?php echo $this->translate('Description'); ?></h4>
+    <div class="value"><?php echo $this->escapeHtml($description); ?></div>
+</div>
+
+<div class="property">
+    <h4><?php echo $this->translate('Item Set'); ?></h4>
+    <div class="value"><?php echo $this->escapeHtml($itemSetLabel); ?></div>
+</div>
+
+<br>
+<h3><?php echo $this->translate('Prompts'); ?></h3>
+<table class="tablesaw">
+    <thead>
+    <tr>
+        <th><?php echo $this->translate('Type'); ?></th>
+        <th><?php echo $this->translate('Text'); ?></th>
+        <th><?php echo $this->translate('Required?'); ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($cForm->prompts() as $prompt): ?>
+        <tr>
+            <td><?php echo $this->escapeHtml($this->collecting()->typeValue($prompt->type())); ?></td>
+            <td><?php echo $this->escapeHtml($prompt->text()); ?></td>
+            <td><?php echo $prompt->required() ? $this->translate('Yes') : $this->translate('No'); ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

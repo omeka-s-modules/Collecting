@@ -1,7 +1,5 @@
 <?php echo $this->messages(); ?>
-<?php if (!$this->item): ?>
 <?php
 $cForm->getForm()->prepare();
 echo $this->form($cForm->getForm());
 ?>
-<?php endif; ?>

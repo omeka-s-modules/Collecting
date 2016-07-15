@@ -20,4 +20,20 @@ class Collecting extends AbstractHelper
     {
         return CollectingPrompt::getMediaTypes();
     }
+
+    public function typeValue($key)
+    {
+        return isset($this->types()[$key]) ? $this->types()[$key] : null;
+    }
+
+    public function inputTypeValue($key)
+    {
+        return isset($this->inputTypes()[$key]) ? $this->inputTypes()[$key] : null;
+    }
+
+    public function mediaTypeValue($key)
+    {
+        return isset($this->mediaTypes()[$key]) ? $this->mediaTypes()[$key] : null;
+    }
+
 }
