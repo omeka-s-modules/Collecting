@@ -14,7 +14,9 @@ return [
         'invokables' => [
             'Collecting\Controller\Admin\Index' => 'Collecting\Controller\Admin\IndexController',
             'Collecting\Controller\Admin\Form' => 'Collecting\Controller\Admin\FormController',
-            'Collecting\Controller\Site\Index' => 'Collecting\Controller\Site\IndexController',
+        ],
+        'factories' => [
+            'Collecting\Controller\Site\Index' => 'Collecting\Service\Controller\Site\IndexControllerFactory',
         ],
     ],
     'block_layouts' => [

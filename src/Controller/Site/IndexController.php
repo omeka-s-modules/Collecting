@@ -2,11 +2,22 @@
 namespace Collecting\Controller\Site;
 
 use Collecting\Api\Representation\CollectingFormRepresentation;
+use Omeka\Permissions\Acl;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    /**
+     * @var Acl
+     */
+    protected $acl;
+
+    public function __construct(Acl $acl)
+    {
+        $this->acl = $acl;
+    }
+
     public function submitAction()
     {
         if (!$this->getRequest()->isPost()) {
@@ -24,6 +35,12 @@ class IndexController extends AbstractActionController
         if ($form->isValid()) {
             $pData = $this->getPromptData($cForm);
 
+            // Temporarily give the user permission to create the Omeka and
+            // Collecting items. This gives all roles all privileges to all
+            // resources, which _should_ be safe since we're only passing
+            // mediated data.
+            $this->acl->allow();
+
             // Create the Omeka item.
             $itemData = $pData['itemData'];
             $itemData['o:item_set'] = [
@@ -31,6 +48,7 @@ class IndexController extends AbstractActionController
             ];
             $response = $this->api($form)
                 ->create('items', $itemData, $this->params()->fromFiles());
+
             if ($response->isSuccess()) {
                 $item = $response->getContent();
 
@@ -45,6 +63,10 @@ class IndexController extends AbstractActionController
 
                 return $this->redirect()->toRoute(null, ['action' => 'success'], true);
             }
+
+            // Out of an abundance of caution, revert back to default permissions.
+            $this->acl->removeAllow();
+
         } else {
             $this->messenger()->addErrors($form->getMessages());
         }
