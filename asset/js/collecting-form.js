@@ -29,6 +29,7 @@ var populatePromptRow = function(promptData) {
     promptRow.find('.prompt-input-type').val(promptData['o-module-collecting:input_type']);
     promptRow.find('.prompt-select-options').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-media-type').val(promptData['o-module-collecting:media_type']);
+    promptRow.find('.prompt-required').val(promptData['o-module-collecting:required'] ? '1' : '0');
     if (promptData['o:property']) {
         promptRow.find('.prompt-property-id').val(promptData['o:property']['o:id']);
     }
@@ -45,6 +46,7 @@ var resetSidebar = function() {
     $('#prompt-media-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-input-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-select-options').val('').closest('.sidebar-section').hide();
+    $('#prompt-required').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-save').hide();
 }
 
@@ -71,6 +73,7 @@ var setSidebarForType = function(type) {
             return;
     }
     $('#prompt-text').closest('.sidebar-section').show();
+    $('#prompt-required').closest('.sidebar-section').show();
     $('#prompt-save').show();
 }
 
@@ -187,6 +190,7 @@ $(document).ready(function() {
 
         // A prompt type cannot be changed once it's saved.
         $('#prompt-type').prop('disabled', true).css('background-color', '#dfdfdf');
+        $('#prompt-required').prop('checked', '1' === prompt.find('.prompt-required').val() ? true : false);
         Omeka.openSidebar($('#prompt-sidebar'));
     });
 
@@ -200,6 +204,7 @@ $(document).ready(function() {
             'o-module-collecting:input_type': $('#prompt-input-type').val(),
             'o-module-collecting:select_options': $('#prompt-select-options').val(),
             'o-module-collecting:media_type': $('#prompt-media-type').val(),
+            'o-module-collecting:required': $('#prompt-required').prop('checked'),
             'o:property': {'o:id': $('#prompt-property').val()},
         };
 

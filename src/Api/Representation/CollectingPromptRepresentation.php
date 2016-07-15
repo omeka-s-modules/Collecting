@@ -25,6 +25,7 @@ class CollectingPromptRepresentation extends AbstractRepresentation
             'o-module-collecting:input_type' => $this->inputType(),
             'o-module-collecting:select_options' => $this->selectOptions(),
             'o-module-collecting:media_type' => $this->mediaType(),
+            'o-module-collecting:required' => $this->required(),
             'o:property' => $property,
         ];
     }
@@ -57,6 +58,11 @@ class CollectingPromptRepresentation extends AbstractRepresentation
     public function mediaType()
     {
         return $this->resource->getMediaType();
+    }
+
+    public function required()
+    {
+        return $this->resource->getRequired();
     }
 
     public function property()

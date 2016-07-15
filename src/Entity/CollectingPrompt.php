@@ -70,6 +70,11 @@ class CollectingPrompt extends AbstractEntity
     protected $mediaType;
 
     /**
+     * @Column(type="boolean", nullable=false)
+     */
+    protected $required = false;
+
+    /**
      * @ManyToOne(targetEntity="Omeka\Entity\Property")
      * @JoinColumn(nullable=true)
      */
@@ -179,6 +184,16 @@ class CollectingPrompt extends AbstractEntity
     public function getMediaType()
     {
         return $this->mediaType;
+    }
+
+    public function setRequired($required)
+    {
+        $this->required = (bool) $required;
+    }
+
+    public function getRequired()
+    {
+        return $this->required;
     }
 
     public function setProperty(Property $property = null)

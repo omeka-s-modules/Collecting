@@ -25,6 +25,7 @@ $promptRowTemplate = '
         <input type="hidden" class="prompt-input-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
         <input type="hidden" class="prompt-select-options" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
+        <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
         <input type="hidden" class="prompt-property-id" name="o-module-collecting:prompt[__INDEX__][o:property][o:id]">
     </td>
     <td><span class="prompt-text-span"></span></td>
@@ -112,6 +113,11 @@ echo $this->form()->openTag($form);
         <div class="sidebar-section">
             <h4><?php echo $this->translate('Select Menu Options'); ?></h4>
             <textarea id="prompt-select-options" name="select-options" style="width:100%;" rows="3" placeholder="Option One&#13;&#10;Option Two&#13;&#10;..."></textarea>
+        </div>
+
+        <div class="sidebar-section">
+            <h4><?php echo $this->translate('Required?'); ?></h4>
+            <input type="checkbox" id="prompt-required" name="required">
         </div>
 
         <a id="prompt-save" href="#" class="button"><?php echo $this->translate('Save Changes'); ?></a>

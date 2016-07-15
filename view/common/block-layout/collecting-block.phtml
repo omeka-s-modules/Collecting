@@ -1,3 +1,6 @@
 <?php foreach ($this->cForms as $cForm): ?>
-<?php echo $this->form($cForm->getForm()); ?>
+<?php
+$cForm->getForm()->prepare();
+echo $this->form($cForm->getForm());
+?>
 <?php endforeach; ?>

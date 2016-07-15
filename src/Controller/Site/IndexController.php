@@ -101,10 +101,13 @@ class IndexController extends AbstractActionController
                             'file_index' => $prompt->id(),
                         ];
                     } elseif ('url' === $prompt->mediaType()) {
-                        $itemData['o:media'][$prompt->id()] = [
-                            'o:ingester' => 'url',
-                            'ingest_url' => $postedPrompts[$prompt->id()],
-                        ];
+                        $ingestUrl = trim($postedPrompts[$prompt->id()]);
+                        if ($prompt->required() || (!$prompt->required() && '' !== $ingestUrl)) {
+                            $itemData['o:media'][$prompt->id()] = [
+                                'o:ingester' => 'url',
+                                'ingest_url' => $ingestUrl,
+                            ];
+                        }
                     }
                     break;
                 default:

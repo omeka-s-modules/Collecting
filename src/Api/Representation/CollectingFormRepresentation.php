@@ -2,7 +2,7 @@
 namespace Collecting\Api\Representation;
 
 use Omeka\Api\Representation\AbstractEntityRepresentation;
-use Zend\Form\Element;
+use Collecting\Form\Element;
 use Zend\Form\Form;
 
 class CollectingFormRepresentation extends AbstractEntityRepresentation
@@ -101,29 +101,17 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         if ($this->form) {
             return $this->form; // build the form object only once
         }
-
         $url = $this->getViewHelper('Url');
 
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
-        $form->setAttribute('enctype', 'multipart/form-data');
-        $form->setAttribute('action', $url('site/collecting', [
-            'form-id' => $this->id(),
-        ], true));
-
-        $form->add([
-            'type' => 'csrf',
-            'name' => sprintf('csrf_%s', $this->id()),
-            'options' => [
-                'csrf_options' => ['timeout' => 3600],
-            ],
-        ]);
+        $form->setAttribute('enctype', 'multipart/form-data')
+            ->setAttribute('action', $url('site/collecting', [
+                'form-id' => $this->id(),
+            ], true));
 
         foreach ($this->prompts() as $prompt) {
             $name = sprintf('prompt_%s', $prompt->id());
-            $label = ($prompt->property() && !$prompt->text())
-                ? $prompt->property()->label()
-                : $prompt->text();
             switch ($prompt->type()) {
                 case 'property':
                     // Note that there's no break here. When building the form
@@ -131,39 +119,27 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 case 'input':
                     switch ($prompt->inputType()) {
                         case 'text':
-                            $form->add([
-                                'type' => 'text',
-                                'name' => $name,
-                                'options' => [
-                                    'label' => $label,
-                                ],
-                            ]);
+                            $element = new Element\PromptText($name);
                             break;
                         case 'textarea':
-                            $form->add([
-                                'type' => 'textarea',
-                                'name' => $name,
-                                'options' => [
-                                    'label' => $label,
-                                ],
-                            ]);
+                            $element = new Element\PromptTextarea($name);
                             break;
                         case 'select':
                             $selectOptions = explode(PHP_EOL, $prompt->selectOptions());
-                            $form->add([
-                                'type' => 'select',
-                                'name' => $name,
-                                'options' => [
-                                    'label' => $label,
-                                    'empty_option' => 'Please choose one...', // @translate
-                                    'value_options' => array_combine($selectOptions, $selectOptions),
-                                ],
-                            ]);
+                            $element = new Element\PromptSelect($name);
+                            $element->setEmptyOption('Please choose one...') // @translate
+                                ->setValueOptions(array_combine($selectOptions, $selectOptions));
                             break;
                         default:
                             // Invalid prompt input type. Do nothing.
                             continue 2;
                     }
+                    $label = ($prompt->property() && !$prompt->text())
+                        ? $prompt->property()->label()
+                        : $prompt->text();
+                    $element->setLabel($label)
+                        ->setIsRequired($prompt->required());
+                    $form->add($element);
                     break;
                 case 'media':
                     switch ($prompt->mediaType()) {
@@ -174,22 +150,16 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                 'name' => $name,
                             ]);
                             // Note that the file index maps to the prompt ID.
-                            $form->add([
-                                'type' => 'file',
-                                'name' => sprintf('file[%s]', $prompt->id()),
-                                'options' => [
-                                    'label' => $prompt->text(),
-                                ],
-                            ]);
+                            $element = new Element\PromptFile(sprintf('file[%s]', $prompt->id()));
+                            $element->setLabel($prompt->text())
+                                ->setIsRequired($prompt->required());
+                            $form->add($element);
                             break;
                         case 'url':
-                            $form->add([
-                                'type' => 'url',
-                                'name' => $name,
-                                'options' => [
-                                    'label' => $prompt->text(),
-                                ],
-                            ]);
+                            $element = new Element\PromptUrl($name);
+                            $element->setLabel($prompt->text())
+                                ->setIsRequired($prompt->required());
+                            $form->add($element);
                             break;
                         case 'html':
                             break;
@@ -203,8 +173,20 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                     continue 2;
             }
         }
-
-        $form->add((new Element\Submit('submit'))->setValue('Submit')); // @translate
+        $form->add([
+            'type' => 'csrf',
+            'name' => sprintf('csrf_%s', $this->id()),
+            'options' => [
+                'csrf_options' => ['timeout' => 3600],
+            ],
+        ]);
+        $form->add([
+            'type' => 'submit',
+            'name' => 'submit',
+            'attributes' => [
+                'value' => 'Submit',
+            ],
+        ]);
         return $form;
     }
 }
