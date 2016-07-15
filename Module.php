@@ -18,6 +18,8 @@ class Module extends AbstractModule
 
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
         $acl->allow(null, 'Collecting\Controller\Admin\Index');
+        $acl->allow(null, 'Collecting\Api\Adapter\CollectingFormAdapter', ['search', 'read']);
+        $acl->allow(null, 'Collecting\Entity\CollectingForm', ['read']);
     }
 
     public function install(ServiceLocatorInterface $services)
