@@ -142,6 +142,16 @@ class IndexController extends AbstractActionController
                                 'ingest_url' => $ingestUrl,
                             ];
                         }
+                    } elseif ('html' === $prompt->mediaType()) {
+                        $html = trim($postedPrompts[$prompt->id()]);
+                        if ($prompt->required()
+                            || (!$prompt->required() && '' !== $html)
+                        ) {
+                            $itemData['o:media'][$prompt->id()] = [
+                                'o:ingester' => 'html',
+                                'html' => $html,
+                            ];
+                        }
                     }
                     break;
                 default:
