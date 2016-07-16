@@ -33,7 +33,8 @@ class IndexController extends AbstractActionController
         $form = $cForm->getForm();
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
-            $pData = $this->getPromptData($cForm);
+
+            list($itemData, $inputData) = $this->getPromptData($cForm);
 
             // Temporarily give the user permission to create the Omeka and
             // Collecting items. This gives all roles all privileges to all
@@ -42,7 +43,6 @@ class IndexController extends AbstractActionController
             $this->acl->allow();
 
             // Create the Omeka item.
-            $itemData = $pData['itemData'];
             $itemData['o:item_set'] = [
                 'o:id' => $cForm->itemSet() ? $cForm->itemSet()->id() : null,
             ];
@@ -56,7 +56,7 @@ class IndexController extends AbstractActionController
                 $cItemData = [
                     'o:item' => ['o:id' => $item->id()],
                     'o-module-collecting:form' => ['o:id' => $cForm->id()],
-                    'o-module-collecting:input' => $pData['inputData'],
+                    'o-module-collecting:input' => $inputData,
                 ];;
                 $cItem = $this->api($form)
                     ->create('collecting_items', $cItemData)->getContent();
@@ -79,6 +79,12 @@ class IndexController extends AbstractActionController
     public function successAction()
     {}
 
+    /**
+     * Get the prompt data needed to create the Omeka and Collecting items.
+     *
+     * @param CollectingFormRepresentation $cForm
+     * @return array [itemData, inputData]
+     */
     protected function getPromptData(CollectingFormRepresentation $cForm)
     {
         // Derive the prompt IDs from the form names.
@@ -160,9 +166,6 @@ class IndexController extends AbstractActionController
             }
         }
 
-        return [
-            'itemData' => $itemData,
-            'inputData' => $inputData,
-        ];
+        return [$itemData, $inputData];
     }
 }
