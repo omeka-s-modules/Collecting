@@ -1,6 +1,7 @@
 <?php foreach ($this->cForms as $cForm): ?>
-<?php
-$cForm->getForm()->prepare();
-echo $this->form($cForm->getForm());
-?>
+<h2><?php echo $this->escapeHtml($cForm->label()); ?></h2>
+<?php if ($cForm->description()): ?>
+<p><?php echo $this->escapeHtml($cForm->description()); ?></p>
+<?php endif; ?>
+<?php echo $this->form($cForm->getForm()); ?>
 <?php endforeach; ?>
