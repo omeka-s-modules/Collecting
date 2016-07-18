@@ -39,14 +39,25 @@ class Collecting extends AbstractBlockLayout
         ]);
     }
 
+    public function prepareRender(PhpRenderer $view)
+    {
+        $view->headScript()->appendFile($view->assetUrl('js/collecting-block.js', 'Collecting'));
+    }
+
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
         $cForms = [];
         foreach ($block->dataValue('forms', []) as $formId) {
             $cForms[] = $view->api()->read('collecting_forms', $formId)->getContent();
         }
-        return $view->partial('common/block-layout/collecting-block', [
-            'cForms' => $cForms,
-        ]);
+        if (1 === count($cForms)) {
+            return $view->partial('common/block-layout/collecting-block-one', [
+                'cForm' => $cForms[0],
+            ]);
+        } elseif (1 < count($cForms)) {
+            return $view->partial('common/block-layout/collecting-block-multiple', [
+                'cForms' => $cForms,
+            ]);
+        }
     }
 }
