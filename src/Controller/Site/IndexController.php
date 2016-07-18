@@ -27,8 +27,6 @@ class IndexController extends AbstractActionController
         $cForm = $this->api()
             ->read('collecting_forms', $this->params('form-id'))
             ->getContent();
-        $item = null;
-        $cItem = null;
 
         $form = $cForm->getForm();
         $form->setData($this->params()->fromPost());

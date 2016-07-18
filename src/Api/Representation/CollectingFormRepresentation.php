@@ -105,11 +105,10 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
 
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
-        $form->setAttribute('enctype', 'multipart/form-data')
-            ->setAttribute('action', $url('site/collecting', [
-                'form-id' => $this->id(),
-                'action' => 'submit',
-            ], true));
+        $form->setAttribute('action', $url('site/collecting', [
+            'form-id' => $this->id(),
+            'action' => 'submit',
+        ], true));
 
         foreach ($this->prompts() as $prompt) {
             $name = sprintf('prompt_%s', $prompt->id());
