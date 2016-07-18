@@ -148,7 +148,7 @@ class CollectingPrompt extends AbstractEntity
 
     public function setText($text)
     {
-        $this->text = $text;
+        $this->text = trim($text) ?: null;
     }
 
     public function getText()
@@ -158,7 +158,7 @@ class CollectingPrompt extends AbstractEntity
 
     public function setInputType($inputType)
     {
-        $this->inputType = $inputType;
+        $this->inputType = trim($inputType) ?: null;
     }
 
     public function getInputType()
@@ -168,7 +168,7 @@ class CollectingPrompt extends AbstractEntity
 
     public function setSelectOptions($selectOptions)
     {
-        $this->selectOptions = $selectOptions;
+        $this->selectOptions = trim($selectOptions) ?: null;
     }
 
     public function getSelectOptions()
@@ -178,7 +178,7 @@ class CollectingPrompt extends AbstractEntity
 
     public function setMediaType($mediaType)
     {
-        $this->mediaType = $mediaType;
+        $this->mediaType = trim($mediaType) ?: null;
     }
 
     public function getMediaType()

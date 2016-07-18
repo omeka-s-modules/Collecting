@@ -95,7 +95,7 @@ class CollectingForm extends AbstractEntity
 
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = trim($description) ?: null;
     }
 
     public function getDescription()
