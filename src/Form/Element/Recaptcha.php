@@ -3,6 +3,7 @@ namespace Collecting\Form\Element;
 
 use Collecting\Validator\Recaptcha as RecaptchaValidator;
 use Zend\Form\Element;
+use Zend\Http\Client;
 use Zend\InputFilter\InputProviderInterface;
 use Zend\Validator\ValidatorInterface;
 
@@ -20,7 +21,7 @@ class Recaptcha extends Element implements InputProviderInterface
 
     protected $remoteIp;
 
-    protected $validator;
+    protected $client;
 
     public function setOptions($options)
     {
@@ -58,20 +59,10 @@ class Recaptcha extends Element implements InputProviderInterface
         return $this;
     }
 
-    public function setValidator(ValidatorInterface $validator)
+    public function setClient(Client $client)
     {
-        $this->validator = $validator;
-    }
-
-    public function getValidator()
-    {
-        if (!$this->validator) {
-            // Provide a default validator.
-            $this->validator = new RecaptchaValidator;
-        }
-        return $this->validator
-            ->setSecretKey($this->secretKey)
-            ->setRemoteIp($this->remoteIp);
+        $this->client = $client;
+        return $this;
     }
 
     public function getInputSpecification()
@@ -84,12 +75,43 @@ class Recaptcha extends Element implements InputProviderInterface
                     'name' => 'NotEmpty',
                     'options' => [
                         'messages' => [
-                            'isEmpty' => 'You must verify that you are human by completing the CAPTCHA below.', // @translate
+                            'isEmpty' => 'You must verify that you are human by completing the CAPTCHA.', // @translate
                         ],
                     ],
                 ],
-                $this->getValidator(),
+                [
+                    'name' => 'Callback',
+                    'options' => [
+                        'callback' => [$this, 'isValid'],
+                        'messages' => [
+                            'callbackValue' => 'Could not verify that you are a human.', // @translate
+                        ],
+                    ],
+                ],
             ],
         ];
+    }
+
+    /**
+     * Validate the reCAPTCHA.
+     *
+     * @param string $value
+     * @return bool
+     */
+    public function isValid($value)
+    {
+        $response = $this->client
+            ->setUri('https://www.google.com')
+            ->setMethod('POST')
+            ->setParameterPost([
+                'response' => $value,
+                'secret' => $this->secretKey,
+                'remoteip' => $this->remoteIp,
+            ])->send();
+        $apiResponse = json_decode($response->getBody(), true);
+        if ($apiResponse['success']) {
+            return true;
+        }
+        return false;
     }
 }
