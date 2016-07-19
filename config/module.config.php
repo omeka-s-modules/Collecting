@@ -8,6 +8,12 @@ return [
     'view_helpers' => [
         'invokables' => [
             'collecting' => 'Collecting\View\Helper\Collecting',
+            'formRecaptcha' => 'Collecting\Form\View\Helper\FormRecaptcha',
+        ],
+    ],
+    'form_elements' => [
+        'factories' => [
+            'Collecting\Form\Element\Recaptcha' => 'Collecting\Service\Form\Element\RecaptchaFactory',
         ],
     ],
     'controllers' => [

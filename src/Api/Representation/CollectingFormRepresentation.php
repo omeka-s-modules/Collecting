@@ -1,9 +1,10 @@
 <?php
 namespace Collecting\Api\Representation;
 
-use Omeka\Api\Representation\AbstractEntityRepresentation;
 use Collecting\Form\Element;
+use Omeka\Api\Representation\AbstractEntityRepresentation;
 use Zend\Form\Form;
+use Zend\Http\PhpEnvironment\RemoteAddress;
 
 class CollectingFormRepresentation extends AbstractEntityRepresentation
 {
@@ -185,6 +186,21 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                     continue 2;
             }
         }
+
+        // Add reCAPTCHA protection if keys are provided in site settings.
+        $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
+        $siteKey = $siteSettings->get('collecting_recaptcha_site_key');
+        $secretKey = $siteSettings->get('collecting_recaptcha_secret_key');
+        if ($siteKey && $secretKey) {
+            $element = $this->getServiceLocator()
+                ->get('FormElementManager')
+                ->get('Collecting\Form\Element\Recaptcha')
+                ->setSiteKey($siteKey)
+                ->setSecretKey($secretKey)
+                ->setRemoteIp((new RemoteAddress)->getIpAddress());
+            $form->add($element);
+        }
+
         $form->add([
             'type' => 'csrf',
             'name' => sprintf('csrf_%s', $this->id()),

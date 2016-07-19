@@ -2,6 +2,8 @@
 namespace Collecting;
 
 use Omeka\Module\AbstractModule;
+use Zend\EventManager\Event;
+use Zend\EventManager\SharedEventManagerInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -53,5 +55,38 @@ DROP TABLE IF EXISTS collecting_item;
 SET FOREIGN_KEY_CHECKS=1;
 DELETE FROM site_page_block WHERE layout = "collecting";
 ');
+    }
+
+    public function attachListeners(SharedEventManagerInterface $sharedEventManager)
+    {
+        $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
+
+        $sharedEventManager->attach(
+            '*',
+            'site_settings.form',
+            function (Event $event) use ($siteSettings) {
+                $form = $event->getParam('form');
+                $form->add([
+                    'type' => 'text',
+                    'name' => 'collecting_recaptcha_site_key',
+                    'options' => [
+                        'label' => 'Collecting reCAPTCHA site key',
+                    ],
+                    'attributes' => [
+                        'value' => $siteSettings->get('collecting_recaptcha_site_key'),
+                    ],
+                ]);
+                $form->add([
+                    'type' => 'text',
+                    'name' => 'collecting_recaptcha_secret_key',
+                    'options' => [
+                        'label' => 'Collecting reCAPTCHA secret key',
+                    ],
+                    'attributes' => [
+                        'value' => $siteSettings->get('collecting_recaptcha_secret_key'),
+                    ],
+                ]);
+            }
+        );
     }
 }
