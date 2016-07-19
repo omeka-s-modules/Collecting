@@ -81,11 +81,6 @@ echo $this->form()->openTag($form);
         </div>
 
         <div class="sidebar-section">
-            <h4><?php echo $this->translate('Prompt Text'); ?></h4>
-            <textarea id="prompt-text" name="text" style="width:100%;" rows="3"></textarea>
-        </div>
-
-        <div class="sidebar-section">
             <h4><?php echo $this->translate('Property'); ?></h4>
             <?php echo $this->propertySelect(['name' => 'property', 'options' => ['empty_option' => 'Select a property...'], 'attributes' => ['id' => 'prompt-property']]); ?>
         </div>
@@ -98,6 +93,11 @@ echo $this->form()->openTag($form);
                 <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
                 <?php endforeach; ?>
             </select>
+        </div>
+
+        <div class="sidebar-section">
+            <h4><?php echo $this->translate('Prompt Text'); ?></h4>
+            <textarea id="prompt-text" name="text" style="width:100%;" rows="3"></textarea>
         </div>
 
         <div class="sidebar-section">
