@@ -79,7 +79,17 @@ class Recaptcha extends Element implements InputProviderInterface
         return [
             'name' => 'g-recaptcha-response',
             'required' => true,
-            'validators' => [$this->getValidator()],
+            'validators' => [
+                [
+                    'name' => 'NotEmpty',
+                    'options' => [
+                        'messages' => [
+                            'isEmpty' => 'You must verify that you are human by completing the CAPTCHA below.', // @translate
+                        ],
+                    ],
+                ],
+                $this->getValidator(),
+            ],
         ];
     }
 }

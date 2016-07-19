@@ -9,7 +9,7 @@ class Recaptcha extends AbstractValidator
     const ERROR = 'recaptchaError';
 
     protected $messageTemplates = [
-        self::ERROR => "Could not verify that you are not a robot.",
+        self::ERROR => 'Could not verify that you are a human.', // @translate
     ];
 
     protected $client;
