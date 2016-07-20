@@ -101,7 +101,7 @@ class Recaptcha extends Element implements InputProviderInterface
     public function isValid($value)
     {
         $response = $this->client
-            ->setUri('https://www.google.com')
+            ->setUri('https://www.google.com/recaptcha/api/siteverify')
             ->setMethod('POST')
             ->setParameterPost([
                 'response' => $value,
