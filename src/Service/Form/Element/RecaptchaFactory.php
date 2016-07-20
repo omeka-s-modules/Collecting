@@ -7,6 +7,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class RecaptchaFactory implements FactoryInterface
 {
+    protected $options = [];
+
     public function createService(ServiceLocatorInterface $formElements)
     {
         $services = $formElements->getServiceLocator();
@@ -15,6 +17,13 @@ class RecaptchaFactory implements FactoryInterface
         $services->get('ViewHelperManager')->get('FormElement')
             ->addType('recaptcha', 'formRecaptcha');
 
-        return (new Recaptcha)->setClient($services->get('Omeka\HttpClient'));
+        $element = new Recaptcha(null, $this->options);
+        $element->setClient($services->get('Omeka\HttpClient'));
+        return $element;
+    }
+
+    public function setCreationOptions(array $options)
+    {
+        $this->options = $options;
     }
 }

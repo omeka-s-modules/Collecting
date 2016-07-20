@@ -194,10 +194,11 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         if ($siteKey && $secretKey) {
             $element = $this->getServiceLocator()
                 ->get('FormElementManager')
-                ->get('Collecting\Form\Element\Recaptcha')
-                ->setSiteKey($siteKey)
-                ->setSecretKey($secretKey)
-                ->setRemoteIp((new RemoteAddress)->getIpAddress());
+                ->get('recaptcha', [
+                    'site_key' => $siteKey,
+                    'secret_key' => $secretKey,
+                    'remote_ip' => (new RemoteAddress)->getIpAddress(),
+                ]);
             $form->add($element);
         }
 

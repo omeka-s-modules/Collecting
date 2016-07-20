@@ -9,19 +9,39 @@ use Zend\Validator\ValidatorInterface;
 
 class Recaptcha extends Element implements InputProviderInterface
 {
+    /**
+     * @var array
+     */
     protected $attributes = [
         'type' => 'recaptcha',
         'name' => 'g-recaptcha-response',
         'class' => 'g-recaptcha',
     ];
 
+    /**
+     * @var string The reCAPTCHA site key
+     */
     protected $siteKey;
 
+    /**
+     * @var string The reCAPTCHA secret key
+     */
     protected $secretKey;
 
+    /**
+     * @var string The remote IP address
+     */
     protected $remoteIp;
 
+    /**
+     * @var Client The HTTP client, configured for SSL
+     */
     protected $client;
+
+    public function __construct($name = null, $options = [])
+    {
+        parent::__construct($name, array_merge($this->options, $options));
+    }
 
     public function setOptions($options)
     {

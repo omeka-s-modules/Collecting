@@ -15,6 +15,9 @@ return [
         'factories' => [
             'Collecting\Form\Element\Recaptcha' => 'Collecting\Service\Form\Element\RecaptchaFactory',
         ],
+        'aliases' => [
+            'recaptcha' => 'Collecting\Form\Element\Recaptcha',
+        ],
     ],
     'controllers' => [
         'invokables' => [
