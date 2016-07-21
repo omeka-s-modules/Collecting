@@ -79,8 +79,11 @@ var setSidebarForType = function(type) {
 
 $(document).ready(function() {
 
+    $('#prompts-table').hide();
+
     // Append existing prompts on load.
     $.each($('#prompts-span').data('promptsData'), function() {
+        $('#prompts-table').show();
         populatePromptRow(this);
     });
 
@@ -246,6 +249,7 @@ $(document).ready(function() {
         }
 
         populatePromptRow(promptData);
+        $('#prompts-table').show();
         Omeka.closeSidebar($('#prompt-sidebar'));
     });
 
