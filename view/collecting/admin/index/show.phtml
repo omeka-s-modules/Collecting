@@ -1,5 +1,5 @@
 <?php
-echo $this->pageTitle(sprintf($this->translate('Form: “%s”'), $cForm->label()));
+echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cForm->label()));
 $description = $cForm->description() ?: $this->translate('[none]');
 $itemSetLabel = $cForm->itemSet()
     ? $cForm->itemSet()->displayTitle()

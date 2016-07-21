@@ -1,5 +1,5 @@
 <?php
-echo $this->pageTitle($this->translate('Collecting'));
+echo $this->pageTitle($this->translate('Collecting Forms'));
 ?>
 
 <div id="page-actions">
@@ -7,9 +7,6 @@ echo $this->pageTitle($this->translate('Collecting'));
     <a href="<?php echo $this->url('admin/site/slug/collecting/default', ['action' => 'add'], true); ?>" class="button"><?php echo $this->translate('Add new form'); ?></a>
     <?php endif; ?>
 </div>
-<nav class="section-nav">
-    <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
-</nav>
 
 <table class="tablesaw">
     <thead>

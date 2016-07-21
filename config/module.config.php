@@ -54,22 +54,6 @@ return [
                 ],
             ],
         ],
-        'Collecting' => [
-            [
-                'label' => 'Forms', // @translate
-                'route' => 'admin/site/slug/collecting/default',
-                'action' => 'index',
-                'useRouteMatch' => true,
-            ],
-            [
-                'label' => 'Admin', // @translate
-                'route' => 'admin/site/slug/collecting/default',
-                'action' => 'admin',
-                'useRouteMatch' => true,
-                'resource' => 'Omeka\Entity\Site',
-                'privilege' => 'create',
-            ],
-        ],
     ],
     'router' => [
         'routes' => [

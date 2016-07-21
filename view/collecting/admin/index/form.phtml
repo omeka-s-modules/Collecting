@@ -4,8 +4,8 @@ $this->headScript()->appendFile($this->assetUrl('js/sortable.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'));
 
 $pageTitle = $isEdit
-    ? sprintf($this->translate('Edit Form: “%s”'), $cForm->label())
-    : $this->translate('Add Form');
+    ? sprintf($this->translate('Edit Collecting Form: “%s”'), $cForm->label())
+    : $this->translate('Add Collecting Form');
 $promptsData = $isEdit
     ? json_encode($cForm->prompts())
     : '[]';
