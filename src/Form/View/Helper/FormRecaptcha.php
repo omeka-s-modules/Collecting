@@ -13,8 +13,6 @@ class FormRecaptcha extends AbstractHelper
 
     public function render(ElementInterface $element)
     {
-        $this->getView()->headScript()
-            ->appendFile('https://www.google.com/recaptcha/api.js');
         return sprintf(
             '<div %s></div>',
             $this->createAttributesString($element->getAttributes())

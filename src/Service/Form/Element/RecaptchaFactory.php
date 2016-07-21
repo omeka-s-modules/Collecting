@@ -11,14 +11,8 @@ class RecaptchaFactory implements FactoryInterface
 
     public function createService(ServiceLocatorInterface $formElements)
     {
-        $services = $formElements->getServiceLocator();
-
-        // Map the element to the view helper that renders it.
-        $services->get('ViewHelperManager')->get('FormElement')
-            ->addType('recaptcha', 'formRecaptcha');
-
         $element = new Recaptcha(null, $this->options);
-        $element->setClient($services->get('Omeka\HttpClient'));
+        $element->setClient($formElements->getServiceLocator()->get('Omeka\HttpClient'));
         return $element;
     }
 

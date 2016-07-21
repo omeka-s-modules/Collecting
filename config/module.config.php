@@ -9,6 +9,7 @@ return [
         'invokables' => [
             'collecting' => 'Collecting\View\Helper\Collecting',
             'formRecaptcha' => 'Collecting\Form\View\Helper\FormRecaptcha',
+            'prepareRecaptcha' => 'Collecting\Form\View\Helper\PrepareRecaptcha',
         ],
     ],
     'form_elements' => [
