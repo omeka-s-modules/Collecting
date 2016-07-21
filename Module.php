@@ -35,7 +35,7 @@ CREATE TABLE collecting_input (id INT AUTO_INCREMENT NOT NULL, prompt_id INT NOT
 ALTER TABLE collecting_item ADD CONSTRAINT FK_D414538C126F525E FOREIGN KEY (item_id) REFERENCES item (id) ON DELETE SET NULL;
 ALTER TABLE collecting_item ADD CONSTRAINT FK_D414538C5FF69B7D FOREIGN KEY (form_id) REFERENCES collecting_form (id) ON DELETE CASCADE;
 ALTER TABLE collecting_prompt ADD CONSTRAINT FK_98FE9BA65FF69B7D FOREIGN KEY (form_id) REFERENCES collecting_form (id) ON DELETE CASCADE;
-ALTER TABLE collecting_prompt ADD CONSTRAINT FK_98FE9BA6549213EC FOREIGN KEY (property_id) REFERENCES property (id);
+ALTER TABLE collecting_prompt ADD CONSTRAINT FK_98FE9BA6549213EC FOREIGN KEY (property_id) REFERENCES property (id) ON DELETE SET NULL;
 ALTER TABLE collecting_form ADD CONSTRAINT FK_99878BDD960278D7 FOREIGN KEY (item_set_id) REFERENCES item_set (id) ON DELETE SET NULL;
 ALTER TABLE collecting_form ADD CONSTRAINT FK_99878BDDF6BD1646 FOREIGN KEY (site_id) REFERENCES site (id) ON DELETE SET NULL;
 ALTER TABLE collecting_form ADD CONSTRAINT FK_99878BDD7E3C61F9 FOREIGN KEY (owner_id) REFERENCES user (id) ON DELETE SET NULL;
@@ -59,8 +59,28 @@ DELETE FROM site_page_block WHERE layout = "collecting";
 
     public function attachListeners(SharedEventManagerInterface $sharedEventManager)
     {
-        $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
+        $services = $this->getServiceLocator();
+        $siteSettings = $services->get('Omeka\SiteSettings');
+        $connection = $services->get('Omeka\Connection');
 
+        // When a property is deleted convert all "property" prompts that are
+        // assigned to that property to "input" prompts. When the prompt has no
+        // text use the property label.
+        $sharedEventManager->attach(
+            'Omeka\Entity\Property',
+            'entity.remove.pre',
+            function (Event $event) use ($connection) {
+                $sql = '
+                UPDATE collecting_prompt
+                SET type = "input",
+                text = CASE WHEN COALESCE(text, "") = "" THEN ? ELSE text END
+                WHERE property_id = ?';
+                $property = $event->getTarget();
+                $connection->executeUpdate($sql, [$property->getLabel(), $property->getId()]);
+            }
+        );
+
+        // Add the reCAPTCHA site and secret keys to the site settings form.
         $sharedEventManager->attach(
             '*',
             'site_settings.form',

@@ -75,8 +75,13 @@ class CollectingPrompt extends AbstractEntity
     protected $required = false;
 
     /**
-     * @ManyToOne(targetEntity="Omeka\Entity\Property")
-     * @JoinColumn(nullable=true)
+     * @ManyToOne(
+     *     targetEntity="Omeka\Entity\Property"
+     * )
+     * @JoinColumn(
+     *     nullable=true,
+     *     onDelete="SET NULL"
+     * )
      */
     protected $property;
 
