@@ -194,7 +194,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         if ($siteKey && $secretKey) {
             $element = $this->getServiceLocator()
                 ->get('FormElementManager')
-                ->get('recaptcha', [
+                ->get('Omeka\Form\Element\Recaptcha', [
                     'site_key' => $siteKey,
                     'secret_key' => $secretKey,
                     'remote_ip' => (new RemoteAddress)->getIpAddress(),
