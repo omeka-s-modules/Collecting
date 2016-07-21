@@ -1,7 +1,6 @@
 <?php
 namespace Collecting\Form\Element;
 
-use Collecting\Validator\Recaptcha as RecaptchaValidator;
 use Zend\Form\Element;
 use Zend\Http\Client;
 use Zend\InputFilter\InputProviderInterface;
