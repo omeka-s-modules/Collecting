@@ -87,8 +87,8 @@ class IndexController extends AbstractActionController
                 if ($response->isSuccess()) {
                     $cForm = $response->getContent();
                     $successMessage = $isEdit
-                        ? $this->translate('Collecting form successfully updated')
-                        : $this->translate('Collecting form successfully created');
+                        ? 'Collecting form successfully updated' // @translate
+                        : 'Collecting form successfully created'; // @translate
                     $this->messenger()->addSuccess($successMessage);
                     return $this->redirect()->toUrl($cForm->url('show'));
                 }
@@ -122,7 +122,7 @@ class IndexController extends AbstractActionController
             if ($form->isValid()) {
                 $response = $this->api($form)->delete('collecting_forms', $this->params('id'));
                 if ($response->isSuccess()) {
-                    $this->messenger()->addSuccess($this->translate('Collecting form successfully deleted'));
+                    $this->messenger()->addSuccess('Collecting form successfully deleted'); // @translate
                 }
             } else {
                 $this->messenger()->addErrors($form->getMessages());
