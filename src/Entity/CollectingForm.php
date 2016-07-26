@@ -153,6 +153,6 @@ class CollectingForm extends AbstractEntity
 
     public function getUserPrompts()
     {
-        return $this->prompts;
+        return $this->userPrompts;
     }
 }

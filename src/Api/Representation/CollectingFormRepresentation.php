@@ -37,6 +37,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             'o:site' => $site,
             'o:item_set' => $itemSet,
             'o-module-collecting:prompt' => $this->prompts(),
+            'o-module-collecting:user_prompt' => $this->userPrompts(),
         ];
     }
 
@@ -90,6 +91,15 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             $prompts[]= new CollectingPromptRepresentation($prompt, $this->getServiceLocator());
         }
         return $prompts;
+    }
+
+    public function userPrompts()
+    {
+        $userPrompts = [];
+        foreach ($this->resource->getUserPrompts() as $userPrompt) {
+            $userPrompts[]= new CollectingUserPromptRepresentation($userPrompt, $this->getServiceLocator());
+        }
+        return $userPrompts;
     }
 
     /**
