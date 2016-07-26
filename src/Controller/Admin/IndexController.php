@@ -9,15 +9,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class IndexController extends AbstractActionController
 {
-    public function adminAction()
-    {
-        $site = $this->currentSite();
-
-        $view = new ViewModel;
-        $view->setVariable('site', $site);
-        return $view;
-    }
-
     public function indexAction()
     {
         $site = $this->currentSite();
