@@ -33,6 +33,7 @@ return [
         'invokables' => [
             'collecting_forms' => 'Collecting\Api\Adapter\CollectingFormAdapter',
             'collecting_items' => 'Collecting\Api\Adapter\CollectingItemAdapter',
+            'collecting_users' => 'Collecting\Api\Adapter\CollectingUserAdapter',
         ],
     ],
     'navigation' => [

@@ -51,7 +51,7 @@ class CollectingItem extends AbstractEntity
      *     onDelete="CASCADE"
      * )
      */
-    protected $user;
+    protected $collectingUser;
 
     /**
      * @OneToMany(
@@ -102,14 +102,14 @@ class CollectingItem extends AbstractEntity
         return $this->form;
     }
 
-    public function setUser(CollectingUser $user)
+    public function setCollectingUser(CollectingUser $collectingUser)
     {
-        $this->user = $user;
+        $this->collectingUser = $collectingUser;
     }
 
-    public function getUser()
+    public function geCollectingUser()
     {
-        return $this->user;
+        return $this->collectingUser;
     }
 
     public function getInputs()
