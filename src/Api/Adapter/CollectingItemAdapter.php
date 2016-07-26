@@ -5,6 +5,7 @@ use Collecting\Entity\CollectingInput;
 use Collecting\Entity\CollectingUser;
 use Doctrine\ORM\QueryBuilder;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
+use Omeka\Api\Exception;
 use Omeka\Api\Request;
 use Omeka\Entity\EntityInterface;
 use Omeka\Stdlib\ErrorStore;
@@ -26,11 +27,18 @@ class CollectingItemAdapter extends AbstractEntityAdapter
         return 'Collecting\Entity\CollectingItem';
     }
 
-    public function validateRequest(Request $request, ErrorStore $errorStore)
+    public function batchCreate(Request $request)
     {
-        if (Request::CREATE !== $request->getOperation()) {
-            $errorStore->addError('o-module-collecting:item', 'Cannot update a collecting item.');
-        }
+        throw new Exception\OperationNotImplementedException(
+            'CollectingItemAdapter does not implement the batchCreate operation.'
+        );
+    }
+
+    public function update(Request $request)
+    {
+        throw new Exception\OperationNotImplementedException(
+            'CollectingItemAdapter does not implement the update operation.'
+        );
     }
 
     public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore)

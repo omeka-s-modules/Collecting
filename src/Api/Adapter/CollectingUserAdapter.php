@@ -3,6 +3,7 @@ namespace Collecting\Api\Adapter;
 
 use Doctrine\ORM\QueryBuilder;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
+use Omeka\Api\Exception;
 use Omeka\Api\Request;
 use Omeka\Entity\EntityInterface;
 use Omeka\Stdlib\ErrorStore;
@@ -24,15 +25,33 @@ class CollectingUserAdapter extends AbstractEntityAdapter
         return 'Collecting\Entity\CollectingUser';
     }
 
-    public function validateRequest(Request $request, ErrorStore $errorStore)
+    public function create(Request $request)
     {
-        $invalidOperations = [
-            Request::CREATE, Request::UPDATE,
-            Request::BATCH_CREATE, Request::DELETE,
-        ];
-        if (in_array($request->getOperation(), $invalidOperations)) {
-            $errorStore->addError('o-module-collecting:user', 'Cannot create, update, or delete a collecting user.');
-        }
+        // Creation is done during CollectingItem hydration via cascade="persist"
+        throw new Exception\OperationNotImplementedException(
+            'CollectingUserAdapter does not implement the create operation.'
+        );
+    }
+
+    public function batchCreate(Request $request)
+    {
+        throw new Exception\OperationNotImplementedException(
+            'CollectingUserAdapter does not implement the batchCreate operation.'
+        );
+    }
+
+    public function update(Request $request)
+    {
+        throw new Exception\OperationNotImplementedException(
+            'CollectingUserAdapter does not implement the update operation.'
+        );
+    }
+
+    public function delete(Request $request)
+    {
+        throw new Exception\OperationNotImplementedException(
+            'CollectingUserAdapter does not implement the delete operation.'
+        );
     }
 
     public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore)

@@ -4,6 +4,7 @@ namespace Collecting\Api\Adapter;
 use Collecting\Entity\CollectingPrompt;
 use Doctrine\ORM\QueryBuilder;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
+use Omeka\Api\Exception;
 use Omeka\Api\Request;
 use Omeka\Entity\EntityInterface;
 use Omeka\Stdlib\ErrorStore;
@@ -23,6 +24,13 @@ class CollectingFormAdapter extends AbstractEntityAdapter
     public function getEntityClass()
     {
         return 'Collecting\Entity\CollectingForm';
+    }
+
+    public function batchCreate(Request $request)
+    {
+        throw new Exception\OperationNotImplementedException(
+            'CollectingFormAdapter does not implement the batchCreate operation.'
+        );
     }
 
     public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore) {
