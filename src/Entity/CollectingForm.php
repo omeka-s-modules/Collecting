@@ -74,8 +74,21 @@ class CollectingForm extends AbstractEntity
      */
     protected $prompts;
 
+    /**
+     * @OneToMany(
+     *     targetEntity="CollectingUserPrompt",
+     *     mappedBy="form",
+     *     indexBy="id",
+     *     orphanRemoval=true,
+     *     cascade={"all"}
+     * )
+     * @OrderBy({"position" = "ASC"})
+     */
+    protected $userPrompts;
+
     public function __construct() {
         $this->prompts = new ArrayCollection;
+        $this->userPrompts = new ArrayCollection;
     }
 
     public function getId()
@@ -134,6 +147,11 @@ class CollectingForm extends AbstractEntity
     }
 
     public function getPrompts()
+    {
+        return $this->prompts;
+    }
+
+    public function getUserPrompts()
     {
         return $this->prompts;
     }

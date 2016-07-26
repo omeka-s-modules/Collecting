@@ -6,7 +6,7 @@ use Omeka\Entity\AbstractEntity;
 /**
  * @Entity
  */
-class CollectingInput extends AbstractEntity
+class CollectingUserInput extends AbstractEntity
 {
     /**
      * @Id
@@ -17,20 +17,20 @@ class CollectingInput extends AbstractEntity
 
     /**
      * @ManyToOne(
-     *     targetEntity="CollectingPrompt",
-     *     inversedBy="inputs"
+     *     targetEntity="CollectingUserPrompt",
+     *     inversedBy="userInputs"
      * )
      * @JoinColumn(
      *     nullable=false,
      *     onDelete="CASCADE"
      * )
      */
-    protected $prompt;
+    protected $userPrompt;
 
     /**
      * @ManyToOne(
      *     targetEntity="CollectingItem",
-     *     inversedBy="inputs"
+     *     inversedBy="userInputs"
      * )
      * @JoinColumn(
      *     nullable=false,
@@ -49,14 +49,14 @@ class CollectingInput extends AbstractEntity
         return $this->id;
     }
 
-    public function setPrompt(CollectingPrompt $prompt)
+    public function setUserPrompt(CollectingUserPrompt $userPrompt)
     {
-        $this->prompt = $prompt;
+        $this->userPrompt = $userPrompt;
     }
 
-    public function getPrompt()
+    public function getUserPrompt()
     {
-        return $this->prompt;
+        return $this->userPrompt;
     }
 
     public function setItem(CollectingItem $item)
@@ -79,3 +79,4 @@ class CollectingInput extends AbstractEntity
         return $this->text;
     }
 }
+

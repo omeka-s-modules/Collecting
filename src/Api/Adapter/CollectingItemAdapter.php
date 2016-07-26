@@ -2,6 +2,7 @@
 namespace Collecting\Api\Adapter;
 
 use Collecting\Entity\CollectingInput;
+use Collecting\Entity\CollectingUser;
 use Doctrine\ORM\QueryBuilder;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
 use Omeka\Api\Request;
@@ -34,6 +35,23 @@ class CollectingItemAdapter extends AbstractEntityAdapter
 
     public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore)
     {
+        // Set the currently logged in user as the collecting user. If no user
+        // is logged in, set a new, anonymous collecting user.
+        $auth = $this->getServiceLocator()->get('Omeka\AuthenticationService');
+        $user = $auth->getIdentity(); // returns a User entity or null
+        $cUser = null;
+        if ($user) {
+            // User has identity. Check if collecting user already exists.
+            $cUser = $this->getEntityManager()->find('Collecting\Entity\CollectingUser', $user);
+        }
+        if (!$cUser) {
+            // Collecting user does not exist. Create a new, anonymous one.
+            $cUser = new CollectingUser;
+        }
+        // CollectingItem::$user has cascade="persist" for persisting new users.
+        $cUser->setUser($user);
+        $entity->setUser($cUser);
+
         $data = $request->getContent();
         if (isset($data['o:item']['o:id'])) {
             $entity->setItem($this->getEntityManager()->getReference(

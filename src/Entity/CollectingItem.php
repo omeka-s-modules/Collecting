@@ -1,7 +1,6 @@
 <?php
 namespace Collecting\Entity;
 
-use Collecting\Entity\CollectingForm;
 use Doctrine\Common\Collections\ArrayCollection;
 use Omeka\Entity\AbstractEntity;
 use Omeka\Entity\Item;
@@ -42,6 +41,19 @@ class CollectingItem extends AbstractEntity
     protected $form;
 
     /**
+     * @ManyToOne(
+     *     targetEntity="CollectingUser",
+     *     inversedBy="items",
+     *     cascade={"persist"}
+     * )
+     * @JoinColumn(
+     *     nullable=false,
+     *     onDelete="CASCADE"
+     * )
+     */
+    protected $user;
+
+    /**
      * @OneToMany(
      *     targetEntity="CollectingInput",
      *     mappedBy="item",
@@ -50,6 +62,16 @@ class CollectingItem extends AbstractEntity
      * )
      */
     protected $inputs;
+
+    /**
+     * @OneToMany(
+     *     targetEntity="CollectingUserInput",
+     *     mappedBy="item",
+     *     orphanRemoval=true,
+     *     cascade={"all"}
+     * )
+     */
+    protected $userInputs;
 
     public function __construct() {
         $this->inputs = new ArrayCollection;
@@ -80,7 +102,22 @@ class CollectingItem extends AbstractEntity
         return $this->form;
     }
 
+    public function setUser(CollectingUser $user)
+    {
+        $this->user = $user;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
     public function getInputs()
+    {
+        return $this->inputs;
+    }
+
+    public function getUserInputs()
     {
         return $this->inputs;
     }
