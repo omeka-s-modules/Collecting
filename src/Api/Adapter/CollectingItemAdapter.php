@@ -52,7 +52,7 @@ class CollectingItemAdapter extends AbstractEntityAdapter
         }
         foreach ($data['o-module-collecting:input'] as $inputData) {
             $input = new CollectingInput;
-            $input->setItem($entity);
+            $input->setCollectingItem($entity);
             if (isset($inputData['o-module-collecting:prompt'])) {
                 $input->setPrompt($this->getEntityManager()->getReference(
                     'Collecting\Entity\CollectingPrompt',

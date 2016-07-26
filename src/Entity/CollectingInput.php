@@ -37,7 +37,7 @@ class CollectingInput extends AbstractEntity
      *     onDelete="CASCADE"
      * )
      */
-    protected $item;
+    protected $collectingItem;
 
     /**
      * @Column(type="text")
@@ -59,14 +59,14 @@ class CollectingInput extends AbstractEntity
         return $this->prompt;
     }
 
-    public function setItem(CollectingItem $item)
+    public function setCollectingItem(CollectingItem $collectingItem)
     {
-        $this->item = $item;
+        $this->collectingItem = $collectingItem;
     }
 
-    public function getItem()
+    public function getCollectingItem()
     {
-        return $this->item;
+        return $this->collectingItem;
     }
 
     public function setText($text)

@@ -36,10 +36,10 @@ class CollectingUser extends AbstractEntity
      *     cascade={"all"}
      * )
      */
-    protected $items;
+    protected $collectingItems;
 
     public function __construct() {
-        $this->items = new ArrayCollection;
+        $this->collectingItems = new ArrayCollection;
     }
 
     public function getId()
@@ -57,8 +57,8 @@ class CollectingUser extends AbstractEntity
         return $this->user;
     }
 
-    public function getItems()
+    public function getCollectingItems()
     {
-        return $this->items;
+        return $this->collectingItems;
     }
 }
