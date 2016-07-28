@@ -114,10 +114,11 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         foreach ($this->prompts() as $prompt) {
             $name = sprintf('prompt_%s', $prompt->id());
             switch ($prompt->type()) {
+                // Note that there's no break here. When building the form we
+                // handle property, input, and user prompts the same.
                 case 'property':
-                    // Note that there's no break here. When building the form
-                    // we handle property and input prompts the same.
                 case 'input':
+                case 'user':
                     switch ($prompt->inputType()) {
                         case 'text':
                             $element = new Element\PromptText($name);

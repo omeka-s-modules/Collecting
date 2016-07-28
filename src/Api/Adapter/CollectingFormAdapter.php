@@ -169,6 +169,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 }
                 break;
             case 'input':
+            case 'user':
                 if (null === $validatedData['o-module-collecting:text']) {
                     $errorStore->addError('o-module-collecting:text', 'An input prompt must have text.');
                 }

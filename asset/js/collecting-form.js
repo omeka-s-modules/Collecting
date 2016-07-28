@@ -66,12 +66,14 @@ var setSidebarForType = function(type) {
             $('#prompt-media-type').closest('.sidebar-section').show();
             break;
         case 'input':
+        case 'user':
             $('#prompt-input-type').closest('.sidebar-section').show();
             break;
         default:
             // invalid or no prompt type
             return;
     }
+    $('#prompt-type').val(type);
     $('#prompt-text').closest('.sidebar-section').show();
     $('#prompt-required').closest('.sidebar-section').show();
     $('#prompt-save').show();
@@ -94,10 +96,7 @@ $(document).ready(function() {
 
     // Handle changing the prompt's type.
     $('#prompt-type').on('change', function() {
-        var typeSelect = $(this);
-        var type = typeSelect.val();
-        setSidebarForType(type);
-        typeSelect.val(type);
+        setSidebarForType($(this).val());
     });
 
     // Handle changing the prompt's input type.
@@ -161,7 +160,6 @@ $(document).ready(function() {
         switch (type) {
             case 'property':
                 var inputType = prompt.find('.prompt-input-type').val();
-                $('#prompt-type').val('property');
                 $('#prompt-text').val(text);
                 $('#prompt-property').val(prompt.find('.prompt-property-id').val());
                 $('#prompt-input-type').val(inputType);
@@ -172,13 +170,12 @@ $(document).ready(function() {
                 break;
             case 'media':
                 var mediaType = prompt.find('.prompt-media-type').val();
-                $('#prompt-type').val('media');
                 $('#prompt-text').val(text);
                 $('#prompt-media-type').val(mediaType);
                 break;
             case 'input':
+            case 'user':
                 var inputType = prompt.find('.prompt-input-type').val();
-                $('#prompt-type').val('input');
                 $('#prompt-text').val(text);
                 $('#prompt-input-type').val(inputType);
                 if ('select' === inputType) {
@@ -234,6 +231,7 @@ $(document).ready(function() {
                 }
                 break;
             case 'input':
+            case 'user':
                 if (!promptData['o-module-collecting:text']) {
                     alert('You must provide prompt text.');
                     return;
