@@ -88,9 +88,10 @@ class CollectingPrompt extends AbstractEntity
     public static function getTypes()
     {
         return [
-            'property' => 'Property', // @translate
-            'media' => 'Media', // @translate
-            'input' => 'Supplementary', // @translate
+            'property' => 'Item Property', // @translate
+            'media' => 'Item Media', // @translate
+            'input' => 'Item Supplementary', // @translate
+            'user' => 'User Input', // @translate
         ];
     }
 

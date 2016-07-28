@@ -63,16 +63,6 @@ class CollectingItem extends AbstractEntity
      */
     protected $inputs;
 
-    /**
-     * @OneToMany(
-     *     targetEntity="CollectingUserInput",
-     *     mappedBy="item",
-     *     orphanRemoval=true,
-     *     cascade={"all"}
-     * )
-     */
-    protected $userInputs;
-
     public function __construct() {
         $this->inputs = new ArrayCollection;
     }
@@ -113,11 +103,6 @@ class CollectingItem extends AbstractEntity
     }
 
     public function getInputs()
-    {
-        return $this->inputs;
-    }
-
-    public function getUserInputs()
     {
         return $this->inputs;
     }
