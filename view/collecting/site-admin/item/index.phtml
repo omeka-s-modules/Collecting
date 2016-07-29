@@ -18,6 +18,9 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
         <?php echo $item->displayTitle(); ?>
     </h3>
     <p><a href="<?php echo $this->escapeHtml($item->url()); ?>" class="button">View item</a> <a href="" class="button">View details</a></p>
+
+    <?php if ($inputs = $cItem->inputs()): ?>
+
     <table class="tablesaw">
         <thead>
         <tr>
@@ -26,7 +29,7 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($cItem->inputs() as $input): ?>
+        <?php foreach ($inputs as $input): ?>
         <?php
         $prompt = $input->prompt();
         $promptText = $input->prompt()->text();
@@ -42,6 +45,9 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
         <?php endforeach; ?>
         </tbody>
     </table>
+
+    <?php endif; ?>
+
 </div>
 <?php endforeach; ?>
 
