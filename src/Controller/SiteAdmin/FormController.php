@@ -12,8 +12,12 @@ class FormController extends AbstractActionController
     public function indexAction()
     {
         $site = $this->currentSite();
-        $cForms = $this->api()
-            ->search('collecting_forms', ['site_id' => $site->id()])->getContent();
+        $this->getRequest()->getQuery()->set('site_id', $site->id());
+
+        $this->setBrowseDefaults('id');
+        $response = $this->api()->search('collecting_forms', $this->params()->fromQuery());
+        $this->paginator($response->getTotalResults(), $this->params()->fromQuery('page'));
+        $cForms = $response->getContent();
 
         $view = new ViewModel;
         $view->setVariable('site', $site);

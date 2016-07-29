@@ -10,25 +10,32 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
 
 <?php foreach ($cItems as $cItem): ?>
 <?php $item = $cItem->item(); ?>
-<h3><?php echo $item->link($item->displayTitle()); ?></h3>
-<table class="tablesaw">
-    <thead>
-    <tr>
-        <th>Prompt</th>
-        <th>Prompt Text</th>
-        <th>User Text</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($cItem->inputs() as $input): ?>
-    <tr>
-        <td><?php echo $input->prompt()->type(); ?></td>
-        <td><?php echo $input->prompt()->text(); ?></td>
-        <td><?php echo $input->text(); ?></td>
-    </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
+<div>
+    <h3>
+        <?php if ($media = $item->primaryMedia()): ?>
+        <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:2.25em;">
+        <?php endif; ?>
+        <?php echo $item->link($item->displayTitle()); ?>
+    </h3>
+    <table class="tablesaw">
+        <thead>
+        <tr>
+            <th>Prompt</th>
+            <th>Prompt Text</th>
+            <th>User Text</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($cItem->inputs() as $input): ?>
+        <tr>
+            <td><?php echo $input->prompt()->type(); ?></td>
+            <td><?php echo $input->prompt()->text(); ?></td>
+            <td><?php echo $input->text(); ?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 <?php endforeach; ?>
 
 <?php else: ?>

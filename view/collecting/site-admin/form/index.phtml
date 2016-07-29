@@ -10,6 +10,10 @@ echo $this->pageTitle($this->translate('Collecting Forms'));
 
 <?php if ($cForms): ?>
 
+<div class="browse-controls">
+    <?php echo $this->pagination(); ?>
+</div>
+
 <table class="tablesaw">
     <thead>
     <tr>

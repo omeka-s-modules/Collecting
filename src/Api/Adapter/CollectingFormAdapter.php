@@ -11,6 +11,10 @@ use Omeka\Stdlib\ErrorStore;
 
 class CollectingFormAdapter extends AbstractEntityAdapter
 {
+    protected $sortFields = [
+        'id' => 'id',
+    ];
+
     public function getResourceName()
     {
         return 'collecting_forms';
