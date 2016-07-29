@@ -1,0 +1,38 @@
+<?php
+echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cForm->label()));
+?>
+
+<nav class="section-nav">
+    <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
+</nav>
+
+<?php if ($cItems): ?>
+
+<?php foreach ($cItems as $cItem): ?>
+<?php $item = $cItem->item(); ?>
+<h3><?php echo $item->link($item->displayTitle()); ?></h3>
+<table class="tablesaw">
+    <thead>
+    <tr>
+        <th>Prompt</th>
+        <th>Prompt Text</th>
+        <th>User Text</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($cItem->inputs() as $input): ?>
+    <tr>
+        <td><?php echo $input->prompt()->type(); ?></td>
+        <td><?php echo $input->prompt()->text(); ?></td>
+        <td><?php echo $input->text(); ?></td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<?php endforeach; ?>
+
+<?php else: ?>
+
+<p><?php echo $this->translate('This form has no collected items.'); ?></p>
+
+<?php endif; ?>

@@ -12,7 +12,9 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'Collecting\Controller\SiteAdmin\Index' => 'Collecting\Controller\SiteAdmin\IndexController',
+            'Collecting\Controller\SiteAdmin\Form' => 'Collecting\Controller\SiteAdmin\FormController',
+            'Collecting\Controller\SiteAdmin\Item' => 'Collecting\Controller\SiteAdmin\ItemController',
+            'Collecting\Controller\SiteAdmin\User' => 'Collecting\Controller\SiteAdmin\UserController',
         ],
         'factories' => [
             'Collecting\Controller\Site\Index' => 'Collecting\Service\Controller\Site\IndexControllerFactory',
@@ -32,7 +34,6 @@ return [
         'invokables' => [
             'collecting_forms' => 'Collecting\Api\Adapter\CollectingFormAdapter',
             'collecting_items' => 'Collecting\Api\Adapter\CollectingItemAdapter',
-            'collecting_users' => 'Collecting\Api\Adapter\CollectingUserAdapter',
         ],
     ],
     'navigation' => [
@@ -52,6 +53,20 @@ return [
                         'visible' => false,
                     ],
                 ],
+            ],
+        ],
+        'Collecting' => [
+            [
+                'label' => 'Form Information', // @translate
+                'route' => 'admin/site/slug/collecting/id',
+                'action' => 'show',
+                'useRouteMatch' => true,
+            ],
+            [
+                'label' => 'Collected Items', // @translate
+                'route' => 'admin/site/slug/collecting/item',
+                'action' => 'index',
+                'useRouteMatch' => true,
             ],
         ],
     ],
@@ -85,7 +100,7 @@ return [
                                             'route' => '/collecting',
                                             'defaults' => [
                                                 '__NAMESPACE__' => 'Collecting\Controller\SiteAdmin',
-                                                'controller' => 'index',
+                                                'controller' => 'Form',
                                                 'action' => 'index',
                                             ],
                                         ],
@@ -112,6 +127,20 @@ return [
                                                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                                     ],
                                                 ],
+                                            ],
+                                            'item' => [
+                                                'type' => 'Segment',
+                                                'options' => [
+                                                    'route' => '/:id/item',
+                                                    'constraints' => [
+                                                        'id' => '\d+',
+                                                    ],
+                                                    'defaults' => [
+                                                        'controller' => 'Item',
+                                                        'action' => 'index',
+                                                    ],
+                                                ],
+                                                'may_terminate' => true,
                                             ],
                                         ],
                                     ],

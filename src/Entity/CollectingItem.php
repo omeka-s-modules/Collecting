@@ -56,7 +56,7 @@ class CollectingItem extends AbstractEntity
     /**
      * @OneToMany(
      *     targetEntity="CollectingInput",
-     *     mappedBy="item",
+     *     mappedBy="collectingItem",
      *     orphanRemoval=true,
      *     cascade={"all"}
      * )

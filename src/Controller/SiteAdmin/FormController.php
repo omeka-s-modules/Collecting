@@ -7,7 +7,7 @@ use Omeka\Mvc\Exception;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\Controller\AbstractActionController;
 
-class IndexController extends AbstractActionController
+class FormController extends AbstractActionController
 {
     public function indexAction()
     {
@@ -50,7 +50,7 @@ class IndexController extends AbstractActionController
         $isEdit = (bool) ('edit' === $this->params('action'));
 
         $view = new ViewModel;
-        $view->setTemplate('collecting/site-admin/index/form');
+        $view->setTemplate('collecting/site-admin/form/form');
         $view->setVariable('site', $site);
         $view->setVariable('form', $form);
         $view->setVariable('isEdit', $isEdit);

@@ -12,6 +12,10 @@ $itemSetLabel = $cForm->itemSet()
     <?php endif; ?>
 </div>
 
+<nav class="section-nav">
+    <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
+</nav>
+
 <div class="property">
     <h4><?php echo $this->translate('Label'); ?></h4>
     <div class="value"><?php echo $this->escapeHtml($cForm->label()); ?></div>
