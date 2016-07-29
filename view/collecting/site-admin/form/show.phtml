@@ -40,27 +40,25 @@ $itemSetLabel = $cForm->itemSet()
     <thead>
     <tr>
         <th><?php echo $this->translate('Type'); ?></th>
-        <th><?php echo $this->translate('Subtype'); ?></th>
         <th><?php echo $this->translate('Text'); ?></th>
         <th><?php echo $this->translate('Required?'); ?></th>
     </tr>
     </thead>
     <tbody>
     <?php foreach ($prompts as $prompt): ?>
-        <tr>
-            <td><?php echo $this->escapeHtml($this->collecting()->typeValue($prompt->type())); ?></td>
-            <td>
-                <?php
-                if ('property' === $prompt->type()) {
-                    echo $this->escapeHtml($prompt->property()->term());
-                } elseif ('media' === $prompt->type()) {
-                    echo $this->escapeHtml($this->collecting()->mediaTypeValue($prompt->mediaType()));
-                }
-                ?>
-            </td>
-            <td><?php echo $this->escapeHtml($prompt->text()); ?></td>
-            <td><?php echo $prompt->required() ? $this->translate('Yes') : $this->translate('No'); ?></td>
-        </tr>
+    <?php
+    $typeField = $this->collecting()->typeValue($prompt->type());
+    if ('property' === $prompt->type()) {
+        $typeField = sprintf('%s [%s]', $typeField, $prompt->property()->term());
+    } elseif ('media' === $prompt->type()) {
+        $typeField = sprintf('%s [%s]', $typeField, $this->collecting()->mediaTypeValue($prompt->mediaType()));
+    }
+    ?>
+    <tr>
+        <td><?php echo $this->escapeHtml($typeField); ?></td>
+        <td><?php echo $this->escapeHtml($prompt->text()); ?></td>
+        <td><?php echo $prompt->required() ? $this->translate('Yes') : $this->translate('No'); ?></td>
+    </tr>
     <?php endforeach; ?>
     </tbody>
 </table>

@@ -20,6 +20,17 @@ var populatePromptRow = function(promptData) {
 
     // Populate the visual elements.
     var typeText = $('#prompt-type option[value="' + promptData['o-module-collecting:type'] + '"]').text();
+    if ('property' === promptData['o-module-collecting:type']) {
+        var propertyText = $('#prompt-property')
+            .find('option[value="' + promptData['o:property']['o:id'] + '"]')
+            .data('term');
+        typeText += ' [' + propertyText + ']';
+    } else if ('media' === promptData['o-module-collecting:type']) {
+        var mediaTypeText = $('#prompt-media-type')
+            .find('option[value="' + promptData['o-module-collecting:media_type'] + '"]')
+            .text();
+        typeText += ' [' + mediaTypeText + ']';
+    }
     promptRow.find('.prompt-type-span').html(typeText);
     promptRow.find('.prompt-text-span').html(promptData['o-module-collecting:text']);
 
@@ -88,6 +99,9 @@ $(document).ready(function() {
         $('#prompts-table').show();
         populatePromptRow(this);
     });
+
+    // Reload the original state of the form to avoid "changes not saved" modal.
+    $('#collectingform').trigger('o:form-loaded');
 
     // Enable prompt sorting.
     new Sortable(document.getElementById('prompts'), {
