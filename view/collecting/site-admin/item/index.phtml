@@ -15,22 +15,29 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
         <?php if ($media = $item->primaryMedia()): ?>
         <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:2.25em;">
         <?php endif; ?>
-        <?php echo $item->link($item->displayTitle()); ?>
+        <?php echo $item->displayTitle(); ?>
     </h3>
+    <p><a href="<?php echo $this->escapeHtml($item->url()); ?>" class="button">View item</a> <a href="" class="button">View details</a></p>
     <table class="tablesaw">
         <thead>
         <tr>
-            <th>Prompt</th>
             <th>Prompt Text</th>
             <th>User Text</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($cItem->inputs() as $input): ?>
+        <?php
+        $prompt = $input->prompt();
+        $promptText = $input->prompt()->text();
+        if (!$promptText && 'property' === $prompt->type()) {
+            $promptText = $prompt->property()->label();
+        }
+        $userText = substr($input->text(), 0, 100);
+        ?>
         <tr>
-            <td><?php echo $input->prompt()->type(); ?></td>
-            <td><?php echo $input->prompt()->text(); ?></td>
-            <td><?php echo $input->text(); ?></td>
+            <td><?php echo $this->escapeHtml($promptText); ?></td>
+            <td><?php echo $this->escapeHtml($userText); ?></td>
         </tr>
         <?php endforeach; ?>
         </tbody>
