@@ -19,7 +19,7 @@ class Module extends AbstractModule
         parent::onBootstrap($event);
 
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
-        $acl->allow(null, 'Collecting\Controller\Admin\Index');
+        $acl->allow(null, 'Collecting\Controller\SiteAdmin\Index');
         $acl->allow(null, 'Collecting\Controller\Site\Index');
         $acl->allow(null, 'Collecting\Api\Adapter\CollectingFormAdapter', ['search', 'read']);
         $acl->allow(null, 'Collecting\Entity\CollectingForm', ['read']);

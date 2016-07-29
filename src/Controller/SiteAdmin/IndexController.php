@@ -1,5 +1,5 @@
 <?php
-namespace Collecting\Controller\Admin;
+namespace Collecting\Controller\SiteAdmin;
 
 use Collecting\Form\CollectingForm;
 use Omeka\Form\ConfirmForm;
@@ -50,7 +50,7 @@ class IndexController extends AbstractActionController
         $isEdit = (bool) ('edit' === $this->params('action'));
 
         $view = new ViewModel;
-        $view->setTemplate('collecting/admin/index/form');
+        $view->setTemplate('collecting/site-admin/index/form');
         $view->setVariable('site', $site);
         $view->setVariable('form', $form);
         $view->setVariable('isEdit', $isEdit);

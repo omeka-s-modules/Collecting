@@ -12,8 +12,7 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'Collecting\Controller\Admin\Index' => 'Collecting\Controller\Admin\IndexController',
-            'Collecting\Controller\Admin\Form' => 'Collecting\Controller\Admin\FormController',
+            'Collecting\Controller\SiteAdmin\Index' => 'Collecting\Controller\SiteAdmin\IndexController',
         ],
         'factories' => [
             'Collecting\Controller\Site\Index' => 'Collecting\Service\Controller\Site\IndexControllerFactory',
@@ -85,7 +84,7 @@ return [
                                         'options' => [
                                             'route' => '/collecting',
                                             'defaults' => [
-                                                '__NAMESPACE__' => 'Collecting\Controller\Admin',
+                                                '__NAMESPACE__' => 'Collecting\Controller\SiteAdmin',
                                                 'controller' => 'index',
                                                 'action' => 'index',
                                             ],
