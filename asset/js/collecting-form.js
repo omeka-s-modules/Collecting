@@ -94,8 +94,23 @@ $(document).ready(function() {
 
     $('#prompts-table').hide();
 
-    // Append existing prompts on load.
-    $.each($('#prompts-span').data('promptsData'), function() {
+    // Append existing prompts on load. 
+    var promptsData = $('#prompts-span').data('promptsData');
+    if (!promptsData.length) {
+        // Always add a "dcterms:title" property prompt to a form without
+        // prompts. Though not required, we should strongly recommend a title
+        // for every collected item.
+        promptsData = [{
+            'o-module-collecting:type': 'property',
+            'o-module-collecting:text': null,
+            'o-module-collecting:input_type': 'text',
+            'o-module-collecting:select_options': null,
+            'o-module-collecting:media_type': null,
+            'o-module-collecting:required': true,
+            'o:property': {'o:id': $('#prompt-property option[data-term="dcterms:title"]').val()},
+        }];
+    }
+    $.each(promptsData, function() {
         $('#prompts-table').show();
         populatePromptRow(this);
     });
