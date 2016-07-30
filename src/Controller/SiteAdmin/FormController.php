@@ -28,8 +28,7 @@ class FormController extends AbstractActionController
     public function showAction()
     {
         $site = $this->currentSite();
-        $cForm = $this->api()
-            ->read('collecting_forms', $this->params('id'))->getContent();
+        $cForm = $this->collectingCurrentForm();
 
         $view = new ViewModel;
         $view->setVariable('site', $site);
@@ -60,8 +59,7 @@ class FormController extends AbstractActionController
         $view->setVariable('isEdit', $isEdit);
 
         if ($isEdit) {
-            $cForm = $this->api()
-                ->read('collecting_forms', $this->params('id'))->getContent();
+            $cForm = $this->collectingCurrentForm();
             $data = $cForm->jsonSerialize();
             $form->setData($data);
             if ($data['o:item_set']) {
@@ -99,7 +97,7 @@ class FormController extends AbstractActionController
     {
         $site = $this->currentSite();
         $cForm = $this->api()
-            ->read('collecting_forms', $this->params('id'))->getContent();
+            ->read('collecting_forms', $this->params('form-id'))->getContent();
 
         $view = new ViewModel;
         $view->setTerminal(true);
@@ -115,7 +113,7 @@ class FormController extends AbstractActionController
             $form = $this->getForm(ConfirmForm::class);
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
-                $response = $this->api($form)->delete('collecting_forms', $this->params('id'));
+                $response = $this->api($form)->delete('collecting_forms', $this->params('form-id'));
                 if ($response->isSuccess()) {
                     $this->messenger()->addSuccess('Collecting form successfully deleted'); // @translate
                 }

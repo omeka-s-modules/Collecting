@@ -49,7 +49,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 'site-slug' => $this->site()->slug(),
                 'controller' => $this->getControllerName(),
                 'action' => $action,
-                'id' => $this->id(),
+                'form-id' => $this->id(),
             ],
             ['force_canonical' => $canonical]
         );

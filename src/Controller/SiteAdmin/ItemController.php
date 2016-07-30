@@ -9,8 +9,7 @@ class ItemController extends AbstractActionController
     public function indexAction()
     {
         $site = $this->currentSite();
-        $cForm = $this->api()
-            ->read('collecting_forms', $this->params('id'))->getContent();
+        $cForm = $this->collectingCurrentForm();
         $cItems = $this->api()
             ->search('collecting_items', ['form_id' => $cForm->id()])->getContent();
 

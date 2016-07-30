@@ -20,6 +20,11 @@ return [
             'Collecting\Controller\Site\Index' => 'Collecting\Service\Controller\Site\IndexControllerFactory',
         ],
     ],
+    'controller_plugins' => [
+        'invokables' => [
+            'collectingCurrentForm' => 'Collecting\Mvc\Controller\Plugin\CollectingCurrentForm',
+        ],
+    ],
     'block_layouts' => [
         'invokables' => [
             'collecting' => 'Collecting\Site\BlockLayout\Collecting',
@@ -109,9 +114,9 @@ return [
                                             'id' => [
                                                 'type' => 'Segment',
                                                 'options' => [
-                                                    'route' => '/:id[/:action]',
+                                                    'route' => '/:form-id[/:action]',
                                                     'constraints' => [
-                                                        'id' => '\d+',
+                                                        'form-id' => '\d+',
                                                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                                     ],
                                                     'defaults' => [
@@ -131,9 +136,9 @@ return [
                                             'item' => [
                                                 'type' => 'Segment',
                                                 'options' => [
-                                                    'route' => '/:id/item',
+                                                    'route' => '/:form-id/item',
                                                     'constraints' => [
-                                                        'id' => '\d+',
+                                                        'form-id' => '\d+',
                                                     ],
                                                     'defaults' => [
                                                         'controller' => 'Item',

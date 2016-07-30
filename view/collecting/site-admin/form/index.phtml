@@ -32,10 +32,10 @@ echo $this->pageTitle($this->translate('Collecting Forms'));
             <?php echo $cForm->link($cForm->label(), 'show'); ?>
             <ul class="actions">
                 <?php if ($cForm->userIsAllowed('update')): ?>
-                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'id' => $cForm->id()], true); ?>" class="o-icon-edit" aria-label="<?php echo $this->translate('Edit'); ?>" title="<?php echo $this->translate('Edit'); ?>"></a></li>
+                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'form-id' => $cForm->id()], true); ?>" class="o-icon-edit" aria-label="<?php echo $this->translate('Edit'); ?>" title="<?php echo $this->translate('Edit'); ?>"></a></li>
                 <?php endif; ?>
                 <?php if ($cForm->userIsAllowed('delete')): ?>
-                <li><a href="#" class="sidebar-content o-icon-delete" aria-label="<?php echo $this->translate('Delete'); ?>" title="<?php echo $this->translate('Delete'); ?>" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'id' => $cForm->id()], true); ?>"></a></li>
+                <li><a href="#" class="sidebar-content o-icon-delete" aria-label="<?php echo $this->translate('Delete'); ?>" title="<?php echo $this->translate('Delete'); ?>" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'form-id' => $cForm->id()], true); ?>"></a></li>
                 <?php endif; ?>
             </ul>
         </td>
