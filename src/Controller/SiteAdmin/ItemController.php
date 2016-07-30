@@ -19,4 +19,18 @@ class ItemController extends AbstractActionController
         $view->setVariable('cItems', $cItems);
         return $view;
     }
+
+    public function showAction()
+    {
+        $site = $this->currentSite();
+        $cForm = $this->collectingCurrentForm();
+        $cItem = $this->api()
+            ->read('collecting_items', $this->params('item-id'))->getContent();
+
+        $view = new ViewModel;
+        $view->setVariable('site', $site);
+        $view->setVariable('cForm', $cForm);
+        $view->setVariable('cItem', $cItem);
+        return $view;
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+$this->htmlElement('body')->appendAttribute('class', 'browse');
 echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cForm->label()));
 ?>
 
@@ -8,47 +9,34 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
 
 <?php if ($cItems): ?>
 
-<?php foreach ($cItems as $cItem): ?>
-<?php $item = $cItem->item(); ?>
-<div>
-    <h3>
-        <?php if ($media = $item->primaryMedia()): ?>
+<table class="tablesaw" data-tablesaw-mode="stack">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>User</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($cItems as $cItem): ?>
+    <?php
+    if ($user = $cItem->collectingUser()->user()) {
+        $userText = $user->link($user->name());
+    } else {
+        $userText = $this->translate('[anonymous]');
+    }
+    ?>
+    <tr>
+        <td>
+        <?php if ($media = $cItem->item()->primaryMedia()): ?>
         <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:2.25em;">
         <?php endif; ?>
-        <?php echo $item->displayTitle(); ?>
-    </h3>
-    <p><a href="<?php echo $this->escapeHtml($item->url()); ?>" class="button">View item</a> <a href="" class="button">View details</a></p>
-
-    <?php if ($inputs = $cItem->inputs()): ?>
-
-    <table class="tablesaw">
-        <thead>
-        <tr>
-            <th>Prompt</th>
-            <th>User Input</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($inputs as $input): ?>
-        <?php
-        $promptField = $input->prompt()->text();
-        if (!$promptField && 'property' === $input->prompt()->type()) {
-            $promptField = $input->prompt()->property()->label();
-        }
-        $userInputField = substr($input->text(), 0, 100);
-        ?>
-        <tr>
-            <td><?php echo $this->escapeHtml($promptField); ?></td>
-            <td><?php echo $this->escapeHtml($userInputField); ?></td>
-        </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-
-    <?php endif; ?>
-
-</div>
-<?php endforeach; ?>
+        <?php echo $cItem->link($cItem->item()->displayTitle()); ?>
+        </td>
+        <td><?php echo $userText; ?></td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
 
 <?php else: ?>
 

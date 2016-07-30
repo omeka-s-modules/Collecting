@@ -97,7 +97,7 @@ class CollectingItem extends AbstractEntity
         $this->collectingUser = $collectingUser;
     }
 
-    public function geCollectingUser()
+    public function getCollectingUser()
     {
         return $this->collectingUser;
     }

@@ -25,6 +25,22 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
         ];
     }
 
+    public function adminUrl($action = null, $canonical = false)
+    {
+        $url = $this->getViewHelper('Url');
+        return $url(
+            'admin/site/slug/collecting/item/id',
+            [
+                'site-slug' => $this->form()->site()->slug(),
+                'controller' => $this->getControllerName(),
+                'action' => $action,
+                'form-id' => $this->form()->id(),
+                'item-id' => $this->id(),
+            ],
+            ['force_canonical' => $canonical]
+        );
+    }
+
     public function item()
     {
         return $this->getAdapter('items')
@@ -35,6 +51,12 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     {
         return $this->getAdapter('collecting_forms')
             ->getRepresentation($this->resource->getForm());
+    }
+
+    public function collectingUser()
+    {
+        return $this->getAdapter('collecting_users')
+            ->getRepresentation($this->resource->getCollectingUser());
     }
 
     public function inputs()

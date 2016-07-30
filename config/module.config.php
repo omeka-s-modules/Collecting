@@ -39,6 +39,7 @@ return [
         'invokables' => [
             'collecting_forms' => 'Collecting\Api\Adapter\CollectingFormAdapter',
             'collecting_items' => 'Collecting\Api\Adapter\CollectingItemAdapter',
+            'collecting_users' => 'Collecting\Api\Adapter\CollectingUserAdapter',
         ],
     ],
     'navigation' => [
@@ -57,6 +58,14 @@ return [
                         'route' => 'admin/site/slug/collecting/default',
                         'visible' => false,
                     ],
+                    [
+                        'route' => 'admin/site/slug/collecting/item',
+                        'visible' => false,
+                    ],
+                    [
+                        'route' => 'admin/site/slug/collecting/item/id',
+                        'visible' => false,
+                    ],
                 ],
             ],
         ],
@@ -72,6 +81,12 @@ return [
                 'route' => 'admin/site/slug/collecting/item',
                 'action' => 'index',
                 'useRouteMatch' => true,
+                'pages' => [
+                    [
+                        'route' => 'admin/site/slug/collecting/item/id',
+                        'visible' => false,
+                    ],
+                ],
             ],
         ],
     ],
@@ -146,6 +161,21 @@ return [
                                                     ],
                                                 ],
                                                 'may_terminate' => true,
+                                                'child_routes' => [
+                                                    'id' => [
+                                                        'type' => 'Segment',
+                                                        'options' => [
+                                                            'route' => '/:item-id[/:action]',
+                                                            'constraints' => [
+                                                                'item-id' => '\d+',
+                                                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                                            ],
+                                                            'defaults' => [
+                                                                'action' => 'show',
+                                                            ],
+                                                        ],
+                                                    ],
+                                                ],
                                             ],
                                         ],
                                     ],
