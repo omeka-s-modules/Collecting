@@ -34,6 +34,9 @@ return [
         'mapping_classes_paths' => [
             OMEKA_PATH . '/modules/Collecting/src/Entity',
         ],
+        'proxy_paths' => [
+            OMEKA_PATH . '/modules/Collecting/data/doctrine-proxies',
+        ],
     ],
     'api_adapters' => [
         'invokables' => [
