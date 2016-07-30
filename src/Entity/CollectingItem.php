@@ -1,12 +1,15 @@
 <?php
 namespace Collecting\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Omeka\Entity\AbstractEntity;
 use Omeka\Entity\Item;
 
 /**
  * @Entity
+ * @HasLifecycleCallbacks
  */
 class CollectingItem extends AbstractEntity
 {
@@ -52,6 +55,16 @@ class CollectingItem extends AbstractEntity
      * )
      */
     protected $collectingUser;
+
+    /**
+     * @Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @Column(type="datetime", nullable=true)
+     */
+    protected $modified;
 
     /**
      * @OneToMany(
@@ -102,8 +115,44 @@ class CollectingItem extends AbstractEntity
         return $this->collectingUser;
     }
 
+    public function setCreated(DateTime $dateTime)
+    {
+        $this->created = $dateTime;
+    }
+
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    public function setModified(DateTime $dateTime)
+    {
+        $this->modified = $dateTime;
+    }
+
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
     public function getInputs()
     {
         return $this->inputs;
+    }
+
+    /**
+     * @PrePersist
+     */
+    public function prePersist(LifecycleEventArgs $eventArgs)
+    {
+        $this->created = new DateTime('now');
+    }
+
+    /**
+     * @PreUpdate
+     */
+    public function preUpdate(PreUpdateEventArgs $eventArgs)
+    {
+        $this->modified = new DateTime('now');
     }
 }

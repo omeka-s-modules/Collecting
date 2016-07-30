@@ -59,6 +59,16 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
             ->getRepresentation($this->resource->getCollectingUser());
     }
 
+    public function created()
+    {
+        return $this->resource->getCreated();
+    }
+
+    public function modified()
+    {
+        return $this->resource->getModified();
+    }
+
     public function inputs()
     {
         $inputs = [];
