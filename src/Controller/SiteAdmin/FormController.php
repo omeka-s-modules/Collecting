@@ -93,20 +93,6 @@ class FormController extends AbstractActionController
         return $view;
     }
 
-    public function deleteConfirmAction()
-    {
-        $site = $this->currentSite();
-        $cForm = $this->api()
-            ->read('collecting_forms', $this->params('form-id'))->getContent();
-
-        $view = new ViewModel;
-        $view->setTerminal(true);
-        $view->setTemplate('common/delete-confirm-details');
-        $view->setVariable('resourceLabel', 'collecting form');
-        $view->setVariable('resource', $cForm);
-        return $view;
-    }
-
     public function deleteAction()
     {
         if ($this->getRequest()->isPost()) {

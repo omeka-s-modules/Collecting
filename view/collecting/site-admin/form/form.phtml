@@ -123,7 +123,4 @@ echo $this->form()->openTag($form);
     </div>
 </div>
 
-<div id="delete-confirm-sidebar" class="sidebar">
-    <a href="#" class="sidebar-close o-icon-close" aria-label="<?php echo $this->translate('Close'); ?>" title="<?php echo $this->translate('Close'); ?>"></a>
-    <div class="sidebar-content"></div>
-</div>
+<?php if ($isEdit): echo $this->deleteConfirm($cForm, 'collecting form'); endif;?>
