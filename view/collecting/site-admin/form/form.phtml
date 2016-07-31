@@ -46,10 +46,6 @@ echo $this->form()->openTag($form);
 
 <h3><?php echo $this->translate('Prompts'); ?></h3>
 
-<span id="prompts-span"
-    data-prompts-data="<?php echo $this->escapeHtml($promptsData); ?>"
-    data-prompt-row-template="<?php echo $this->escapeHtml($promptRowTemplate); ?>"></span>
-
 <a href="#" id="prompt-add" class="button"><?php echo $this->translate('Add prompt'); ?></a>
 
 <table id="prompts-table" class="tablesaw" data-tablesaw-mode="stack">
@@ -60,7 +56,10 @@ echo $this->form()->openTag($form);
         <th><?php echo $this->translate('Text'); ?></th>
     </tr>
     </thead>
-    <tbody id="prompts"></tbody>
+    <tbody id="prompts"
+        data-prompts-data="<?php echo $this->escapeHtml($promptsData); ?>"
+        data-prompt-row-template="<?php echo $this->escapeHtml($promptRowTemplate); ?>">
+    </tbody>
 </table>
 
 <?php echo $this->form()->closeTag(); ?>

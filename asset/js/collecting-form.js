@@ -12,7 +12,7 @@ var populatePromptRow = function(promptData) {
     var promptRow = promptRows.children('.prompt-editing');
     if (!promptRow.length) {
         var index = promptRows.children('.prompt').length;
-        var promptRowTemplate = $('#prompts-span').data('promptRowTemplate');
+        var promptRowTemplate = $('#prompts').data('promptRowTemplate');
         promptRow = $(promptRowTemplate.replace(/__INDEX__/g, index));
         promptRow.find('.prompt-id').val(promptData['o:id']);
         promptRows.append(promptRow);
@@ -95,7 +95,7 @@ $(document).ready(function() {
     $('#prompts-table').hide();
 
     // Append existing prompts on load. 
-    var promptsData = $('#prompts-span').data('promptsData');
+    var promptsData = $('#prompts').data('promptsData');
     if (!promptsData.length) {
         // Always add a "dcterms:title" property prompt to a form without
         // prompts. Though not required, we should strongly recommend a title
