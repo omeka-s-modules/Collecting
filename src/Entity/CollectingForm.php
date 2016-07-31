@@ -46,7 +46,7 @@ class CollectingForm extends AbstractEntity
      * )
      * @JoinColumn(
      *     nullable=true,
-     *     onDelete="SET NULL"
+     *     onDelete="CASCADE"
      * )
      */
     protected $site;
