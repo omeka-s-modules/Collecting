@@ -49,7 +49,7 @@ return [
         'site' => [
             [
                 'label' => 'Collecting', // @translate
-                'route' => 'admin/site/slug/collecting/default',
+                'route' => 'admin/site/slug/collecting',
                 'action' => 'index',
                 'useRouteMatch' => true,
                 'pages' => [
