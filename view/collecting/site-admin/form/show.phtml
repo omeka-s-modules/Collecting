@@ -12,6 +12,10 @@ $itemSetLabel = $cForm->itemSet()
     <?php endif; ?>
 </div>
 
+<div class="breadcrumbs">
+    <a href="<?php echo $this->url('admin/site/slug/collecting', [], true); ?>" class="o-icon-left"><?php echo $this->translate('Back to collecting forms list'); ?></a>
+</div>
+
 <nav class="section-nav">
     <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
 </nav>

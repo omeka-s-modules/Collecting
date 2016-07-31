@@ -2,16 +2,28 @@
 echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cForm->label()));
 ?>
 
+<div id="page-actions">
+    <?php echo $cItem->item()->link('View item', null, ['class' => 'button']); ?>
+</div>
+
+<div class="breadcrumbs">
+    <a href="<?php echo $this->url('admin/site/slug/collecting/item', [], true); ?>" class="o-icon-left"><?php echo $this->translate('Back to collected items list'); ?></a>
+</div>
+
 <nav class="section-nav">
     <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
 </nav>
 
-<h3><?php echo sprintf($this->translate('Collecting Item: “%s”'), $cItem->item()->displayTitle()); ?></h3>
+<h3><?php echo sprintf($this->translate('Collected Item: “%s”'), $cItem->item()->displayTitle()); ?></h3>
 
-<?php echo $cItem->item()->link('View item', null, ['class' => 'button']); ?>
-
-<?php if ($media = $cItem->item()->primaryMedia()): ?>
-<img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>">
+<?php if ($medias = $cItem->item()->media()): ?>
+<div>
+    <?php foreach ($medias as $media): ?>
+    <a href="<?php echo $media->url(); ?>">
+        <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:7.25em;">
+    </a>
+    <?php endforeach; ?>
+</div>
 <?php endif; ?>
 
 <?php if ($inputs = $cItem->inputs()): ?>
