@@ -10,8 +10,12 @@ class ItemController extends AbstractActionController
     {
         $site = $this->currentSite();
         $cForm = $this->collectingCurrentForm();
-        $cItems = $this->api()
-            ->search('collecting_items', ['form_id' => $cForm->id()])->getContent();
+        $this->getRequest()->getQuery()->set('form_id', $cForm->id());
+
+        $this->setBrowseDefaults('id');
+        $response = $this->api()->search('collecting_items', $this->params()->fromQuery());
+        $this->paginator($response->getTotalResults(), $this->params()->fromQuery('page'));
+        $cItems = $response->getContent();
 
         $view = new ViewModel;
         $view->setVariable('site', $site);
