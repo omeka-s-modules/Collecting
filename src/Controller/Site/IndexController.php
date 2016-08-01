@@ -77,6 +77,14 @@ class IndexController extends AbstractActionController
     public function successAction()
     {}
 
+    public function tosAction()
+    {
+        $response = $this->getResponse();
+        $response->getHeaders()->addHeaderLine('Content-Type', 'text/plain; charset=utf-8');
+        $response->setContent($this->siteSettings()->get('collecting_tos'));
+        return $response;
+    }
+
     /**
      * Get the prompt data needed to create the Omeka and Collecting items.
      *

@@ -188,8 +188,29 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             }
         }
 
-        // Add reCAPTCHA protection if keys are provided in site settings.
         $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
+
+        // Add the terms of service if provided in site settings.
+        $tos = $siteSettings->get('collecting_tos');
+        if ($tos) {
+            $tosUrl = $url('site/collecting', [
+                'form-id' => $this->id(),
+                'action' => 'tos',
+            ], true);
+            $form->add([
+                'type' => 'checkbox',
+                'name' => sprintf('tos_accept_%s', $this->id()),
+                'options' => [
+                    'label' => 'I accept the <a href="' . $tosUrl . '" target="_blank" style="text-decoration: underline;">Terms of Service</a>',
+                    'label_options' => [
+                        'disable_html_escape' => true,
+                    ],
+                    'use_hidden_element' => false,
+                ],
+            ]);
+        }
+
+        // Add reCAPTCHA protection if keys are provided in site settings.
         $siteKey = $siteSettings->get('collecting_recaptcha_site_key');
         $secretKey = $siteSettings->get('collecting_recaptcha_secret_key');
         if ($siteKey && $secretKey) {

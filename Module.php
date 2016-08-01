@@ -70,7 +70,6 @@ DELETE FROM site_setting WHERE id = "collecting_recaptcha_site_key";
     public function attachListeners(SharedEventManagerInterface $sharedEventManager)
     {
         $services = $this->getServiceLocator();
-        $siteSettings = $services->get('Omeka\SiteSettings');
         $connection = $services->get('Omeka\Connection');
 
         // When a property is deleted convert all "property" prompts that are
@@ -90,33 +89,56 @@ DELETE FROM site_setting WHERE id = "collecting_recaptcha_site_key";
             }
         );
 
-        // Add the reCAPTCHA site and secret keys to the site settings form.
         $sharedEventManager->attach(
             '*',
             'site_settings.form',
-            function (Event $event) use ($siteSettings) {
-                $form = $event->getParam('form');
-                $form->add([
-                    'type' => 'text',
-                    'name' => 'collecting_recaptcha_site_key',
-                    'options' => [
-                        'label' => 'Collecting reCAPTCHA site key',
-                    ],
-                    'attributes' => [
-                        'value' => $siteSettings->get('collecting_recaptcha_site_key'),
-                    ],
-                ]);
-                $form->add([
-                    'type' => 'text',
-                    'name' => 'collecting_recaptcha_secret_key',
-                    'options' => [
-                        'label' => 'Collecting reCAPTCHA secret key',
-                    ],
-                    'attributes' => [
-                        'value' => $siteSettings->get('collecting_recaptcha_secret_key'),
-                    ],
-                ]);
-            }
+            [$this, 'addSiteSettings']
         );
+    }
+
+    /**
+     * Add elements to the site settings form.
+     *
+     * @param Event $event
+     */
+    public function addSiteSettings(Event $event)
+    {
+        $services = $this->getServiceLocator();
+        $siteSettings = $services->get('Omeka\SiteSettings');
+        $form = $event->getParam('form');
+
+        // Add the reCAPTCHA site and secret keys to the form.
+        $form->add([
+            'type' => 'text',
+            'name' => 'collecting_recaptcha_site_key',
+            'options' => [
+                'label' => 'Collecting reCAPTCHA site key',
+            ],
+            'attributes' => [
+                'value' => $siteSettings->get('collecting_recaptcha_site_key'),
+            ],
+        ]);
+        $form->add([
+            'type' => 'text',
+            'name' => 'collecting_recaptcha_secret_key',
+            'options' => [
+                'label' => 'Collecting reCAPTCHA secret key',
+            ],
+            'attributes' => [
+                'value' => $siteSettings->get('collecting_recaptcha_secret_key'),
+            ],
+        ]);
+
+        // Add the terms of service to the form.
+        $form->add([
+            'type' => 'textarea',
+            'name' => 'collecting_tos',
+            'options' => [
+                'label' => 'Collecting terms of service',
+            ],
+            'attributes' => [
+                'value' => $siteSettings->get('collecting_tos'),
+            ],
+        ]);
     }
 }
