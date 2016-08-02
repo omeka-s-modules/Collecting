@@ -30,6 +30,11 @@ class CollectingForm extends AbstractEntity
     protected $description;
 
     /**
+     * @Column
+     */
+    protected $anonType;
+
+    /**
      * @ManyToOne(
      *     targetEntity="Omeka\Entity\ItemSet"
      * )
@@ -74,6 +79,15 @@ class CollectingForm extends AbstractEntity
      */
     protected $prompts;
 
+    public static function getAnonTypes()
+    {
+        return [
+            'user' => 'User sets own anonymity', // @translate
+            'public' => 'All "User Public" inputs are publicly visible', // @translate
+            'private' => 'All "User Public" inputs are private', // @translate
+        ];
+    }
+
     public function __construct() {
         $this->prompts = new ArrayCollection;
     }
@@ -101,6 +115,16 @@ class CollectingForm extends AbstractEntity
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function setAnonType($anonType)
+    {
+        $this->anonType = $anonType;
+    }
+
+    public function getAnonType()
+    {
+        return $this->anonType;
     }
 
     public function setItemSet(ItemSet $itemSet = null)

@@ -64,10 +64,10 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'inputs'];
+            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'created', 'modified', 'inputs'];
         }
 
-        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'inputs'];
+        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'created', 'modified', 'inputs'];
     }
 
     /**
@@ -246,12 +246,78 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
     /**
      * {@inheritDoc}
      */
-    public function geCollectingUser()
+    public function getCollectingUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'geCollectingUser', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCollectingUser', []);
 
-        return parent::geCollectingUser();
+        return parent::getCollectingUser();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAnon($anon)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAnon', [$anon]);
+
+        return parent::setAnon($anon);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAnon()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAnon', []);
+
+        return parent::getAnon();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCreated(\DateTime $dateTime)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreated', [$dateTime]);
+
+        return parent::setCreated($dateTime);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCreated()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreated', []);
+
+        return parent::getCreated();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setModified(\DateTime $dateTime)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setModified', [$dateTime]);
+
+        return parent::setModified($dateTime);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getModified()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getModified', []);
+
+        return parent::getModified();
     }
 
     /**
@@ -263,6 +329,28 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInputs', []);
 
         return parent::getInputs();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function prePersist(\Doctrine\ORM\Event\LifecycleEventArgs $eventArgs)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', [$eventArgs]);
+
+        return parent::prePersist($eventArgs);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function preUpdate(\Doctrine\ORM\Event\PreUpdateEventArgs $eventArgs)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', [$eventArgs]);
+
+        return parent::preUpdate($eventArgs);
     }
 
     /**

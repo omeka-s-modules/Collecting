@@ -80,6 +80,7 @@ var setSidebarForType = function(type) {
             break;
         case 'input':
         case 'user_private':
+        case 'user_public':
             $('#prompt-input-type').closest('.sidebar-section').show();
             $('#prompt-required').closest('.sidebar-section').show();
             break;
@@ -209,6 +210,7 @@ $(document).ready(function() {
                 break;
             case 'input':
             case 'user_private':
+            case 'user_public':
                 var inputType = prompt.find('.prompt-input-type').val();
                 $('#prompt-text').val(text);
                 $('#prompt-input-type').val(inputType);
@@ -269,6 +271,7 @@ $(document).ready(function() {
                 break;
             case 'input':
             case 'user_private':
+            case 'user_public':
                 if (!promptData['o-module-collecting:text']) {
                     alert('You must provide prompt text.');
                     return;

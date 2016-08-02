@@ -1,6 +1,7 @@
 <?php
 namespace Collecting\View\Helper;
 
+use Collecting\Entity\CollectingForm;
 use Collecting\Entity\CollectingPrompt;
 use Zend\View\Helper\AbstractHelper;
 
@@ -21,6 +22,11 @@ class Collecting extends AbstractHelper
         return CollectingPrompt::getMediaTypes();
     }
 
+    public function anonTypes()
+    {
+        return CollectingForm::getAnonTypes();
+    }
+
     public function typeValue($key)
     {
         return isset($this->types()[$key]) ? $this->types()[$key] : null;
@@ -36,4 +42,8 @@ class Collecting extends AbstractHelper
         return isset($this->mediaTypes()[$key]) ? $this->mediaTypes()[$key] : null;
     }
 
+    public function anonTypeValue($key)
+    {
+        return isset($this->anonTypes()[$key]) ? $this->anonTypes()[$key] : null;
+    }
 }

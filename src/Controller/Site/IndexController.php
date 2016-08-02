@@ -55,7 +55,14 @@ class IndexController extends AbstractActionController
                     'o:item' => ['o:id' => $item->id()],
                     'o-module-collecting:form' => ['o:id' => $cForm->id()],
                     'o-module-collecting:input' => $inputData,
-                ];;
+                ];
+                if ('user' === $cForm->anonType()) {
+                    // If the form has the "user" anonymity type, the item's
+                    // defualt anonymous flag is "false" becuase the related
+                    // prompt ("User Public") is naturally public.
+                    $cItemData['o-module-collecting:anon']
+                        = $this->params()->fromPost(sprintf('anon_%s', $cForm->id()), false);
+                }
                 $cItem = $this->api($form)
                     ->create('collecting_items', $cItemData)->getContent();
 
@@ -123,6 +130,7 @@ class IndexController extends AbstractActionController
                     // prompt and the user input isn't lost.
                 case 'input':
                 case 'user_private':
+                case 'user_public':
                     // Do not save empty inputs.
                     if ('' !== trim($postedPrompts[$prompt->id()])) {
                         $inputData[] = [

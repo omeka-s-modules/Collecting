@@ -58,6 +58,11 @@ class CollectingItem extends AbstractEntity
     protected $collectingUser;
 
     /**
+     * @Column(type="boolean", nullable=true)
+     */
+    protected $anon;
+
+    /**
      * @Column(type="datetime")
      */
     protected $created;
@@ -114,6 +119,16 @@ class CollectingItem extends AbstractEntity
     public function getCollectingUser()
     {
         return $this->collectingUser;
+    }
+
+    public function setAnon($anon)
+    {
+        $this->anon = isset($anon) ? (bool) $anon : null;
+    }
+
+    public function getAnon()
+    {
+        return $this->anon;
     }
 
     public function setCreated(DateTime $dateTime)

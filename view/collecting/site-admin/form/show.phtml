@@ -31,6 +31,11 @@ $itemSetLabel = $cForm->itemSet()
 </div>
 
 <div class="property">
+    <h4><?php echo $this->translate('Anonymity Type'); ?></h4>
+    <div class="value"><?php echo $this->translate($this->collecting()->anonTypeValue($cForm->anonType())); ?></div>
+</div>
+
+<div class="property">
     <h4><?php echo $this->translate('Item Set'); ?></h4>
     <div class="value"><?php echo $this->escapeHtml($itemSetLabel); ?></div>
 </div>

@@ -34,6 +34,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         return [
             'o-module-collecting:label' => $this->label(),
             'o-module-collecting:description' => $this->description(),
+            'o-module-collecting:anon_type' => $this->anonType(),
             'o:site' => $site,
             'o:item_set' => $itemSet,
             'o-module-collecting:prompt' => $this->prompts(),
@@ -63,6 +64,11 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     public function description()
     {
         return $this->resource->getDescription();
+    }
+
+    public function anonType()
+    {
+        return $this->resource->getAnonType();
     }
 
     public function itemSet()
@@ -119,6 +125,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 case 'property':
                 case 'input':
                 case 'user_private':
+                case 'user_public':
                     switch ($prompt->inputType()) {
                         case 'text':
                             $element = new Element\PromptText($name);
@@ -190,6 +197,16 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         }
 
         $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
+
+        if ('user' === $this->anonType()) {
+            $form->add([
+                'type' => 'checkbox',
+                'name' => sprintf('anon_%s', $this->id()),
+                'options' => [
+                    'label' => 'Submit anonymously?', // @translate
+                ],
+            ]);
+        }
 
         // Add the terms of service if provided in site settings.
         $tos = $siteSettings->get('collecting_tos');

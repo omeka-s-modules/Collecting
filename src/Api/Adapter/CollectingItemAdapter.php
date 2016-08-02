@@ -58,6 +58,9 @@ class CollectingItemAdapter extends AbstractEntityAdapter
                 $data['o-module-collecting:form']['o:id']
             ));
         }
+        if (isset($data['o-module-collecting:anon'])) {
+            $entity->setAnon($data['o-module-collecting:anon']);
+        }
         foreach ($data['o-module-collecting:input'] as $inputData) {
             $input = new CollectingInput;
             $input->setCollectingItem($entity);

@@ -1,6 +1,7 @@
 <?php
 namespace Collecting\Api\Adapter;
 
+use Collecting\Entity\CollectingForm;
 use Collecting\Entity\CollectingPrompt;
 use Doctrine\ORM\QueryBuilder;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
@@ -60,6 +61,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         }
         if ($this->shouldHydrate($request, 'o-module-collecting:description')) {
             $entity->setDescription($request->getValue('o-module-collecting:description'));
+        }
+        if ($this->shouldHydrate($request, 'o-module-collecting:anon_type')) {
+            $entity->setAnonType($request->getValue('o-module-collecting:anon_type'));
         }
         if ($this->shouldHydrate($request, 'o:item_set')) {
             $itemSet = (isset($data['o:item_set']['o:id']) && is_numeric($data['o:item_set']['o:id']))
@@ -196,6 +200,14 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                     $errorStore->addError('o-module-collecting:input_type', 'A user_private prompt must have an input type.');
                 }
                 break;
+            case 'user_public':
+                if (null === $validatedData['o-module-collecting:text']) {
+                    $errorStore->addError('o-module-collecting:text', 'A user_public prompt must have text.');
+                }
+                if (null === $validatedData['o-module-collecting:input_type']) {
+                    $errorStore->addError('o-module-collecting:input_type', 'A user_public prompt must have an input type.');
+                }
+                break;
             case  'separator':
                 if (null === $validatedData['o-module-collecting:text']) {
                     $errorStore->addError('o-module-collecting:text', 'A separator prompt must have text.');
@@ -212,6 +224,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
     {
         if ('' === trim($entity->getLabel())) {
             $errorStore->addError('o-module-collecting:label', 'The label cannot be empty.');
+        }
+        if (!array_key_exists($entity->getAnonType(), CollectingForm::getAnonTypes())) {
+            $errorStore->addError('o-module-collecting:anon_type', 'Invalid anonymity type.');
         }
     }
 

@@ -21,6 +21,7 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
         return [
             'o:item' => $item,
             'o-module-collecting:form' => $form,
+            'o-module-collecting:anon' => $this->anon(),
             'o-module-collecting:input' => $this->inputs(),
         ];
     }
@@ -57,6 +58,11 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     {
         return $this->getAdapter('collecting_users')
             ->getRepresentation($this->resource->getCollectingUser());
+    }
+
+    public function anon()
+    {
+        return $this->resource->getAnon();
     }
 
     public function created()

@@ -1,6 +1,7 @@
 <?php
 namespace Collecting\Form;
 
+use Collecting\Entity\CollectingForm as CollectingFormEntity;
 use Omeka\Form\Element\ItemSetSelect;
 use Zend\Form\Form;
 
@@ -26,6 +27,15 @@ class CollectingForm extends Form
             ],
             'attributes' => [
                 'required' => false,
+            ],
+        ]);
+        $this->add([
+            'name' => 'o-module-collecting:anon_type',
+            'type' => 'select',
+            'options' => [
+                'label' => 'Anonymity Type', // @translate
+                'info' => 'Control how to treat "User Public" input on public pages.',
+                'value_options' => CollectingFormEntity::getAnonTypes(),
             ],
         ]);
         $this->add([

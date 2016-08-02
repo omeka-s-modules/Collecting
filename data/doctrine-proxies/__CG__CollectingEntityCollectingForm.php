@@ -64,10 +64,10 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'label', 'description', 'itemSet', 'site', 'owner', 'prompts'];
+            return ['__isInitialized__', 'id', 'label', 'description', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
         }
 
-        return ['__isInitialized__', 'id', 'label', 'description', 'itemSet', 'site', 'owner', 'prompts'];
+        return ['__isInitialized__', 'id', 'label', 'description', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
     }
 
     /**
@@ -230,6 +230,28 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAnonType($anonType)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAnonType', [$anonType]);
+
+        return parent::setAnonType($anonType);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAnonType()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAnonType', []);
+
+        return parent::getAnonType();
     }
 
     /**
