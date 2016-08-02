@@ -32,7 +32,7 @@ var populatePromptRow = function(promptData) {
         typeText += ' [' + mediaTypeText + ']';
     }
     promptRow.find('.prompt-type-span').html(typeText);
-    promptRow.find('.prompt-text-span').html(promptData['o-module-collecting:text']);
+    promptRow.find('.prompt-text-span').text(promptData['o-module-collecting:text']);
 
     // Populate the hidden inputs.
     promptRow.find('.prompt-type').val(promptData['o-module-collecting:type']);
@@ -72,13 +72,19 @@ var setSidebarForType = function(type) {
         case 'property':
             $('#prompt-property').closest('.sidebar-section').show();
             $('#prompt-input-type').closest('.sidebar-section').show();
+            $('#prompt-required').closest('.sidebar-section').show();
             break;
         case 'media':
             $('#prompt-media-type').closest('.sidebar-section').show();
+            $('#prompt-required').closest('.sidebar-section').show();
             break;
         case 'input':
         case 'user':
             $('#prompt-input-type').closest('.sidebar-section').show();
+            $('#prompt-required').closest('.sidebar-section').show();
+            break;
+        case 'separator':
+            // nothing to show
             break;
         default:
             // invalid or no prompt type
@@ -86,7 +92,6 @@ var setSidebarForType = function(type) {
     }
     $('#prompt-type').val(type);
     $('#prompt-text').closest('.sidebar-section').show();
-    $('#prompt-required').closest('.sidebar-section').show();
     $('#prompt-save').show();
 }
 
@@ -212,6 +217,9 @@ $(document).ready(function() {
                     $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
                 }
                 break;
+            case 'separator':
+                $('#prompt-text').val(text);
+                break;
             default:
                 // invalid or no prompt type
                 return;
@@ -267,6 +275,12 @@ $(document).ready(function() {
                 }
                 if (!promptData['o-module-collecting:input_type']) {
                     alert('You must select an input type.');
+                    return;
+                }
+                break;
+            case 'separator':
+                if (!promptData['o-module-collecting:text']) {
+                    alert('You must provide prompt text.');
                     return;
                 }
                 break;

@@ -110,9 +110,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
     /**
      * Validate prompt data.
      *
-     * @param array $data
+     * @param array $data The raw data
      * @param ErrorStore $errorStore
-     * @return bool Returns false if the prompt data does not validate.
+     * @return array The filtered and validated data
      */
     protected function validatePromptData(array $data, ErrorStore $errorStore)
     {
@@ -154,6 +154,14 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             $validatedData['o:property']['o:id'] = $data['o:property']['o:id'];
         }
 
+        // Do any type-specific filtering.
+        $htmlPurifier = $this->getServiceLocator()->get('Omeka\HtmlPurifier');
+        switch ($data['o-module-collecting:type']) {
+            case 'separator':
+                $validatedData['o-module-collecting:text'] = $htmlPurifier->purify($validatedData['o-module-collecting:text']);
+                break;
+        }
+
         // Do the validation.
         switch ($validatedData['o-module-collecting:type']) {
             case 'property':
@@ -179,6 +187,11 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
                     $errorStore->addError('o-module-collecting:input_type', 'An input prompt must have an input type.');
+                }
+                break;
+            case  'separator':
+                if (null === $validatedData['o-module-collecting:text']) {
+                    $errorStore->addError('o-module-collecting:text', 'A separator prompt must have text.');
                 }
                 break;
             default:

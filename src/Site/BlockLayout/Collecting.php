@@ -47,6 +47,9 @@ class Collecting extends AbstractBlockLayout
         // Prepare the reCAPTCHA element.
         $view->prepareRecaptcha();
 
+        // Map the separator element type to the view helper that renders it.
+        $view->formElement()->addType('promptSeparator', 'formPromptSeparator');
+
         $view->headScript()->appendFile($view->assetUrl('js/collecting-block.js', 'Collecting'));
     }
 
