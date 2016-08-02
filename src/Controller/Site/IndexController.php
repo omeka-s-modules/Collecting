@@ -122,7 +122,7 @@ class IndexController extends AbstractActionController
                     // property types as inputs so the relationship between the
                     // prompt and the user input isn't lost.
                 case 'input':
-                case 'user':
+                case 'user_private':
                     // Do not save empty inputs.
                     if ('' !== trim($postedPrompts[$prompt->id()])) {
                         $inputData[] = [

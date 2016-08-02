@@ -91,7 +91,7 @@ class CollectingPrompt extends AbstractEntity
             'property' => 'Item Property', // @translate
             'media' => 'Item Media', // @translate
             'input' => 'Item Supplementary', // @translate
-            'user' => 'User Input', // @translate
+            'user_private' => 'User Private', // @translate
             'separator' => 'Separator', // @translate
         ];
     }

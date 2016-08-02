@@ -118,7 +118,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 // handle property, input, and user prompts the same.
                 case 'property':
                 case 'input':
-                case 'user':
+                case 'user_private':
                     switch ($prompt->inputType()) {
                         case 'text':
                             $element = new Element\PromptText($name);
