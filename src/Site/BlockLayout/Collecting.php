@@ -41,7 +41,12 @@ class Collecting extends AbstractBlockLayout
 
     public function prepareRender(PhpRenderer $view)
     {
+        // Enable the CKEditor HTML text editors.
+        $view->ckEditor();
+
+        // Prepare the reCAPTCHA element.
         $view->prepareRecaptcha();
+
         $view->headScript()->appendFile($view->assetUrl('js/collecting-block.js', 'Collecting'));
     }
 

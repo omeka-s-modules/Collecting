@@ -9,4 +9,7 @@ $('#content').on('change', '.collecting-form-select', function(e) {
     thisSelect.siblings('.collecting-form-' + thisSelect.val()).show();
 });
 
+// Add the CKEditor HTML text editor to any element with class="collecting-html"
+$('.collecting-html').ckeditor();
+
 });

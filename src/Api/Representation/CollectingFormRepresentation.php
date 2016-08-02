@@ -169,13 +169,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                         case 'html':
                             $element = new Element\PromptTextarea($name);
                             $element->setLabel($prompt->text())
-                                ->setAttribute('id', $name)
+                                ->setAttribute('class', 'collecting-html')
                                 ->setIsRequired($prompt->required());
                             $form->add($element);
-                            // Enable the CKEditor HTML text editor.
-                            $this->getViewHelper('ckEditor')->__invoke();
-                            $this->getViewHelper('headScript')
-                                ->appendScript('$(document).ready(function() {$("#' . $name . '").ckeditor();});');
                             break;
                         default:
                             // Invalid prompt media type. Do nothing.
