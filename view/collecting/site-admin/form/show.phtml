@@ -1,6 +1,5 @@
 <?php
 echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cForm->label()));
-$description = $cForm->description() ?: $this->translate('[none]');
 $itemSetLabel = $cForm->itemSet()
     ? $cForm->itemSet()->displayTitle()
     : $this->translate('[none]');
@@ -23,11 +22,6 @@ $itemSetLabel = $cForm->itemSet()
 <div class="property">
     <h4><?php echo $this->translate('Label'); ?></h4>
     <div class="value"><?php echo $this->escapeHtml($cForm->label()); ?></div>
-</div>
-
-<div class="property">
-    <h4><?php echo $this->translate('Description'); ?></h4>
-    <div class="value"><?php echo $this->escapeHtml($description); ?></div>
 </div>
 
 <div class="property">

@@ -64,10 +64,10 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'label', 'description', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
+            return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
         }
 
-        return ['__isInitialized__', 'id', 'label', 'description', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
+        return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
     }
 
     /**
@@ -208,28 +208,6 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLabel', []);
 
         return parent::getLabel();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setDescription($description)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
-
-        return parent::setDescription($description);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getDescription()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
-
-        return parent::getDescription();
     }
 
     /**

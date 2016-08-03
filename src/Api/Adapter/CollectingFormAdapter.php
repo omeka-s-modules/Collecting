@@ -59,9 +59,6 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         if ($this->shouldHydrate($request, 'o-module-collecting:label')) {
             $entity->setLabel($request->getValue('o-module-collecting:label'));
         }
-        if ($this->shouldHydrate($request, 'o-module-collecting:description')) {
-            $entity->setDescription($request->getValue('o-module-collecting:description'));
-        }
         if ($this->shouldHydrate($request, 'o-module-collecting:anon_type')) {
             $entity->setAnonType($request->getValue('o-module-collecting:anon_type'));
         }

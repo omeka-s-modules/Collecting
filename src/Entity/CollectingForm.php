@@ -25,11 +25,6 @@ class CollectingForm extends AbstractEntity
     protected $label;
 
     /**
-     * @Column(type="text", nullable=true)
-     */
-    protected $description;
-
-    /**
      * @Column
      */
     protected $anonType;
@@ -50,7 +45,7 @@ class CollectingForm extends AbstractEntity
      *     targetEntity="Omeka\Entity\Site"
      * )
      * @JoinColumn(
-     *     nullable=true,
+     *     nullable=false,
      *     onDelete="CASCADE"
      * )
      */
@@ -105,16 +100,6 @@ class CollectingForm extends AbstractEntity
     public function getLabel()
     {
         return $this->label;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = trim($description) ?: null;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     public function setAnonType($anonType)

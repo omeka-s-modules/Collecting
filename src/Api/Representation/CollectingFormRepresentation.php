@@ -33,7 +33,6 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         }
         return [
             'o-module-collecting:label' => $this->label(),
-            'o-module-collecting:description' => $this->description(),
             'o-module-collecting:anon_type' => $this->anonType(),
             'o:site' => $site,
             'o:item_set' => $itemSet,
@@ -59,11 +58,6 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     public function label()
     {
         return $this->resource->getLabel();
-    }
-
-    public function description()
-    {
-        return $this->resource->getDescription();
     }
 
     public function anonType()

@@ -20,16 +20,6 @@ class CollectingForm extends Form
             ],
         ]);
         $this->add([
-            'name' => 'o-module-collecting:description',
-            'type' => 'Textarea',
-            'options' => [
-                'label' => 'Description', // @translate
-            ],
-            'attributes' => [
-                'required' => false,
-            ],
-        ]);
-        $this->add([
             'name' => 'o-module-collecting:anon_type',
             'type' => 'select',
             'options' => [
@@ -55,10 +45,6 @@ class CollectingForm extends Form
         $filter->add([
             'name' => 'o-module-collecting:label',
             'required' => true,
-        ]);
-        $filter->add([
-            'name' => 'o-module-collecting:description',
-            'required' => false,
         ]);
         $filter->add([
             'name' => 'item_set_id',

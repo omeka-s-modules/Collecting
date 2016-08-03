@@ -26,8 +26,8 @@ class CollectingItem extends AbstractEntity
      *     targetEntity="Omeka\Entity\Item"
      * )
      * @JoinColumn(
-     *     nullable=true,
-     *     onDelete="SET NULL"
+     *     nullable=false,
+     *     onDelete="CASCADE"
      * )
      */
     protected $item;
