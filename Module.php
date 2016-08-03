@@ -64,6 +64,7 @@ SET FOREIGN_KEY_CHECKS=1;
 DELETE FROM site_page_block WHERE layout = "collecting";
 DELETE FROM site_setting WHERE id = "collecting_recaptcha_secret_key";
 DELETE FROM site_setting WHERE id = "collecting_recaptcha_site_key";
+DELETE FROM site_setting WHERE id = "collecting_tos";
 ');
     }
 
