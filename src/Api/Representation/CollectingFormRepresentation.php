@@ -197,13 +197,14 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         }
 
         $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
+        $translator = $this->getServiceLocator()->get('MvcTranslator');
 
         if ('user' === $this->anonType()) {
             $form->add([
                 'type' => 'checkbox',
                 'name' => sprintf('anon_%s', $this->id()),
                 'options' => [
-                    'label' => 'Submit anonymously?', // @translate
+                    'label' => 'I want to submit anonymously', // @translate
                 ],
             ]);
         }
@@ -219,7 +220,13 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 'type' => 'checkbox',
                 'name' => sprintf('tos_accept_%s', $this->id()),
                 'options' => [
-                    'label' => 'I accept the <a href="' . $tosUrl . '" target="_blank" style="text-decoration: underline;">Terms of Service</a>',
+                    'label' => sprintf(
+                        $translator->translate('I accept the %s'),
+                        sprintf(
+                            '<a href="' . $tosUrl . '" target="_blank" style="text-decoration: underline;">%s</a>',
+                            $translator->translate('Terms of Service')
+                        )
+                    ),
                     'label_options' => [
                         'disable_html_escape' => true,
                     ],
