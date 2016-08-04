@@ -1,10 +1,21 @@
 <?php
 namespace Collecting\Api\Representation;
 
+use Collecting\Entity\CollectingPrompt;
 use Omeka\Api\Representation\AbstractEntityRepresentation;
 
 class CollectingItemRepresentation extends AbstractEntityRepresentation
 {
+    /**
+     * @var array Cache of all inputs
+     */
+    protected $inputs;
+
+    /**
+     * @var array Cache of all inputs keyed by prompt type
+     */
+    protected $inputsByType;
+
     public function getJsonLdType()
     {
         return 'o-module-collecting:Item';
@@ -75,12 +86,48 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
         return $this->resource->getModified();
     }
 
+    /**
+     * Get all inputs.
+     *
+     * @return array
+     */
     public function inputs()
     {
-        $inputs = [];
-        foreach ($this->resource->getInputs() as $input) {
-            $inputs[]= new CollectingInputRepresentation($input, $this->getServiceLocator());
+        $this->cacheInputs();
+        return $this->inputs;
+    }
+
+    /**
+     * Get inputs by prompt type.
+     *
+     * @param string $type
+     * @return array
+     */
+    public function inputsByType($type)
+    {
+        $this->cacheInputs();
+        return isset($this->inputsByType[$type]) ? $this->inputsByType[$type] : [];
+    }
+
+    /**
+     * Cache inputs if not already cached.
+     */
+    protected function cacheInputs()
+    {
+        if (is_array($this->inputs)) {
+            return; // already cached
         }
-        return $inputs;
+
+        $inputs = [];
+        $inputsByType = array_map(function () {return [];}, CollectingPrompt::getTypes());
+        $services = $this->getServiceLocator();
+        foreach ($this->resource->getInputs() as $input) {
+            $inputRep = new CollectingInputRepresentation($input, $services);
+            $inputs[] = $inputRep;
+            $inputsByType[$input->getPrompt()->getType()][] = $inputRep;
+        }
+
+        $this->inputs = $inputs;
+        $this->inputsByType = $inputsByType;
     }
 }
