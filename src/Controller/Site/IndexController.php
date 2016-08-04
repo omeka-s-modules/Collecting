@@ -41,6 +41,7 @@ class IndexController extends AbstractActionController
             $this->acl->allow();
 
             // Create the Omeka item.
+            $itemData['o:is_public'] = false;
             $itemData['o:item_set'] = [
                 'o:id' => $cForm->itemSet() ? $cForm->itemSet()->id() : null,
             ];
