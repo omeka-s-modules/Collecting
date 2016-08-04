@@ -8,6 +8,7 @@ return [
     'view_helpers' => [
         'invokables' => [
             'collecting' => 'Collecting\View\Helper\Collecting',
+            'collectingPrepareForm' => 'Collecting\View\Helper\CollectingPrepareForm',
             'formPromptSeparator' => 'Collecting\Form\View\Helper\FormPromptSeparator',
         ],
     ],
