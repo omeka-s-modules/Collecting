@@ -14,6 +14,7 @@ trait PromptIsRequiredTrait
     public function setIsRequired($required)
     {
         $this->required = (bool) $required;
+        $this->setAttribute('required', $this->required);
         return $this;
     }
 
