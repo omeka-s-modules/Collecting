@@ -213,6 +213,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             $form->add([
                 'type' => 'checkbox',
                 'name' => sprintf('tos_accept_%s', $this->id()),
+                'attributes' => [
+                    'required' => true,
+                ],
                 'options' => [
                     'label' => sprintf(
                         $translator->translate('I accept the %s'),
