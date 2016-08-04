@@ -75,6 +75,17 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
             'site_settings.form',
             [$this, 'addSiteSettings']
         );
+
+        // Add the Collecting term definition to the JSON-LD context.
+        $sharedEventManager->attach(
+            '*',
+            'api.context',
+            function (Event $event) {
+                $context = $event->getParam('context');
+                $context['o-module-collecting'] = 'http://omeka.org/s/vocabs/module/collecting#';
+                $event->setParam('context', $context);
+            }
+        );
     }
 
     /**
