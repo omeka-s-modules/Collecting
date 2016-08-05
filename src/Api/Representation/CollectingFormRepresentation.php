@@ -250,7 +250,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             'type' => 'csrf',
             'name' => sprintf('csrf_%s', $this->id()),
             'options' => [
-                'csrf_options' => ['timeout' => 3600],
+                'csrf_options' => ['timeout' => 10800], // 3 hours
             ],
         ]);
         $form->add([
