@@ -13,7 +13,7 @@ class CollectingPrepareForm extends AbstractHelper
         // Prepare the reCAPTCHA element.
         $this->getView()->prepareRecaptcha();
 
-        // Map the separator element type to the view helper that renders it.
-        $this->getView()->formElement()->addType('promptSeparator', 'formPromptSeparator');
+        // Map the HTML element type to the view helper that renders it.
+        $this->getView()->formElement()->addType('promptHtml', 'formPromptHtml');
     }
 }

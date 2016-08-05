@@ -84,7 +84,7 @@ var setSidebarForType = function(type) {
             $('#prompt-input-type').closest('.sidebar-section').show();
             $('#prompt-required').closest('.sidebar-section').show();
             break;
-        case 'separator':
+        case 'html':
             // nothing to show
             break;
         default:
@@ -219,7 +219,7 @@ $(document).ready(function() {
                     $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
                 }
                 break;
-            case 'separator':
+            case 'html':
                 $('#prompt-text').val(text);
                 break;
             default:
@@ -281,7 +281,7 @@ $(document).ready(function() {
                     return;
                 }
                 break;
-            case 'separator':
+            case 'html':
                 if (!promptData['o-module-collecting:text']) {
                     alert('You must provide prompt text.');
                     return;

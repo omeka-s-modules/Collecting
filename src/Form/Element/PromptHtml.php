@@ -6,11 +6,11 @@ use Zend\Http\Client;
 use Zend\InputFilter\InputProviderInterface;
 
 /**
- * A form element used to separate prompts.
+ * A form element used to add markup to the form.
  */
-class PromptSeparator extends Element
+class PromptHtml extends Element
 {
     protected $attributes = [
-        'type' => 'promptSeparator',
+        'type' => 'promptHtml',
     ];
 }

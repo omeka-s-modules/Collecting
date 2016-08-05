@@ -144,8 +144,8 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                         ->setIsRequired($prompt->required());
                     $form->add($element);
                     break;
-                case 'separator':
-                    $element = new Element\PromptSeparator($name);
+                case 'html':
+                    $element = new Element\PromptHtml($name);
                     $element->setValue($prompt->text());
                     $form->add($element);
                     break;

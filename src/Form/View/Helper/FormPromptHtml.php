@@ -4,7 +4,7 @@ namespace Collecting\Form\View\Helper;
 use Zend\Form\View\Helper\AbstractHelper;
 use Zend\Form\ElementInterface;
 
-class FormPromptSeparator extends AbstractHelper
+class FormPromptHtml extends AbstractHelper
 {
     public function __invoke(ElementInterface $element)
     {

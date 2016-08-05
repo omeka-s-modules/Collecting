@@ -158,7 +158,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         // Do any type-specific filtering.
         $htmlPurifier = $this->getServiceLocator()->get('Omeka\HtmlPurifier');
         switch ($data['o-module-collecting:type']) {
-            case 'separator':
+            case 'html':
                 $validatedData['o-module-collecting:text'] = $htmlPurifier->purify($validatedData['o-module-collecting:text']);
                 break;
         }
@@ -205,9 +205,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                     $errorStore->addError('o-module-collecting:input_type', 'A user_public prompt must have an input type.');
                 }
                 break;
-            case  'separator':
+            case  'html':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'A separator prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'A html prompt must have text.');
                 }
                 break;
             default:

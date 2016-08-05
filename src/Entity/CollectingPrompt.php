@@ -93,7 +93,7 @@ class CollectingPrompt extends AbstractEntity
             'input' => 'Item Supplementary', // @translate
             'user_private' => 'User Private', // @translate
             'user_public' => 'User Public', // @translate
-            'separator' => 'Separator', // @translate
+            'html' => 'HTML', // @translate
         ];
     }
 
