@@ -2,6 +2,7 @@
 $form->prepare();
 $this->headScript()->appendFile($this->assetUrl('js/sortable.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'));
+$this->ckEditor();
 
 $pageTitle = $isEdit
     ? sprintf($this->translate('Edit Collecting Form: “%s”'), $cForm->label())

@@ -52,7 +52,11 @@ var populatePromptRow = function(promptData) {
 var resetSidebar = function() {
     $('#prompt-type').prop('selectedIndex', 0)
         .prop('disabled', false).css('background-color', '#ffffff');
-    $('#prompt-text').val('').closest('.sidebar-section').hide();
+    var promptText = $('#prompt-text');
+    if (promptText.hasClass('html-editor')) {
+        promptText.removeClass('html-editor').ckeditor().editor.destroy();
+    }
+    promptText.val('').closest('.sidebar-section').hide();
     $('#prompt-property').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-media-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-input-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
@@ -85,7 +89,7 @@ var setSidebarForType = function(type) {
             $('#prompt-required').closest('.sidebar-section').show();
             break;
         case 'html':
-            // nothing to show
+            $('#prompt-text').addClass('html-editor').ckeditor();
             break;
         default:
             // invalid or no prompt type
