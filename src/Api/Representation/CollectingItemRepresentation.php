@@ -130,4 +130,15 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
         $this->inputs = $inputs;
         $this->inputsByType = $inputsByType;
     }
+
+    /**
+     * Get the input texts, ready for display.
+     *
+     * @return string
+     */
+    public function displayInputs()
+    {
+        $partial = $this->getViewHelper('partial');
+        return $partial('collecting/item-inputs.phtml', ['cItem' => $this]);
+    }
 }

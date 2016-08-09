@@ -99,7 +99,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                     // Don't render the partial if there's no collecting item.
                     return;
                 }
-                echo $view->partial('collecting/item-show.phtml', ['cItem' => $cItem]);
+                echo $cItem->displayInputs();
             }
         );
 
