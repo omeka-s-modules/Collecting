@@ -37,16 +37,9 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
     </thead>
     <tbody>
     <?php foreach ($inputs as $input): ?>
-    <?php
-    $promptField = $input->prompt()->text();
-    if (!$promptField && 'property' === $input->prompt()->type()) {
-        $promptField = $input->prompt()->property()->label();
-    }
-    $userInputField = substr($input->text(), 0, 100);
-    ?>
     <tr>
-        <td><?php echo $this->escapeHtml($promptField); ?></td>
-        <td><?php echo $this->escapeHtml($userInputField); ?></td>
+        <td><?php echo $this->escapeHtml($input->prompt()->displayText()); ?></td>
+        <td><?php echo nl2br($this->escapeHtml($input->displayText())); ?></td>
     </tr>
     <?php endforeach; ?>
     </tbody>

@@ -1,6 +1,7 @@
 <?php
 namespace Collecting;
 
+use Collecting\Permissions\Assertion\HasInputPermissionAssertion;
 use Omeka\Module\AbstractModule;
 use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
@@ -21,8 +22,17 @@ class Module extends AbstractModule
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
         $acl->allow(null, 'Collecting\Controller\SiteAdmin\Form');
         $acl->allow(null, 'Collecting\Controller\Site\Index');
-        $acl->allow(null, 'Collecting\Api\Adapter\CollectingFormAdapter', ['search', 'read']);
+        $acl->allow(null, [
+            'Collecting\Api\Adapter\CollectingFormAdapter',
+            'Collecting\Api\Adapter\CollectingItemAdapter'
+        ], ['search', 'read']);
         $acl->allow(null, 'Collecting\Entity\CollectingForm', ['read']);
+        $acl->allow(
+            null,
+            'Collecting\Entity\CollectingInput',
+            ['view-collecting-input'],
+            new HasInputPermissionAssertion
+        );
     }
 
     public function install(ServiceLocatorInterface $services)
@@ -74,6 +84,42 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
             '*',
             'site_settings.form',
             [$this, 'addSiteSettings']
+        );
+
+        // Add collecting data to the item show page.
+        $sharedEventManager->attach(
+            ['Omeka\Controller\Admin\Item', 'Omeka\Controller\Site\Item'],
+            'view.show.after',
+            function (Event $event) {
+                $view = $event->getTarget();
+                $cItem = $view->api()
+                    ->searchOne('collecting_items', ['item_id' => $view->item->id()])
+                    ->getContent();
+                if (!$cItem) {
+                    // Don't render the partial if there's no collecting item.
+                    return;
+                }
+                echo $view->partial('collecting/item-show.phtml', ['cItem' => $cItem]);
+            }
+        );
+
+        // Add the collecting tab to the item show section navigation.
+        $sharedEventManager->attach(
+            'Omeka\Controller\Admin\Item',
+            'view.show.section_nav',
+            function (Event $event) {
+                $view = $event->getTarget();
+                $cItem = $view->api()
+                    ->searchOne('collecting_items', ['item_id' => $view->item->id()])
+                    ->getContent();
+                if (!$cItem) {
+                    // Don't render the tab if there's no collecting item.
+                    return;
+                }
+                $sectionNav = $event->getParam('section_nav');
+                $sectionNav['collecting-section'] = 'Collecting';
+                $event->setParam('section_nav', $sectionNav);
+            }
         );
 
         // Add the Collecting term definition to the JSON-LD context.

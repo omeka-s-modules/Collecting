@@ -47,4 +47,19 @@ class CollectingInputRepresentation extends AbstractRepresentation
     {
         return $this->resource->getText();
     }
+
+    /**
+     * Get the input text, ready for display.
+     *
+     * @return string
+     */
+    public function displayText()
+    {
+        $displayText = $this->text();
+        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        if (!$acl->userIsAllowed($this->resource, 'view-collecting-input')) {
+            $displayText = $this->getTranslator()->translate('[private]');
+        }
+        return $displayText;
+    }
 }

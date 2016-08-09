@@ -70,4 +70,36 @@ class CollectingPromptRepresentation extends AbstractRepresentation
         return $this->getAdapter('properties')
             ->getRepresentation($this->resource->getProperty());
     }
+
+    /**
+     * Get the prompt type, ready for display.
+     *
+     * @return string
+     */
+    public function displayType()
+    {
+        $collecting = $this->getViewHelper('collecting');
+        $type = $this->type();
+        $displayType = $collecting->typeValue($type);
+        if ('property' === $type) {
+            $displayType = sprintf('%s [%s]', $displayType, $this->property()->term());
+        } elseif ('media' === $type) {
+            $displayType = sprintf('%s [%s]', $displayType, $collecting->mediaTypeValue($this->mediaType()));
+        }
+        return $displayType;
+    }
+
+    /**
+     * Get the prompt text, ready for display.
+     *
+     * @return string
+     */
+    public function displayText()
+    {
+        $displayText = $this->text();
+        if (!$displayText && 'property' === $this->type()) {
+            $displayText = $this->property()->label();
+        }
+        return $displayText;
+    }
 }
