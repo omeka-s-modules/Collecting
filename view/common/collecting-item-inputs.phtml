@@ -6,9 +6,6 @@
         $cItem->form()->site()->link($cItem->form()->site()->title())
     ); ?></p>
     <?php foreach ($cItem->inputs() as $input): ?>
-    <div class="property">
-        <h4><?php echo $this->escapeHtml($input->prompt()->displayText()); ?></h4>
-        <div class="value"><?php echo nl2br($this->escapeHtml($input->displayText())); ?></div>
-    </div>
+    <?php echo $input->displayInput(); ?>
     <?php endforeach; ?>
 </div>

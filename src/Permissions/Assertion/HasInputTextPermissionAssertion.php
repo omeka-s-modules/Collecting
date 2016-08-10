@@ -6,7 +6,10 @@ use Zend\Permissions\Acl\Assertion\AssertionInterface;
 use Zend\Permissions\Acl\Resource\ResourceInterface;
 use Zend\Permissions\Acl\Role\RoleInterface;
 
-class HasInputPermissionAssertion implements AssertionInterface
+/**
+ * Does the user have permission to view an input's text?
+ */
+class HasInputTextPermissionAssertion implements AssertionInterface
 {
     public function assert(Acl $acl, RoleInterface $role = null,
         ResourceInterface $resource = null, $privilege = null
@@ -18,11 +21,11 @@ class HasInputPermissionAssertion implements AssertionInterface
             return false;
         }
 
-        $cItem = $resource->getCollectingItem();
-        $cForm = $cItem->getForm();
-
         // "User Public" inputs are conditionally restricted.
         if ('user_public' === $promptType) {
+
+            $cItem = $resource->getCollectingItem();
+            $cForm = $cItem->getForm();
 
             if ('private' === $cForm->getAnonType()) {
                 // The collecting form restricts all user inputs.

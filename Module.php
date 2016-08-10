@@ -1,7 +1,7 @@
 <?php
 namespace Collecting;
 
-use Collecting\Permissions\Assertion\HasInputPermissionAssertion;
+use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
 use Omeka\Module\AbstractModule;
 use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
@@ -20,18 +20,24 @@ class Module extends AbstractModule
         parent::onBootstrap($event);
 
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
-        $acl->allow(null, 'Collecting\Controller\SiteAdmin\Form');
         $acl->allow(null, 'Collecting\Controller\Site\Index');
+        $acl->allow(null, [
+            'Collecting\Controller\SiteAdmin\Form',
+            'Collecting\Controller\SiteAdmin\Item',
+        ]);
         $acl->allow(null, [
             'Collecting\Api\Adapter\CollectingFormAdapter',
             'Collecting\Api\Adapter\CollectingItemAdapter'
         ], ['search', 'read']);
-        $acl->allow(null, 'Collecting\Entity\CollectingForm', ['read']);
+        $acl->allow(null, [
+            'Collecting\Entity\CollectingForm',
+            'Collecting\Entity\CollectingItem',
+        ], ['read']);
         $acl->allow(
             null,
             'Collecting\Entity\CollectingInput',
-            ['view-collecting-input'],
-            new HasInputPermissionAssertion
+            ['view-collecting-input-text'],
+            new HasInputTextPermissionAssertion
         );
     }
 

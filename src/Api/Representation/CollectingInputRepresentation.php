@@ -23,7 +23,8 @@ class CollectingInputRepresentation extends AbstractRepresentation
             'o:id' => $this->id(),
             'o-module-collecting:item' => $item,
             'o-module-collecting:prompt' => $this->prompt(),
-            'o-module-collecting:text' => $this->text(),
+            // Must use self::displayText() since it's responsible for redaction
+            'o-module-collecting:text' => $this->displayText(),
         ];
     }
 
@@ -35,7 +36,7 @@ class CollectingInputRepresentation extends AbstractRepresentation
     public function item()
     {
         return $this->getAdapter('collecting_items')
-            ->getRepresentation($this->resource->getItem());
+            ->getRepresentation($this->resource->getCollectingItem());
     }
 
     public function prompt()
@@ -49,7 +50,18 @@ class CollectingInputRepresentation extends AbstractRepresentation
     }
 
     /**
-     * Get the input text, ready for display.
+     * Get this input's markup, ready for display.
+     *
+     * @return string
+     */
+    public function displayInput()
+    {
+        $partial = $this->getViewHelper('partial');
+        return $partial('common/collecting-item-input.phtml', ['cInput' => $this]);
+    }
+
+    /**
+     * Get this input's text, ready for display.
      *
      * @return string
      */
@@ -57,7 +69,7 @@ class CollectingInputRepresentation extends AbstractRepresentation
     {
         $displayText = $this->text();
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
-        if (!$acl->userIsAllowed($this->resource, 'view-collecting-input')) {
+        if (!$acl->userIsAllowed($this->resource, 'view-collecting-input-text')) {
             $displayText = $this->getTranslator()->translate('[private]');
         }
         return $displayText;
