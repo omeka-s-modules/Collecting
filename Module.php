@@ -41,11 +41,6 @@ class Module extends AbstractModule
             ['view-collecting-input-text'],
             new HasInputTextPermissionAssertion
         );
-
-        // Instantiate the visibility filter and inject the service locator.
-        $em = $services->get('Omeka\EntityManager');
-        $em->getFilters()->enable('collecting_visibility');
-        $em->getFilters()->getFilter('collecting_visibility')->setServiceLocator($services);
     }
 
     public function install(ServiceLocatorInterface $services)
@@ -97,6 +92,16 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
             '*',
             'site_settings.form',
             [$this, 'addSiteSettings']
+        );
+
+        $sharedEventManager->attach(
+            'Collecting\Entity\CollectingItem',
+            'sql_filter.resource_visibility',
+            function (Event $event) {
+                // Users can view collecting items only if they have permission
+                // to view the attached item.
+                return 'item_id';
+            }
         );
 
         // Add collecting data to the item show page.
