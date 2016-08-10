@@ -37,4 +37,15 @@ class ItemController extends AbstractActionController
         $view->setVariable('cItem', $cItem);
         return $view;
     }
+
+    public function showDetailsAction()
+    {
+        $cItem = $this->api()
+            ->read('collecting_items', $this->params('item-id'))->getContent();
+
+        $view = new ViewModel;
+        $view->setTerminal(true);
+        $view->setVariable('cItem', $cItem);
+        return $view;
+    }
 }

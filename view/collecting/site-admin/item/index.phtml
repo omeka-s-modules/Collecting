@@ -36,10 +36,17 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
     ?>
     <tr>
         <td>
-        <?php if ($media = $cItem->item()->primaryMedia()): ?>
-        <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:2.25em;">
-        <?php endif; ?>
-        <?php echo $cItem->link($cItem->item()->displayTitle()); ?>
+            <ul class="actions">
+                <li><a href="#"
+                    data-sidebar-content-url="<?php echo $this->escapeHtml($cItem->url('show-details')); ?>"
+                    class="o-icon-more sidebar-content"
+                    aria-label="<?php echo $this->escapeHtml($this->translate('Details')); ?>"
+                    title="<?php echo $this->escapeHtml($this->translate('Details')); ?>"></a></li>
+            </ul>
+            <?php if ($media = $cItem->item()->primaryMedia()): ?>
+            <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:2.25em;">
+            <?php endif; ?>
+            <?php echo $cItem->link($cItem->item()->displayTitle()); ?>
         </td>
         <td><?php echo $userText; ?></td>
         <td><?php echo $this->escapeHtml($this->i18n()->dateFormat($cItem->created(), 'medium', 'short')); ?></td>
@@ -47,6 +54,14 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<div class="sidebar">
+    <a href="#"
+        class="sidebar-close o-icon-close"
+        aria-label="<?php echo $this->escapeHtml($this->translate('Close')); ?>"
+        title="<?php echo $this->escapeHtml($this->translate('Close')); ?>"></a>
+    <div class="sidebar-content"></div>
+</div>
 
 <?php else: ?>
 
