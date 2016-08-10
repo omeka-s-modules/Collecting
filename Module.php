@@ -19,7 +19,9 @@ class Module extends AbstractModule
     {
         parent::onBootstrap($event);
 
-        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        $services =  $this->getServiceLocator();
+
+        $acl = $services->get('Omeka\Acl');
         $acl->allow(null, 'Collecting\Controller\Site\Index');
         $acl->allow(null, [
             'Collecting\Controller\SiteAdmin\Form',
@@ -39,6 +41,11 @@ class Module extends AbstractModule
             ['view-collecting-input-text'],
             new HasInputTextPermissionAssertion
         );
+
+        // Instantiate the visibility filter and inject the service locator.
+        $em = $services->get('Omeka\EntityManager');
+        $em->getFilters()->enable('collecting_visibility');
+        $em->getFilters()->getFilter('collecting_visibility')->setServiceLocator($services);
     }
 
     public function install(ServiceLocatorInterface $services)

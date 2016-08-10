@@ -39,6 +39,9 @@ return [
         'proxy_paths' => [
             OMEKA_PATH . '/modules/Collecting/data/doctrine-proxies',
         ],
+        'filters' => [
+            'collecting_visibility' => 'Collecting\Db\Filter\VisibilityFilter',
+        ],
     ],
     'api_adapters' => [
         'invokables' => [
