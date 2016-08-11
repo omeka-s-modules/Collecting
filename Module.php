@@ -95,12 +95,14 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
         );
 
         $sharedEventManager->attach(
-            'Collecting\Entity\CollectingItem',
+            '*',
             'sql_filter.resource_visibility',
             function (Event $event) {
                 // Users can view collecting items only if they have permission
                 // to view the attached item.
-                return 'item_id';
+                $relatedEntities = $event->getParam('relatedEntities');
+                $relatedEntities['Collecting\Entity\CollectingItem'] = 'item_id';
+                $event->setParam('relatedEntities', $relatedEntities);
             }
         );
 
