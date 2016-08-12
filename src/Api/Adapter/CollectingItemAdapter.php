@@ -92,7 +92,9 @@ class CollectingItemAdapter extends AbstractEntityAdapter
         $cUser = null;
         if ($user) {
             // User has identity. Check if collecting user already exists.
-            $cUser = $this->getEntityManager()->find('Collecting\Entity\CollectingUser', $user);
+            $cUser = $this->getEntityManager()
+                ->getRepository('Collecting\Entity\CollectingUser')
+                ->findOneBy(['user' => $user]);
         }
         if (!$cUser) {
             // Collecting user does not exist. Create a new, anonymous one.
