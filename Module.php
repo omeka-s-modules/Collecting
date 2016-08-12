@@ -120,6 +120,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                     return;
                 }
                 echo '<div id="collecting-section" class="section">';
+                echo $cItem->displayCitation();
                 echo $cItem->displayInputs();
                 echo '</div>';
             }

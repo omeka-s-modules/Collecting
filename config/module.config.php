@@ -68,6 +68,10 @@ return [
                         'visible' => false,
                     ],
                     [
+                        'route' => 'admin/site/slug/collecting/item/default',
+                        'visible' => false,
+                    ],
+                    [
                         'route' => 'admin/site/slug/collecting/item/id',
                         'visible' => false,
                     ],
@@ -87,6 +91,10 @@ return [
                 'action' => 'index',
                 'useRouteMatch' => true,
                 'pages' => [
+                    [
+                        'route' => 'admin/site/slug/collecting/item/default',
+                        'visible' => false,
+                    ],
                     [
                         'route' => 'admin/site/slug/collecting/item/id',
                         'visible' => false,

@@ -148,6 +148,12 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
         return $partial('common/collecting-item-inputs.phtml', ['cItem' => $this]);
     }
 
+    public function displayCitation()
+    {
+        $partial = $this->getViewHelper('partial');
+        return $partial('common/collecting-item-citation.phtml', ['cItem' => $this]);
+    }
+
     public function statusSelect()
     {
         $select = new \Zend\Form\Element\Select(sprintf('statuses[%s]', $this->id()));
