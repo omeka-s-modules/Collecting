@@ -40,7 +40,7 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
     if ($user = $cItem->collectingUser()->user()) {
         $userText = $user->link($user->name());
     } else {
-        $userText = $this->translate('[anonymous]');
+        $userText = $this->translate('[no identity]');
     }
     ?>
     <tr>

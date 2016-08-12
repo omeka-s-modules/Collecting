@@ -4,7 +4,7 @@
         <h4><?php echo $this->translate('Media'); ?></h4>
         <?php foreach ($cItem->item()->media() as $media): ?>
         <div class="value">
-            <a href="<?php echo $media->url(); ?>">
+            <a href="<?php echo $media->url(); ?>" target="_blank">
                 <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>">
                 <span class="file-name"><?php echo $this->escapeHtml($media->displayTitle()); ?>
             </a>
