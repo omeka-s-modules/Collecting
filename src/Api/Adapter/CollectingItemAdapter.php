@@ -12,6 +12,13 @@ use Omeka\Stdlib\ErrorStore;
 
 class CollectingItemAdapter extends AbstractEntityAdapter
 {
+    protected $sortFields = [
+        'id' => 'id',
+        'reviewed' => 'reviewed',
+        'created' => 'created',
+        'modified' => 'modified',
+    ];
+
     public function getResourceName()
     {
         return 'collecting_items';
@@ -133,6 +140,30 @@ class CollectingItemAdapter extends AbstractEntityAdapter
                 $this->getEntityClass() . '.item',
                 $this->createNamedParameter($qb, $query['item_id']))
             );
+        }
+        if (isset($query['status'])) {
+            if ('needs_review' === $query['status']) {
+                $qb->andWhere($qb->expr()->eq(
+                    'Collecting\Entity\CollectingItem.reviewed',
+                    $qb->expr()->literal(false)
+                ));
+            } elseif ('public' === $query['status']) {
+                $qb->andWhere($qb->expr()->eq(
+                    'Collecting\Entity\CollectingItem.reviewed',
+                    $qb->expr()->literal(true)
+                ));
+                $itemAlias = $this->createAlias();
+                $qb->innerJoin('Collecting\Entity\CollectingItem.item', $itemAlias);
+                $qb->andWhere($qb->expr()->eq("$itemAlias.isPublic", $qb->expr()->literal(true)));
+            } elseif ('private' === $query['status']) {
+                $qb->andWhere($qb->expr()->eq(
+                    'Collecting\Entity\CollectingItem.reviewed',
+                    $qb->expr()->literal(true)
+                ));
+                $itemAlias = $this->createAlias();
+                $qb->innerJoin('Collecting\Entity\CollectingItem.item', $itemAlias);
+                $qb->andWhere($qb->expr()->eq("$itemAlias.isPublic", $qb->expr()->literal(false)));
+            }
         }
     }
 }
