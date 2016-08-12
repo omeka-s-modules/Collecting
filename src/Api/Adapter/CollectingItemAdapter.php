@@ -34,48 +34,46 @@ class CollectingItemAdapter extends AbstractEntityAdapter
         );
     }
 
-    public function update(Request $request)
-    {
-        throw new Exception\OperationNotImplementedException(
-            'CollectingItemAdapter does not implement the update operation.'
-        );
-    }
-
     public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore)
     {
-        $this->hydrateCollectingUser($entity);
-
-        $data = $request->getContent();
-        if (isset($data['o:item']['o:id'])) {
-            $entity->setItem($this->getEntityManager()->getReference(
-                'Omeka\Entity\Item',
-                $data['o:item']['o:id']
-            ));
-        }
-        if (isset($data['o-module-collecting:form']['o:id'])) {
-            $entity->setForm($this->getEntityManager()->getReference(
-                'Collecting\Entity\CollectingForm',
-                $data['o-module-collecting:form']['o:id']
-            ));
-        }
-        if (isset($data['o-module-collecting:anon'])) {
-            $entity->setAnon($data['o-module-collecting:anon']);
-        }
-        foreach ($data['o-module-collecting:input'] as $inputData) {
-            $input = new CollectingInput;
-            $input->setCollectingItem($entity);
-            if (isset($inputData['o-module-collecting:prompt'])) {
-                $input->setPrompt($this->getEntityManager()->getReference(
-                    'Collecting\Entity\CollectingPrompt',
-                    $inputData['o-module-collecting:prompt']
+        if (Request::CREATE == $request->getOperation()) {
+            $this->hydrateCollectingUser($entity);
+            $data = $request->getContent();
+            if (isset($data['o:item']['o:id'])) {
+                $entity->setItem($this->getEntityManager()->getReference(
+                    'Omeka\Entity\Item',
+                    $data['o:item']['o:id']
                 ));
             }
-            if (isset($inputData['o-module-collecting:text'])
-                && '' !== trim($inputData['o-module-collecting:text'])
-            ) {
-                $input->setText($inputData['o-module-collecting:text']);
+            if (isset($data['o-module-collecting:form']['o:id'])) {
+                $entity->setForm($this->getEntityManager()->getReference(
+                    'Collecting\Entity\CollectingForm',
+                    $data['o-module-collecting:form']['o:id']
+                ));
             }
-            $entity->getInputs()->add($input);
+            foreach ($data['o-module-collecting:input'] as $inputData) {
+                $input = new CollectingInput;
+                $input->setCollectingItem($entity);
+                if (isset($inputData['o-module-collecting:prompt'])) {
+                    $input->setPrompt($this->getEntityManager()->getReference(
+                        'Collecting\Entity\CollectingPrompt',
+                        $inputData['o-module-collecting:prompt']
+                    ));
+                }
+                if (isset($inputData['o-module-collecting:text'])
+                    && '' !== trim($inputData['o-module-collecting:text'])
+                ) {
+                    $input->setText($inputData['o-module-collecting:text']);
+                }
+                $entity->getInputs()->add($input);
+            }
+            if (isset($data['o-module-collecting:anon'])) {
+                $entity->setAnon($data['o-module-collecting:anon']);
+            }
+        }
+
+        if ($this->shouldHydrate($request, 'o-module-collecting:reviewed')) {
+            $entity->setReviewed($request->getValue('o-module-collecting:reviewed'));
         }
     }
 

@@ -33,6 +33,7 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
             'o:item' => $item,
             'o-module-collecting:form' => $form,
             'o-module-collecting:anon' => $this->anon(),
+            'o-module-collecting:reviewed' => $this->reviewed(),
             'o-module-collecting:input' => $this->inputs(),
         ];
     }
@@ -74,6 +75,11 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     public function anon()
     {
         return $this->resource->getAnon();
+    }
+
+    public function reviewed()
+    {
+        return $this->resource->getReviewed();
     }
 
     public function created()
@@ -140,5 +146,22 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     {
         $partial = $this->getViewHelper('partial');
         return $partial('common/collecting-item-inputs.phtml', ['cItem' => $this]);
+    }
+
+    public function statusSelect()
+    {
+        $select = new \Zend\Form\Element\Select(sprintf('statuses[%s]', $this->id()));
+        $select->setValueOptions([
+            'needs_review' => 'Needs review', // @translate
+            'public' => 'Public', // @translate
+            'private' => 'Private', // @translate
+        ]);
+        if ($this->reviewed()) {
+            $value = $this->item()->isPublic() ? 'public' : 'private';
+        } else {
+            $value = 'needs_review';
+        }
+        $select->setValue($value);
+        return $select;
     }
 }

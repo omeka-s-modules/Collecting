@@ -63,6 +63,11 @@ class CollectingItem extends AbstractEntity
     protected $anon;
 
     /**
+     * @Column(type="boolean", nullable=false)
+     */
+    protected $reviewed = false;
+
+    /**
      * @Column(type="datetime")
      */
     protected $created;
@@ -129,6 +134,16 @@ class CollectingItem extends AbstractEntity
     public function getAnon()
     {
         return $this->anon;
+    }
+
+    public function setReviewed($reviewed)
+    {
+        $this->reviewed = (bool) $reviewed;
+    }
+
+    public function getReviewed()
+    {
+        return $this->reviewed;
     }
 
     public function setCreated(DateTime $dateTime)

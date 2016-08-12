@@ -48,4 +48,41 @@ class ItemController extends AbstractActionController
         $view->setVariable('cItem', $cItem);
         return $view;
     }
+
+    public function updateStatusesAction()
+    {
+        $statuses = $this->params()->fromPost('statuses', []);
+        foreach ($statuses as $cItemId => $status) {
+            $cItem = $this->api()->read('collecting_items', $cItemId)->getContent();
+            $item = $cItem->item();
+            if ('needs_review' === $status) {
+                if (!$cItem->reviewed() && !$item->isPublic()) {
+                    continue;
+                }
+                $reviewed = false;
+                $isPublic = false;
+            } elseif ('public' === $status) {
+                if ($cItem->reviewed() && $item->isPublic()) {
+                    continue;
+                }
+                $reviewed = true;
+                $isPublic = true;
+            } elseif ('private' === $status) {
+                if ($cItem->reviewed() && !$item->isPublic()) {
+                    continue;
+                }
+                $reviewed = true;
+                $isPublic = false;
+            }
+            // Update the status using partial updates.
+            $this->api()->update('collecting_items', $cItem->id(), [
+                'o-module-collecting:reviewed' => $reviewed,
+            ], [], true);
+            $this->api()->update('items', $cItem->item()->id(), [
+                'o:is_public' => $isPublic,
+            ], [], true);
+        }
+        $this->messenger()->addSuccess($this->translate('Statuses successfully updated'));
+        return $this->redirect()->toRoute(null, ['action' => 'index'], true);
+    }
 }

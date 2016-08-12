@@ -180,6 +180,15 @@ return [
                                                             ],
                                                         ],
                                                     ],
+                                                    'default' => [
+                                                        'type' => 'Segment',
+                                                        'options' => [
+                                                            'route' => '/:action',
+                                                            'constraints' => [
+                                                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                                            ],
+                                                        ],
+                                                    ],
                                                 ],
                                             ],
                                         ],

@@ -64,10 +64,10 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'created', 'modified', 'inputs'];
+            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
         }
 
-        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'created', 'modified', 'inputs'];
+        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
     }
 
     /**
@@ -274,6 +274,28 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAnon', []);
 
         return parent::getAnon();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setReviewed($reviewed)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReviewed', [$reviewed]);
+
+        return parent::setReviewed($reviewed);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getReviewed()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReviewed', []);
+
+        return parent::getReviewed();
     }
 
     /**
