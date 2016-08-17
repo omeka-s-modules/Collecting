@@ -2,6 +2,7 @@
 namespace Collecting\Controller\Site;
 
 use Collecting\Api\Representation\CollectingFormRepresentation;
+use Collecting\MediaType\Manager;
 use Omeka\Permissions\Acl;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -13,9 +14,12 @@ class IndexController extends AbstractActionController
      */
     protected $acl;
 
-    public function __construct(Acl $acl)
+    protected $mediaTypeManager;
+
+    public function __construct(Acl $acl, Manager $mediaTypeManager)
     {
         $this->acl = $acl;
+        $this->mediaTypeManager = $mediaTypeManager;
     }
 
     public function submitAction()
@@ -141,40 +145,9 @@ class IndexController extends AbstractActionController
                     }
                     break;
                 case 'media':
-                    if ('upload' === $prompt->mediaType()) {
-                        $files = $this->params()->fromFiles('file');
-                        if ($prompt->required()
-                            || (!$prompt->required()
-                                && isset($files[$prompt->id()])
-                                && UPLOAD_ERR_NO_FILE !== $files[$prompt->id()]['error']
-                            )
-                        ) {
-                            $itemData['o:media'][$prompt->id()] = [
-                                'o:ingester' => 'upload',
-                                'file_index' => $prompt->id(),
-                            ];
-                        }
-                    } elseif ('url' === $prompt->mediaType()) {
-                        $ingestUrl = trim($postedPrompts[$prompt->id()]);
-                        if ($prompt->required()
-                            || (!$prompt->required() && '' !== $ingestUrl)
-                        ) {
-                            $itemData['o:media'][$prompt->id()] = [
-                                'o:ingester' => 'url',
-                                'ingest_url' => $ingestUrl,
-                            ];
-                        }
-                    } elseif ('html' === $prompt->mediaType()) {
-                        $html = trim($postedPrompts[$prompt->id()]);
-                        if ($prompt->required()
-                            || (!$prompt->required() && '' !== $html)
-                        ) {
-                            $itemData['o:media'][$prompt->id()] = [
-                                'o:ingester' => 'html',
-                                'html' => $html,
-                            ];
-                        }
-                    }
+                    $itemData = $this->mediaTypeManager->get($prompt->mediaType())
+                        ->itemData($itemData, $postedPrompts[$prompt->id()],
+                            $prompt, $this->params());
                     break;
                 default:
                     // Invalid prompt type. Do nothing.
