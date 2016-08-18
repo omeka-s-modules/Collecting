@@ -3,28 +3,95 @@ namespace Collecting\View\Helper;
 
 use Collecting\Entity\CollectingForm;
 use Collecting\Entity\CollectingPrompt;
+use Collecting\MediaType\Manager;
 use Zend\View\Helper\AbstractHelper;
 
 class Collecting extends AbstractHelper
 {
+    /**
+     * @var Manager
+     */
+    protected $manager;
+
+    /**
+     * @var array
+     */
+    protected $types;
+
+    /**
+     * @var array
+     */
+    protected $inputTypes;
+
+    /**
+     * @var array
+     */
+    protected $mediaTypes;
+
+    /**
+     * @var array
+     */
+    protected $anonTypes;
+
+    public function __construct(Manager $manager)
+    {
+        $this->manager = $manager;
+    }
+
+    /**
+     * Get all prompt types.
+     *
+     * @return array;
+     */
     public function types()
     {
-        return CollectingPrompt::getTypes();
+        if (null === $this->types) {
+            $this->types = CollectingPrompt::getTypes();
+        }
+        return $this->types;
     }
 
+    /**
+     * Get all prompt input types.
+     *
+     * @return array;
+     */
     public function inputTypes()
     {
-        return CollectingPrompt::getInputTypes();
+        if (null === $this->inputTypes) {
+            $this->inputTypes = CollectingPrompt::getInputTypes();
+        }
+        return $this->inputTypes;
     }
 
+    /**
+     * Get all prompt media types.
+     *
+     * @return array;
+     */
     public function mediaTypes()
     {
-        return CollectingPrompt::getMediaTypes();
+        if (null === $this->mediaTypes) {
+            $this->mediaTypes = [];
+            $names = $this->manager->getRegisteredNames();
+            foreach ($names as $name) {
+                $this->mediaTypes[$name] = $this->manager->get($name)->getLabel();
+            }
+        }
+        return $this->mediaTypes;
     }
 
+    /**
+     * Get all form anon types.
+     *
+     * @return array;
+     */
     public function anonTypes()
     {
-        return CollectingForm::getAnonTypes();
+        if (null === $this->anonTypes) {
+            $this->anonTypes = CollectingForm::getAnonTypes();
+        }
+        return $this->anonTypes;
     }
 
     public function typeValue($key)
@@ -39,7 +106,7 @@ class Collecting extends AbstractHelper
 
     public function mediaTypeValue($key)
     {
-        return isset($this->mediaTypes()[$key]) ? $this->mediaTypes()[$key] : null;
+        return $this->manager->get($key)->getLabel();
     }
 
     public function anonTypeValue($key)

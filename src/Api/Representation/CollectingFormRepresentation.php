@@ -103,6 +103,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             return $this->form; // build the form object only once
         }
         $url = $this->getViewHelper('Url');
+        $mediaTypes = $this->getServiceLocator()->get('Collecting\MediaTypeManager');
 
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
@@ -150,39 +151,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                     $form->add($element);
                     break;
                 case 'media':
-                    switch ($prompt->mediaType()) {
-                        case 'upload':
-                            // A hidden element marks the existence of this prompt.
-                            $form->add([
-                                'type' => 'hidden',
-                                'name' => $name,
-                            ]);
-                            // Note that the file index maps to the prompt ID.
-                            $form->add([
-                                'type' => 'file',
-                                'name' => sprintf('file[%s]', $prompt->id()),
-                                'options' => [
-                                    'label' => $prompt->text(),
-                                ],
-                            ]);
-                            break;
-                        case 'url':
-                            $element = new Element\PromptUrl($name);
-                            $element->setLabel($prompt->text())
-                                ->setIsRequired($prompt->required());
-                            $form->add($element);
-                            break;
-                        case 'html':
-                            $element = new Element\PromptTextarea($name);
-                            $element->setLabel($prompt->text())
-                                ->setAttribute('class', 'collecting-html')
-                                ->setIsRequired($prompt->required());
-                            $form->add($element);
-                            break;
-                        default:
-                            // Invalid prompt media type. Do nothing.
-                            continue 2;
-                    }
+                    $mediaTypes->get($prompt->mediaType())->form($form, $prompt, $name);
                     break;
                 default:
                     // Invalid prompt type. Do nothing.

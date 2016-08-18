@@ -10,6 +10,9 @@ class IndexControllerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $controllers)
     {
         $services = $controllers->getServiceLocator();
-        return new IndexController($services->get('Omeka\Acl'));
+        return new IndexController(
+            $services->get('Omeka\Acl'),
+            $services->get('Collecting\MediaTypeManager')
+        );
     }
 }

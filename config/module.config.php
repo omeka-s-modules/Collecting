@@ -7,9 +7,11 @@ return [
     ],
     'view_helpers' => [
         'invokables' => [
-            'collecting' => 'Collecting\View\Helper\Collecting',
-            'collectingPrepareForm' => 'Collecting\View\Helper\CollectingPrepareForm',
             'formPromptHtml' => 'Collecting\Form\View\Helper\FormPromptHtml',
+        ],
+        'factories' => [
+            'collectingPrepareForm' => 'Collecting\Service\ViewHelper\CollectingPrepareFormFactory',
+            'collecting' => 'Collecting\Service\ViewHelper\CollectingFactory',
         ],
     ],
     'controllers' => [
@@ -45,6 +47,20 @@ return [
             'collecting_forms' => 'Collecting\Api\Adapter\CollectingFormAdapter',
             'collecting_items' => 'Collecting\Api\Adapter\CollectingItemAdapter',
             'collecting_users' => 'Collecting\Api\Adapter\CollectingUserAdapter',
+        ],
+    ],
+    'service_manager' => [
+        'factories' => [
+            'Collecting\MediaTypeManager'  => 'Collecting\Service\MediaTypeManagerFactory',
+        ],
+    ],
+    'collecting_media_types' => [
+        'invokables' => [
+            'url' => 'Collecting\MediaType\Url',
+            'html' => 'Collecting\MediaType\Html',
+        ],
+        'factories' => [
+            'upload' => 'Collecting\Service\MediaType\UploadFactory',
         ],
     ],
     'navigation' => [
