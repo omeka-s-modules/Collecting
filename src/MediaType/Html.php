@@ -4,7 +4,6 @@ namespace Collecting\MediaType;
 use Collecting\Api\Representation\CollectingPromptRepresentation;
 use Collecting\Form\Element;
 use Zend\Form\Form;
-use Zend\Mvc\Controller\Plugin\Params;
 use Zend\View\Renderer\PhpRenderer;
 
 class Html implements MediaTypeInterface
@@ -27,7 +26,7 @@ class Html implements MediaTypeInterface
     }
 
     public function itemData(array $itemData, $postedPrompt,
-        CollectingPromptRepresentation $prompt, Params $params
+        CollectingPromptRepresentation $prompt
     ) {
         $html = trim($postedPrompt);
         if ($prompt->required()

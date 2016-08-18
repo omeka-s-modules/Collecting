@@ -40,9 +40,8 @@ interface MediaTypeInterface
      * @param array $itemData
      * @param mixed $postedPrompt The prompt data submitted with the form
      * @param CollectingPromptRepresentation $prompt
-     * @param Params $params The params controller plugin
      * @return array The filtered item data
      */
     public function itemData(array $itemData, $postedPrompt,
-        CollectingPromptRepresentation $prompt, Params $params);
+        CollectingPromptRepresentation $prompt);
 }

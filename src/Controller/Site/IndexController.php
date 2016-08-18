@@ -146,8 +146,7 @@ class IndexController extends AbstractActionController
                     break;
                 case 'media':
                     $itemData = $this->mediaTypeManager->get($prompt->mediaType())
-                        ->itemData($itemData, $postedPrompts[$prompt->id()],
-                            $prompt, $this->params());
+                        ->itemData($itemData, $postedPrompts[$prompt->id()], $prompt);
                     break;
                 default:
                     // Invalid prompt type. Do nothing.

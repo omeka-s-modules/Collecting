@@ -56,9 +56,11 @@ return [
     ],
     'collecting_media_types' => [
         'invokables' => [
-            'upload' => 'Collecting\MediaType\Upload',
             'url' => 'Collecting\MediaType\Url',
             'html' => 'Collecting\MediaType\Html',
+        ],
+        'factories' => [
+            'upload' => 'Collecting\Service\MediaType\UploadFactory',
         ],
     ],
     'navigation' => [

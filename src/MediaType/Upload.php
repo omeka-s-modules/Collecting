@@ -3,11 +3,18 @@ namespace Collecting\MediaType;
 
 use Collecting\Api\Representation\CollectingPromptRepresentation;
 use Zend\Form\Form;
-use Zend\Mvc\Controller\Plugin\Params;
+use Zend\Mvc\Controller\PluginManager;
 use Zend\View\Renderer\PhpRenderer;
 
 class Upload implements MediaTypeInterface
 {
+    protected $plugins;
+
+    public function __construct(PluginManager $plugins)
+    {
+        $this->plugins = $plugins;
+    }
+
     public function getLabel()
     {
         return 'Upload'; // @translate
@@ -34,9 +41,9 @@ class Upload implements MediaTypeInterface
     }
 
     public function itemData(array $itemData, $postedPrompt,
-        CollectingPromptRepresentation $prompt, Params $params
+        CollectingPromptRepresentation $prompt
     ) {
-        $files = $params->fromFiles('file');
+        $files = $this->plugins->get('params')->fromFiles('file');
         if ($prompt->required()
             || (!$prompt->required()
                 && isset($files[$prompt->id()])

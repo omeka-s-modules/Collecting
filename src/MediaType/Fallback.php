@@ -4,7 +4,6 @@ namespace Collecting\MediaType;
 use Collecting\Api\Representation\CollectingPromptRepresentation;
 use Zend\Form\Form;
 use Zend\I18n\Translator\TranslatorInterface;
-use Zend\Mvc\Controller\Plugin\Params;
 use Zend\View\Renderer\PhpRenderer;
 
 class Fallback implements MediaTypeInterface
@@ -31,7 +30,7 @@ class Fallback implements MediaTypeInterface
     {}
 
     public function itemData(array $itemData, $postedPrompt,
-        CollectingPromptRepresentation $prompt, Params $params
+        CollectingPromptRepresentation $prompt
     ) {
         return $itemData;
     }
