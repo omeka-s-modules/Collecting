@@ -16,7 +16,7 @@ class FormPromptHtml extends AbstractHelper
         return sprintf(
             '<div %s>%s</div>',
             $this->createAttributesString($element->getAttributes()),
-            $element->getValue()
+            $element->getHtml()
         );
     }
 }

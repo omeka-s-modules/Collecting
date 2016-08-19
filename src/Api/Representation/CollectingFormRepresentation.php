@@ -147,7 +147,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                     break;
                 case 'html':
                     $element = new Element\PromptHtml($name);
-                    $element->setValue($prompt->text());
+                    $element->setHtml($prompt->text());
                     $form->add($element);
                     break;
                 case 'media':
