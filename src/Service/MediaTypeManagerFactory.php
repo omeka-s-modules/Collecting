@@ -11,7 +11,7 @@ class MediaTypeManagerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config');
-        if (!isset($config['media_ingesters'])) {
+        if (!isset($config['collecting_media_types'])) {
             throw new Exception\ConfigException('Missing collecting media type configuration');
         }
         return new Manager($serviceLocator, $config['collecting_media_types']);
