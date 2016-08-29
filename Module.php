@@ -5,6 +5,7 @@ use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
 use Omeka\Module\AbstractModule;
 use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
+use Zend\Form\Fieldset;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -165,8 +166,11 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
         $siteSettings = $services->get('Omeka\SiteSettings');
         $form = $event->getParam('form');
 
+        $fieldset = new Fieldset('collecting');
+        $fieldset->setLabel('Collecting');
+
         // Add the reCAPTCHA site and secret keys to the form.
-        $form->add([
+        $fieldset->add([
             'type' => 'text',
             'name' => 'collecting_recaptcha_site_key',
             'options' => [
@@ -176,7 +180,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                 'value' => $siteSettings->get('collecting_recaptcha_site_key'),
             ],
         ]);
-        $form->add([
+        $fieldset->add([
             'type' => 'text',
             'name' => 'collecting_recaptcha_secret_key',
             'options' => [
@@ -188,7 +192,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
         ]);
 
         // Add the terms of service to the form.
-        $form->add([
+        $fieldset->add([
             'type' => 'textarea',
             'name' => 'collecting_tos',
             'options' => [
@@ -198,5 +202,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                 'value' => $siteSettings->get('collecting_tos'),
             ],
         ]);
+
+        $form->add($fieldset);
     }
 }
