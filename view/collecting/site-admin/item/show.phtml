@@ -43,4 +43,14 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
 
 <?php endif; ?>
 
+<p>
+<?php
+if ($user = $cItem->collectingUser()->user()) {
+    echo sprintf($this->translate('Submitted by %s'), $user->link($user->name()));
+} else {
+    echo $this->translate('Submitted by guest');
+}
+?>
+</p>
+
 <p><?php echo $cItem->item()->link($this->translate('Click here to view the corresponding item.')); ?></p>
