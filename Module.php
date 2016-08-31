@@ -109,7 +109,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
 
         // Add collecting data to the item show page.
         $sharedEventManager->attach(
-            ['Omeka\Controller\Admin\Item', 'Omeka\Controller\Site\Item'],
+            'Omeka\Controller\Admin\Item',
             'view.show.after',
             function (Event $event) {
                 $view = $event->getTarget();
@@ -120,7 +120,40 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                     // Don't render the partial if there's no collecting item.
                     return;
                 }
-                echo $view->partial('common/collecting-item-section.phtml', ['cItem' => $cItem]);
+                echo '<div id="collecting-section" class="section">';
+                echo $cItem->displayCitation();
+                echo $view->hyperlink(
+                    $view->translate('Click here to view the collected data.'),
+                    $view->url('admin/site/slug/collecting/item/id', [
+                        'site-slug' => $cItem->form()->site()->slug(),
+                        'form-id' => $cItem->form()->id(),
+                        'item-id' => $cItem->id(),
+                    ])
+                );
+                echo '</div>';
+            }
+        );
+
+        $sharedEventManager->attach(
+            'Omeka\Controller\Site\Item',
+            'view.show.after',
+            function (Event $event) {
+                $view = $event->getTarget();
+                $cItem = $view->api()
+                    ->searchOne('collecting_items', ['item_id' => $view->item->id()])
+                    ->getContent();
+                if (!$cItem) {
+                    // Don't render the link if there's no collecting item.
+                    return;
+                }
+                echo $cItem->displayCitation();
+                echo $view->hyperlink(
+                    $view->translate('Click here to view the collected data.'),
+                    $view->url('site/collecting-item', [
+                        'site-slug' => $view->site->slug(),
+                        'item-id' => $cItem->id(),
+                    ])
+                );
             }
         );
 

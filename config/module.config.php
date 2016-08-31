@@ -135,6 +135,19 @@ return [
                             ],
                         ],
                     ],
+                    'collecting-item' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => '/collecting/item/:item-id',
+                            'defaults' => [
+                                '__NAMESPACE__' => 'Collecting\Controller\Site',
+                                'action' => 'item-show',
+                            ],
+                            'constraints' => [
+                                'item-id' => '\d+',
+                            ],
+                        ],
+                    ],
                 ],
             ],
             'admin' => [

@@ -2,10 +2,6 @@
 echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cForm->label()));
 ?>
 
-<div id="page-actions">
-    <?php echo $cItem->item()->link('View item', null, ['class' => 'button']); ?>
-</div>
-
 <div class="breadcrumbs">
     <a href="<?php echo $this->url('admin/site/slug/collecting/item', [], true); ?>" class="o-icon-left"><?php echo $this->translate('Back to collected items list'); ?></a>
 </div>
@@ -46,3 +42,5 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
 </table>
 
 <?php endif; ?>
+
+<p><?php echo $cItem->item()->link($this->translate('Click here to view the corresponding item.')); ?></p>

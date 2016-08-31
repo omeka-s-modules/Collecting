@@ -97,6 +97,18 @@ class IndexController extends AbstractActionController
         return $response;
     }
 
+    public function itemShowAction()
+    {
+        $site = $this->currentSite();
+        $cItem = $this->api()
+            ->read('collecting_items', $this->params('item-id'))->getContent();
+
+        $view = new ViewModel;
+        $view->setVariable('site', $site);
+        $view->setVariable('cItem', $cItem);
+        return $view;
+    }
+
     /**
      * Get the prompt data needed to create the Omeka and Collecting items.
      *
