@@ -85,7 +85,14 @@ class IndexController extends AbstractActionController
     }
 
     public function successAction()
-    {}
+    {
+        $cForm = $this->api()
+            ->read('collecting_forms', $this->params('form-id'))
+            ->getContent();
+        $view = new ViewModel;
+        $view->setVariable('cForm', $cForm);
+        return $view;
+    }
 
     public function tosAction()
     {

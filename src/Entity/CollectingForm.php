@@ -41,6 +41,11 @@ class CollectingForm extends AbstractEntity
     protected $itemSet;
 
     /**
+     * @Column(type="text")
+     */
+    protected $successText;
+
+    /**
      * @ManyToOne(
      *     targetEntity="Omeka\Entity\Site"
      * )
@@ -120,6 +125,16 @@ class CollectingForm extends AbstractEntity
     public function getItemSet()
     {
         return $this->itemSet;
+    }
+
+    public function setSuccessText($successText)
+    {
+        $this->successText = $successText;
+    }
+
+    public function getSuccessText()
+    {
+        return $this->successText;
     }
 
     public function setOwner(User $owner = null)

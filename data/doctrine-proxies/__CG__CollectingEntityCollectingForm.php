@@ -64,10 +64,10 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
+            return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'site', 'owner', 'prompts'];
         }
 
-        return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'site', 'owner', 'prompts'];
+        return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'site', 'owner', 'prompts'];
     }
 
     /**
@@ -252,6 +252,28 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getItemSet', []);
 
         return parent::getItemSet();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setSuccessText($successText)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSuccessText', [$successText]);
+
+        return parent::setSuccessText($successText);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSuccessText()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSuccessText', []);
+
+        return parent::getSuccessText();
     }
 
     /**

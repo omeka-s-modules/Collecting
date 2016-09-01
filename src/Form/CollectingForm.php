@@ -24,7 +24,7 @@ class CollectingForm extends Form
             'type' => 'select',
             'options' => [
                 'label' => 'Anonymity Type', // @translate
-                'info' => 'Control how to treat "User Public" input on public pages.',
+                'info' => 'Control how to treat "User Public" input on public pages.', // @translate
                 'value_options' => CollectingFormEntity::getAnonTypes(),
             ],
         ]);
@@ -35,6 +35,17 @@ class CollectingForm extends Form
                 'label' => 'Item Set', // @translate
                 'info' => 'Assign all items created by this form to this item set.', // @translate
                 'empty_option' => 'Select Item Set...', // @translate
+            ],
+            'attributes' => [
+                'required' => false,
+            ],
+        ]);
+        $this->add([
+            'name' => 'o-module-collecting:success_text',
+            'type' => 'Textarea',
+            'options' => [
+                'label' => 'Success Text', // @translate
+                'info' => 'Display this text after a user successfully submits a form.', // @translate
             ],
             'attributes' => [
                 'required' => false,

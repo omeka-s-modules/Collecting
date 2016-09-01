@@ -34,6 +34,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         return [
             'o-module-collecting:label' => $this->label(),
             'o-module-collecting:anon_type' => $this->anonType(),
+            'o-module-collecting:success_text' => $this->successText(),
             'o:site' => $site,
             'o:item_set' => $itemSet,
             'o-module-collecting:prompt' => $this->prompts(),
@@ -69,6 +70,11 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     {
         return $this->getAdapter('item_sets')
             ->getRepresentation($this->resource->getItemSet());
+    }
+
+    public function successText()
+    {
+        return $this->resource->getSuccessText();
     }
 
     public function owner()
