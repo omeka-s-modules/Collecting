@@ -58,6 +58,16 @@ class CollectingItem extends AbstractEntity
     protected $collectingUser;
 
     /**
+     * @Column(nullable=true)
+     */
+    protected $userName;
+
+    /**
+     * @Column(nullable=true)
+     */
+    protected $userEmail;
+
+    /**
      * @Column(type="boolean", nullable=true)
      */
     protected $anon;
@@ -124,6 +134,26 @@ class CollectingItem extends AbstractEntity
     public function getCollectingUser()
     {
         return $this->collectingUser;
+    }
+
+    public function setUserName($userName)
+    {
+        $this->userName = $userName;
+    }
+
+    public function getUserName()
+    {
+        return $this->userName;
+    }
+
+    public function setUserEmail($userEmail)
+    {
+        $this->userEmail = $userEmail;
+    }
+
+    public function getUserEmail()
+    {
+        return $this->userEmail;
     }
 
     public function setAnon($anon)

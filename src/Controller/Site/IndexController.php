@@ -36,7 +36,7 @@ class IndexController extends AbstractActionController
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
 
-            list($itemData, $inputData) = $this->getPromptData($cForm);
+            list($itemData, $cItemData) = $this->getPromptData($cForm);
 
             // Temporarily give the user permission to create the Omeka and
             // Collecting items. This gives all roles all privileges to all
@@ -56,11 +56,9 @@ class IndexController extends AbstractActionController
                 $item = $response->getContent();
 
                 // Create the Collecting item.
-                $cItemData = [
-                    'o:item' => ['o:id' => $item->id()],
-                    'o-module-collecting:form' => ['o:id' => $cForm->id()],
-                    'o-module-collecting:input' => $inputData,
-                ];
+                $cItemData['o:item'] = ['o:id' => $item->id()];
+                $cItemData['o-module-collecting:form'] = ['o:id' => $cForm->id()];
+
                 if ('user' === $cForm->anonType()) {
                     // If the form has the "user" anonymity type, the item's
                     // defualt anonymous flag is "false" becuase the related
@@ -113,7 +111,7 @@ class IndexController extends AbstractActionController
      * Get the prompt data needed to create the Omeka and Collecting items.
      *
      * @param CollectingFormRepresentation $cForm
-     * @return array [itemData, inputData]
+     * @return array [itemData, cItemData]
      */
     protected function getPromptData(CollectingFormRepresentation $cForm)
     {
@@ -126,6 +124,7 @@ class IndexController extends AbstractActionController
         }
 
         $itemData = [];
+        $cItemData = [];
         $inputData = [];
 
         // Note that we're iterating the known prompts, not the ones submitted
@@ -156,6 +155,12 @@ class IndexController extends AbstractActionController
                         ];
                     }
                     break;
+                case 'user_name':
+                    $cItemData['o-module-collecting:user_name'] = $postedPrompts[$prompt->id()];
+                    break;
+                case 'user_email':
+                    $cItemData['o-module-collecting:user_email'] = $postedPrompts[$prompt->id()];
+                    break;
                 case 'media':
                     $itemData = $this->mediaTypeManager->get($prompt->mediaType())
                         ->itemData($itemData, $postedPrompts[$prompt->id()], $prompt);
@@ -166,6 +171,7 @@ class IndexController extends AbstractActionController
             }
         }
 
-        return [$itemData, $inputData];
+        $cItemData['o-module-collecting:input'] = $inputData;
+        return [$itemData, $cItemData];
     }
 }

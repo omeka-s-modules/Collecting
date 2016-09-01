@@ -63,6 +63,16 @@ var resetSidebar = function() {
     $('#prompt-select-options').val('').closest('.sidebar-section').hide();
     $('#prompt-required').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-save').hide();
+
+    // The form may only have one "user_name" prompt.
+    var hasUserName = $('#prompts .prompt-type[value="user_name"]').length;
+    var userNameOption = $('#prompt-type option[value="user_name"]');
+    hasUserName ? userNameOption.hide() : userNameOption.show();
+
+    // The form may only have one "user_email" prompt.
+    var hasUserEmail = $('#prompts .prompt-type[value="user_email"]').length;
+    var userEmailOption = $('#prompt-type option[value="user_email"]');
+    hasUserEmail ? userEmailOption.hide() : userEmailOption.show();
 }
 
 /**
@@ -83,6 +93,10 @@ var setSidebarForType = function(type) {
             $('#prompt-required').closest('.sidebar-section').show();
             break;
         case 'input':
+        case 'user_name':
+        case 'user_email':
+            $('#prompt-required').closest('.sidebar-section').show();
+            break;
         case 'user_private':
         case 'user_public':
             $('#prompt-input-type').closest('.sidebar-section').show();
@@ -223,6 +237,8 @@ $(document).ready(function() {
                     $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
                 }
                 break;
+            case 'user_name':
+            case 'user_email':
             case 'html':
                 $('#prompt-text').val(text);
                 break;
@@ -285,6 +301,8 @@ $(document).ready(function() {
                     return;
                 }
                 break;
+            case 'user_name':
+            case 'user_email':
             case 'html':
                 if (!promptData['o-module-collecting:text']) {
                     alert('You must provide prompt text.');

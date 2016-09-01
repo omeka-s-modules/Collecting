@@ -205,6 +205,16 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                     $errorStore->addError('o-module-collecting:input_type', 'A user_public prompt must have an input type.');
                 }
                 break;
+            case 'user_name':
+                if (null === $validatedData['o-module-collecting:text']) {
+                    $errorStore->addError('o-module-collecting:text', 'A user_name prompt must have text.');
+                }
+                break;
+            case 'user_email':
+                if (null === $validatedData['o-module-collecting:text']) {
+                    $errorStore->addError('o-module-collecting:text', 'A user_email prompt must have text.');
+                }
+                break;
             case  'html':
                 if (null === $validatedData['o-module-collecting:text']) {
                     $errorStore->addError('o-module-collecting:text', 'A html prompt must have text.');

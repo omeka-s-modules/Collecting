@@ -32,6 +32,10 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
         return [
             'o:item' => $item,
             'o-module-collecting:form' => $form,
+            // Must use self::displayUserName() since it's responsible for redaction
+            'o-module-collecting:user_name' => $this->displayUserName(),
+            // Must use self::displayUserEmail() since it's responsible for redaction
+            'o-module-collecting:user_email' => $this->displayUserEmail(),
             'o-module-collecting:anon' => $this->anon(),
             'o-module-collecting:reviewed' => $this->reviewed(),
             'o-module-collecting:input' => $this->inputs(),
@@ -72,6 +76,16 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
             ->getRepresentation($this->resource->getCollectingUser());
     }
 
+    public function userName()
+    {
+        return $this->resource->getUserName();
+    }
+
+    public function userEmail()
+    {
+        return $this->resource->getUserEmail();
+    }
+
     public function anon()
     {
         return $this->resource->getAnon();
@@ -90,6 +104,44 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     public function modified()
     {
         return $this->resource->getModified();
+    }
+
+    /**
+     * Get this item's user name, ready for display.
+     *
+     * @param string $default
+     * @return string
+     */
+    public function displayUserName($default = null)
+    {
+        $displayUserName = $this->userName();
+        if ('' === trim($displayUserName)) {
+            return $default;
+        }
+        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        if (!$acl->userIsAllowed($this->resource, 'view-collecting-user-name')) {
+            $displayUserName = $this->getTranslator()->translate('[private]');
+        }
+        return $displayUserName;
+    }
+
+    /**
+     * Get this item's user email, ready for display.
+     *
+     * @param string $default
+     * @return string
+     */
+    public function displayUserEmail($default = null)
+    {
+        $displayUserEmail = $this->userEmail();
+        if ('' === trim($displayUserEmail)) {
+            return $default;
+        }
+        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        if (!$acl->userIsAllowed($this->resource, 'view-collecting-user-email')) {
+            $displayUserEmail = $this->getTranslator()->translate('[private]');
+        }
+        return $displayUserEmail;
     }
 
     /**

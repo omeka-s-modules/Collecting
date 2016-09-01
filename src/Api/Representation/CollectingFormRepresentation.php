@@ -104,6 +104,8 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         }
         $url = $this->getViewHelper('Url');
         $mediaTypes = $this->getServiceLocator()->get('Collecting\MediaTypeManager');
+        $auth = $this->getServiceLocator()->get('Omeka\AuthenticationService');
+        $user = $auth->getIdentity(); // returns a User entity or null
 
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
@@ -143,6 +145,24 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                         : $prompt->text();
                     $element->setLabel($label)
                         ->setIsRequired($prompt->required());
+                    $form->add($element);
+                    break;
+                case 'user_name':
+                    $element = new Element\PromptText($name);
+                    $element->setLabel($prompt->text())
+                        ->setIsRequired($prompt->required());
+                    if ($user) {
+                        $element->setValue($user->getName());
+                    }
+                    $form->add($element);
+                    break;
+                case 'user_email':
+                    $element = new Element\PromptEmail($name);
+                    $element->setLabel($prompt->text())
+                        ->setIsRequired($prompt->required());
+                    if ($user) {
+                        $element->setValue($user->getEmail());
+                    }
                     $form->add($element);
                     break;
                 case 'html':

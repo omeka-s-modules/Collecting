@@ -77,6 +77,16 @@ class CollectingItemAdapter extends AbstractEntityAdapter
             if (isset($data['o-module-collecting:anon'])) {
                 $entity->setAnon($data['o-module-collecting:anon']);
             }
+            if (isset($data['o-module-collecting:user_name'])
+                && '' !== trim($data['o-module-collecting:user_name'])
+            ) {
+                $entity->setUserName($data['o-module-collecting:user_name']);
+            }
+            if (isset($data['o-module-collecting:user_email'])
+                && '' !== trim($data['o-module-collecting:user_email'])
+            ) {
+                $entity->setUserEmail($data['o-module-collecting:user_email']);
+            }
         }
 
         if ($this->shouldHydrate($request, 'o-module-collecting:reviewed')) {

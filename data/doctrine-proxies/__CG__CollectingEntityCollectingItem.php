@@ -64,10 +64,10 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
+            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'userName', 'userEmail', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
         }
 
-        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
+        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'userName', 'userEmail', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
     }
 
     /**
@@ -252,6 +252,50 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCollectingUser', []);
 
         return parent::getCollectingUser();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUserName($userName)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserName', [$userName]);
+
+        return parent::setUserName($userName);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUserName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserName', []);
+
+        return parent::getUserName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUserEmail($userEmail)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserEmail', [$userEmail]);
+
+        return parent::setUserEmail($userEmail);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUserEmail()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserEmail', []);
+
+        return parent::getUserEmail();
     }
 
     /**

@@ -1,6 +1,7 @@
 <p><?php echo sprintf(
-    $this->translate('This item was submitted on %s using the form “%s” on the site “%s”.'),
+    $this->translate('This item was submitted on %s by %s using the form “%s” on the site “%s”.'),
     $this->i18n()->dateFormat($cItem->item()->created(), 'long'),
+    $cItem->displayUserName($this->translate('[no name given]')),
     $cItem->form()->label(),
     $cItem->form()->site()->link($cItem->form()->site()->title())
 ); ?></p>
