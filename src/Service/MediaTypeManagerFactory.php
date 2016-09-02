@@ -2,13 +2,13 @@
 namespace Collecting\Service;
 
 use Collecting\MediaType\Manager;
+use Interop\Container\ContainerInterface;
 use Omeka\Service\Exception;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 class MediaTypeManagerFactory implements FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
     {
         $config = $serviceLocator->get('Config');
         if (!isset($config['collecting_media_types'])) {

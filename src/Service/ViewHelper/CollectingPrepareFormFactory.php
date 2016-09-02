@@ -2,14 +2,13 @@
 namespace Collecting\Service\ViewHelper;
 
 use Collecting\View\Helper\CollectingPrepareForm;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 class CollectingPrepareFormFactory implements FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $helpers)
+    public function __invoke(ContainerInterface $services, $requestedName, array $options = null)
     {
-        $services = $helpers->getServiceLocator();
         return new CollectingPrepareForm($services->get('Collecting\MediaTypeManager'));
     }
 }

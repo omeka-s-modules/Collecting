@@ -7,7 +7,7 @@ use Zend\ServiceManager\Exception\ServiceNotFoundException;
 
 class Manager extends AbstractPluginManager
 {
-    protected $canonicalNamesReplacements = [];
+    protected $instanceOf = MediaTypeInterface::class;
 
     public function get($name, $options = [],
         $usePeeringServiceManagers = true
@@ -18,15 +18,5 @@ class Manager extends AbstractPluginManager
             $instance = new Fallback($name, $this->getServiceLocator()->get('MvcTranslator'));
         }
         return $instance;
-    }
-
-    public function validatePlugin($plugin)
-    {
-        if (!is_subclass_of($plugin, 'Collecting\MediaType\MediaTypeInterface')) {
-            throw new Exception\InvalidAdapterException(sprintf(
-                'The collecting media type class "%1$s" does not implement Collecting\MediaType\MediaTypeInterface.',
-                get_class($plugin)
-            ));
-        }
     }
 }

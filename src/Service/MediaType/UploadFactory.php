@@ -2,14 +2,14 @@
 namespace Collecting\Service\MediaType;
 
 use Collecting\MediaType\Upload;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Interop\Container\ContainerInterface;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 class UploadFactory implements FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $mediaTypes)
+    public function __invoke(ContainerInterface $services, $requestedName, array $options = null)
     {
-        $plugins = $mediaTypes->getServiceLocator()->get('ControllerPluginManager');
+        $plugins = $services->get('ControllerPluginManager');
         return new Upload($plugins);
     }
 }
