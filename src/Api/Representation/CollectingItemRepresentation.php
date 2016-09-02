@@ -109,39 +109,31 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     /**
      * Get this item's user name, ready for display.
      *
-     * @param string $default
      * @return string
      */
-    public function displayUserName($default = null)
+    public function displayUserName()
     {
-        $displayUserName = $this->userName();
-        if ('' === trim($displayUserName)) {
-            return $default;
-        }
+        $name = $this->userName();
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
-        if (!$acl->userIsAllowed($this->resource, 'view-collecting-user-name')) {
-            $displayUserName = $this->getTranslator()->translate('[private]');
+        if (!$acl->userIsAllowed($this->resource, 'view-collecting-user-email')) {
+            $name = $this->getTranslator()->translate('[private]');
         }
-        return $displayUserName;
+        return $name;
     }
 
     /**
      * Get this item's user email, ready for display.
      *
-     * @param string $default
      * @return string
      */
-    public function displayUserEmail($default = null)
+    public function displayUserEmail()
     {
-        $displayUserEmail = $this->userEmail();
-        if ('' === trim($displayUserEmail)) {
-            return $default;
-        }
+        $email = $this->userEmail();
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
         if (!$acl->userIsAllowed($this->resource, 'view-collecting-user-email')) {
-            $displayUserEmail = $this->getTranslator()->translate('[private]');
+            $email = $this->getTranslator()->translate('[private]');
         }
-        return $displayUserEmail;
+        return $email;
     }
 
     /**

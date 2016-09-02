@@ -5,11 +5,12 @@ if (null === $userName || $cItem->anon() || 'private' === $cItem->form()->anonTy
     // the citation remains safe to cut-and-paste.
     $userName = $this->translate('[anonymous user]');
 }
-?>
-<p><?php echo sprintf(
-    $this->translate('This item was submitted on %s by %s using the form “%s” on the site “%s”.'),
+echo sprintf(
+    $this->translate('This item was submitted on %s by %s using the form “%s” on the site “%s”: %s'),
     $this->i18n()->dateFormat($cItem->item()->created(), 'long'),
     $userName,
     $cItem->form()->label(),
-    $cItem->form()->site()->link($cItem->form()->site()->title())
-); ?></p>
+    $cItem->form()->site()->title(),
+    $cItem->form()->site()->siteUrl(null, true)
+);
+?>

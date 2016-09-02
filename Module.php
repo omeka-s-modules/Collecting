@@ -127,17 +127,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                     // Don't render the partial if there's no collecting item.
                     return;
                 }
-                echo '<div id="collecting-section" class="section">';
-                echo $cItem->displayCitation();
-                echo $view->hyperlink(
-                    $view->translate('Click here to view the collected data.'),
-                    $view->url('admin/site/slug/collecting/item/id', [
-                        'site-slug' => $cItem->form()->site()->slug(),
-                        'form-id' => $cItem->form()->id(),
-                        'item-id' => $cItem->id(),
-                    ])
-                );
-                echo '</div>';
+                echo $view->partial('common/collecting-item-section', ['cItem' => $cItem]);
             }
         );
 

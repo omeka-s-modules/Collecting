@@ -11,8 +11,6 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
     <?php echo $this->navigation('Zend\Navigation\Collecting')->menu(); ?>
 </nav>
 
-<?php if ($cItems): ?>
-
 <div class="browse-controls">
     <?php echo $this->pagination(); ?>
     <?php echo $this->hyperlink($this->translate('Needs review'), $this->url(null, [], ['query' => ['status' => 'needs_review']], true), ['class' => 'advanced-search']); ?>
@@ -34,6 +32,8 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
     ]); ?>
 </div>
 
+<?php if ($cItems): ?>
+
 <form method="post" action="<?php echo $this->escapeHtml($this->url('admin/site/slug/collecting/item/default', ['action' => 'update-statuses'], true)); ?>">
 
 <div id="page-actions">
@@ -46,6 +46,7 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
     <thead>
     <tr>
         <th><?php echo $this->translate('Title'); ?></th>
+        <th><?php echo $this->translate('User Name'); ?></th>
         <th><?php echo $this->translate('Date Submitted'); ?></th>
         <th><?php echo $this->translate('Status'); ?></th>
     </tr>
@@ -57,8 +58,12 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
             <?php if ($media = $cItem->item()->primaryMedia()): ?>
             <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:2.25em;">
             <?php endif; ?>
-            <?php echo $cItem->link($cItem->item()->displayTitle()); ?>
+            <?php echo $this->hyperlink($cItem->item()->displayTitle(), $cItem->item()->url() . '#collecting-section'); ?>
         </td>
+        <td><?php
+        $name = $cItem->displayUserName();
+        echo null === $name ? $this->translate('[not asked]') : $name;
+        ?></td>
         <td><?php echo $this->escapeHtml($this->i18n()->dateFormat($cItem->created(), 'medium', 'short')); ?></td>
         <td>
             <ul class="actions">
