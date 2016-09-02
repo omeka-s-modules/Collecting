@@ -92,11 +92,11 @@ var setSidebarForType = function(type) {
             $('#prompt-media-type').closest('.sidebar-section').show();
             $('#prompt-required').closest('.sidebar-section').show();
             break;
-        case 'input':
         case 'user_name':
         case 'user_email':
             $('#prompt-required').closest('.sidebar-section').show();
             break;
+        case 'input':
         case 'user_private':
         case 'user_public':
             $('#prompt-input-type').closest('.sidebar-section').show();
