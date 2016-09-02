@@ -143,7 +143,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                     // Don't render the link if there's no collecting item.
                     return;
                 }
-                echo $cItem->displayCitation();
+                echo '<p>' . $cItem->displayCitation() . '</p>';
                 echo $view->hyperlink(
                     $view->translate('Click here to view the collected data.'),
                     $view->url('site/collecting-item', [
