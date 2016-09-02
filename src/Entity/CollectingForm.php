@@ -83,8 +83,8 @@ class CollectingForm extends AbstractEntity
     {
         return [
             'user' => 'User sets own anonymity', // @translate
-            'public' => 'All "User Public" inputs are publicly visible', // @translate
-            'private' => 'All "User Public" inputs are private', // @translate
+            'public' => '“User Public” and “User Name” inputs are publicly visible', // @translate
+            'private' => '“User Public” and “User Name” inputs are private', // @translate
         ];
     }
 

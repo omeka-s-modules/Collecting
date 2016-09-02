@@ -46,11 +46,11 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
 <h3><?php echo $this->translate('User Info'); ?></h3>
 <div class="property">
     <h4><?php echo $this->translate('User name:') ?></h4>
-    <div class="value"><?php echo $cItem->displayUserName($this->translate('[no name given]')); ?></div>
+    <div class="value"><?php echo $cItem->displayUserName($this->translate('[no name available]')); ?></div>
 </div>
 <div class="property">
     <h4><?php echo $this->translate('User email:') ?></h4>
-    <div class="value"><?php echo $cItem->displayUserEmail($this->translate('[no email given]')); ?></div>
+    <div class="value"><?php echo $cItem->displayUserEmail($this->translate('[no email available]')); ?></div>
 </div>
 
 <p><?php echo $cItem->item()->link($this->translate('Click here to view the corresponding item.')); ?></p>

@@ -24,7 +24,7 @@ class CollectingForm extends Form
             'type' => 'select',
             'options' => [
                 'label' => 'Anonymity Type', // @translate
-                'info' => 'Control how to treat "User Public" input on public pages.', // @translate
+                'info' => 'Control how to treat “User Public” and “User Name” input on public pages.', // @translate
                 'value_options' => CollectingFormEntity::getAnonTypes(),
             ],
         ]);
