@@ -69,7 +69,8 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             $entity->setItemSet($itemSet);
         }
         if ($this->shouldHydrate($request, 'o-module-collecting:success_text')) {
-            $entity->setSuccessText($request->getValue('o-module-collecting:success_text'));
+            $htmlPurifier = $this->getServiceLocator()->get('Omeka\HtmlPurifier');
+            $entity->setSuccessText($htmlPurifier->purify($request->getValue('o-module-collecting:success_text')));
         }
 
         // Hydrate the form prompts.

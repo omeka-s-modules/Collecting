@@ -116,6 +116,8 @@ var setSidebarForType = function(type) {
 
 $(document).ready(function() {
 
+    CKEDITOR.inline($('#form-success-text')[0]);
+
     $('#prompts-table').hide();
 
     // Append existing prompts on load. 

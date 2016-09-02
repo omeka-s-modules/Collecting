@@ -49,6 +49,7 @@ class CollectingForm extends Form
             ],
             'attributes' => [
                 'required' => false,
+                'id' => 'form-success-text',
             ],
         ]);
 
