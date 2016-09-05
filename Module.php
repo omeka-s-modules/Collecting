@@ -4,10 +4,14 @@ namespace Collecting;
 use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserNamePermissionAssertion;
 use Omeka\Module\AbstractModule;
+use Omeka\Permissions\Assertion\HasSitePermissionAssertion;
+use Omeka\Permissions\Assertion\OwnsEntityAssertion;
+use Omeka\Permissions\Assertion\SiteIsPublicAssertion;
 use Zend\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
 use Zend\Form\Fieldset;
 use Zend\Mvc\MvcEvent;
+use Zend\Permissions\Acl\Assertion\AssertionAggregate;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 class Module extends AbstractModule
@@ -24,30 +28,68 @@ class Module extends AbstractModule
         $services =  $this->getServiceLocator();
 
         $acl = $services->get('Omeka\Acl');
-        $acl->allow(null, 'Collecting\Controller\Site\Index');
-        $acl->allow(null, [
-            'Collecting\Controller\SiteAdmin\Form',
-            'Collecting\Controller\SiteAdmin\Item',
-        ]);
-        $acl->allow(null, [
-            'Collecting\Api\Adapter\CollectingFormAdapter',
-            'Collecting\Api\Adapter\CollectingItemAdapter'
-        ], ['search', 'read']);
-        $acl->allow(null, [
-            'Collecting\Entity\CollectingForm',
-            'Collecting\Entity\CollectingItem',
-        ], ['read']);
+        $acl->allow(
+            null,
+            'Collecting\Controller\Site\Index'
+        );
+        $acl->allow(
+            null,
+            [
+                'Collecting\Controller\SiteAdmin\Form',
+                'Collecting\Controller\SiteAdmin\Item',
+            ]
+        );
+        $acl->allow(
+            null,
+            [
+                'Collecting\Api\Adapter\CollectingFormAdapter',
+                'Collecting\Api\Adapter\CollectingItemAdapter',
+            ],
+            ['search', 'read']
+        );
         $acl->allow(
             null,
             'Collecting\Entity\CollectingInput',
-            ['view-collecting-input-text'],
+            'view-collecting-input-text',
             new HasInputTextPermissionAssertion
         );
         $acl->allow(
             null,
             'Collecting\Entity\CollectingItem',
-            ['view-collecting-user-name'],
+            'view-collecting-user-name',
             new HasUserNamePermissionAssertion
+        );
+
+        $adminAssertion = new AssertionAggregate;
+        $adminAssertion->addAssertions([
+            new OwnsEntityAssertion,
+            new HasSitePermissionAssertion('admin')
+        ]);
+        $adminAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
+        $acl->allow(
+            null,
+            [
+                'Collecting\Entity\CollectingForm',
+                'Collecting\Entity\CollectingItem',
+            ],
+            ['create', 'update', 'delete'],
+            $adminAssertion
+        );
+
+        $viewerAssertion = new AssertionAggregate;
+        $viewerAssertion->addAssertions([
+            new OwnsEntityAssertion,
+            new HasSitePermissionAssertion('viewer')
+        ]);
+        $viewerAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
+        $acl->allow(
+            null,
+            [
+                'Collecting\Entity\CollectingForm',
+                'Collecting\Entity\CollectingItem',
+            ],
+            'read',
+            $viewerAssertion
         );
     }
 

@@ -201,6 +201,11 @@ class CollectingItem extends AbstractEntity
         return $this->inputs;
     }
 
+    public function getSite()
+    {
+        return $this->getForm()->getSite();
+    }
+
     /**
      * @PrePersist
      */
