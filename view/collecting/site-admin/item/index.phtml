@@ -73,7 +73,7 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
                     aria-label="<?php echo $this->escapeHtml($this->translate('Details')); ?>"
                     title="<?php echo $this->escapeHtml($this->translate('Details')); ?>"></a></li>
             </ul>
-            <?php if ($cItem->item()->userIsAllowed('update')): ?>
+            <?php if ($cItem->userIsAllowed('update') && $cItem->item()->userIsAllowed('update')): ?>
             <?php echo $this->formSelect($cItem->statusSelect()); ?>
             <?php else: ?>
             <?php echo $cItem->reviewed() ? $this->translate('Reviewed') : $this->translate('Needs review'); ?>

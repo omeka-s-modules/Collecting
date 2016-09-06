@@ -60,6 +60,16 @@ class Module extends AbstractModule
             new HasUserNamePermissionAssertion
         );
 
+        // Allow reviewer and editor roles to update collecting item visibility.
+        $acl->allow(
+            ['reviewer', 'editor'],
+            [
+                'Collecting\Api\Adapter\CollectingItemAdapter',
+                'Collecting\Entity\CollectingItem',
+            ],
+            'update'
+        );
+
         $adminAssertion = new AssertionAggregate;
         $adminAssertion->addAssertions([
             new OwnsEntityAssertion,

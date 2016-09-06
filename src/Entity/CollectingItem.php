@@ -207,6 +207,16 @@ class CollectingItem extends AbstractEntity
     }
 
     /**
+     * Proxy for self::getCollectingUser()
+     *
+     * Needed for the OwnsEntityAssertion ACL assertion.
+     */
+    public function getOwner()
+    {
+        return $this->collectingUser;
+    }
+
+    /**
      * @PrePersist
      */
     public function prePersist(LifecycleEventArgs $eventArgs)
