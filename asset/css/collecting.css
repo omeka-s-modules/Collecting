@@ -1,0 +1,22 @@
+#prompts-table td .sortable-handle:before {
+    top: auto;
+}
+
+#prompts-table td:first-of-type,
+#prompts-table th:first-of-type {
+    padding-left: 2.5em;
+}
+
+#prompts-table td:last-of-type {
+    min-width: 4em;
+}
+
+#prompts-table .actions {
+    padding-left: 0;
+}
+
+@media screen and (min-width:640px) {
+    #prompts-table td {
+        width: 50%;
+    }
+}

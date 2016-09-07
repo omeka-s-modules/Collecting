@@ -2,6 +2,7 @@
 $form->prepare();
 $this->headScript()->appendFile($this->assetUrl('js/sortable.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/collecting.css', 'Collecting'));
 $this->ckEditor();
 
 $pageTitle = $isEdit
@@ -12,14 +13,9 @@ $promptsData = $isEdit
     : '[]';
 $promptRowTemplate = '
 <tr class="prompt">
-    <td><span class="sortable-handle"></span></td>
     <td>
+        <span class="sortable-handle"></span>
         <span class="prompt-type-span"></span>
-        <ul class="actions">
-            <li><a href="#" class="prompt-edit o-icon-edit" aria-label="' . $this->translate('Edit') . '" title="' . $this->translate('Edit') . '"></a></li>
-            <li><a href="#" class="prompt-delete o-icon-delete" aria-label="' . $this->translate('Delete') . '" title="' . $this->translate('Delete') . '"></a></li>
-            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="' . $this->translate('Undo Delete') . '" title="' . $this->translate('Undo Delete') . '" style="display: none;"></a></li>
-        </ul>
         <input type="hidden" class="prompt-id" name="o-module-collecting:prompt[__INDEX__][o:id]">
         <input type="hidden" class="prompt-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:type]">
         <input type="hidden" class="prompt-text" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:text]">
@@ -28,6 +24,11 @@ $promptRowTemplate = '
         <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
         <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
         <input type="hidden" class="prompt-property-id" name="o-module-collecting:prompt[__INDEX__][o:property][o:id]">
+        <ul class="actions">
+            <li><a href="#" class="prompt-edit o-icon-edit" aria-label="' . $this->translate('Edit') . '" title="' . $this->translate('Edit') . '"></a></li>
+            <li><a href="#" class="prompt-delete o-icon-delete" aria-label="' . $this->translate('Delete') . '" title="' . $this->translate('Delete') . '"></a></li>
+            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="' . $this->translate('Undo Delete') . '" title="' . $this->translate('Undo Delete') . '" style="display: none;"></a></li>
+        </ul>
     </td>
     <td><span class="prompt-text-span"></span></td>
 </tr>';
@@ -52,7 +53,6 @@ echo $this->form()->openTag($form);
 <table id="prompts-table" class="tablesaw" data-tablesaw-mode="stack">
     <thead>
     <tr>
-        <th></th>
         <th><?php echo $this->translate('Type'); ?></th>
         <th><?php echo $this->translate('Text'); ?></th>
     </tr>
