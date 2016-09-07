@@ -49,6 +49,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             if (isset($data['o:site']['o:id']) && is_numeric($data['o:site']['o:id'])
             ) {
                 $site = $this->getAdapter('sites')->findEntity($data['o:site']['o:id']);
+                $this->authorize($site, 'add-collecting-form');
                 $entity->setSite($site);
             } else {
                 $errorStore->addError('o:site', 'A collecting form must be assigned a site on creation.');

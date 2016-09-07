@@ -3,7 +3,7 @@ echo $this->pageTitle($this->translate('Collecting Forms'));
 ?>
 
 <div id="page-actions">
-    <?php if ($this->userIsAllowed('Collecting\Api\Adapter\CollectingFormAdapter', 'create')): ?>
+    <?php if ($site->userIsAllowed('add-collecting-form')): ?>
     <a href="<?php echo $this->url('admin/site/slug/collecting/default', ['action' => 'add'], true); ?>" class="button"><?php echo $this->translate('Add new form'); ?></a>
     <?php endif; ?>
 </div>

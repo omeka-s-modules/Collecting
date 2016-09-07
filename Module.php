@@ -24,83 +24,7 @@ class Module extends AbstractModule
     public function onBootstrap(MvcEvent $event)
     {
         parent::onBootstrap($event);
-
-        $services =  $this->getServiceLocator();
-
-        $acl = $services->get('Omeka\Acl');
-        $acl->allow(
-            null,
-            'Collecting\Controller\Site\Index'
-        );
-        $acl->allow(
-            null,
-            [
-                'Collecting\Controller\SiteAdmin\Form',
-                'Collecting\Controller\SiteAdmin\Item',
-            ]
-        );
-        $acl->allow(
-            null,
-            [
-                'Collecting\Api\Adapter\CollectingFormAdapter',
-                'Collecting\Api\Adapter\CollectingItemAdapter',
-            ],
-            ['search', 'read']
-        );
-        $acl->allow(
-            null,
-            'Collecting\Entity\CollectingInput',
-            'view-collecting-input-text',
-            new HasInputTextPermissionAssertion
-        );
-        $acl->allow(
-            null,
-            'Collecting\Entity\CollectingItem',
-            'view-collecting-user-name',
-            new HasUserNamePermissionAssertion
-        );
-
-        // Allow reviewer and editor roles to update collecting item visibility.
-        $acl->allow(
-            ['reviewer', 'editor'],
-            [
-                'Collecting\Api\Adapter\CollectingItemAdapter',
-                'Collecting\Entity\CollectingItem',
-            ],
-            'update'
-        );
-
-        $adminAssertion = new AssertionAggregate;
-        $adminAssertion->addAssertions([
-            new OwnsEntityAssertion,
-            new HasSitePermissionAssertion('admin')
-        ]);
-        $adminAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
-        $acl->allow(
-            null,
-            [
-                'Collecting\Entity\CollectingForm',
-                'Collecting\Entity\CollectingItem',
-            ],
-            ['create', 'update', 'delete'],
-            $adminAssertion
-        );
-
-        $viewerAssertion = new AssertionAggregate;
-        $viewerAssertion->addAssertions([
-            new OwnsEntityAssertion,
-            new HasSitePermissionAssertion('viewer')
-        ]);
-        $viewerAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
-        $acl->allow(
-            null,
-            [
-                'Collecting\Entity\CollectingForm',
-                'Collecting\Entity\CollectingItem',
-            ],
-            'read',
-            $viewerAssertion
-        );
+        $this->addAclRules();
     }
 
     public function install(ServiceLocatorInterface $services)
@@ -286,5 +210,104 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
         ]);
 
         $form->add($fieldset);
+    }
+
+    /**
+     * Add ACL rules for this module.
+     */
+    protected function addAclRules()
+    {
+        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        $acl->allow(
+            null,
+            'Collecting\Controller\Site\Index'
+        );
+        $acl->allow(
+            null,
+            [
+                'Collecting\Controller\SiteAdmin\Form',
+                'Collecting\Controller\SiteAdmin\Item',
+            ]
+        );
+        $acl->allow(
+            null,
+            [
+                'Collecting\Api\Adapter\CollectingFormAdapter',
+                'Collecting\Api\Adapter\CollectingItemAdapter',
+            ],
+            ['search', 'read']
+        );
+
+        // Give general permissions to reviewers and editors.
+        $acl->allow(
+            ['reviewer', 'editor'],
+            [
+                'Collecting\Api\Adapter\CollectingFormAdapter',
+                'Collecting\Api\Adapter\CollectingItemAdapter',
+            ],
+            ['create', 'update', 'delete']
+        );
+
+        // Give "create" privilege to every role so permission checks fall to
+        // the site-specific "add-collecting-form" privilege (checked in the
+        // CollectingFormAdapter API adapter).
+        $acl->allow(
+            null,
+            'Collecting\Entity\CollectingForm',
+            'create'
+        );
+
+        // Site admins can create and delete collecting forms.
+        $acl->allow(
+            null,
+            'Omeka\Entity\Site',
+            'add-collecting-form',
+            new HasSitePermissionAssertion('admin')
+        );
+        $acl->allow(
+            null,
+            [
+                'Collecting\Entity\CollectingForm',
+                'Collecting\Entity\CollectingItem',
+            ],
+            'delete',
+            new HasSitePermissionAssertion('admin')
+        );
+
+        // Site editors can update collecting forms and items.
+        $acl->allow(
+            null,
+            [
+                'Collecting\Entity\CollectingForm',
+                'Collecting\Entity\CollectingItem',
+            ],
+            'update',
+            new HasSitePermissionAssertion('editor')
+        );
+
+        // Site viewers can read collecting forms and items.
+        $acl->allow(
+            null,
+            [
+                'Collecting\Entity\CollectingForm',
+                'Collecting\Entity\CollectingItem',
+            ],
+            'read',
+            new HasSitePermissionAssertion('viewer')
+        );
+
+        // Discrete data permissions.
+        $acl->allow(
+            null,
+            'Collecting\Entity\CollectingInput',
+            'view-collecting-input-text',
+            new HasInputTextPermissionAssertion
+        );
+        $acl->allow(
+            null,
+            'Collecting\Entity\CollectingItem',
+            'view-collecting-user-name',
+            new HasUserNamePermissionAssertion
+        );
     }
 }
