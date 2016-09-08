@@ -79,6 +79,12 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
         );
 
         $sharedEventManager->attach(
+            'Collecting\Api\Adapter\CollectingFormAdapter',
+            'api.search.query',
+            [$this, 'filterCollectingForms']
+        );
+
+        $sharedEventManager->attach(
             '*',
             'sql_filter.resource_visibility',
             function (Event $event) {
@@ -213,6 +219,49 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
     }
 
     /**
+     * Filter private collecting forms.
+     *
+     * @param Event $event
+     */
+    public function filterCollectingForms(Event $event)
+    {
+        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        if ($acl->userIsAllowed('Omeka\Entity\Site', 'view-all')) {
+            return;
+        }
+
+        $adapter = $event->getTarget();
+        $qb = $event->getParam('queryBuilder');
+
+        // Users can view collecting forms they do not own that are public.
+        $siteAlias = $adapter->createAlias();
+        $qb->join('Collecting\Entity\CollectingForm.site', $siteAlias);
+        $expression = $qb->expr()->eq("$siteAlias.isPublic", true);
+
+        $identity = $this->getServiceLocator()
+            ->get('Omeka\AuthenticationService')->getIdentity();
+        if ($identity) {
+            $sitePermissionAlias = $adapter->createAlias();
+            $qb->leftJoin("$siteAlias.sitePermissions", $sitePermissionAlias);
+
+            $expression = $qb->expr()->orX(
+                $expression,
+                // Users can view all collecting forms they own.
+                $qb->expr()->eq(
+                    "Collecting\Entity\CollectingForm.owner",
+                    $adapter->createNamedParameter($qb, $identity)
+                ),
+                // Users can view sites where they have a role (any role).
+                $qb->expr()->eq(
+                    "$sitePermissionAlias.user",
+                    $adapter->createNamedParameter($qb, $identity)
+                )
+            );
+        }
+        $qb->andWhere($expression);
+    }
+
+    /**
      * Add ACL rules for this module.
      */
     protected function addAclRules()
@@ -234,18 +283,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
             [
                 'Collecting\Api\Adapter\CollectingFormAdapter',
                 'Collecting\Api\Adapter\CollectingItemAdapter',
-            ],
-            ['search', 'read']
-        );
-
-        // Give general permissions to reviewers and editors.
-        $acl->allow(
-            ['reviewer', 'editor'],
-            [
-                'Collecting\Api\Adapter\CollectingFormAdapter',
-                'Collecting\Api\Adapter\CollectingItemAdapter',
-            ],
-            ['create', 'update', 'delete']
+            ]
         );
 
         // Give "create" privilege to every role so permission checks fall to
@@ -257,13 +295,18 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
             'create'
         );
 
-        // Site admins can create and delete collecting forms.
         $acl->allow(
             null,
             'Omeka\Entity\Site',
             'add-collecting-form',
             new HasSitePermissionAssertion('admin')
         );
+        $adminAssertion = new AssertionAggregate;
+        $adminAssertion->addAssertions([
+            new OwnsEntityAssertion,
+            new HasSitePermissionAssertion('admin')
+        ]);
+        $adminAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
             null,
             [
@@ -271,10 +314,15 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                 'Collecting\Entity\CollectingItem',
             ],
             'delete',
-            new HasSitePermissionAssertion('admin')
+            $adminAssertion
         );
 
-        // Site editors can update collecting forms and items.
+        $editorAssertion = new AssertionAggregate;
+        $editorAssertion->addAssertions([
+            new OwnsEntityAssertion,
+            new HasSitePermissionAssertion('editor')
+        ]);
+        $editorAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
             null,
             [
@@ -282,10 +330,16 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                 'Collecting\Entity\CollectingItem',
             ],
             'update',
-            new HasSitePermissionAssertion('editor')
+            $editorAssertion
         );
 
-        // Site viewers can read collecting forms and items.
+        $viewerAssertion = new AssertionAggregate;
+        $viewerAssertion->addAssertions([
+            new SiteIsPublicAssertion,
+            new OwnsEntityAssertion,
+            new HasSitePermissionAssertion('viewer')
+        ]);
+        $viewerAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
             null,
             [
@@ -293,7 +347,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
                 'Collecting\Entity\CollectingItem',
             ],
             'read',
-            new HasSitePermissionAssertion('viewer')
+            $viewerAssertion
         );
 
         // Discrete data permissions.
