@@ -1,3 +1,8 @@
+.required.field label:after {
+    content: "*";
+    color: red;
+}
+
 #prompts-table td .sortable-handle:before {
     top: auto;
 }
