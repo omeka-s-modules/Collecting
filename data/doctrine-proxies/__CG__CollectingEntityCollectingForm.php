@@ -64,10 +64,10 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'site', 'owner', 'prompts'];
+            return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'emailText', 'site', 'owner', 'prompts'];
         }
 
-        return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'site', 'owner', 'prompts'];
+        return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'emailText', 'site', 'owner', 'prompts'];
     }
 
     /**
@@ -274,6 +274,28 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSuccessText', []);
 
         return parent::getSuccessText();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setEmailText($emailText)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailText', [$emailText]);
+
+        return parent::setEmailText($emailText);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEmailText()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailText', []);
+
+        return parent::getEmailText();
     }
 
     /**

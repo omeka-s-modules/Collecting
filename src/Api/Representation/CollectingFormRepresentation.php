@@ -35,6 +35,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             'o-module-collecting:label' => $this->label(),
             'o-module-collecting:anon_type' => $this->anonType(),
             'o-module-collecting:success_text' => $this->successText(),
+            'o-module-collecting:email_text' => $this->emailText(),
             'o:site' => $site,
             'o:item_set' => $itemSet,
             'o-module-collecting:prompt' => $this->prompts(),
@@ -75,6 +76,11 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     public function successText()
     {
         return $this->resource->getSuccessText();
+    }
+
+    public function emailText()
+    {
+        return $this->resource->getEmailText();
     }
 
     public function owner()
@@ -120,6 +126,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             'action' => 'submit',
         ], true));
 
+        $hasUserEmailPrompt = false;
         foreach ($this->prompts() as $prompt) {
             $name = sprintf('prompt_%s', $prompt->id());
             switch ($prompt->type()) {
@@ -163,6 +170,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                     $form->add($element);
                     break;
                 case 'user_email':
+                    $hasUserEmailPrompt = true;
                     $element = new Element\PromptEmail($name);
                     $element->setLabel($prompt->text())
                         ->setIsRequired($prompt->required());
@@ -194,6 +202,16 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 'name' => sprintf('anon_%s', $this->id()),
                 'options' => [
                     'label' => 'I want to submit anonymously', // @translate
+                ],
+            ]);
+        }
+
+        if ($hasUserEmailPrompt) {
+            $form->add([
+                'type' => 'checkbox',
+                'name' => sprintf('email_send_%s', $this->id()),
+                'options' => [
+                    'label' => 'Email me my submission', // @translate
                 ],
             ]);
         }

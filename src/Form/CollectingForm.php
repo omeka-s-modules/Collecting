@@ -52,6 +52,18 @@ class CollectingForm extends Form
                 'id' => 'form-success-text',
             ],
         ]);
+        $this->add([
+            'name' => 'o-module-collecting:email_text',
+            'type' => 'Textarea',
+            'options' => [
+                'label' => 'Email Text', // @translate
+                'info' => 'This text will begin all submission emails.', // @translate
+            ],
+            'attributes' => [
+                'required' => false,
+                'id' => 'form-email-text',
+            ],
+        ]);
 
         $filter = $this->getInputFilter();
         $filter->add([
