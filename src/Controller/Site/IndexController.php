@@ -203,28 +203,27 @@ class IndexController extends AbstractActionController
      */
     protected function sendSubmissionEmail($cForm, $cItem)
     {
-        $emailTextHtml = new MimePart($cForm->emailText());
-        $emailTextHtml->type = 'text/html';
+        $emailTextPart = new MimePart($cForm->emailText() ? $cForm->emailText() : '');
+        $emailTextPart->type = 'text/html';
 
-        $submissionContent = '';
+        $submissionText = '';
         foreach ($cItem->inputs() as $cInput) {
-            $submissionContent .= sprintf(
-                "%s\n\n%s\n\n",
+            $submissionText .= sprintf(
+                "# %s\n\n%s\n\n",
                 $cInput->prompt()->displayText(),
                 $cInput->displayText()
             );
         }
-        $submissionText = new MimePart($submissionContent);
-        $submissionText->type = 'text/plain';
+        $submissionPart = new MimePart($submissionText);
+        $submissionPart->type = 'text/plain';
 
         $body = new MimeMessage;
-        $body->setParts(array($emailTextHtml, $submissionText));
+        $body->setParts(array($emailTextPart, $submissionPart));
 
-        $mailer = $this->mailer();
-        $message = $mailer->createMessage()
+        $message = $this->mailer()->createMessage()
             ->addTo($cItem->userEmail(), $cItem->userName())
             ->setSubject($this->translate('Thank you for your submission'))
             ->setBody($body);
-        $mailer->send($message);
+        $this->mailer()->send($message);
     }
 }
