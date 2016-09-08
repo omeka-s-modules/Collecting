@@ -42,6 +42,7 @@ class Collecting extends AbstractBlockLayout
     public function prepareRender(PhpRenderer $view)
     {
         $view->collectingPrepareForm();
+        $view->headLink()->appendStylesheet($view->assetUrl('css/collecting.css', 'Collecting'));
         $view->headScript()->appendFile($view->assetUrl('js/collecting-block.js', 'Collecting'));
     }
 
