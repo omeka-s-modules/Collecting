@@ -237,7 +237,6 @@ class IndexController extends AbstractActionController
             ->addTo($cItem->userEmail(), $cItem->userName())
             ->setSubject($this->translate('Thank you for your submission'))
             ->setBody($body);
-        echo $message->toString();exit;
         $this->mailer()->send($message);
     }
 }
