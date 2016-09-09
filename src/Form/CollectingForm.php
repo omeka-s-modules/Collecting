@@ -20,15 +20,6 @@ class CollectingForm extends Form
             ],
         ]);
         $this->add([
-            'name' => 'o-module-collecting:anon_type',
-            'type' => 'select',
-            'options' => [
-                'label' => 'Anonymity Type', // @translate
-                'info' => 'Control how to treat “User Public” and “User Name” input on public pages.', // @translate
-                'value_options' => CollectingFormEntity::getAnonTypes(),
-            ],
-        ]);
-        $this->add([
             'name' => 'item_set_id',
             'type' => ItemSetSelect::class,
             'options' => [
@@ -38,6 +29,15 @@ class CollectingForm extends Form
             ],
             'attributes' => [
                 'required' => false,
+            ],
+        ]);
+        $this->add([
+            'name' => 'o-module-collecting:anon_type',
+            'type' => 'select',
+            'options' => [
+                'label' => 'Anonymity Type', // @translate
+                'info' => 'Control how to treat “User Public” and “User Name” input on public pages.', // @translate
+                'value_options' => CollectingFormEntity::getAnonTypes(),
             ],
         ]);
         $this->add([
@@ -57,7 +57,7 @@ class CollectingForm extends Form
             'type' => 'Textarea',
             'options' => [
                 'label' => 'Email Text', // @translate
-                'info' => 'This text will begin all submission emails.', // @translate
+                'info' => 'Begin all submission emails with this text.', // @translate
             ],
             'attributes' => [
                 'required' => false,
