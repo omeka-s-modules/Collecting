@@ -203,27 +203,41 @@ class IndexController extends AbstractActionController
      */
     protected function sendSubmissionEmail($cForm, $cItem)
     {
-        $emailTextPart = new MimePart($cForm->emailText() ? $cForm->emailText() : '');
-        $emailTextPart->type = 'text/html';
+        $bodyParts = [];
 
-        $submissionText = '';
+        if ($cForm->emailText()) {
+            $emailTextPart = new MimePart($cForm->emailText());
+            $emailTextPart->type = 'text/html';
+            $bodyParts[] = $emailTextPart;
+        }
+
+        $submissionText = sprintf(
+            $this->translate('You submitted the following data on %s using the form “%s” on the site “%s”: %s'),
+            $this->viewHelpers()->get('i18n')->dateFormat($cItem->item()->created(), 'long'),
+            $cItem->form()->label(),
+            $cItem->form()->site()->title(),
+            $cItem->form()->site()->siteUrl(null, true)
+        );
+
         foreach ($cItem->inputs() as $cInput) {
             $submissionText .= sprintf(
-                "# %s\n\n%s\n\n",
+                "\n\n# %s\n\n%s",
                 $cInput->prompt()->displayText(),
                 $cInput->displayText()
             );
         }
         $submissionPart = new MimePart($submissionText);
         $submissionPart->type = 'text/plain';
+        $bodyParts[] = $submissionPart;
 
         $body = new MimeMessage;
-        $body->setParts(array($emailTextPart, $submissionPart));
+        $body->setParts($bodyParts);
 
         $message = $this->mailer()->createMessage()
             ->addTo($cItem->userEmail(), $cItem->userName())
             ->setSubject($this->translate('Thank you for your submission'))
             ->setBody($body);
+        echo $message->toString();exit;
         $this->mailer()->send($message);
     }
 }
