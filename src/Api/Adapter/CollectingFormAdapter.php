@@ -69,9 +69,16 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 : null;
             $entity->setItemSet($itemSet);
         }
+
+        $htmlPurifier = $this->getServiceLocator()->get('Omeka\HtmlPurifier');
         if ($this->shouldHydrate($request, 'o-module-collecting:success_text')) {
-            $htmlPurifier = $this->getServiceLocator()->get('Omeka\HtmlPurifier');
-            $entity->setSuccessText($htmlPurifier->purify($request->getValue('o-module-collecting:success_text')));
+            $successText = $htmlPurifier->purify($request->getValue('o-module-collecting:success_text'));
+            $entity->setSuccessText('' === $successText ? null : $successText);
+        }
+
+        if ($this->shouldHydrate($request, 'o-module-collecting:email_text')) {
+            $emailText = $htmlPurifier->purify($request->getValue('o-module-collecting:email_text'));
+            $entity->setEmailText('' === $emailText ? null : $emailText);
         }
 
         // Hydrate the form prompts.

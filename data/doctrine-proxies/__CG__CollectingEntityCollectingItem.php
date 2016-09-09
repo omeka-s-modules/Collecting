@@ -400,6 +400,28 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
     /**
      * {@inheritDoc}
      */
+    public function getSite()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSite', []);
+
+        return parent::getSite();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOwner()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOwner', []);
+
+        return parent::getOwner();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function prePersist(\Doctrine\ORM\Event\LifecycleEventArgs $eventArgs)
     {
 

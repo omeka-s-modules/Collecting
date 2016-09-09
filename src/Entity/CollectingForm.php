@@ -41,9 +41,14 @@ class CollectingForm extends AbstractEntity
     protected $itemSet;
 
     /**
-     * @Column(type="text")
+     * @Column(type="text", nullable=true)
      */
     protected $successText;
+
+    /**
+     * @Column(type="text", nullable=true)
+     */
+    protected $emailText;
 
     /**
      * @ManyToOne(
@@ -135,6 +140,16 @@ class CollectingForm extends AbstractEntity
     public function getSuccessText()
     {
         return $this->successText;
+    }
+
+    public function setEmailText($emailText)
+    {
+        $this->emailText = $emailText;
+    }
+
+    public function getEmailText()
+    {
+        return $this->emailText;
     }
 
     public function setOwner(User $owner = null)

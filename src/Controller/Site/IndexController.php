@@ -4,6 +4,8 @@ namespace Collecting\Controller\Site;
 use Collecting\Api\Representation\CollectingFormRepresentation;
 use Collecting\MediaType\Manager;
 use Omeka\Permissions\Acl;
+use Zend\Mime\Message as MimeMessage;
+use Zend\Mime\Part as MimePart;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -66,10 +68,21 @@ class IndexController extends AbstractActionController
                     $cItemData['o-module-collecting:anon']
                         = $this->params()->fromPost(sprintf('anon_%s', $cForm->id()), false);
                 }
-                $cItem = $this->api($form)
-                    ->create('collecting_items', $cItemData)->getContent();
 
-                return $this->redirect()->toRoute(null, ['action' => 'success'], true);
+                $response = $this->api($form)->create('collecting_items', $cItemData);
+
+                if ($response->isSuccess()) {
+                    $cItem = $response->getContent();
+
+                    // Send a submission email if the user opts-in and provides
+                    // an email address.
+                    $sendEmail = $this->params()->fromPost(sprintf('email_send_%s', $cForm->id()), false);
+                    if ($sendEmail && $cItem->userEmail()) {
+                        $this->sendSubmissionEmail($cForm, $cItem);
+                    }
+
+                    return $this->redirect()->toRoute(null, ['action' => 'success'], true);
+                }
             }
 
             // Out of an abundance of caution, revert back to default permissions.
@@ -180,5 +193,51 @@ class IndexController extends AbstractActionController
 
         $cItemData['o-module-collecting:input'] = $inputData;
         return [$itemData, $cItemData];
+    }
+
+    /**
+     * Send a submission email.
+     *
+     * @param CollectingFormRepresentation $cForm
+     * @param CollectingItemRepresentation $cItem
+     */
+    protected function sendSubmissionEmail($cForm, $cItem)
+    {
+        $bodyParts = [];
+
+        if ($cForm->emailText()) {
+            $emailTextPart = new MimePart($cForm->emailText());
+            $emailTextPart->type = 'text/html';
+            $bodyParts[] = $emailTextPart;
+        }
+
+        $submissionText = sprintf(
+            $this->translate('You submitted the following data on %s using the form “%s” on the site “%s”: %s'),
+            $this->viewHelpers()->get('i18n')->dateFormat($cItem->item()->created(), 'long'),
+            $cItem->form()->label(),
+            $cItem->form()->site()->title(),
+            $cItem->form()->site()->siteUrl(null, true)
+        );
+
+        foreach ($cItem->inputs() as $cInput) {
+            $submissionText .= sprintf(
+                "\n\n# %s\n\n%s",
+                $cInput->prompt()->displayText(),
+                $cInput->displayText()
+            );
+        }
+        $submissionPart = new MimePart($submissionText);
+        $submissionPart->type = 'text/plain';
+        $bodyParts[] = $submissionPart;
+
+        $body = new MimeMessage;
+        $body->setParts($bodyParts);
+
+        $message = $this->mailer()->createMessage()
+            ->addTo($cItem->userEmail(), $cItem->userName())
+            ->setSubject($this->translate('Thank you for your submission'))
+            ->setBody($body);
+        echo $message->toString();exit;
+        $this->mailer()->send($message);
     }
 }
