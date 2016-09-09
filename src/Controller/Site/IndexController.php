@@ -203,35 +203,28 @@ class IndexController extends AbstractActionController
      */
     protected function sendSubmissionEmail($cForm, $cItem)
     {
-        $bodyParts = [];
+        $i18nHelper = $this->viewHelpers()->get('i18n');
+        $partialHelper = $this->viewHelpers()->get('partial');
 
+        $messageContent = '';
         if ($cForm->emailText()) {
-            $emailTextPart = new MimePart($cForm->emailText());
-            $emailTextPart->type = 'text/html';
-            $bodyParts[] = $emailTextPart;
+            $messageContent .= $cForm->emailText();
         }
-
-        $submissionText = sprintf(
-            $this->translate('You submitted the following data on %s using the form “%s” on the site “%s”: %s'),
-            $this->viewHelpers()->get('i18n')->dateFormat($cItem->item()->created(), 'long'),
+        $messageContent .= sprintf(
+            '<p>You submitted the following data on %s using the form “%s” on the site “%s”: %s</p>',
+            $i18nHelper->dateFormat($cItem->item()->created(), 'long'),
             $cItem->form()->label(),
             $cItem->form()->site()->title(),
             $cItem->form()->site()->siteUrl(null, true)
         );
+        $messageContent .= $partialHelper('common/collecting-item-inputs', ['cItem' => $cItem]);
+        $messageContent .= '<p>(All data you submitted was saved, even if you do not see it here.)</p>';
 
-        foreach ($cItem->inputs() as $cInput) {
-            $submissionText .= sprintf(
-                "\n\n# %s\n\n%s",
-                $cInput->prompt()->displayText(),
-                $cInput->displayText()
-            );
-        }
-        $submissionPart = new MimePart($submissionText);
-        $submissionPart->type = 'text/plain';
-        $bodyParts[] = $submissionPart;
+        $messagePart = new MimePart($messageContent);
+        $messagePart->setType('text/html');
 
         $body = new MimeMessage;
-        $body->setParts($bodyParts);
+        $body->addPart($messagePart);
 
         $message = $this->mailer()->createMessage()
             ->addTo($cItem->userEmail(), $cItem->userName())
