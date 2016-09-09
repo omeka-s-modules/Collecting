@@ -37,6 +37,9 @@ class Upload implements MediaTypeInterface
             'options' => [
                 'label' => $prompt->text(),
             ],
+            'attributes' => [
+                'required' => $prompt->required(),
+            ],
         ]);
     }
 
