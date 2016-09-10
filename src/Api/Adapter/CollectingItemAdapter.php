@@ -89,8 +89,12 @@ class CollectingItemAdapter extends AbstractEntityAdapter
             }
         }
 
-        if ($this->shouldHydrate($request, 'o-module-collecting:reviewed')) {
-            $entity->setReviewed($request->getValue('o-module-collecting:reviewed'));
+        if (Request::UPDATE == $request->getOperation()) {
+            if ($this->shouldHydrate($request, 'o-module-collecting:reviewed')) {
+                $auth = $this->getServiceLocator()->get('Omeka\AuthenticationService');
+                $entity->setReviewer($auth->getIdentity());
+                $entity->setReviewed($request->getValue('o-module-collecting:reviewed'));
+            }
         }
     }
 

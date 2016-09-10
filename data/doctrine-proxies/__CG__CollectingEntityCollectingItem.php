@@ -64,10 +64,10 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'userName', 'userEmail', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
+            return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'reviewer', 'userName', 'userEmail', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
         }
 
-        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'userName', 'userEmail', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
+        return ['__isInitialized__', 'id', 'item', 'form', 'collectingUser', 'reviewer', 'userName', 'userEmail', 'anon', 'reviewed', 'created', 'modified', 'inputs'];
     }
 
     /**
@@ -252,6 +252,28 @@ class CollectingItem extends \Collecting\Entity\CollectingItem implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCollectingUser', []);
 
         return parent::getCollectingUser();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setReviewer(\Omeka\Entity\User $reviewer = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReviewer', [$reviewer]);
+
+        return parent::setReviewer($reviewer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getReviewer()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReviewer', []);
+
+        return parent::getReviewer();
     }
 
     /**

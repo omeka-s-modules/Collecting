@@ -7,6 +7,7 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Omeka\Entity\AbstractEntity;
 use Omeka\Entity\Item;
+use Omeka\Entity\User;
 
 /**
  * @Entity
@@ -56,6 +57,17 @@ class CollectingItem extends AbstractEntity
      * )
      */
     protected $collectingUser;
+
+    /**
+     * @ManyToOne(
+     *     targetEntity="Omeka\Entity\User"
+     * )
+     * @JoinColumn(
+     *     nullable=true,
+     *     onDelete="SET NULL"
+     * )
+     */
+    protected $reviewer;
 
     /**
      * @Column(nullable=true)
@@ -134,6 +146,16 @@ class CollectingItem extends AbstractEntity
     public function getCollectingUser()
     {
         return $this->collectingUser;
+    }
+
+    public function setReviewer(User $reviewer = null)
+    {
+        $this->reviewer = $reviewer;
+    }
+
+    public function getReviewer()
+    {
+        return $this->reviewer;
     }
 
     public function setUserName($userName)

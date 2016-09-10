@@ -76,6 +76,12 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
             ->getRepresentation($this->resource->getCollectingUser());
     }
 
+    public function reviewer()
+    {
+        return $this->getAdapter('users')
+            ->getRepresentation($this->resource->getReviewer());
+    }
+
     public function userName()
     {
         return $this->resource->getUserName();
