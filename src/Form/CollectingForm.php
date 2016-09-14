@@ -2,6 +2,7 @@
 namespace Collecting\Form;
 
 use Collecting\Entity\CollectingForm as CollectingFormEntity;
+use Omeka\Form\Element\CkeditorInline;
 use Omeka\Form\Element\ItemSetSelect;
 use Zend\Form\Form;
 
@@ -42,7 +43,7 @@ class CollectingForm extends Form
         ]);
         $this->add([
             'name' => 'o-module-collecting:success_text',
-            'type' => 'Textarea',
+            'type' => CkeditorInline::class,
             'options' => [
                 'label' => 'Success Text', // @translate
                 'info' => 'Display this text after a user successfully submits a form.', // @translate
@@ -54,7 +55,7 @@ class CollectingForm extends Form
         ]);
         $this->add([
             'name' => 'o-module-collecting:email_text',
-            'type' => 'Textarea',
+            'type' => CkeditorInline::class,
             'options' => [
                 'label' => 'Email Text', // @translate
                 'info' => 'Begin all submission emails with this text.', // @translate
