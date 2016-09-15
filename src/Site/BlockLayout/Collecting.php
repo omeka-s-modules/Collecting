@@ -2,6 +2,7 @@
 namespace Collecting\Site\BlockLayout;
 
 use Omeka\Api\Representation\SiteRepresentation;
+use Omeka\Api\Representation\SitePageRepresentation;
 use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Entity\SitePageBlock;
 use Omeka\Site\BlockLayout\AbstractBlockLayout;
@@ -20,7 +21,7 @@ class Collecting extends AbstractBlockLayout
     {}
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
-        SitePageBlockRepresentation $block = null)
+        SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null)
     {
         $forms = $view->api()
             ->search('collecting_forms', ['site_id' => $site->id()])
