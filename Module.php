@@ -65,8 +65,6 @@ DROP TABLE IF EXISTS collecting_input;
 DROP TABLE IF EXISTS collecting_user;
 SET FOREIGN_KEY_CHECKS=1;
 DELETE FROM site_page_block WHERE layout = "collecting";
-DELETE FROM site_setting WHERE id = "collecting_recaptcha_secret_key";
-DELETE FROM site_setting WHERE id = "collecting_recaptcha_site_key";
 DELETE FROM site_setting WHERE id = "collecting_tos";
 ');
     }
@@ -181,28 +179,6 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
 
         $fieldset = new Fieldset('collecting');
         $fieldset->setLabel('Collecting');
-
-        // Add the reCAPTCHA site and secret keys to the form.
-        $fieldset->add([
-            'type' => 'text',
-            'name' => 'collecting_recaptcha_site_key',
-            'options' => [
-                'label' => 'Collecting reCAPTCHA site key',
-            ],
-            'attributes' => [
-                'value' => $siteSettings->get('collecting_recaptcha_site_key'),
-            ],
-        ]);
-        $fieldset->add([
-            'type' => 'text',
-            'name' => 'collecting_recaptcha_secret_key',
-            'options' => [
-                'label' => 'Collecting reCAPTCHA secret key',
-            ],
-            'attributes' => [
-                'value' => $siteSettings->get('collecting_recaptcha_secret_key'),
-            ],
-        ]);
 
         // Add the terms of service to the form.
         $fieldset->add([

@@ -193,6 +193,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             }
         }
 
+        $settings = $this->getServiceLocator()->get('Omeka\Settings');
         $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
         $translator = $this->getServiceLocator()->get('MvcTranslator');
 
@@ -245,9 +246,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             ]);
         }
 
-        // Add reCAPTCHA protection if keys are provided in site settings.
-        $siteKey = $siteSettings->get('collecting_recaptcha_site_key');
-        $secretKey = $siteSettings->get('collecting_recaptcha_secret_key');
+        // Add reCAPTCHA protection if keys are provided in global settings.
+        $siteKey = $settings->get('recaptcha_site_key');
+        $secretKey = $settings->get('recaptcha_secret_key');
         if ($siteKey && $secretKey) {
             $element = $this->getServiceLocator()
                 ->get('FormElementManager')
