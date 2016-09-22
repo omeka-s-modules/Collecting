@@ -21,9 +21,6 @@ class CollectingPrepareForm extends AbstractHelper
         // Enable the CKEditor HTML text editors.
         $this->getView()->ckEditor();
 
-        // Prepare the reCAPTCHA element.
-        $this->getView()->prepareRecaptcha();
-
         // Map the HTML element type to the view helper that renders it.
         $this->getView()->formElement()->addType('promptHtml', 'formPromptHtml');
 
