@@ -72,8 +72,8 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
     public function attachListeners(SharedEventManagerInterface $sharedEventManager)
     {
         $sharedEventManager->attach(
-            '*',
-            'site_settings.form',
+            'Omeka\Form\SiteSettingsForm',
+            'site_settings.add_elements',
             [$this, 'addSiteSettings']
         );
 
