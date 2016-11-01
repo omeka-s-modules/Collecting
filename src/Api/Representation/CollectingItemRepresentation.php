@@ -121,7 +121,7 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     {
         $name = $this->userName();
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
-        if (!$acl->userIsAllowed($this->resource, 'view-collecting-user-email')) {
+        if (!$acl->userIsAllowed($this->resource, 'view-collecting-user-name')) {
             $name = $this->getTranslator()->translate('[private]');
         }
         return $name;
