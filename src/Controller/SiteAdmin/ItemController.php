@@ -63,10 +63,10 @@ class ItemController extends AbstractActionController
             // Update the status using partial updates.
             $this->api()->update('collecting_items', $cItem->id(), [
                 'o-module-collecting:reviewed' => $reviewed,
-            ], [], true);
+            ], [], ['isPartial' => true]);
             $this->api()->update('items', $cItem->item()->id(), [
                 'o:is_public' => $isPublic,
-            ], [], true);
+            ], [], ['isPartial' => true]);
         }
         $this->messenger()->addSuccess($this->translate('Statuses successfully updated'));
         return $this->redirect()->toRoute(null, ['action' => 'index'], true);

@@ -77,7 +77,7 @@ class FormController extends AbstractActionController
                 $response = $isEdit
                     ? $this->api($form)->update('collecting_forms', $cForm->id(), $data)
                     : $this->api($form)->create('collecting_forms', $data);
-                if ($response->isSuccess()) {
+                if ($response) {
                     $cForm = $response->getContent();
                     $successMessage = $isEdit
                         ? 'Collecting form successfully updated' // @translate
@@ -114,7 +114,7 @@ class FormController extends AbstractActionController
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
                 $response = $this->api($form)->delete('collecting_forms', $this->params('form-id'));
-                if ($response->isSuccess()) {
+                if ($response) {
                     $this->messenger()->addSuccess('Collecting form successfully deleted'); // @translate
                 }
             } else {

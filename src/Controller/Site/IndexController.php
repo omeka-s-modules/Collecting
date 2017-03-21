@@ -54,7 +54,7 @@ class IndexController extends AbstractActionController
             $response = $this->api($form)
                 ->create('items', $itemData, $this->params()->fromFiles());
 
-            if ($response->isSuccess()) {
+            if ($response) {
                 $item = $response->getContent();
 
                 // Create the Collecting item.
@@ -71,7 +71,7 @@ class IndexController extends AbstractActionController
 
                 $response = $this->api($form)->create('collecting_items', $cItemData);
 
-                if ($response->isSuccess()) {
+                if ($response) {
                     $cItem = $response->getContent();
 
                     // Send a submission email if the user opts-in and provides
