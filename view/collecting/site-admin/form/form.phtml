@@ -1,6 +1,6 @@
 <?php
 $form->prepare();
-$this->headScript()->appendFile($this->assetUrl('js/sortable.js', 'Omeka'));
+$this->headScript()->appendFile($this->assetUrl('vendor/sortablejs/Sortable.min.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/collecting.css', 'Collecting'));
 $this->ckEditor();
