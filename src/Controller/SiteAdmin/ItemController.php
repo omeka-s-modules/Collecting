@@ -66,10 +66,7 @@ class ItemController extends AbstractActionController
             ], [], ['isPartial' => true]);
             $this->api()->update('items', $cItem->item()->id(), [
                 'o:is_public' => $isPublic,
-            ], [], [
-                'isPartial' => true,
-                'collectionAction' => 'remove', // remove action skips value hydration altogether
-            ]);
+            ], [], ['isPartial' => true]);
         }
         $this->messenger()->addSuccess($this->translate('Statuses successfully updated'));
         return $this->redirect()->toRoute(null, ['action' => 'index'], true);
