@@ -103,6 +103,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 $prompt->setText($promptData['o-module-collecting:text']);
                 $prompt->setInputType($promptData['o-module-collecting:input_type']);
                 $prompt->setSelectOptions($promptData['o-module-collecting:select_options']);
+                $prompt->setResourceQuery($promptData['o-module-collecting:resource_query']);
                 $prompt->setMediaType($promptData['o-module-collecting:media_type']);
                 $prompt->setRequired($promptData['o-module-collecting:required']);
                 if (is_numeric($promptData['o:property']['o:id'])) {
@@ -136,6 +137,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             'o-module-collecting:text' => null,
             'o-module-collecting:input_type' => null,
             'o-module-collecting:select_options' => null,
+            'o-module-collecting:resource_query' => null,
             'o-module-collecting:media_type' => null,
             'o-module-collecting:required' => false,
             'o:property' => ['o:id' => null],
@@ -156,6 +158,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         }
         if (isset($data['o-module-collecting:select_options']) && '' !== trim($data['o-module-collecting:select_options'])) {
             $validatedData['o-module-collecting:select_options'] = $this->sanitizeSelectOptions($data['o-module-collecting:select_options']);
+        }
+        if (isset($data['o-module-collecting:resource_query']) && '' !== trim($data['o-module-collecting:resource_query'])) {
+            $validatedData['o-module-collecting:resource_query'] = $data['o-module-collecting:resource_query'];
         }
         if (isset($data['o-module-collecting:media_type']) && '' !== trim($data['o-module-collecting:media_type'])) {
             $validatedData['o-module-collecting:media_type'] = $data['o-module-collecting:media_type'];

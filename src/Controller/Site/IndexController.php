@@ -156,11 +156,21 @@ class IndexController extends AbstractActionController
             }
             switch ($prompt->type()) {
                 case 'property':
-                    $itemData[$prompt->property()->term()][] = [
-                        'type' => 'literal',
-                        'property_id' => $prompt->property()->id(),
-                        '@value' => $postedPrompts[$prompt->id()],
-                    ];
+                    switch ($prompt->inputType()) {
+                        case 'item':
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'resource',
+                                'property_id' => $prompt->property()->id(),
+                                'value_resource_id' => $postedPrompts[$prompt->id()],
+                            ];
+                            break;
+                        default:
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'literal',
+                                'property_id' => $prompt->property()->id(),
+                                '@value' => $postedPrompts[$prompt->id()],
+                            ];
+                    }
                     // Note that there's no break here. We need to save all
                     // property types as inputs so the relationship between the
                     // prompt and the user input isn't lost.

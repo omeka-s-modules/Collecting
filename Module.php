@@ -3,6 +3,7 @@ namespace Collecting;
 
 use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserNamePermissionAssertion;
+use Composer\Semver\Comparator;
 use Omeka\Module\AbstractModule;
 use Omeka\Permissions\Assertion\HasSitePermissionAssertion;
 use Omeka\Permissions\Assertion\OwnsEntityAssertion;
@@ -34,7 +35,7 @@ class Module extends AbstractModule
         $conn->exec('SET FOREIGN_KEY_CHECKS = 0');
         $conn->exec('
 CREATE TABLE collecting_item (id INT AUTO_INCREMENT NOT NULL, item_id INT NOT NULL, form_id INT NOT NULL, collecting_user_id INT NOT NULL, reviewer_id INT DEFAULT NULL, user_name VARCHAR(255) DEFAULT NULL, user_email VARCHAR(255) DEFAULT NULL, anon TINYINT(1) DEFAULT NULL, reviewed TINYINT(1) NOT NULL, created DATETIME NOT NULL, modified DATETIME DEFAULT NULL, UNIQUE INDEX UNIQ_D414538C126F525E (item_id), INDEX IDX_D414538C5FF69B7D (form_id), INDEX IDX_D414538CB0237C21 (collecting_user_id), INDEX IDX_D414538C70574616 (reviewer_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB;
-CREATE TABLE collecting_prompt (id INT AUTO_INCREMENT NOT NULL, form_id INT NOT NULL, property_id INT DEFAULT NULL, position INT NOT NULL, type VARCHAR(255) NOT NULL, text LONGTEXT DEFAULT NULL, input_type VARCHAR(255) DEFAULT NULL, select_options LONGTEXT DEFAULT NULL, media_type VARCHAR(255) DEFAULT NULL, required TINYINT(1) NOT NULL, INDEX IDX_98FE9BA65FF69B7D (form_id), INDEX IDX_98FE9BA6549213EC (property_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB;
+CREATE TABLE collecting_prompt (id INT AUTO_INCREMENT NOT NULL, form_id INT NOT NULL, property_id INT DEFAULT NULL, position INT NOT NULL, type VARCHAR(255) NOT NULL, text LONGTEXT DEFAULT NULL, input_type VARCHAR(255) DEFAULT NULL, select_options LONGTEXT DEFAULT NULL, resource_query LONGTEXT DEFAULT NULL, media_type VARCHAR(255) DEFAULT NULL, required TINYINT(1) NOT NULL, INDEX IDX_98FE9BA65FF69B7D (form_id), INDEX IDX_98FE9BA6549213EC (property_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB;
 CREATE TABLE collecting_form (id INT AUTO_INCREMENT NOT NULL, item_set_id INT DEFAULT NULL, site_id INT NOT NULL, owner_id INT DEFAULT NULL, label VARCHAR(255) NOT NULL, anon_type VARCHAR(255) NOT NULL, success_text LONGTEXT DEFAULT NULL, email_text LONGTEXT DEFAULT NULL, INDEX IDX_99878BDD960278D7 (item_set_id), INDEX IDX_99878BDDF6BD1646 (site_id), INDEX IDX_99878BDD7E3C61F9 (owner_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB;
 CREATE TABLE collecting_input (id INT AUTO_INCREMENT NOT NULL, prompt_id INT NOT NULL, collecting_item_id INT NOT NULL, text LONGTEXT NOT NULL, INDEX IDX_C6E2CFC9B5C4AA38 (prompt_id), INDEX IDX_C6E2CFC9522FDEA (collecting_item_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB;
 CREATE TABLE collecting_user (id INT AUTO_INCREMENT NOT NULL, user_id INT DEFAULT NULL, UNIQUE INDEX UNIQ_469CA0DBA76ED395 (user_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB;
@@ -67,6 +68,14 @@ SET FOREIGN_KEY_CHECKS=1;
 DELETE FROM site_page_block WHERE layout = "collecting";
 DELETE FROM site_setting WHERE id = "collecting_tos";
 ');
+    }
+
+    public function upgrade($oldVersion, $newVersion, ServiceLocatorInterface $services)
+    {
+        $conn = $services->get('Omeka\Connection');
+        if (Comparator::lessThan($oldVersion, '1.0.0-beta3')) {
+            $conn->exec('ALTER TABLE collecting_prompt ADD resource_query LONGTEXT DEFAULT NULL AFTER select_options');
+        }
     }
 
     public function attachListeners(SharedEventManagerInterface $sharedEventManager)

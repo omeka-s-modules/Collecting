@@ -65,6 +65,11 @@ class CollectingPrompt extends AbstractEntity
     protected $selectOptions;
 
     /**
+     * @Column(type="text", nullable=true)
+     */
+    protected $resourceQuery;
+
+    /**
      * @Column(nullable=true)
      */
     protected $mediaType;
@@ -105,6 +110,7 @@ class CollectingPrompt extends AbstractEntity
             'text' => 'Text box (one line)', // @translate
             'textarea' => 'Text box (multiple line)', // @translate
             'select' => 'Select menu', // @translate
+            'item' => 'Item Resource', // @translate
         ];
     }
 
@@ -175,6 +181,16 @@ class CollectingPrompt extends AbstractEntity
     public function getSelectOptions()
     {
         return $this->selectOptions;
+    }
+
+    public function setResourceQuery($resourceQuery)
+    {
+        $this->resourceQuery = trim($resourceQuery) ?: null;
+    }
+
+    public function getResourceQuery()
+    {
+        return $this->resourceQuery;
     }
 
     public function setMediaType($mediaType)
