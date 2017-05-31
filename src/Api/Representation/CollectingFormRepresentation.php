@@ -156,7 +156,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             $element->setApiManager($api);
                             $element->setEmptyOption('Please choose one...') // @translate
                                 ->setResourceValueOptions('items', function ($item) {
-                                    return sprintf('#%s: %s', $item->id(), $item->displayTitle());
+                                    return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
                                 }, $resourceQuery);
                             break;
                         default:
