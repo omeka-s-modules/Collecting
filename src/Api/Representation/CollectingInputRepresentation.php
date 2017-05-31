@@ -71,6 +71,14 @@ class CollectingInputRepresentation extends AbstractRepresentation
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
         if (!$acl->userIsAllowed($this->resource, 'view-collecting-input-text')) {
             $displayText = $this->getTranslator()->translate('[private]');
+        } elseif ('item' === $this->prompt()->inputType()) {
+            try {
+                $item = $this->getServiceLocator()->get('Omeka\ApiManager')
+                    ->read('items', $displayText)->getContent();
+                $displayText = $item->link($item->displayTitle());
+            } catch (\Exception $e) {
+                $displayText = $this->getTranslator()->translate('[unknown item]');
+            }
         }
         return $displayText;
     }
