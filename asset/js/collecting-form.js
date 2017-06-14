@@ -39,6 +39,7 @@ var populatePromptRow = function(promptData) {
     promptRow.find('.prompt-text').val(promptData['o-module-collecting:text']);
     promptRow.find('.prompt-input-type').val(promptData['o-module-collecting:input_type']);
     promptRow.find('.prompt-select-options').val(promptData['o-module-collecting:select_options']);
+    promptRow.find('.prompt-resource-query').val(promptData['o-module-collecting:resource_query']);
     promptRow.find('.prompt-media-type').val(promptData['o-module-collecting:media_type']);
     promptRow.find('.prompt-required').val(promptData['o-module-collecting:required'] ? '1' : '0');
     if (promptData['o:property']) {
@@ -61,6 +62,7 @@ var resetSidebar = function() {
     $('#prompt-media-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-input-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-select-options').val('').closest('.sidebar-section').hide();
+    $('#prompt-resource-query').val('').closest('.sidebar-section').hide();
     $('#prompt-required').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-save').hide();
 
@@ -156,10 +158,16 @@ $(document).ready(function() {
     $('#prompt-input-type').on('change', function() {
         var inputType = $(this).val();
         var selectOptionsSection = $('#prompt-select-options').closest('.sidebar-section');
+        var resourceQuerySection = $('#prompt-resource-query').closest('.sidebar-section');
         if ('select' === inputType) {
             selectOptionsSection.show();
         } else {
             selectOptionsSection.hide();
+        }
+        if ('item' === inputType) {
+            resourceQuerySection.show();
+        } else {
+            resourceQuerySection.hide();
         }
     });
 
@@ -220,6 +228,10 @@ $(document).ready(function() {
                     var selectOptions = prompt.find('.prompt-select-options').val();
                     $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
                 }
+                if ('item' === inputType) {
+                    var resourceQuery = prompt.find('.prompt-resource-query').val();
+                    $('#prompt-resource-query').val(resourceQuery).closest('.sidebar-section').show();
+                }
                 break;
             case 'media':
                 var mediaType = prompt.find('.prompt-media-type').val();
@@ -262,6 +274,7 @@ $(document).ready(function() {
             'o-module-collecting:text': $('#prompt-text').val(),
             'o-module-collecting:input_type': $('#prompt-input-type').val(),
             'o-module-collecting:select_options': $('#prompt-select-options').val(),
+            'o-module-collecting:resource_query': $('#prompt-resource-query').val(),
             'o-module-collecting:media_type': $('#prompt-media-type').val(),
             'o-module-collecting:required': $('#prompt-required').prop('checked'),
             'o:property': {'o:id': $('#prompt-property').val()},

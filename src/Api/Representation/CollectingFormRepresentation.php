@@ -116,6 +116,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         }
         $url = $this->getViewHelper('Url');
         $mediaTypes = $this->getServiceLocator()->get('Collecting\MediaTypeManager');
+        $api = $this->getServiceLocator()->get('Omeka\ApiManager');
         $auth = $this->getServiceLocator()->get('Omeka\AuthenticationService');
         $user = $auth->getIdentity(); // returns a User entity or null
 
@@ -148,6 +149,15 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one...') // @translate
                                 ->setValueOptions(array_combine($selectOptions, $selectOptions));
+                            break;
+                        case 'item':
+                            parse_str(ltrim($prompt->resourceQuery(), '?'), $resourceQuery);
+                            $element = new Element\PromptItem($name);
+                            $element->setApiManager($api);
+                            $element->setEmptyOption('Please choose one...') // @translate
+                                ->setResourceValueOptions('items', function ($item) {
+                                    return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
+                                }, $resourceQuery);
                             break;
                         default:
                             // Invalid prompt input type. Do nothing.

@@ -13,9 +13,16 @@
         </thead>
         <tbody>
         <?php foreach ($inputs as $input): ?>
+        <?php
+        $prompt = $input->prompt();
+        $displayText = $input->displayText();
+        if ('item' !== $prompt->inputType()) {
+            $displayText = $this->escapeHtml($displayText);
+        }
+        ?>
         <tr>
-            <td><?php echo $this->escapeHtml($input->prompt()->displayText()); ?></td>
-            <td><?php echo nl2br($this->escapeHtml($input->displayText())); ?></td>
+            <td><?php echo $this->escapeHtml($prompt->displayText()); ?></td>
+            <td><?php echo nl2br($displayText); ?></td>
         </tr>
         <?php endforeach; ?>
         </tbody>
