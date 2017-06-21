@@ -73,7 +73,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
     public function upgrade($oldVersion, $newVersion, ServiceLocatorInterface $services)
     {
         $conn = $services->get('Omeka\Connection');
-        if (Comparator::lessThan($oldVersion, '1.0.0-beta3')) {
+        if (Comparator::lessThan($oldVersion, '1.0.0-beta4')) {
             $conn->exec('ALTER TABLE collecting_prompt ADD resource_query LONGTEXT DEFAULT NULL AFTER select_options');
         }
     }
