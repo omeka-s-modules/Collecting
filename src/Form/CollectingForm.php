@@ -24,7 +24,7 @@ class CollectingForm extends Form
             'name' => 'item_set_id',
             'type' => ItemSetSelect::class,
             'options' => [
-                'label' => 'Item Set', // @translate
+                'label' => 'Item set', // @translate
                 'info' => 'Assign all items created by this form to this item set.', // @translate
                 'empty_option' => 'Select Item Set...', // @translate
             ],
@@ -36,7 +36,7 @@ class CollectingForm extends Form
             'name' => 'o-module-collecting:anon_type',
             'type' => 'select',
             'options' => [
-                'label' => 'Anonymity Type', // @translate
+                'label' => 'Anonymity type', // @translate
                 'info' => 'Control how to treat “User Public” and “User Name” input on public pages.', // @translate
                 'value_options' => CollectingFormEntity::getAnonTypes(),
             ],
@@ -45,7 +45,7 @@ class CollectingForm extends Form
             'name' => 'o-module-collecting:success_text',
             'type' => CkeditorInline::class,
             'options' => [
-                'label' => 'Success Text', // @translate
+                'label' => 'Success text', // @translate
                 'info' => 'Display this text after a user successfully submits a form.', // @translate
             ],
             'attributes' => [
@@ -57,7 +57,7 @@ class CollectingForm extends Form
             'name' => 'o-module-collecting:email_text',
             'type' => CkeditorInline::class,
             'options' => [
-                'label' => 'Email Text', // @translate
+                'label' => 'Email text', // @translate
                 'info' => 'Begin all submission emails with this text.', // @translate
             ],
             'attributes' => [

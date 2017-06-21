@@ -6,8 +6,8 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/collecting.css', 'Colle
 $this->ckEditor();
 
 $pageTitle = $isEdit
-    ? sprintf($this->translate('Edit Collecting Form: “%s”'), $cForm->label())
-    : $this->translate('Add Collecting Form');
+    ? sprintf($this->translate('Edit collecting form: “%s”'), $cForm->label())
+    : $this->translate('Add collecting form');
 $promptsData = $isEdit
     ? json_encode($cForm->prompts())
     : '[]';
@@ -28,7 +28,7 @@ $promptRowTemplate = '
         <ul class="actions">
             <li><a href="#" class="prompt-edit o-icon-edit" aria-label="' . $this->translate('Edit') . '" title="' . $this->translate('Edit') . '"></a></li>
             <li><a href="#" class="prompt-delete o-icon-delete" aria-label="' . $this->translate('Delete') . '" title="' . $this->translate('Delete') . '"></a></li>
-            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="' . $this->translate('Undo Delete') . '" title="' . $this->translate('Undo Delete') . '" style="display: none;"></a></li>
+            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="' . $this->translate('Undo delete') . '" title="' . $this->translate('Undo delete') . '" style="display: none;"></a></li>
         </ul>
     </td>
     <td><span class="prompt-text-span"></span></td>
@@ -72,9 +72,9 @@ echo $this->form()->openTag($form);
         <h3><?php echo $this->translate('Prompt'); ?></h3>
 
         <div class="sidebar-section">
-            <h4><?php echo $this->translate('Prompt Type'); ?></h4>
+            <h4><?php echo $this->translate('Prompt type'); ?></h4>
             <select id="prompt-type" name="type">
-                <option value="">Select a prompt type...</option>
+                <option value=""><?php echo $this->translate("Select a prompt type"); ?></option>
                 <?php foreach ($this->collecting()->types() as $key => $value): ?>
                 <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
                 <?php endforeach; ?>
@@ -83,13 +83,13 @@ echo $this->form()->openTag($form);
 
         <div class="sidebar-section">
             <h4><?php echo $this->translate('Property'); ?></h4>
-            <?php echo $this->propertySelect(['name' => 'property', 'options' => ['empty_option' => 'Select a property...'], 'attributes' => ['id' => 'prompt-property']]); ?>
+            <?php echo $this->propertySelect(['name' => 'property', 'options' => ['empty_option' => 'Select a property'], 'attributes' => ['id' => 'prompt-property']]); ?>
         </div>
 
         <div class="sidebar-section">
-            <h4><?php echo $this->translate('Media Type'); ?></h4>
+            <h4><?php echo $this->translate('Media type'); ?></h4>
             <select id="prompt-media-type" name="media-type">
-                <option value="">Select a media type...</option>
+                <option value=""><?php echo $this->translate("Select a media type"); ?></option>
                 <?php foreach ($this->collecting()->mediaTypes() as $key => $value): ?>
                 <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
                 <?php endforeach; ?>
@@ -97,14 +97,14 @@ echo $this->form()->openTag($form);
         </div>
 
         <div class="sidebar-section">
-            <h4><?php echo $this->translate('Prompt Text'); ?></h4>
+            <h4><?php echo $this->translate('Prompt text'); ?></h4>
             <textarea id="prompt-text" name="text" style="width:100%;" rows="3"></textarea>
         </div>
 
         <div class="sidebar-section">
-            <h4><?php echo $this->translate('Input Type'); ?></h4>
+            <h4><?php echo $this->translate('Input type'); ?></h4>
             <select id="prompt-input-type" name="input-type">
-                <option value="">Select an input type...</option>
+                <option value=""><?php echo $this->translate("Select an input type"); ?></option>
                 <?php foreach ($this->collecting()->inputTypes() as $key => $value): ?>
                 <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
                 <?php endforeach; ?>
@@ -112,12 +112,12 @@ echo $this->form()->openTag($form);
         </div>
 
         <div class="sidebar-section">
-            <h4><?php echo $this->translate('Select Menu Options'); ?></h4>
-            <textarea id="prompt-select-options" name="select-options" style="width:100%;" rows="3" placeholder="Option One&#13;&#10;Option Two&#13;&#10;..."></textarea>
+            <h4><?php echo $this->translate('Select menu options'); ?></h4>
+            <textarea id="prompt-select-options" name="select-options" style="width:100%;" rows="3" placeholder="Option one&#13;&#10;Option two&#13;&#10;..."></textarea>
         </div>
 
         <div class="sidebar-section">
-            <h4><?php echo $this->translate('Filter Query'); ?> <span title="<?php echo $this->translate('Filter resources by entering an advanced search URL query string.'); ?>">[?]</span></h4>
+            <h4><?php echo $this->translate('Filter query'); ?> <span title="<?php echo $this->translate('Filter resources by entering an advanced search URL query string.'); ?>">[?]</span></h4>
             <input type="text" id="prompt-resource-query" name="resource-query" style="width:100%;">
         </div>
 
@@ -126,7 +126,7 @@ echo $this->form()->openTag($form);
             <input type="checkbox" id="prompt-required" name="required">
         </div>
 
-        <a id="prompt-save" href="#" class="button"><?php echo $this->translate('Save Changes'); ?></a>
+        <a id="prompt-save" href="#" class="button"><?php echo $this->translate('Add changes'); ?></a>
     </div>
 </div>
 
