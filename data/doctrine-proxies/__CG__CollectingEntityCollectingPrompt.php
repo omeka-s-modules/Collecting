@@ -64,10 +64,10 @@ class CollectingPrompt extends \Collecting\Entity\CollectingPrompt implements \D
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'itemQuery', 'mediaType', 'required', 'property'];
+            return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'mediaType', 'required', 'property'];
         }
 
-        return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'itemQuery', 'mediaType', 'required', 'property'];
+        return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'mediaType', 'required', 'property'];
     }
 
     /**
@@ -323,23 +323,23 @@ class CollectingPrompt extends \Collecting\Entity\CollectingPrompt implements \D
     /**
      * {@inheritDoc}
      */
-    public function setItemQuery($itemQuery)
+    public function setResourceQuery($resourceQuery)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setItemQuery', [$itemQuery]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setResourceQuery', [$resourceQuery]);
 
-        return parent::setItemQuery($itemQuery);
+        return parent::setResourceQuery($resourceQuery);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getItemQuery()
+    public function getResourceQuery()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getItemQuery', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getResourceQuery', []);
 
-        return parent::getItemQuery();
+        return parent::getResourceQuery();
     }
 
     /**
