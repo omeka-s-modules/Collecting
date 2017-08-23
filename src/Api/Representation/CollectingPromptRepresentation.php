@@ -86,11 +86,12 @@ class CollectingPromptRepresentation extends AbstractRepresentation
     {
         $collecting = $this->getViewHelper('collecting');
         $type = $this->type();
+        $translator = $this->getTranslator();
         $displayType = $collecting->typeValue($type);
         if ('property' === $type) {
-            $displayType = sprintf('%s [%s]', $displayType, $this->property()->term());
+            $displayType = sprintf('%s [%s]', $translator->translate($displayType), $this->property()->term());
         } elseif ('media' === $type) {
-            $displayType = sprintf('%s [%s]', $displayType, $collecting->mediaTypeValue($this->mediaType()));
+            $displayType = sprintf('%s [%s]', $translator->translate($displayType), $collecting->mediaTypeValue($this->mediaType()));
         }
         return $displayType;
     }

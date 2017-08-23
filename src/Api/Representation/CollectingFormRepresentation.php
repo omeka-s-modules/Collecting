@@ -204,7 +204,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         }
 
         $settings = $this->getServiceLocator()->get('Omeka\Settings');
-        $siteSettings = $this->getServiceLocator()->get('Omeka\SiteSettings');
+        $siteSettings = $this->getServiceLocator()->get('Omeka\Settings\Site');
         $translator = $this->getServiceLocator()->get('MvcTranslator');
 
         if ('user' === $this->anonType()) {

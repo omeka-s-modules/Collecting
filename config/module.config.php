@@ -14,6 +14,16 @@ return [
             'collecting' => 'Collecting\Service\ViewHelper\CollectingFactory',
         ],
     ],
+    'translator' => [
+        'translation_file_patterns' => [
+            [
+                'type' => 'gettext',
+                'base_dir' => OMEKA_PATH . '/modules/Collecting/language',
+                'pattern' => '%s.mo',
+                'text_domain' => null,
+            ],
+        ],
+    ],
     'controllers' => [
         'invokables' => [
             'Collecting\Controller\SiteAdmin\Form' => 'Collecting\Controller\SiteAdmin\FormController',
