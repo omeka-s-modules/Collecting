@@ -82,7 +82,7 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
     {
         $sharedEventManager->attach(
             'Omeka\Form\SiteSettingsForm',
-            'site_settings.add_elements',
+            'form.add_elements',
             [$this, 'addSiteSettings']
         );
 
@@ -183,8 +183,8 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
     public function addSiteSettings(Event $event)
     {
         $services = $this->getServiceLocator();
-        $siteSettings = $services->get('Omeka\SiteSettings');
-        $form = $event->getParam('form');
+        $siteSettings = $services->get('Omeka\Settings\Site');
+        $form = $event->getTarget();
 
         $fieldset = new Fieldset('collecting');
         $fieldset->setLabel('Collecting');
