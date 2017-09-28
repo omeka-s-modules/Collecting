@@ -129,14 +129,14 @@ class CollectingItemAdapter extends AbstractEntityAdapter
     public function validateEntity(EntityInterface $entity, ErrorStore $errorStore)
     {
         if (!$entity->getItem()) {
-            $errorStore->addError('o:item', 'A collecting item must be assigned an item on creation.');
+            $errorStore->addError('o:item', 'A collecting item must be assigned an item on creation.'); // @translate
         }
         if (!$entity->getForm()) {
-            $errorStore->addError('o-module-collecting:form', 'A collecting item must be assigned a form on creation.');
+            $errorStore->addError('o-module-collecting:form', 'A collecting item must be assigned a form on creation.'); // @translate
         }
         foreach ($entity->getInputs() as $input) {
             if (!$input->getPrompt()) {
-                $errorStore->addError('o-module-collecting:prompt', 'A collecting input must be assigned a prompt on creation.');
+                $errorStore->addError('o-module-collecting:prompt', 'A collecting input must be assigned a prompt on creation.'); // @translate
             }
         }
     }

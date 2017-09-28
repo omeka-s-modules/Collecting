@@ -52,7 +52,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 $this->authorize($site, 'add-collecting-form');
                 $entity->setSite($site);
             } else {
-                $errorStore->addError('o:site', 'A collecting form must be assigned a site on creation.');
+                $errorStore->addError('o:site', 'A collecting form must be assigned a site on creation.'); // @translate
             }
         }
 
@@ -184,61 +184,61 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         switch ($validatedData['o-module-collecting:type']) {
             case 'property':
                 if (null === $validatedData['o:property']['o:id']) {
-                    $errorStore->addError('o:property', 'A property prompt must have a property.');
+                    $errorStore->addError('o:property', 'A property prompt must have a property.'); // @translate
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
-                    $errorStore->addError('o-module-collecting:input_type', 'A property prompt must have an input type.');
+                    $errorStore->addError('o-module-collecting:input_type', 'A property prompt must have an input type.'); // @translate
                 }
                 break;
             case 'media':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'A media prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'A media prompt must have text.'); // @translate
                 }
                 if (null === $validatedData['o-module-collecting:media_type']) {
-                    $errorStore->addError('o-module-collecting:media_type', 'A media prompt must have a media type.');
+                    $errorStore->addError('o-module-collecting:media_type', 'A media prompt must have a media type.'); // @translate
                 }
                 break;
             case 'input':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'An input prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'An input prompt must have text.'); // @translate
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
-                    $errorStore->addError('o-module-collecting:input_type', 'An input prompt must have an input type.');
+                    $errorStore->addError('o-module-collecting:input_type', 'An input prompt must have an input type.'); // @translate
                 }
                 break;
             case 'user_private':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'A user_private prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'A user_private prompt must have text.'); // @translate
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
-                    $errorStore->addError('o-module-collecting:input_type', 'A user_private prompt must have an input type.');
+                    $errorStore->addError('o-module-collecting:input_type', 'A user_private prompt must have an input type.'); // @translate
                 }
                 break;
             case 'user_public':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'A user_public prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'A user_public prompt must have text.'); // @translate
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
-                    $errorStore->addError('o-module-collecting:input_type', 'A user_public prompt must have an input type.');
+                    $errorStore->addError('o-module-collecting:input_type', 'A user_public prompt must have an input type.'); // @translate
                 }
                 break;
             case 'user_name':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'A user_name prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'A user_name prompt must have text.'); // @translate
                 }
                 break;
             case 'user_email':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'A user_email prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'A user_email prompt must have text.'); // @translate
                 }
                 break;
             case  'html':
                 if (null === $validatedData['o-module-collecting:text']) {
-                    $errorStore->addError('o-module-collecting:text', 'A html prompt must have text.');
+                    $errorStore->addError('o-module-collecting:text', 'A html prompt must have text.'); // @translate
                 }
                 break;
             default:
-                $errorStore->addError('o-module-collecting:type', 'Prompts must have a type.');
+                $errorStore->addError('o-module-collecting:type', 'Prompts must have a type.'); // @translate
         }
 
         return $validatedData;
@@ -247,10 +247,10 @@ class CollectingFormAdapter extends AbstractEntityAdapter
     public function validateEntity(EntityInterface $entity, ErrorStore $errorStore)
     {
         if ('' === trim($entity->getLabel())) {
-            $errorStore->addError('o-module-collecting:label', 'The label cannot be empty.');
+            $errorStore->addError('o-module-collecting:label', 'The label cannot be empty.'); // @translate
         }
         if (!array_key_exists($entity->getAnonType(), CollectingForm::getAnonTypes())) {
-            $errorStore->addError('o-module-collecting:anon_type', 'Invalid anonymity type.');
+            $errorStore->addError('o-module-collecting:anon_type', 'Invalid anonymity type.'); // @translate
         }
     }
 
