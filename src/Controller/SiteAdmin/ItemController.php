@@ -68,7 +68,7 @@ class ItemController extends AbstractActionController
                 'o:is_public' => $isPublic,
             ], [], ['isPartial' => true]);
         }
-        $this->messenger()->addSuccess($this->translate('Statuses successfully updated'));
+        $this->messenger()->addSuccess('Statuses successfully updated'); // @translate
         return $this->redirect()->toRoute(null, ['action' => 'index'], true);
     }
 }
