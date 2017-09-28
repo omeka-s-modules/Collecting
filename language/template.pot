@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-28 12:41-0400\n"
+"POT-Creation-Date: 2017-09-28 12:58-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,10 +42,6 @@ msgstr ""
 
 #: src/Controller/Site/IndexController.php:241
 msgid "Thank you for your submission"
-msgstr ""
-
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
 msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:9
@@ -266,6 +262,10 @@ msgstr ""
 
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
+msgstr ""
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
 msgstr ""
 
 #: src/Controller/SiteAdmin/FormController.php:83
