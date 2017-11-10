@@ -4,15 +4,16 @@ namespace Collecting\MediaType;
 use Collecting\Api\Representation\CollectingPromptRepresentation;
 use Zend\Form\Form;
 use Zend\Mvc\Controller\PluginManager;
+use Zend\Stdlib\RequestInterface;
 use Zend\View\Renderer\PhpRenderer;
 
 class Upload implements MediaTypeInterface
 {
-    protected $plugins;
+    protected $request;
 
-    public function __construct(PluginManager $plugins)
+    public function __construct(RequestInterface $request)
     {
-        $this->plugins = $plugins;
+        $this->request = $request;
     }
 
     public function getLabel()
@@ -39,6 +40,7 @@ class Upload implements MediaTypeInterface
             ],
             'attributes' => [
                 'required' => $prompt->required(),
+                'multiple' => true,
             ],
         ]);
     }
@@ -46,18 +48,20 @@ class Upload implements MediaTypeInterface
     public function itemData(array $itemData, $postedPrompt,
         CollectingPromptRepresentation $prompt
     ) {
-        $files = $this->plugins->get('params')->fromFiles('file');
-        if ($prompt->required()
-            || (!$prompt->required()
-                && isset($files[$prompt->id()])
-                && UPLOAD_ERR_NO_FILE !== $files[$prompt->id()]['error']
-            )
-        ) {
-            $itemData['o:media'][$prompt->id()] = [
-                'o:ingester' => 'upload',
-                'file_index' => $prompt->id(),
-            ];
+        $files = $this->request->getFiles('file');
+        if (isset($files[$prompt->id()]) && is_array($files[$prompt->id()])) {
+            foreach ($files[$prompt->id()] as $fileIndex => $file) {
+                if ($prompt->required() || (!$prompt->required() && UPLOAD_ERR_NO_FILE !== $file['error'])) {
+                    $mediaIndex = sprintf('%s-%s', $prompt->id(), $fileIndex);
+                    $files[$mediaIndex] = $file;
+                    $itemData['o:media'][$mediaIndex] = [
+                        'o:ingester' => 'upload',
+                        'file_index' => $mediaIndex,
+                    ];
+                }
+            }
         }
+        $this->request->getFiles()->set('file', $files);
         return $itemData;
     }
 }
