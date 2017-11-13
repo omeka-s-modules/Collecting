@@ -17,7 +17,7 @@ class Upload implements MediaTypeInterface
 
     public function getLabel()
     {
-        return 'Upload'; // @translate
+        return 'Upload One'; // @translate
     }
 
     public function prepareForm(PhpRenderer $view)
