@@ -2,7 +2,7 @@
 
 Add collecting forms to your Omeka S sites.
 
-See the [Omeka S user manual](http://dev.omeka.org/docs/s/user-manual/modules/collecting/) for user documentation.
+See the [Omeka S user manual](http://omeka.org/s/docs/user-manual/modules/collecting/) for user documentation.
 
 ## Installation
 
