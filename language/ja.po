@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-23 11:17-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Naosuke Okamoto, 2018\n"
+"Language-Team: Japanese (https://www.transifex.com/omeka/teams/14184/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: Module.php:138
+msgid "Click here to view the collected data."
+msgstr "入力されたデータを見るにはここをクリックしてください。"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:245
+#, php-format
+msgid "I accept the %s"
+msgstr "%sに同意します"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:248
+msgid "Terms of Service"
+msgstr "利用規約"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:73
+#: src/Api/Representation/CollectingItemRepresentation.php:125
+#: src/Api/Representation/CollectingItemRepresentation.php:140
+msgid "[private]"
+msgstr "[非公開]"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:80
+msgid "[unknown item]"
+msgstr "[不明なアイテム]"
+
+#: src/Controller/Site/IndexController.php:241
+msgid "Thank you for your submission"
+msgstr "送信ありがとうございます"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "状態を更新しました"
+
+#: view/collecting/site-admin/form/form.phtml:9
+#, php-format
+msgid "Edit collecting form: “%s”"
+msgstr "入力フォームの編集： “%s”"
+
+#: view/collecting/site-admin/form/form.phtml:10
+msgid "Add collecting form"
+msgstr "入力フォームの追加"
+
+#: view/collecting/site-admin/form/form.phtml:31
+msgid "Undo delete"
+msgstr "削除を元に戻す"
+
+#: view/collecting/site-admin/form/form.phtml:50
+#: view/collecting/site-admin/form/show.phtml:38
+msgid "Prompts"
+msgstr "入力項目一覧"
+
+#: view/collecting/site-admin/form/form.phtml:52
+msgid "Add prompt"
+msgstr "入力項目を追加"
+
+#: view/collecting/site-admin/form/form.phtml:72
+#: view/common/collecting-item-section.phtml:10
+msgid "Prompt"
+msgstr "入力項目"
+
+#: view/collecting/site-admin/form/form.phtml:75
+msgid "Prompt type"
+msgstr "入力項目のタイプ"
+
+#: view/collecting/site-admin/form/form.phtml:77
+msgid "Select a prompt type"
+msgstr "入力項目のタイプを選択"
+
+#: view/collecting/site-admin/form/form.phtml:85
+msgid "Property"
+msgstr "プロパティ"
+
+#: view/collecting/site-admin/form/form.phtml:90
+msgid "Media type"
+msgstr "メディアタイプ"
+
+#: view/collecting/site-admin/form/form.phtml:92
+msgid "Select a media type"
+msgstr "メディアタイプを選択"
+
+#: view/collecting/site-admin/form/form.phtml:100
+msgid "Prompt text"
+msgstr "入力項目の説明"
+
+#: view/collecting/site-admin/form/form.phtml:105
+msgid "Input type"
+msgstr "入力タイプ"
+
+#: view/collecting/site-admin/form/form.phtml:107
+msgid "Select an input type"
+msgstr "入力タイプの選択"
+
+#: view/collecting/site-admin/form/form.phtml:115
+msgid "Select menu options"
+msgstr "メニューオプションの選択"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter query"
+msgstr "クエリをフィルター"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter resources by entering an advanced search URL query string."
+msgstr "高度な検索URLクエリ文字列を入力してリソースをフィルタリングします。"
+
+#: view/collecting/site-admin/form/form.phtml:129
+msgid "Add changes"
+msgstr "変更を追加"
+
+#: view/collecting/site-admin/form/index.phtml:2
+msgid "Collecting Forms"
+msgstr "入力フォーム一覧"
+
+#: view/collecting/site-admin/form/index.phtml:7
+msgid "Add new form"
+msgstr "新規フォームを追加"
+
+#: view/collecting/site-admin/form/index.phtml:55
+#: view/common/block-layout/collecting-block-form.phtml:5
+msgid "This site has no collecting forms."
+msgstr "このサイトには入力フォームがありません。"
+
+#: view/collecting/site-admin/form/show.phtml:2
+#: view/collecting/site-admin/item/index.phtml:3
+#, php-format
+msgid "Collecting Form: “%s”"
+msgstr "入力フォーム: “%s”"
+
+#: view/collecting/site-admin/form/show.phtml:5
+msgid "[none]"
+msgstr "[なし]"
+
+#: view/collecting/site-admin/form/show.phtml:10
+msgid "Edit form"
+msgstr "フォームを編集"
+
+#: view/collecting/site-admin/form/show.phtml:15
+#: view/collecting/site-admin/item/index.phtml:7
+msgid "Back to collecting forms list"
+msgstr "入力フォームリストに戻る"
+
+#: view/collecting/site-admin/form/show.phtml:28
+msgid "Anonymity Type"
+msgstr "匿名性タイプ"
+
+#: view/collecting/site-admin/form/show.phtml:63
+msgid "This form has no prompts."
+msgstr "このフォームには入力項目がありません。"
+
+#: view/collecting/site-admin/item/index.phtml:16
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Needs review"
+msgstr "レビューが必要"
+
+#: view/collecting/site-admin/item/index.phtml:17
+msgid "Reviewed: public"
+msgstr "レビュー済：公開"
+
+#: view/collecting/site-admin/item/index.phtml:18
+msgid "Reviewed: private"
+msgstr "レビュー済：非公開"
+
+#: view/collecting/site-admin/item/index.phtml:29
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Reviewed"
+msgstr "レビュー済"
+
+#: view/collecting/site-admin/item/index.phtml:41
+msgid "Update statuses"
+msgstr "ステータスの更新"
+
+#: view/collecting/site-admin/item/index.phtml:50
+msgid "Reviewed By"
+msgstr "レビュー済：レビュアーは"
+
+#: view/collecting/site-admin/item/index.phtml:64
+msgid "[not reviewed]"
+msgstr "[レビューしていない]"
+
+#: view/collecting/site-admin/item/index.phtml:96
+msgid "No items found."
+msgstr "アイテムがありません。"
+
+#: view/collecting/site-admin/item/show-details.phtml:19
+#: view/common/collecting-item-section.phtml:35
+msgid "User name"
+msgstr "ユーザー名"
+
+#: view/collecting/site-admin/item/show-details.phtml:22
+#: view/collecting/site-admin/item/show-details.phtml:29
+#: view/collecting/site-admin/item/show-details.phtml:36
+#: view/common/collecting-item-section.phtml:38
+#: view/common/collecting-item-section.phtml:45
+#: view/common/collecting-item-section.phtml:52
+msgid "[not asked]"
+msgstr "[not asked]"
+
+#: view/collecting/site-admin/item/show-details.phtml:26
+#: view/common/collecting-item-section.phtml:42
+msgid "User email"
+msgstr "ユーザーのメールアドレス"
+
+#: view/collecting/site-admin/item/show-details.phtml:33
+#: view/common/collecting-item-section.phtml:49
+msgid "Anonymous?"
+msgstr "匿名？"
+
+#: view/collecting/site/index/item-show.phtml:2
+#, php-format
+msgid "Collected Item: “%s”"
+msgstr "入力アイテム： “%s”"
+
+#: view/collecting/site/index/item-show.phtml:5
+msgid "Click here to view the corresponding item."
+msgstr "対応する項目を表示するには、ここをクリックしてください。"
+
+#: view/collecting/site/index/success.phtml:5
+msgid "Form successfully submitted!"
+msgstr "フォームを送信しました！"
+
+#: view/common/block-layout/collecting-block-form.phtml:2
+msgid "Select which collecting forms the user can complete:"
+msgstr "ユーザーが完了できる入力フォームを選択する："
+
+#: view/common/block-layout/collecting-block-multiple.phtml:3
+msgid "Select a form..."
+msgstr "フォームを選択"
+
+#: view/common/collecting-item-citation.phtml:6
+msgid "[anonymous user]"
+msgstr "[匿名ユーザー]"
+
+#: view/common/collecting-item-citation.phtml:9
+#, php-format
+msgid ""
+"This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
+msgstr "このアイテムは %s に対し %s から送信されました。入力フォームは “%s” 　サイトは “%s”: %s"
+
+#: view/common/collecting-item-section.phtml:3
+msgid "Collected Inputs"
+msgstr "入力された項目一覧"
+
+#: view/common/collecting-item-section.phtml:11
+msgid "User Input"
+msgstr "ユーザー入力"
+
+#: view/common/collecting-item-section.phtml:33
+msgid "User Information"
+msgstr "ユーザー情報"
+
+#: view/common/collecting-item-section.phtml:61
+msgid "Public citation"
+msgstr "公開引用"
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully updated"
+msgstr "入力フォームを更新しました"
+
+#: src/Controller/SiteAdmin/FormController.php:84
+msgid "Collecting form successfully created"
+msgstr "入力フォームを作成しました"
+
+#: src/Controller/SiteAdmin/FormController.php:118
+msgid "Collecting form successfully deleted"
+msgstr "入力フォームを削除しました"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:150
+#: src/Api/Representation/CollectingFormRepresentation.php:157
+msgid "Please choose one..."
+msgstr "１つを選択してください..."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:215
+msgid "I want to submit anonymously"
+msgstr "匿名で送信する"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:225
+msgid "Email me my submission"
+msgstr "送信内容をメールする"
+
+#: src/Entity/CollectingPrompt.php:96
+msgid "Item Property"
+msgstr "プロパティアイテム"
+
+#: src/Entity/CollectingPrompt.php:97
+msgid "Item Media"
+msgstr "メディアアイテム"
+
+#: src/Entity/CollectingPrompt.php:98
+msgid "Item Supplementary"
+msgstr "補足アイテム"
+
+#: src/Entity/CollectingPrompt.php:99
+msgid "User Name"
+msgstr "ユーザー名"
+
+#: src/Entity/CollectingPrompt.php:100
+msgid "User Email"
+msgstr "ユーザーのメールアドレス"
+
+#: src/Entity/CollectingPrompt.php:101
+msgid "User Private"
+msgstr "非公開ユーザー"
+
+#: src/Entity/CollectingPrompt.php:102
+msgid "User Public"
+msgstr "公開ユーザー"
+
+#: src/Entity/CollectingPrompt.php:110
+msgid "Text box (one line)"
+msgstr "テキストボックス（１行）"
+
+#: src/Entity/CollectingPrompt.php:111
+msgid "Text box (multiple line)"
+msgstr "テキストボックス（複数行）"
+
+#: src/Entity/CollectingPrompt.php:112
+msgid "Select menu"
+msgstr "メニューを選択"
+
+#: src/Entity/CollectingPrompt.php:113
+msgid "Item Resource"
+msgstr "リソースアイテム"
+
+#: src/Entity/CollectingForm.php:90
+msgid "User sets own anonymity"
+msgstr "ユーザーが自分の匿名性を設定する"
+
+#: src/Entity/CollectingForm.php:91
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr "\"公開ユーザー\"と \"ユーザー名\"の内容は公開表示されます"
+
+#: src/Entity/CollectingForm.php:92
+msgid "“User Public” and “User Name” inputs are private"
+msgstr "\"公開ユーザー\"と \"ユーザー名\"の内容は非公開にします"
+
+#: src/Site/BlockLayout/Collecting.php:17 config/module.config.php:79
+msgid "Collecting"
+msgstr "このフォームで作成されたすべてのアイテムをこのアイテムセットに割り当てます。"
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr "このフォームで作成されたすべてのアイテムをこのアイテムセットに割り当てます。"
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "アイテムセットを選択..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "匿名性タイプ"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr "公開ページの \"User Public\"と \"User Name\"の入力を扱う方法を制御します。"
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "成功時のテキスト"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "ユーザーがフォームを正常に送信した後に、このテキストを表示します。"
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "Eメールテキスト"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "すべての送信メールをこのテキストで開始します。"
+
+#: config/module.config.php:109
+msgid "Form Information"
+msgstr "フォーム情報"
+
+#: config/module.config.php:115
+msgid "Collected Items"
+msgstr "入力されたアイテム一覧"

@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-23 11:17-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>, 2018\n"
+"Language-Team: Estonian (https://www.transifex.com/omeka/teams/14184/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: Module.php:138
+msgid "Click here to view the collected data."
+msgstr "Kogutud andmte vaatamiseks kliki siia."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:245
+#, php-format
+msgid "I accept the %s"
+msgstr "Ma nõustun %s"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:248
+msgid "Terms of Service"
+msgstr "Kasutustingimustega"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:73
+#: src/Api/Representation/CollectingItemRepresentation.php:125
+#: src/Api/Representation/CollectingItemRepresentation.php:140
+msgid "[private]"
+msgstr "[privaatne]"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:80
+msgid "[unknown item]"
+msgstr "[tundmatu ühik]"
+
+#: src/Controller/Site/IndexController.php:241
+msgid "Thank you for your submission"
+msgstr "Täname sind panuse eest"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "Staatused on uuendatud"
+
+#: view/collecting/site-admin/form/form.phtml:9
+#, php-format
+msgid "Edit collecting form: “%s”"
+msgstr "Muuda kogumise vormi: “%s”"
+
+#: view/collecting/site-admin/form/form.phtml:10
+msgid "Add collecting form"
+msgstr "Lisa kogumise vorm"
+
+#: view/collecting/site-admin/form/form.phtml:31
+msgid "Undo delete"
+msgstr "Tühista kustutamine"
+
+#: view/collecting/site-admin/form/form.phtml:50
+#: view/collecting/site-admin/form/show.phtml:38
+msgid "Prompts"
+msgstr "Küsimused"
+
+#: view/collecting/site-admin/form/form.phtml:52
+msgid "Add prompt"
+msgstr "Lisa küsimus"
+
+#: view/collecting/site-admin/form/form.phtml:72
+#: view/common/collecting-item-section.phtml:10
+msgid "Prompt"
+msgstr "Küsimus"
+
+#: view/collecting/site-admin/form/form.phtml:75
+msgid "Prompt type"
+msgstr "Küsimuse liik"
+
+#: view/collecting/site-admin/form/form.phtml:77
+msgid "Select a prompt type"
+msgstr "Vali küsimuse liik"
+
+#: view/collecting/site-admin/form/form.phtml:85
+msgid "Property"
+msgstr "Omadus"
+
+#: view/collecting/site-admin/form/form.phtml:90
+msgid "Media type"
+msgstr "Meedia liik"
+
+#: view/collecting/site-admin/form/form.phtml:92
+msgid "Select a media type"
+msgstr "Vali meedia liik"
+
+#: view/collecting/site-admin/form/form.phtml:100
+msgid "Prompt text"
+msgstr "Küsimuse tekst"
+
+#: view/collecting/site-admin/form/form.phtml:105
+msgid "Input type"
+msgstr "Sisendi liik"
+
+#: view/collecting/site-admin/form/form.phtml:107
+msgid "Select an input type"
+msgstr "Vali sisendi liik"
+
+#: view/collecting/site-admin/form/form.phtml:115
+msgid "Select menu options"
+msgstr "Tee menüü valikud"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter query"
+msgstr "Filtri päring"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter resources by entering an advanced search URL query string."
+msgstr ""
+
+#: view/collecting/site-admin/form/form.phtml:129
+msgid "Add changes"
+msgstr "Lisa muudatudi"
+
+#: view/collecting/site-admin/form/index.phtml:2
+msgid "Collecting Forms"
+msgstr "Kogumise vormid"
+
+#: view/collecting/site-admin/form/index.phtml:7
+msgid "Add new form"
+msgstr "Lisa uus vorm"
+
+#: view/collecting/site-admin/form/index.phtml:55
+#: view/common/block-layout/collecting-block-form.phtml:5
+msgid "This site has no collecting forms."
+msgstr "Sellel saidil pole kogumise vorme."
+
+#: view/collecting/site-admin/form/show.phtml:2
+#: view/collecting/site-admin/item/index.phtml:3
+#, php-format
+msgid "Collecting Form: “%s”"
+msgstr "Kogumise vorm: “%s”"
+
+#: view/collecting/site-admin/form/show.phtml:5
+msgid "[none]"
+msgstr "[pole]"
+
+#: view/collecting/site-admin/form/show.phtml:10
+msgid "Edit form"
+msgstr "Muuda vormi"
+
+#: view/collecting/site-admin/form/show.phtml:15
+#: view/collecting/site-admin/item/index.phtml:7
+msgid "Back to collecting forms list"
+msgstr "Tagasi kogumise vormide nimekirja"
+
+#: view/collecting/site-admin/form/show.phtml:28
+msgid "Anonymity Type"
+msgstr "Anonüümsuse liik"
+
+#: view/collecting/site-admin/form/show.phtml:63
+msgid "This form has no prompts."
+msgstr ""
+
+#: view/collecting/site-admin/item/index.phtml:16
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Needs review"
+msgstr "Vajab üle vaatamist"
+
+#: view/collecting/site-admin/item/index.phtml:17
+msgid "Reviewed: public"
+msgstr "Üle vaadatud: avalik"
+
+#: view/collecting/site-admin/item/index.phtml:18
+msgid "Reviewed: private"
+msgstr "Üle vaadatud: privaatne"
+
+#: view/collecting/site-admin/item/index.phtml:29
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Reviewed"
+msgstr "Üle vaadatud"
+
+#: view/collecting/site-admin/item/index.phtml:41
+msgid "Update statuses"
+msgstr "Värskenda staatuseid"
+
+#: view/collecting/site-admin/item/index.phtml:50
+msgid "Reviewed By"
+msgstr "Üle vaatas"
+
+#: view/collecting/site-admin/item/index.phtml:64
+msgid "[not reviewed]"
+msgstr "[pole üle vaadatud]"
+
+#: view/collecting/site-admin/item/index.phtml:96
+msgid "No items found."
+msgstr "Ühtegi kirjet ei leitud."
+
+#: view/collecting/site-admin/item/show-details.phtml:19
+#: view/common/collecting-item-section.phtml:35
+msgid "User name"
+msgstr "Kasutaja nimi"
+
+#: view/collecting/site-admin/item/show-details.phtml:22
+#: view/collecting/site-admin/item/show-details.phtml:29
+#: view/collecting/site-admin/item/show-details.phtml:36
+#: view/common/collecting-item-section.phtml:38
+#: view/common/collecting-item-section.phtml:45
+#: view/common/collecting-item-section.phtml:52
+msgid "[not asked]"
+msgstr "[ei küsitud]"
+
+#: view/collecting/site-admin/item/show-details.phtml:26
+#: view/common/collecting-item-section.phtml:42
+msgid "User email"
+msgstr "Kasutaja e-post"
+
+#: view/collecting/site-admin/item/show-details.phtml:33
+#: view/common/collecting-item-section.phtml:49
+msgid "Anonymous?"
+msgstr "Anonüümsena?"
+
+#: view/collecting/site/index/item-show.phtml:2
+#, php-format
+msgid "Collected Item: “%s”"
+msgstr ""
+
+#: view/collecting/site/index/item-show.phtml:5
+msgid "Click here to view the corresponding item."
+msgstr ""
+
+#: view/collecting/site/index/success.phtml:5
+msgid "Form successfully submitted!"
+msgstr ""
+
+#: view/common/block-layout/collecting-block-form.phtml:2
+msgid "Select which collecting forms the user can complete:"
+msgstr ""
+
+#: view/common/block-layout/collecting-block-multiple.phtml:3
+msgid "Select a form..."
+msgstr "Vali vorm:"
+
+#: view/common/collecting-item-citation.phtml:6
+msgid "[anonymous user]"
+msgstr "[anonüümne kasutaja]"
+
+#: view/common/collecting-item-citation.phtml:9
+#, php-format
+msgid ""
+"This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
+msgstr ""
+
+#: view/common/collecting-item-section.phtml:3
+msgid "Collected Inputs"
+msgstr ""
+
+#: view/common/collecting-item-section.phtml:11
+msgid "User Input"
+msgstr "Kasutaja poolt sisestatud"
+
+#: view/common/collecting-item-section.phtml:33
+msgid "User Information"
+msgstr "Kasutaja info"
+
+#: view/common/collecting-item-section.phtml:61
+msgid "Public citation"
+msgstr "Avalik tsitaat"
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully updated"
+msgstr ""
+
+#: src/Controller/SiteAdmin/FormController.php:84
+msgid "Collecting form successfully created"
+msgstr "Kogumisvorm on loodud"
+
+#: src/Controller/SiteAdmin/FormController.php:118
+msgid "Collecting form successfully deleted"
+msgstr "Kogumisvorm on kustutatud"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:150
+#: src/Api/Representation/CollectingFormRepresentation.php:157
+msgid "Please choose one..."
+msgstr "Palun vali üks ..."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:215
+msgid "I want to submit anonymously"
+msgstr "Soovin lisada anonüümselt"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:225
+msgid "Email me my submission"
+msgstr "Saada minu lisatud info mulle e-postile"
+
+#: src/Entity/CollectingPrompt.php:96
+msgid "Item Property"
+msgstr "Ühiku omadus"
+
+#: src/Entity/CollectingPrompt.php:97
+msgid "Item Media"
+msgstr "Ühiku meedia"
+
+#: src/Entity/CollectingPrompt.php:98
+msgid "Item Supplementary"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:99
+msgid "User Name"
+msgstr "Kasutaja nimi"
+
+#: src/Entity/CollectingPrompt.php:100
+msgid "User Email"
+msgstr "Kasutaja e-post"
+
+#: src/Entity/CollectingPrompt.php:101
+msgid "User Private"
+msgstr "Kasutaja on privaatne"
+
+#: src/Entity/CollectingPrompt.php:102
+msgid "User Public"
+msgstr "Kasutaja on avalik"
+
+#: src/Entity/CollectingPrompt.php:110
+msgid "Text box (one line)"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:111
+msgid "Text box (multiple line)"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:112
+msgid "Select menu"
+msgstr "Vali menüü"
+
+#: src/Entity/CollectingPrompt.php:113
+msgid "Item Resource"
+msgstr "Ühiku ressurss"
+
+#: src/Entity/CollectingForm.php:90
+msgid "User sets own anonymity"
+msgstr ""
+
+#: src/Entity/CollectingForm.php:91
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr ""
+
+#: src/Entity/CollectingForm.php:92
+msgid "“User Public” and “User Name” inputs are private"
+msgstr ""
+
+#: src/Site/BlockLayout/Collecting.php:17 config/module.config.php:79
+msgid "Collecting"
+msgstr "Kogumine"
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr ""
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "Vali ühikute kogum..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "Anonüümsuse liik"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr ""
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr ""
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr ""
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr ""
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr ""
+
+#: config/module.config.php:109
+msgid "Form Information"
+msgstr "Vormi info"
+
+#: config/module.config.php:115
+msgid "Collected Items"
+msgstr "Kogutud ühikud"

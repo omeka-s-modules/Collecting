@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-23 11:17-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2018\n"
+"Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: Module.php:138
+msgid "Click here to view the collected data."
+msgstr "点击此处查看收集到的数据。"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:245
+#, php-format
+msgid "I accept the %s"
+msgstr "我接受%s"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:248
+msgid "Terms of Service"
+msgstr "服务条款"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:73
+#: src/Api/Representation/CollectingItemRepresentation.php:125
+#: src/Api/Representation/CollectingItemRepresentation.php:140
+msgid "[private]"
+msgstr "【私密的】"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:80
+msgid "[unknown item]"
+msgstr "【未知条目】"
+
+#: src/Controller/Site/IndexController.php:241
+msgid "Thank you for your submission"
+msgstr "感谢您的提交"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "状态已成功更新"
+
+#: view/collecting/site-admin/form/form.phtml:9
+#, php-format
+msgid "Edit collecting form: “%s”"
+msgstr "编辑收藏表单：“%s”"
+
+#: view/collecting/site-admin/form/form.phtml:10
+msgid "Add collecting form"
+msgstr "添加收藏表单"
+
+#: view/collecting/site-admin/form/form.phtml:31
+msgid "Undo delete"
+msgstr "撤销删除"
+
+#: view/collecting/site-admin/form/form.phtml:50
+#: view/collecting/site-admin/form/show.phtml:38
+msgid "Prompts"
+msgstr "提示"
+
+#: view/collecting/site-admin/form/form.phtml:52
+msgid "Add prompt"
+msgstr "添加提示"
+
+#: view/collecting/site-admin/form/form.phtml:72
+#: view/common/collecting-item-section.phtml:10
+msgid "Prompt"
+msgstr "提示"
+
+#: view/collecting/site-admin/form/form.phtml:75
+msgid "Prompt type"
+msgstr "提示类型"
+
+#: view/collecting/site-admin/form/form.phtml:77
+msgid "Select a prompt type"
+msgstr "选择一个提示类型"
+
+#: view/collecting/site-admin/form/form.phtml:85
+msgid "Property"
+msgstr "属性"
+
+#: view/collecting/site-admin/form/form.phtml:90
+msgid "Media type"
+msgstr "媒体类型"
+
+#: view/collecting/site-admin/form/form.phtml:92
+msgid "Select a media type"
+msgstr "选择一个媒体类型"
+
+#: view/collecting/site-admin/form/form.phtml:100
+msgid "Prompt text"
+msgstr "提示文本"
+
+#: view/collecting/site-admin/form/form.phtml:105
+msgid "Input type"
+msgstr "输入类型"
+
+#: view/collecting/site-admin/form/form.phtml:107
+msgid "Select an input type"
+msgstr "选择一个输入类型"
+
+#: view/collecting/site-admin/form/form.phtml:115
+msgid "Select menu options"
+msgstr "选择菜单选项"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter query"
+msgstr "过滤查询"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter resources by entering an advanced search URL query string."
+msgstr "输入一个高级搜索URL查询字符串以过滤资源。"
+
+#: view/collecting/site-admin/form/form.phtml:129
+msgid "Add changes"
+msgstr "添加更新"
+
+#: view/collecting/site-admin/form/index.phtml:2
+msgid "Collecting Forms"
+msgstr "收藏表单"
+
+#: view/collecting/site-admin/form/index.phtml:7
+msgid "Add new form"
+msgstr "添加新表单"
+
+#: view/collecting/site-admin/form/index.phtml:55
+#: view/common/block-layout/collecting-block-form.phtml:5
+msgid "This site has no collecting forms."
+msgstr "该网站没有收藏表单"
+
+#: view/collecting/site-admin/form/show.phtml:2
+#: view/collecting/site-admin/item/index.phtml:3
+#, php-format
+msgid "Collecting Form: “%s”"
+msgstr "收藏表单：“%s”"
+
+#: view/collecting/site-admin/form/show.phtml:5
+msgid "[none]"
+msgstr "【无】"
+
+#: view/collecting/site-admin/form/show.phtml:10
+msgid "Edit form"
+msgstr "编辑表单"
+
+#: view/collecting/site-admin/form/show.phtml:15
+#: view/collecting/site-admin/item/index.phtml:7
+msgid "Back to collecting forms list"
+msgstr "返回收藏表单列表"
+
+#: view/collecting/site-admin/form/show.phtml:28
+msgid "Anonymity Type"
+msgstr "匿名类型"
+
+#: view/collecting/site-admin/form/show.phtml:63
+msgid "This form has no prompts."
+msgstr "该表单没有提示符。"
+
+#: view/collecting/site-admin/item/index.phtml:16
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Needs review"
+msgstr "需要审核"
+
+#: view/collecting/site-admin/item/index.phtml:17
+msgid "Reviewed: public"
+msgstr "已审核：公开的"
+
+#: view/collecting/site-admin/item/index.phtml:18
+msgid "Reviewed: private"
+msgstr "已审核：私密的"
+
+#: view/collecting/site-admin/item/index.phtml:29
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Reviewed"
+msgstr "已审核"
+
+#: view/collecting/site-admin/item/index.phtml:41
+msgid "Update statuses"
+msgstr "更新状态"
+
+#: view/collecting/site-admin/item/index.phtml:50
+msgid "Reviewed By"
+msgstr "审核人："
+
+#: view/collecting/site-admin/item/index.phtml:64
+msgid "[not reviewed]"
+msgstr "【未审核】"
+
+#: view/collecting/site-admin/item/index.phtml:96
+msgid "No items found."
+msgstr "没有发现条目。"
+
+#: view/collecting/site-admin/item/show-details.phtml:19
+#: view/common/collecting-item-section.phtml:35
+msgid "User name"
+msgstr "用户名"
+
+#: view/collecting/site-admin/item/show-details.phtml:22
+#: view/collecting/site-admin/item/show-details.phtml:29
+#: view/collecting/site-admin/item/show-details.phtml:36
+#: view/common/collecting-item-section.phtml:38
+#: view/common/collecting-item-section.phtml:45
+#: view/common/collecting-item-section.phtml:52
+msgid "[not asked]"
+msgstr "【未询问】"
+
+#: view/collecting/site-admin/item/show-details.phtml:26
+#: view/common/collecting-item-section.phtml:42
+msgid "User email"
+msgstr "用户电邮地址"
+
+#: view/collecting/site-admin/item/show-details.phtml:33
+#: view/common/collecting-item-section.phtml:49
+msgid "Anonymous?"
+msgstr "匿名？"
+
+#: view/collecting/site/index/item-show.phtml:2
+#, php-format
+msgid "Collected Item: “%s”"
+msgstr "收藏的条目：“%s”"
+
+#: view/collecting/site/index/item-show.phtml:5
+msgid "Click here to view the corresponding item."
+msgstr "点击此处查看相应条目。"
+
+#: view/collecting/site/index/success.phtml:5
+msgid "Form successfully submitted!"
+msgstr "表单已成功提交！"
+
+#: view/common/block-layout/collecting-block-form.phtml:2
+msgid "Select which collecting forms the user can complete:"
+msgstr "选择哪个收藏表单可以让用户填写："
+
+#: view/common/block-layout/collecting-block-multiple.phtml:3
+msgid "Select a form..."
+msgstr "选择一个表单 ......"
+
+#: view/common/collecting-item-citation.phtml:6
+msgid "[anonymous user]"
+msgstr "【匿名用户】"
+
+#: view/common/collecting-item-citation.phtml:9
+#, php-format
+msgid ""
+"This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
+msgstr "该条目于%s由%s使用表单“%s”在网站“%s”：%s提交"
+
+#: view/common/collecting-item-section.phtml:3
+msgid "Collected Inputs"
+msgstr "收藏的输入"
+
+#: view/common/collecting-item-section.phtml:11
+msgid "User Input"
+msgstr "用户输入"
+
+#: view/common/collecting-item-section.phtml:33
+msgid "User Information"
+msgstr "用户信息"
+
+#: view/common/collecting-item-section.phtml:61
+msgid "Public citation"
+msgstr "公开引用"
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully updated"
+msgstr "收藏表单已成功更新"
+
+#: src/Controller/SiteAdmin/FormController.php:84
+msgid "Collecting form successfully created"
+msgstr "收藏表单已成功创建"
+
+#: src/Controller/SiteAdmin/FormController.php:118
+msgid "Collecting form successfully deleted"
+msgstr "收藏表单已成功删除"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:150
+#: src/Api/Representation/CollectingFormRepresentation.php:157
+msgid "Please choose one..."
+msgstr "请选择一个 ......"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:215
+msgid "I want to submit anonymously"
+msgstr "我希望匿名提交"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:225
+msgid "Email me my submission"
+msgstr "把我提交的东西电邮给我"
+
+#: src/Entity/CollectingPrompt.php:96
+msgid "Item Property"
+msgstr "条目属性"
+
+#: src/Entity/CollectingPrompt.php:97
+msgid "Item Media"
+msgstr "条目媒体"
+
+#: src/Entity/CollectingPrompt.php:98
+msgid "Item Supplementary"
+msgstr "条目增补"
+
+#: src/Entity/CollectingPrompt.php:99
+msgid "User Name"
+msgstr "用户名字"
+
+#: src/Entity/CollectingPrompt.php:100
+msgid "User Email"
+msgstr "用户电邮"
+
+#: src/Entity/CollectingPrompt.php:101
+msgid "User Private"
+msgstr "用户是私密的"
+
+#: src/Entity/CollectingPrompt.php:102
+msgid "User Public"
+msgstr "用户是公开的"
+
+#: src/Entity/CollectingPrompt.php:110
+msgid "Text box (one line)"
+msgstr "文本框（一行）"
+
+#: src/Entity/CollectingPrompt.php:111
+msgid "Text box (multiple line)"
+msgstr "文本框（多行）"
+
+#: src/Entity/CollectingPrompt.php:112
+msgid "Select menu"
+msgstr "选择菜单"
+
+#: src/Entity/CollectingPrompt.php:113
+msgid "Item Resource"
+msgstr "条目资源"
+
+#: src/Entity/CollectingForm.php:90
+msgid "User sets own anonymity"
+msgstr "用户设置自己的匿名属性"
+
+#: src/Entity/CollectingForm.php:91
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr "“用户是公开的”和“用户名称”输入是公开可见的"
+
+#: src/Entity/CollectingForm.php:92
+msgid "“User Public” and “User Name” inputs are private"
+msgstr "“用户是公开的”和“用户名称”输入是私密的"
+
+#: src/Site/BlockLayout/Collecting.php:17 config/module.config.php:79
+msgid "Collecting"
+msgstr "收藏"
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr "把该表单创建的所有条目分配给该条目集。"
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "选择条目集 ......"
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "匿名类型"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr "在公共页面上控制如何对待“用户是公开的”和“用户名称”输入。"
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "成功文本"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "用户成功提交表单后显示该文本。"
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "电邮文本"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "所有提交电邮都以此文本开头。"
+
+#: config/module.config.php:109
+msgid "Form Information"
+msgstr "表单信息"
+
+#: config/module.config.php:115
+msgid "Collected Items"
+msgstr "收藏的条目"

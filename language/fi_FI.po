@@ -1,0 +1,404 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-23 11:17-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Matti Lassila <matti.lassila@gmail.com>, 2018\n"
+"Language-Team: Finnish (Finland) (https://www.transifex.com/omeka/teams/14184/fi_FI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi_FI\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: Module.php:138
+msgid "Click here to view the collected data."
+msgstr "Näytä oheistiedot."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:245
+#, php-format
+msgid "I accept the %s"
+msgstr "Hyväksyn %s"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:248
+msgid "Terms of Service"
+msgstr "käyttöehdot"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:73
+#: src/Api/Representation/CollectingItemRepresentation.php:125
+#: src/Api/Representation/CollectingItemRepresentation.php:140
+msgid "[private]"
+msgstr "[yksityinen]"
+
+#: src/Api/Representation/CollectingInputRepresentation.php:80
+msgid "[unknown item]"
+msgstr "[tuntematon aineisto]"
+
+#: src/Controller/Site/IndexController.php:241
+msgid "Thank you for your submission"
+msgstr "Kiitokset osallistumisestasi"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "Tilatieto päivitettiin"
+
+#: view/collecting/site-admin/form/form.phtml:9
+#, php-format
+msgid "Edit collecting form: “%s”"
+msgstr "Muokataan lomaketta: “%s”"
+
+#: view/collecting/site-admin/form/form.phtml:10
+msgid "Add collecting form"
+msgstr "Lisää lomake"
+
+#: view/collecting/site-admin/form/form.phtml:31
+msgid "Undo delete"
+msgstr "Peru poisto"
+
+#: view/collecting/site-admin/form/form.phtml:50
+#: view/collecting/site-admin/form/show.phtml:38
+msgid "Prompts"
+msgstr "Lomakkeen kentät"
+
+#: view/collecting/site-admin/form/form.phtml:52
+msgid "Add prompt"
+msgstr "Lisää kenttä"
+
+#: view/collecting/site-admin/form/form.phtml:72
+#: view/common/collecting-item-section.phtml:10
+msgid "Prompt"
+msgstr "Kenttä"
+
+#: view/collecting/site-admin/form/form.phtml:75
+msgid "Prompt type"
+msgstr "Tyyppi"
+
+#: view/collecting/site-admin/form/form.phtml:77
+msgid "Select a prompt type"
+msgstr "Valitse kentän tyyppi"
+
+#: view/collecting/site-admin/form/form.phtml:85
+msgid "Property"
+msgstr "Kenttä"
+
+#: view/collecting/site-admin/form/form.phtml:90
+msgid "Media type"
+msgstr "Liitteen tyyppi"
+
+#: view/collecting/site-admin/form/form.phtml:92
+msgid "Select a media type"
+msgstr "Valitse liitteen tyyppi"
+
+#: view/collecting/site-admin/form/form.phtml:100
+msgid "Prompt text"
+msgstr "Kentän otsikko tai kysymys"
+
+#: view/collecting/site-admin/form/form.phtml:105
+msgid "Input type"
+msgstr "Kentän tyyppi"
+
+#: view/collecting/site-admin/form/form.phtml:107
+msgid "Select an input type"
+msgstr "Valitse kentän tyyppi"
+
+#: view/collecting/site-admin/form/form.phtml:115
+msgid "Select menu options"
+msgstr "Valikon kohdat"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter query"
+msgstr "Haku-URL"
+
+#: view/collecting/site-admin/form/form.phtml:120
+msgid "Filter resources by entering an advanced search URL query string."
+msgstr ""
+"Ylläpitonäkymän tarkennetun haun kysely-URL. Käytä osioita osoitteen admin/ "
+"-tekstin jälkeen."
+
+#: view/collecting/site-admin/form/form.phtml:129
+msgid "Add changes"
+msgstr "Lisää kenttä"
+
+#: view/collecting/site-admin/form/index.phtml:2
+msgid "Collecting Forms"
+msgstr "Lomakkeet"
+
+#: view/collecting/site-admin/form/index.phtml:7
+msgid "Add new form"
+msgstr "Lisää lomake"
+
+#: view/collecting/site-admin/form/index.phtml:55
+#: view/common/block-layout/collecting-block-form.phtml:5
+msgid "This site has no collecting forms."
+msgstr "Sivustolla ei ole lomakkeita."
+
+#: view/collecting/site-admin/form/show.phtml:2
+#: view/collecting/site-admin/item/index.phtml:3
+#, php-format
+msgid "Collecting Form: “%s”"
+msgstr "Lomake: “%s”"
+
+#: view/collecting/site-admin/form/show.phtml:5
+msgid "[none]"
+msgstr "[ei valittua kokoelmaa]"
+
+#: view/collecting/site-admin/form/show.phtml:10
+msgid "Edit form"
+msgstr "Muokkaa lomaketta"
+
+#: view/collecting/site-admin/form/show.phtml:15
+#: view/collecting/site-admin/item/index.phtml:7
+msgid "Back to collecting forms list"
+msgstr "Palaa lomakelistaukseen"
+
+#: view/collecting/site-admin/form/show.phtml:28
+msgid "Anonymity Type"
+msgstr "Yksityisyys"
+
+#: view/collecting/site-admin/form/show.phtml:63
+msgid "This form has no prompts."
+msgstr "Lomakkeella ei ole kenttiä."
+
+#: view/collecting/site-admin/item/index.phtml:16
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Needs review"
+msgstr "Odottaa moderointia"
+
+#: view/collecting/site-admin/item/index.phtml:17
+msgid "Reviewed: public"
+msgstr "Moderoitu: julkinen"
+
+#: view/collecting/site-admin/item/index.phtml:18
+msgid "Reviewed: private"
+msgstr "Moderoitu: yksityinen"
+
+#: view/collecting/site-admin/item/index.phtml:29
+#: view/collecting/site-admin/item/index.phtml:76
+msgid "Reviewed"
+msgstr "Moderoitu"
+
+#: view/collecting/site-admin/item/index.phtml:41
+msgid "Update statuses"
+msgstr "Päivitä tila"
+
+#: view/collecting/site-admin/item/index.phtml:50
+msgid "Reviewed By"
+msgstr "Moderoija"
+
+#: view/collecting/site-admin/item/index.phtml:64
+msgid "[not reviewed]"
+msgstr "[ei moderoitu]"
+
+#: view/collecting/site-admin/item/index.phtml:96
+msgid "No items found."
+msgstr "Ei valitussa tilassa olevia aineistoja."
+
+#: view/collecting/site-admin/item/show-details.phtml:19
+#: view/common/collecting-item-section.phtml:35
+msgid "User name"
+msgstr "Nimi"
+
+#: view/collecting/site-admin/item/show-details.phtml:22
+#: view/collecting/site-admin/item/show-details.phtml:29
+#: view/collecting/site-admin/item/show-details.phtml:36
+#: view/common/collecting-item-section.phtml:38
+#: view/common/collecting-item-section.phtml:45
+#: view/common/collecting-item-section.phtml:52
+msgid "[not asked]"
+msgstr "[ei tallennettu]"
+
+#: view/collecting/site-admin/item/show-details.phtml:26
+#: view/common/collecting-item-section.phtml:42
+msgid "User email"
+msgstr "Sähköpostiosoite"
+
+#: view/collecting/site-admin/item/show-details.phtml:33
+#: view/common/collecting-item-section.phtml:49
+msgid "Anonymous?"
+msgstr "Anonyymi?"
+
+#: view/collecting/site/index/item-show.phtml:2
+#, php-format
+msgid "Collected Item: “%s”"
+msgstr "Tallennettu lomake: “%s”"
+
+#: view/collecting/site/index/item-show.phtml:5
+msgid "Click here to view the corresponding item."
+msgstr "Näytä aineisto"
+
+#: view/collecting/site/index/success.phtml:5
+msgid "Form successfully submitted!"
+msgstr "Lomake on tallennettu!"
+
+#: view/common/block-layout/collecting-block-form.phtml:2
+msgid "Select which collecting forms the user can complete:"
+msgstr "Valitse käytettävissä olevat lomakkeet:"
+
+#: view/common/block-layout/collecting-block-multiple.phtml:3
+msgid "Select a form..."
+msgstr "Valitse lomake..."
+
+#: view/common/collecting-item-citation.phtml:6
+msgid "[anonymous user]"
+msgstr "[anonyymi]"
+
+#: view/common/collecting-item-citation.phtml:9
+#, php-format
+msgid ""
+"This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
+msgstr ""
+"Tallennuspäivä %s . Aineiston tallensi %s käyttäen “%s” -lomaketta “%s”: %s "
+"-sivustolla."
+
+#: view/common/collecting-item-section.phtml:3
+msgid "Collected Inputs"
+msgstr "Tallennetut kentät"
+
+#: view/common/collecting-item-section.phtml:11
+msgid "User Input"
+msgstr "Tallennettu tieto"
+
+#: view/common/collecting-item-section.phtml:33
+msgid "User Information"
+msgstr "Käyttäjätiedot"
+
+#: view/common/collecting-item-section.phtml:61
+msgid "Public citation"
+msgstr "Viite"
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully updated"
+msgstr "Lomake päivitettiin"
+
+#: src/Controller/SiteAdmin/FormController.php:84
+msgid "Collecting form successfully created"
+msgstr "Lomake on luotu"
+
+#: src/Controller/SiteAdmin/FormController.php:118
+msgid "Collecting form successfully deleted"
+msgstr "Lomake on poistettu"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:150
+#: src/Api/Representation/CollectingFormRepresentation.php:157
+msgid "Please choose one..."
+msgstr "Valitse vaihtoehdoista"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:215
+msgid "I want to submit anonymously"
+msgstr "Osallistun nimettömänä"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:225
+msgid "Email me my submission"
+msgstr "Lähetä lomakkeen tiedot sähköpostilla"
+
+#: src/Entity/CollectingPrompt.php:96
+msgid "Item Property"
+msgstr "Kenttä"
+
+#: src/Entity/CollectingPrompt.php:97
+msgid "Item Media"
+msgstr "Liite"
+
+#: src/Entity/CollectingPrompt.php:98
+msgid "Item Supplementary"
+msgstr "Oheistieto"
+
+#: src/Entity/CollectingPrompt.php:99
+msgid "User Name"
+msgstr "Nimi"
+
+#: src/Entity/CollectingPrompt.php:100
+msgid "User Email"
+msgstr "Sähköposti"
+
+#: src/Entity/CollectingPrompt.php:101
+msgid "User Private"
+msgstr "Yksityinen lisätieto, ei julkaista"
+
+#: src/Entity/CollectingPrompt.php:102
+msgid "User Public"
+msgstr "Julkinen lisätieto, voi julkaista"
+
+#: src/Entity/CollectingPrompt.php:110
+msgid "Text box (one line)"
+msgstr "Tekstikenttä (yksi rivi)"
+
+#: src/Entity/CollectingPrompt.php:111
+msgid "Text box (multiple line)"
+msgstr "Tekstikenttä (monirivinen)"
+
+#: src/Entity/CollectingPrompt.php:112
+msgid "Select menu"
+msgstr "Pudotusvalikko"
+
+#: src/Entity/CollectingPrompt.php:113
+msgid "Item Resource"
+msgstr "Aineistovalikko"
+
+#: src/Entity/CollectingForm.php:90
+msgid "User sets own anonymity"
+msgstr "Käyttäjän määrittämä yksityisyysasetus"
+
+#: src/Entity/CollectingForm.php:91
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr "“Julkinen lisätieto” ja “Nimi” -kentät ovat julkisia"
+
+#: src/Entity/CollectingForm.php:92
+msgid "“User Public” and “User Name” inputs are private"
+msgstr "“Yksityinen lisätieto” ja “Nimi” -kentät ovat yksityisiä"
+
+#: src/Site/BlockLayout/Collecting.php:17 config/module.config.php:79
+msgid "Collecting"
+msgstr "Lomakkeet"
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr "Liitä kaikki lomakkeella tallennetut aineistot  valittuun kokoelmaan."
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "Valitse kokoelma..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "Yksityisyys"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr ""
+"Valitse kuinka “Julkinen lisätieto” ja “Nimi” -kenttiä käsitellään "
+"julkisissa näkymissä."
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "Tallennuksen kuittaus"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "Lomakkeen lähetyksen jälkeen näytettävä teksti."
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "Sähköpostiviesti"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr ""
+"Teksti joka liitetään käyttäjälle hänen halutessaan lähetettävään "
+"sähköpostiin."
+
+#: config/module.config.php:109
+msgid "Form Information"
+msgstr "Lomakkeen tiedot"
+
+#: config/module.config.php:115
+msgid "Collected Items"
+msgstr "Tallennetut tiedot"
