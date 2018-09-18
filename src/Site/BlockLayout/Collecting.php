@@ -5,6 +5,7 @@ use Omeka\Api\Representation\SiteRepresentation;
 use Omeka\Api\Representation\SitePageRepresentation;
 use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Entity\SitePageBlock;
+use Omeka\Api\Exception\NotFoundException;
 use Omeka\Site\BlockLayout\AbstractBlockLayout;
 use Omeka\Stdlib\ErrorStore;
 use Zend\Form\Element;
@@ -51,7 +52,11 @@ class Collecting extends AbstractBlockLayout
     {
         $cForms = [];
         foreach ($block->dataValue('forms', []) as $formId) {
-            $cForms[] = $view->api()->read('collecting_forms', $formId)->getContent();
+            try {
+                $cForms[] = $view->api()->read('collecting_forms', $formId)->getContent();
+            } catch (NotFoundException $e) {
+                // The form was likely deleted since it was added to this block.
+            }
         }
         if (1 === count($cForms)) {
             return $view->partial('common/block-layout/collecting-block-one', [
