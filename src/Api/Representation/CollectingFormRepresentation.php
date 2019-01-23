@@ -166,10 +166,10 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                 $response = $api->read('custom_vocabs', $prompt->customVocab());
                             } catch (NotFoundException $e) {
                                 // The custom vocab does not exist.
-                                break;
+                                break 2;
                             } catch (BadRequestException $e) {
                                 // The CustomVocab module is not installed or active.
-                                break;
+                                break 2;
                             }
                             $terms = array_map('trim', explode(PHP_EOL, $response->getContent()->terms()));
                             $element = new Element\PromptSelect($name);
