@@ -4,6 +4,7 @@ namespace Collecting\View\Helper;
 use Collecting\Entity\CollectingForm;
 use Collecting\Entity\CollectingPrompt;
 use Collecting\MediaType\Manager;
+use Omeka\Api\Exception\BadRequestException;
 use Zend\View\Helper\AbstractHelper;
 
 class Collecting extends AbstractHelper
@@ -32,6 +33,11 @@ class Collecting extends AbstractHelper
      * @var array
      */
     protected $anonTypes;
+
+    /**
+     * @var array
+     */
+    protected $customVocabs;
 
     public function __construct(Manager $manager)
     {
@@ -92,6 +98,28 @@ class Collecting extends AbstractHelper
             $this->anonTypes = CollectingForm::getAnonTypes();
         }
         return $this->anonTypes;
+    }
+
+    /**
+     * Get all custom vocabs from the CustomVocab module.
+     *
+     * @return array|false
+     */
+    public function customVocabs()
+    {
+        if (null === $this->customVocabs) {
+            try {
+                $response = $this->getView()->api()->search('custom_vocabs');
+                $this->customVocabs = [];
+                foreach ($response->getContent() as $customVocab) {
+                    $this->customVocabs[$customVocab->id()] = $customVocab->label();
+                }
+            } catch (BadRequestException $e) {
+                // The CustomVocab module is not installed or active.
+                $this->customVocabs = false;
+            }
+        }
+        return $this->customVocabs;
     }
 
     public function typeValue($key)

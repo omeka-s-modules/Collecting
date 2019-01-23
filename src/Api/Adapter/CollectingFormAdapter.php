@@ -104,6 +104,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 $prompt->setInputType($promptData['o-module-collecting:input_type']);
                 $prompt->setSelectOptions($promptData['o-module-collecting:select_options']);
                 $prompt->setResourceQuery($promptData['o-module-collecting:resource_query']);
+                $prompt->setCustomVocab($promptData['o-module-collecting:custom_vocab']);
                 $prompt->setMediaType($promptData['o-module-collecting:media_type']);
                 $prompt->setRequired($promptData['o-module-collecting:required']);
                 if (is_numeric($promptData['o:property']['o:id'])) {
@@ -138,6 +139,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             'o-module-collecting:input_type' => null,
             'o-module-collecting:select_options' => null,
             'o-module-collecting:resource_query' => null,
+            'o-module-collecting:custom_vocab' => null,
             'o-module-collecting:media_type' => null,
             'o-module-collecting:required' => false,
             'o:property' => ['o:id' => null],
@@ -161,6 +163,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         }
         if (isset($data['o-module-collecting:resource_query']) && '' !== trim($data['o-module-collecting:resource_query'])) {
             $validatedData['o-module-collecting:resource_query'] = $data['o-module-collecting:resource_query'];
+        }
+        if (isset($data['o-module-collecting:custom_vocab']) && is_numeric($data['o-module-collecting:custom_vocab'])) {
+            $validatedData['o-module-collecting:custom_vocab'] = $data['o-module-collecting:custom_vocab'];
         }
         if (isset($data['o-module-collecting:media_type']) && '' !== trim($data['o-module-collecting:media_type'])) {
             $validatedData['o-module-collecting:media_type'] = $data['o-module-collecting:media_type'];
@@ -189,6 +194,11 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 if (null === $validatedData['o-module-collecting:input_type']) {
                     $errorStore->addError('o-module-collecting:input_type', 'A property prompt must have an input type.'); // @translate
                 }
+                if ('custom_vocab' === $validatedData['o-module-collecting:input_type']
+                    && null === $validatedData['o-module-collecting:custom_vocab']
+                ) {
+                    $errorStore->addError('o-module-collecting:custom_vocab', 'A custom_vocab input type must have a custom vocab.'); // @translate
+                }
                 break;
             case 'media':
                 if (null === $validatedData['o-module-collecting:text']) {
@@ -205,6 +215,11 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 if (null === $validatedData['o-module-collecting:input_type']) {
                     $errorStore->addError('o-module-collecting:input_type', 'An input prompt must have an input type.'); // @translate
                 }
+                if ('custom_vocab' === $validatedData['o-module-collecting:input_type']
+                    && null === $validatedData['o-module-collecting:custom_vocab']
+                ) {
+                    $errorStore->addError('o-module-collecting:custom_vocab', 'A custom_vocab input type must have a custom vocab.'); // @translate
+                }
                 break;
             case 'user_private':
                 if (null === $validatedData['o-module-collecting:text']) {
@@ -213,6 +228,11 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 if (null === $validatedData['o-module-collecting:input_type']) {
                     $errorStore->addError('o-module-collecting:input_type', 'A user_private prompt must have an input type.'); // @translate
                 }
+                if ('custom_vocab' === $validatedData['o-module-collecting:input_type']
+                    && null === $validatedData['o-module-collecting:custom_vocab']
+                ) {
+                    $errorStore->addError('o-module-collecting:custom_vocab', 'A custom_vocab input type must have a custom vocab.'); // @translate
+                }
                 break;
             case 'user_public':
                 if (null === $validatedData['o-module-collecting:text']) {
@@ -220,6 +240,11 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 }
                 if (null === $validatedData['o-module-collecting:input_type']) {
                     $errorStore->addError('o-module-collecting:input_type', 'A user_public prompt must have an input type.'); // @translate
+                }
+                if ('custom_vocab' === $validatedData['o-module-collecting:input_type']
+                    && null === $validatedData['o-module-collecting:custom_vocab']
+                ) {
+                    $errorStore->addError('o-module-collecting:custom_vocab', 'A custom_vocab input type must have a custom vocab.'); // @translate
                 }
                 break;
             case 'user_name':
