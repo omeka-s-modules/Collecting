@@ -3,6 +3,7 @@ namespace Collecting\Api\Representation;
 
 use Collecting\Form\Element;
 use Omeka\Api\Exception\BadRequestException;
+use Omeka\Api\Exception\NotFoundException;
 use Omeka\Api\Representation\AbstractEntityRepresentation;
 use Zend\Form\Form;
 use Zend\Http\PhpEnvironment\RemoteAddress;
@@ -163,6 +164,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                         case 'custom_vocab':
                             try {
                                 $response = $api->read('custom_vocabs', $prompt->customVocab());
+                            } catch (NotFoundException $e) {
+                                // The custom vocab does not exist.
+                                break;
                             } catch (BadRequestException $e) {
                                 // The CustomVocab module is not installed or active.
                                 break;
