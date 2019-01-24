@@ -166,10 +166,10 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                 $response = $api->read('custom_vocabs', $prompt->customVocab());
                             } catch (NotFoundException $e) {
                                 // The custom vocab does not exist.
-                                break 2;
+                                continue 3;
                             } catch (BadRequestException $e) {
                                 // The CustomVocab module is not installed or active.
-                                break 2;
+                                continue 3;
                             }
                             $terms = array_map('trim', explode(PHP_EOL, $response->getContent()->terms()));
                             $element = new Element\PromptSelect($name);
@@ -178,7 +178,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             break;
                         default:
                             // Invalid prompt input type. Do nothing.
-                            continue 2;
+                            continue 3;
                     }
                     $label = ($prompt->property() && !$prompt->text())
                         ? $prompt->property()->label()
