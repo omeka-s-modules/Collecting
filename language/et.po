@@ -3,13 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Rivo Zängov <eraser@eraser.ee>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 11:17-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-01-29 15:15-0500\n"
+"PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>, 2018\n"
 "Language-Team: Estonian (https://www.transifex.com/omeka/teams/14184/et/)\n"
 "MIME-Version: 1.0\n"
@@ -45,10 +48,6 @@ msgstr "[tundmatu ühik]"
 msgid "Thank you for your submission"
 msgstr "Täname sind panuse eest"
 
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "Staatused on uuendatud"
-
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
@@ -83,10 +82,6 @@ msgstr "Küsimuse liik"
 #: view/collecting/site-admin/form/form.phtml:77
 msgid "Select a prompt type"
 msgstr "Vali küsimuse liik"
-
-#: view/collecting/site-admin/form/form.phtml:85
-msgid "Property"
-msgstr "Omadus"
 
 #: view/collecting/site-admin/form/form.phtml:90
 msgid "Media type"
@@ -233,11 +228,11 @@ msgstr ""
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr ""
+msgstr "Vorm on edastatud!"
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
-msgstr ""
+msgstr "Vali milliseid kogumisvorme saavad kasutajad kasutada:"
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
@@ -268,31 +263,6 @@ msgstr "Kasutaja info"
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
 msgstr "Avalik tsitaat"
-
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully updated"
-msgstr ""
-
-#: src/Controller/SiteAdmin/FormController.php:84
-msgid "Collecting form successfully created"
-msgstr "Kogumisvorm on loodud"
-
-#: src/Controller/SiteAdmin/FormController.php:118
-msgid "Collecting form successfully deleted"
-msgstr "Kogumisvorm on kustutatud"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:150
-#: src/Api/Representation/CollectingFormRepresentation.php:157
-msgid "Please choose one..."
-msgstr "Palun vali üks ..."
-
-#: src/Api/Representation/CollectingFormRepresentation.php:215
-msgid "I want to submit anonymously"
-msgstr "Soovin lisada anonüümselt"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:225
-msgid "Email me my submission"
-msgstr "Saada minu lisatud info mulle e-postile"
 
 #: src/Entity/CollectingPrompt.php:96
 msgid "Item Property"
@@ -340,7 +310,7 @@ msgstr "Ühiku ressurss"
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
-msgstr ""
+msgstr "Kasutaja määrab ise oma anonüümsuse"
 
 #: src/Entity/CollectingForm.php:91
 msgid "“User Public” and “User Name” inputs are publicly visible"
@@ -350,13 +320,118 @@ msgstr ""
 msgid "“User Public” and “User Name” inputs are private"
 msgstr ""
 
-#: src/Site/BlockLayout/Collecting.php:17 config/module.config.php:79
+#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:79
 msgid "Collecting"
 msgstr "Kogumine"
 
+#: src/Api/Representation/CollectingFormRepresentation.php:150
+#: src/Api/Representation/CollectingFormRepresentation.php:157
+msgid "Please choose one..."
+msgstr "Palun vali üks ..."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:215
+msgid "I want to submit anonymously"
+msgstr "Soovin lisada anonüümselt"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:225
+msgid "Email me my submission"
+msgstr "Saada minu lisatud info mulle e-postile"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:55
+msgid "A collecting form must be assigned a site on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:187
+msgid "A property prompt must have a property."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:190
+msgid "A property prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:195
+msgid "A media prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:198
+msgid "A media prompt must have a media type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:203
+msgid "An input prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "An input prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:211
+msgid "A user_private prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:214
+msgid "A user_private prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:219
+msgid "A user_public prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:222
+msgid "A user_public prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "A user_name prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:232
+msgid "A user_email prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:237
+msgid "A html prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:241
+msgid "Prompts must have a type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "Invalid anonymity type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully updated"
+msgstr "Kogusmisvormi on uuendatud"
+
+#: src/Controller/SiteAdmin/FormController.php:84
+msgid "Collecting form successfully created"
+msgstr "Kogumisvorm on loodud"
+
+#: src/Controller/SiteAdmin/FormController.php:118
+msgid "Collecting form successfully deleted"
+msgstr "Kogumisvorm on kustutatud"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "Staatused on uuendatud"
+
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."
-msgstr ""
+msgstr "Lisa kõik läbi selle vormi lisatud ühikud sellesse ühikute kogusse."
 
 #: src/Form/CollectingForm.php:29
 msgid "Select Item Set..."
@@ -373,19 +448,19 @@ msgstr ""
 
 #: src/Form/CollectingForm.php:48
 msgid "Success text"
-msgstr ""
+msgstr "Eduka lisamise tekst"
 
 #: src/Form/CollectingForm.php:49
 msgid "Display this text after a user successfully submits a form."
-msgstr ""
+msgstr "Kui vorm on edastatud, siis näidatakse seda teksti."
 
 #: src/Form/CollectingForm.php:60
 msgid "Email text"
-msgstr ""
+msgstr "E-kirja tekst"
 
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
-msgstr ""
+msgstr "Alusta kõiki lisamise e-kirju selle tekstiga."
 
 #: config/module.config.php:109
 msgid "Form Information"

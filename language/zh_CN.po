@@ -3,13 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Hong Zhang <zhangh@unlv.nevada.edu>, 2018
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-23 11:17-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-01-29 15:15-0500\n"
+"PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -45,10 +48,6 @@ msgstr "【未知条目】"
 msgid "Thank you for your submission"
 msgstr "感谢您的提交"
 
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "状态已成功更新"
-
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
@@ -83,10 +82,6 @@ msgstr "提示类型"
 #: view/collecting/site-admin/form/form.phtml:77
 msgid "Select a prompt type"
 msgstr "选择一个提示类型"
-
-#: view/collecting/site-admin/form/form.phtml:85
-msgid "Property"
-msgstr "属性"
 
 #: view/collecting/site-admin/form/form.phtml:90
 msgid "Media type"
@@ -269,31 +264,6 @@ msgstr "用户信息"
 msgid "Public citation"
 msgstr "公开引用"
 
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully updated"
-msgstr "收藏表单已成功更新"
-
-#: src/Controller/SiteAdmin/FormController.php:84
-msgid "Collecting form successfully created"
-msgstr "收藏表单已成功创建"
-
-#: src/Controller/SiteAdmin/FormController.php:118
-msgid "Collecting form successfully deleted"
-msgstr "收藏表单已成功删除"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:150
-#: src/Api/Representation/CollectingFormRepresentation.php:157
-msgid "Please choose one..."
-msgstr "请选择一个 ......"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:215
-msgid "I want to submit anonymously"
-msgstr "我希望匿名提交"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:225
-msgid "Email me my submission"
-msgstr "把我提交的东西电邮给我"
-
 #: src/Entity/CollectingPrompt.php:96
 msgid "Item Property"
 msgstr "条目属性"
@@ -350,9 +320,114 @@ msgstr "“用户是公开的”和“用户名称”输入是公开可见的"
 msgid "“User Public” and “User Name” inputs are private"
 msgstr "“用户是公开的”和“用户名称”输入是私密的"
 
-#: src/Site/BlockLayout/Collecting.php:17 config/module.config.php:79
+#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:79
 msgid "Collecting"
 msgstr "收藏"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:150
+#: src/Api/Representation/CollectingFormRepresentation.php:157
+msgid "Please choose one..."
+msgstr "请选择一个 ......"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:215
+msgid "I want to submit anonymously"
+msgstr "我希望匿名提交"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:225
+msgid "Email me my submission"
+msgstr "把我提交的东西电邮给我"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:55
+msgid "A collecting form must be assigned a site on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:187
+msgid "A property prompt must have a property."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:190
+msgid "A property prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:195
+msgid "A media prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:198
+msgid "A media prompt must have a media type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:203
+msgid "An input prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "An input prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:211
+msgid "A user_private prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:214
+msgid "A user_private prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:219
+msgid "A user_public prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:222
+msgid "A user_public prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "A user_name prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:232
+msgid "A user_email prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:237
+msgid "A html prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:241
+msgid "Prompts must have a type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "Invalid anonymity type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully updated"
+msgstr "收藏表单已成功更新"
+
+#: src/Controller/SiteAdmin/FormController.php:84
+msgid "Collecting form successfully created"
+msgstr "收藏表单已成功创建"
+
+#: src/Controller/SiteAdmin/FormController.php:118
+msgid "Collecting form successfully deleted"
+msgstr "收藏表单已成功删除"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "状态已成功更新"
 
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."

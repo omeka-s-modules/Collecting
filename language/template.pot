@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-28 12:58-0400\n"
+"POT-Creation-Date: 2019-01-29 15:16-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,10 +77,6 @@ msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:77
 msgid "Select a prompt type"
-msgstr ""
-
-#: view/collecting/site-admin/form/form.phtml:85
-msgid "Property"
 msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:90
@@ -264,32 +260,77 @@ msgstr ""
 msgid "Public citation"
 msgstr ""
 
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
+#: src/Entity/CollectingPrompt.php:96
+msgid "Item Property"
 msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully updated"
+#: src/Entity/CollectingPrompt.php:97
+msgid "Item Media"
 msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:84
-msgid "Collecting form successfully created"
+#: src/Entity/CollectingPrompt.php:98
+msgid "Item Supplementary"
 msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:118
-msgid "Collecting form successfully deleted"
+#: src/Entity/CollectingPrompt.php:99
+msgid "User Name"
 msgstr ""
 
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
+#: src/Entity/CollectingPrompt.php:100
+msgid "User Email"
 msgstr ""
 
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
+#: src/Entity/CollectingPrompt.php:101
+msgid "User Private"
 msgstr ""
 
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
+#: src/Entity/CollectingPrompt.php:102
+msgid "User Public"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:110
+msgid "Text box (one line)"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:111
+msgid "Text box (multiple line)"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:112
+msgid "Select menu"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:113
+msgid "Item Resource"
+msgstr ""
+
+#: src/Entity/CollectingForm.php:90
+msgid "User sets own anonymity"
+msgstr ""
+
+#: src/Entity/CollectingForm.php:91
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr ""
+
+#: src/Entity/CollectingForm.php:92
+msgid "“User Public” and “User Name” inputs are private"
+msgstr ""
+
+#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:79
+msgid "Collecting"
+msgstr ""
+
+#: src/Api/Representation/CollectingFormRepresentation.php:150
+#: src/Api/Representation/CollectingFormRepresentation.php:157
+msgid "Please choose one..."
+msgstr ""
+
+#: src/Api/Representation/CollectingFormRepresentation.php:215
+msgid "I want to submit anonymously"
+msgstr ""
+
+#: src/Api/Representation/CollectingFormRepresentation.php:225
+msgid "Email me my submission"
 msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:55
@@ -356,77 +397,32 @@ msgstr ""
 msgid "Invalid anonymity type."
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:150
-#: src/Api/Representation/CollectingFormRepresentation.php:157
-msgid "Please choose one..."
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:215
-msgid "I want to submit anonymously"
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:225
-msgid "Email me my submission"
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:96
-msgid "Item Property"
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully updated"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:97
-msgid "Item Media"
+#: src/Controller/SiteAdmin/FormController.php:84
+msgid "Collecting form successfully created"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:98
-msgid "Item Supplementary"
+#: src/Controller/SiteAdmin/FormController.php:118
+msgid "Collecting form successfully deleted"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:99
-msgid "User Name"
-msgstr ""
-
-#: src/Entity/CollectingPrompt.php:100
-msgid "User Email"
-msgstr ""
-
-#: src/Entity/CollectingPrompt.php:101
-msgid "User Private"
-msgstr ""
-
-#: src/Entity/CollectingPrompt.php:102
-msgid "User Public"
-msgstr ""
-
-#: src/Entity/CollectingPrompt.php:110
-msgid "Text box (one line)"
-msgstr ""
-
-#: src/Entity/CollectingPrompt.php:111
-msgid "Text box (multiple line)"
-msgstr ""
-
-#: src/Entity/CollectingPrompt.php:112
-msgid "Select menu"
-msgstr ""
-
-#: src/Entity/CollectingPrompt.php:113
-msgid "Item Resource"
-msgstr ""
-
-#: src/Entity/CollectingForm.php:90
-msgid "User sets own anonymity"
-msgstr ""
-
-#: src/Entity/CollectingForm.php:91
-msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr ""
-
-#: src/Entity/CollectingForm.php:92
-msgid "“User Public” and “User Name” inputs are private"
-msgstr ""
-
-#: src/Site/BlockLayout/Collecting.php:17 config/module.config.php:79
-msgid "Collecting"
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
 msgstr ""
 
 #: src/Form/CollectingForm.php:28
