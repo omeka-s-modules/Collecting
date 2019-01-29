@@ -22,6 +22,7 @@ $promptRowTemplate = '
         <input type="hidden" class="prompt-input-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
         <input type="hidden" class="prompt-select-options" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-resource-query" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:resource_query]">
+        <input type="hidden" class="prompt-custom-vocab" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:custom_vocab]">
         <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
         <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
         <input type="hidden" class="prompt-property-id" name="o-module-collecting:prompt[__INDEX__][o:property][o:id]">
@@ -119,6 +120,23 @@ echo $this->form()->openTag($form);
         <div class="sidebar-section">
             <h4><?php echo $this->translate('Filter query'); ?> <span title="<?php echo $this->translate('Filter resources by entering an advanced search URL query string.'); ?>">[?]</span></h4>
             <input type="text" id="prompt-resource-query" name="resource-query" style="width:100%;">
+        </div>
+
+        <?php $customVocabs = $this->collecting()->customVocabs(); ?>
+        <div class="sidebar-section">
+            <h4><?php echo $this->translate('Custom vocab'); ?></h4>
+            <?php if (is_array($customVocabs)): ?>
+            <select id="prompt-custom-vocab" name="custom-vocab">
+                <option value=""><?php echo $this->translate("Select a custom vocab"); ?></option>
+                <?php foreach ($customVocabs as $customVocabId => $customVocabLabel): ?>
+                <option value="<?php echo $this->escapeHtml($customVocabId); ?>"><?php echo $this->translate($customVocabLabel); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <?php else: ?>
+            <select id="prompt-custom-vocab" name="custom-vocab" disabled>
+                <option value=""><?php echo $this->translate('The Custom Vocab module is not enabled'); ?></option>
+            </select>
+            <?php endif; ?>
         </div>
 
         <div class="sidebar-section">

@@ -25,6 +25,7 @@ class CollectingPromptRepresentation extends AbstractRepresentation
             'o-module-collecting:input_type' => $this->inputType(),
             'o-module-collecting:select_options' => $this->selectOptions(),
             'o-module-collecting:resource_query' => $this->resourceQuery(),
+            'o-module-collecting:custom_vocab' => $this->customVocab(),
             'o-module-collecting:media_type' => $this->mediaType(),
             'o-module-collecting:required' => $this->required(),
             'o:property' => $property,
@@ -59,6 +60,11 @@ class CollectingPromptRepresentation extends AbstractRepresentation
     public function resourceQuery()
     {
         return $this->resource->getResourceQuery();
+    }
+
+    public function customVocab()
+    {
+        return $this->resource->getCustomVocab();
     }
 
     public function mediaType()

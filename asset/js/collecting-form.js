@@ -40,6 +40,7 @@ var populatePromptRow = function(promptData) {
     promptRow.find('.prompt-input-type').val(promptData['o-module-collecting:input_type']);
     promptRow.find('.prompt-select-options').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-resource-query').val(promptData['o-module-collecting:resource_query']);
+    promptRow.find('.prompt-custom-vocab').val(promptData['o-module-collecting:custom_vocab']);
     promptRow.find('.prompt-media-type').val(promptData['o-module-collecting:media_type']);
     promptRow.find('.prompt-required').val(promptData['o-module-collecting:required'] ? '1' : '0');
     if (promptData['o:property']) {
@@ -63,6 +64,7 @@ var resetSidebar = function() {
     $('#prompt-input-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-select-options').val('').closest('.sidebar-section').hide();
     $('#prompt-resource-query').val('').closest('.sidebar-section').hide();
+    $('#prompt-custom-vocab').val('').closest('.sidebar-section').hide();
     $('#prompt-required').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-save').hide();
 
@@ -116,6 +118,22 @@ var setSidebarForType = function(type) {
     $('#prompt-save').show();
 }
 
+/**
+ * Set the custom vocab section of the edit prompt sidebar.
+ *
+ * @param {Object} prompt
+ */
+var setCustomVocabSection = function(prompt) {
+    var customVocab = prompt.find('.prompt-custom-vocab').val();
+    var customVocabSelect = $('#prompt-custom-vocab');
+    if (customVocabSelect.is(':disabled')) {
+        customVocab = ''; // CustomVocab module not enabled
+    } else if (!customVocabSelect.has('option[value="' + customVocab + '"]').length) {
+        customVocab = ''; // Custom vocab does not exist
+    }
+    customVocabSelect.val(customVocab).closest('.sidebar-section').show();
+}
+
 $(document).ready(function() {
 
     $('#prompts-table').hide();
@@ -159,6 +177,7 @@ $(document).ready(function() {
         var inputType = $(this).val();
         var selectOptionsSection = $('#prompt-select-options').closest('.sidebar-section');
         var resourceQuerySection = $('#prompt-resource-query').closest('.sidebar-section');
+        var customVocabSection = $('#prompt-custom-vocab').closest('.sidebar-section');
         if ('select' === inputType) {
             selectOptionsSection.show();
         } else {
@@ -168,6 +187,11 @@ $(document).ready(function() {
             resourceQuerySection.show();
         } else {
             resourceQuerySection.hide();
+        }
+        if ('custom_vocab' === inputType) {
+            customVocabSection.show();
+        } else {
+            customVocabSection.hide();
         }
     });
 
@@ -232,6 +256,9 @@ $(document).ready(function() {
                     var resourceQuery = prompt.find('.prompt-resource-query').val();
                     $('#prompt-resource-query').val(resourceQuery).closest('.sidebar-section').show();
                 }
+                if ('custom_vocab' === inputType) {
+                    setCustomVocabSection(prompt);
+                }
                 break;
             case 'media':
                 var mediaType = prompt.find('.prompt-media-type').val();
@@ -247,6 +274,9 @@ $(document).ready(function() {
                 if ('select' === inputType) {
                     var selectOptions = prompt.find('.prompt-select-options').val();
                     $('#prompt-select-options').val(selectOptions).closest('.sidebar-section').show();
+                }
+                if ('custom_vocab' === inputType) {
+                    setCustomVocabSection(prompt);
                 }
                 break;
             case 'user_name':
@@ -275,6 +305,7 @@ $(document).ready(function() {
             'o-module-collecting:input_type': $('#prompt-input-type').val(),
             'o-module-collecting:select_options': $('#prompt-select-options').val(),
             'o-module-collecting:resource_query': $('#prompt-resource-query').val(),
+            'o-module-collecting:custom_vocab': $('#prompt-custom-vocab').val(),
             'o-module-collecting:media_type': $('#prompt-media-type').val(),
             'o-module-collecting:required': $('#prompt-required').prop('checked'),
             'o:property': {'o:id': $('#prompt-property').val()},
@@ -289,6 +320,12 @@ $(document).ready(function() {
                 }
                 if (!promptData['o-module-collecting:input_type']) {
                     alert('You must select an input type.');
+                    return;
+                }
+                if ('custom_vocab' === promptData['o-module-collecting:input_type']
+                    && !promptData['o-module-collecting:custom_vocab']
+                ) {
+                    alert('You must select a custom vocab.');
                     return;
                 }
                 break;
@@ -311,6 +348,12 @@ $(document).ready(function() {
                 }
                 if (!promptData['o-module-collecting:input_type']) {
                     alert('You must select an input type.');
+                    return;
+                }
+                if ('custom_vocab' === promptData['o-module-collecting:input_type']
+                    && !promptData['o-module-collecting:custom_vocab']
+                ) {
+                    alert('You must select a custom vocab.');
                     return;
                 }
                 break;

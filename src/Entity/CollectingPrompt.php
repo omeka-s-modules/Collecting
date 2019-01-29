@@ -70,6 +70,11 @@ class CollectingPrompt extends AbstractEntity
     protected $resourceQuery;
 
     /**
+     * @Column(type="integer", nullable=true)
+     */
+    protected $customVocab;
+
+    /**
      * @Column(nullable=true)
      */
     protected $mediaType;
@@ -111,6 +116,7 @@ class CollectingPrompt extends AbstractEntity
             'textarea' => 'Text box (multiple line)', // @translate
             'select' => 'Select menu', // @translate
             'item' => 'Item Resource', // @translate
+            'custom_vocab' => 'Custom vocab', // @translate
         ];
     }
 
@@ -191,6 +197,18 @@ class CollectingPrompt extends AbstractEntity
     public function getResourceQuery()
     {
         return $this->resourceQuery;
+    }
+
+    public function setCustomVocab($customVocab)
+    {
+        // Must be a positive non-zero integer.
+        $customVocab = (int) $customVocab;
+        $this->customVocab = (0 < $customVocab) ? $customVocab : null;
+    }
+
+    public function getCustomVocab()
+    {
+        return $this->customVocab;
     }
 
     public function setMediaType($mediaType)

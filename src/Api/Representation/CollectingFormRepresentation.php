@@ -2,6 +2,8 @@
 namespace Collecting\Api\Representation;
 
 use Collecting\Form\Element;
+use Omeka\Api\Exception\BadRequestException;
+use Omeka\Api\Exception\NotFoundException;
 use Omeka\Api\Representation\AbstractEntityRepresentation;
 use Zend\Form\Form;
 use Zend\Http\PhpEnvironment\RemoteAddress;
@@ -159,9 +161,24 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                     return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
                                 }, $resourceQuery);
                             break;
+                        case 'custom_vocab':
+                            try {
+                                $response = $api->read('custom_vocabs', $prompt->customVocab());
+                            } catch (NotFoundException $e) {
+                                // The custom vocab does not exist.
+                                continue 3;
+                            } catch (BadRequestException $e) {
+                                // The CustomVocab module is not installed or active.
+                                continue 3;
+                            }
+                            $terms = array_map('trim', explode(PHP_EOL, $response->getContent()->terms()));
+                            $element = new Element\PromptSelect($name);
+                            $element->setEmptyOption('Please choose one...') // @translate
+                                ->setValueOptions(array_combine($terms, $terms));
+                            break;
                         default:
                             // Invalid prompt input type. Do nothing.
-                            continue 2;
+                            continue 3;
                     }
                     $label = ($prompt->property() && !$prompt->text())
                         ? $prompt->property()->label()

@@ -64,10 +64,10 @@ class CollectingPrompt extends \Collecting\Entity\CollectingPrompt implements \D
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'mediaType', 'required', 'property'];
+            return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'customVocab', 'mediaType', 'required', 'property'];
         }
 
-        return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'mediaType', 'required', 'property'];
+        return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'customVocab', 'mediaType', 'required', 'property'];
     }
 
     /**
@@ -340,6 +340,28 @@ class CollectingPrompt extends \Collecting\Entity\CollectingPrompt implements \D
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getResourceQuery', []);
 
         return parent::getResourceQuery();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCustomVocab($customVocab)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomVocab', [$customVocab]);
+
+        return parent::setCustomVocab($customVocab);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCustomVocab()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomVocab', []);
+
+        return parent::getCustomVocab();
     }
 
     /**
