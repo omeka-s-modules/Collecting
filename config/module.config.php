@@ -71,6 +71,7 @@ return [
         ],
         'factories' => [
             'upload' => 'Collecting\Service\MediaType\UploadFactory',
+            'upload_multiple' => 'Collecting\Service\MediaType\UploadMultipleFactory',
         ],
     ],
     'navigation' => [

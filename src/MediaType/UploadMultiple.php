@@ -6,7 +6,7 @@ use Zend\Form\Form;
 use Zend\Stdlib\RequestInterface;
 use Zend\View\Renderer\PhpRenderer;
 
-class Upload implements MediaTypeInterface
+class UploadMultiple implements MediaTypeInterface
 {
     protected $request;
 
@@ -17,7 +17,7 @@ class Upload implements MediaTypeInterface
 
     public function getLabel()
     {
-        return 'Upload One'; // @translate
+        return 'Upload Multiple'; // @translate
     }
 
     public function prepareForm(PhpRenderer $view)
@@ -39,6 +39,7 @@ class Upload implements MediaTypeInterface
             ],
             'attributes' => [
                 'required' => $prompt->required(),
+                'multiple' => true,
             ],
         ]);
     }
@@ -47,17 +48,19 @@ class Upload implements MediaTypeInterface
         CollectingPromptRepresentation $prompt
     ) {
         $files = $this->request->getFiles('file');
-        if ($prompt->required()
-            || (!$prompt->required()
-                && isset($files[$prompt->id()])
-                && UPLOAD_ERR_NO_FILE !== $files[$prompt->id()]['error']
-            )
-        ) {
-            $itemData['o:media'][$prompt->id()] = [
-                'o:ingester' => 'upload',
-                'file_index' => $prompt->id(),
-            ];
+        if (isset($files[$prompt->id()]) && is_array($files[$prompt->id()])) {
+            foreach ($files[$prompt->id()] as $fileIndex => $file) {
+                if ($prompt->required() || (!$prompt->required() && UPLOAD_ERR_NO_FILE !== $file['error'])) {
+                    $mediaIndex = sprintf('%s-%s', $prompt->id(), $fileIndex);
+                    $files[$mediaIndex] = $file;
+                    $itemData['o:media'][$mediaIndex] = [
+                        'o:ingester' => 'upload',
+                        'file_index' => $mediaIndex,
+                    ];
+                }
+            }
         }
+        $this->request->getFiles()->set('file', $files);
         return $itemData;
     }
 }
