@@ -107,7 +107,11 @@ echo $this->form()->openTag($form);
             <select id="prompt-input-type" name="input-type">
                 <option value=""><?php echo $this->translate("Select an input type"); ?></option>
                 <?php foreach ($this->collecting()->inputTypes() as $key => $value): ?>
-                <option value="<?php echo $this->escapeHtml($key); ?>"><?php echo $this->translate($value); ?></option>
+                <?php
+                $isAvailable = $this->collecting()->inputTypeIsAvailable($key);
+                $value = $isAvailable ? $this->translate($value) : sprintf('%s %s', $this->translate($value), $this->translate('(unavailable)'));
+                ?>
+                <option value="<?php echo $this->escapeHtml($key); ?>"<?php echo $isAvailable ? '' : ' disabled'; ?>><?php echo $value; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

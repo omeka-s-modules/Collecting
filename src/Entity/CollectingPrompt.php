@@ -115,8 +115,12 @@ class CollectingPrompt extends AbstractEntity
             'text' => 'Text box (one line)', // @translate
             'textarea' => 'Text box (multiple line)', // @translate
             'select' => 'Select menu', // @translate
-            'item' => 'Item Resource', // @translate
+            'item' => 'Item resource', // @translate
             'custom_vocab' => 'Custom vocab', // @translate
+            'numeric:timestamp' => 'Numeric timestamp', // @translate
+            'numeric:interval' => 'Numeric interval', // @translate
+            'numeric:duration' => 'Numeric duration', // @translate
+            'numeric:integer' => 'Numeric integer', // @translate
         ];
     }
 

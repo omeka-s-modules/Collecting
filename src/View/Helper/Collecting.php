@@ -3,16 +3,23 @@ namespace Collecting\View\Helper;
 
 use Collecting\Entity\CollectingForm;
 use Collecting\Entity\CollectingPrompt;
-use Collecting\MediaType\Manager;
+use Collecting\MediaType\Manager as MediaTypeManager;
+use Composer\Semver\Comparator;
 use Omeka\Api\Exception\BadRequestException;
+use Omeka\Module\Manager as ModuleManager;
 use Zend\View\Helper\AbstractHelper;
 
 class Collecting extends AbstractHelper
 {
     /**
-     * @var Manager
+     * @var MediaTypeManager
      */
-    protected $manager;
+    protected $mediaTypeManager;
+
+    /**
+     * @var ModuleManager
+     */
+    protected $moduleManager;
 
     /**
      * @var array
@@ -39,9 +46,10 @@ class Collecting extends AbstractHelper
      */
     protected $customVocabs;
 
-    public function __construct(Manager $manager)
+    public function __construct(MediaTypeManager $mediaTypeManager, ModuleManager $moduleManager)
     {
-        $this->manager = $manager;
+        $this->mediaTypeManager = $mediaTypeManager;
+        $this->moduleManager = $moduleManager;
     }
 
     /**
@@ -71,6 +79,44 @@ class Collecting extends AbstractHelper
     }
 
     /**
+     * Is an input type available?
+     *
+     * @param string $inputType
+     * @return bool
+     */
+    public function inputTypeIsAvailable($inputType)
+    {
+        switch ($inputType) {
+            case 'custom_vocab':
+                // Available when the CustomVocab module is active.
+                $module = $this->moduleManager->getModule('CustomVocab');
+                return (
+                    $module
+                    && ModuleManager::STATE_ACTIVE === $module->getState()
+                );
+            case 'numeric:timestamp':
+            case 'numeric:interval':
+            case 'numeric:duration':
+            case 'numeric:integer':
+                // Available when the NumericDataTypes module is active and the
+                // version >= 1.2.0 (when it introduced numeric form elements).
+                $module = $this->moduleManager->getModule('NumericDataTypes');
+                return (
+                    $module
+                    && ModuleManager::STATE_ACTIVE === $module->getState()
+                    && Comparator::greaterThanOrEqualTo($module->getDb('version'), '1.2.0')
+                );
+            case 'text':
+            case 'textarea':
+            case 'select':
+            case 'item':
+            default:
+                // Native input types are always available.
+                return true;
+        }
+    }
+
+    /**
      * Get all prompt media types.
      *
      * @return array;
@@ -79,9 +125,9 @@ class Collecting extends AbstractHelper
     {
         if (null === $this->mediaTypes) {
             $this->mediaTypes = [];
-            $names = $this->manager->getRegisteredNames();
+            $names = $this->mediaTypeManager->getRegisteredNames();
             foreach ($names as $name) {
-                $this->mediaTypes[$name] = $this->manager->get($name)->getLabel();
+                $this->mediaTypes[$name] = $this->mediaTypeManager->get($name)->getLabel();
             }
         }
         return $this->mediaTypes;
@@ -134,7 +180,7 @@ class Collecting extends AbstractHelper
 
     public function mediaTypeValue($key)
     {
-        return $this->manager->get($key)->getLabel();
+        return $this->mediaTypeManager->get($key)->getLabel();
     }
 
     public function anonTypeValue($key)
