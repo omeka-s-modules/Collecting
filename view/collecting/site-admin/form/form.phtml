@@ -126,22 +126,18 @@ echo $this->form()->openTag($form);
             <input type="text" id="prompt-resource-query" name="resource-query" style="width:100%;">
         </div>
 
+        <?php if ($this->collecting()->inputTypeIsAvailable('custom_vocab')): ?>
         <?php $customVocabs = $this->collecting()->customVocabs(); ?>
         <div class="sidebar-section">
             <h4><?php echo $this->translate('Custom vocab'); ?></h4>
-            <?php if (is_array($customVocabs)): ?>
             <select id="prompt-custom-vocab" name="custom-vocab">
                 <option value=""><?php echo $this->translate("Select a custom vocab"); ?></option>
                 <?php foreach ($customVocabs as $customVocabId => $customVocabLabel): ?>
                 <option value="<?php echo $this->escapeHtml($customVocabId); ?>"><?php echo $this->translate($customVocabLabel); ?></option>
                 <?php endforeach; ?>
             </select>
-            <?php else: ?>
-            <select id="prompt-custom-vocab" name="custom-vocab" disabled>
-                <option value=""><?php echo $this->translate('The Custom Vocab module is not enabled'); ?></option>
-            </select>
-            <?php endif; ?>
         </div>
+        <?php endif; ?>
 
         <div class="sidebar-section">
             <h4><?php echo $this->translate('Required?'); ?></h4>
