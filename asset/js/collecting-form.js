@@ -126,9 +126,7 @@ var setSidebarForType = function(type) {
 var setCustomVocabSection = function(prompt) {
     var customVocab = prompt.find('.prompt-custom-vocab').val();
     var customVocabSelect = $('#prompt-custom-vocab');
-    if (customVocabSelect.is(':disabled')) {
-        customVocab = ''; // CustomVocab module not enabled
-    } else if (!customVocabSelect.has('option[value="' + customVocab + '"]').length) {
+    if (!customVocabSelect.has('option[value="' + customVocab + '"]').length) {
         customVocab = ''; // Custom vocab does not exist
     }
     customVocabSelect.val(customVocab).closest('.sidebar-section').show();
