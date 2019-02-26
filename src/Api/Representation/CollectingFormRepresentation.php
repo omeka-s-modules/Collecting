@@ -117,6 +117,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             return $this->form; // build the form object only once
         }
         $url = $this->getViewHelper('Url');
+        $collecting = $this->getViewHelper('collecting');
         $mediaTypes = $this->getServiceLocator()->get('Collecting\MediaTypeManager');
         $api = $this->getServiceLocator()->get('Omeka\ApiManager');
         $auth = $this->getServiceLocator()->get('Omeka\AuthenticationService');
@@ -175,6 +176,30 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one...') // @translate
                                 ->setValueOptions(array_combine($terms, $terms));
+                            break;
+                        case 'numeric:timestamp':
+                            if (!$collecting->inputTypeIsAvailable('numeric:timestamp')) {
+                                continue 3;
+                            }
+                            $element = new Element\PromptNumericTimestamp($name);
+                            break;
+                        case 'numeric:interval':
+                            if (!$collecting->inputTypeIsAvailable('numeric:interval')) {
+                                continue 3;
+                            }
+                            $element = new Element\PromptNumericInterval($name);
+                            break;
+                        case 'numeric:duration':
+                            if (!$collecting->inputTypeIsAvailable('numeric:duration')) {
+                                continue 3;
+                            }
+                            $element = new Element\PromptNumericDuration($name);
+                            break;
+                        case 'numeric:integer':
+                            if (!$collecting->inputTypeIsAvailable('numeric:integer')) {
+                                continue 3;
+                            }
+                            $element = new Element\PromptNumericInteger($name);
                             break;
                         default:
                             // Invalid prompt input type. Do nothing.

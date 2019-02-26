@@ -164,6 +164,34 @@ class IndexController extends AbstractActionController
                                 'value_resource_id' => $postedPrompts[$prompt->id()],
                             ];
                             break;
+                        case 'numeric:timestamp':
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'numeric:timestamp',
+                                'property_id' => $prompt->property()->id(),
+                                '@value' => $postedPrompts[$prompt->id()],
+                            ];
+                            break;
+                        case 'numeric:interval':
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'numeric:interval',
+                                'property_id' => $prompt->property()->id(),
+                                '@value' => $postedPrompts[$prompt->id()],
+                            ];
+                            break;
+                        case 'numeric:duration':
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'numeric:duration',
+                                'property_id' => $prompt->property()->id(),
+                                '@value' => $postedPrompts[$prompt->id()],
+                            ];
+                            break;
+                        case 'numeric:integer':
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'numeric:integer',
+                                'property_id' => $prompt->property()->id(),
+                                '@value' => $postedPrompts[$prompt->id()],
+                            ];
+                            break;
                         default:
                             $itemData[$prompt->property()->term()][] = [
                                 'type' => 'literal',
