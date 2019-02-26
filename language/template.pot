@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 13:47-0500\n"
+"POT-Creation-Date: 2019-02-26 14:04-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 msgid "Click here to view the collected data."
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:262
+#: src/Api/Representation/CollectingFormRepresentation.php:287
 #, php-format
 msgid "I accept the %s"
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:265
+#: src/Api/Representation/CollectingFormRepresentation.php:290
 msgid "Terms of Service"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr ""
 msgid "[unknown item]"
 msgstr ""
 
-#: src/Controller/Site/IndexController.php:241
+#: src/Controller/Site/IndexController.php:269
 msgid "Thank you for your submission"
 msgstr ""
 
@@ -99,28 +99,28 @@ msgstr ""
 msgid "Select an input type"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:116
+#: view/collecting/site-admin/form/form.phtml:112
+msgid "(unavailable)"
+msgstr ""
+
+#: view/collecting/site-admin/form/form.phtml:120
 msgid "Select menu options"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:121
+#: view/collecting/site-admin/form/form.phtml:125
 msgid "Filter query"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:121
+#: view/collecting/site-admin/form/form.phtml:125
 msgid "Filter resources by entering an advanced search URL query string."
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:127
+#: view/collecting/site-admin/form/form.phtml:132
 msgid "Custom vocab"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:130
+#: view/collecting/site-admin/form/form.phtml:134
 msgid "Select a custom vocab"
-msgstr ""
-
-#: view/collecting/site-admin/form/form.phtml:137
-msgid "The Custom Vocab module is not enabled"
 msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:147
@@ -313,7 +313,23 @@ msgid "Select menu"
 msgstr ""
 
 #: src/Entity/CollectingPrompt.php:118
-msgid "Item Resource"
+msgid "Item resource"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:120
+msgid "Numeric timestamp"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:121
+msgid "Numeric interval"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:122
+msgid "Numeric duration"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:123
+msgid "Numeric integer"
 msgstr ""
 
 #: src/Entity/CollectingForm.php:90
@@ -332,17 +348,17 @@ msgstr ""
 msgid "Collecting"
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:152
-#: src/Api/Representation/CollectingFormRepresentation.php:159
-#: src/Api/Representation/CollectingFormRepresentation.php:176
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:177
 msgid "Please choose one..."
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:232
+#: src/Api/Representation/CollectingFormRepresentation.php:257
 msgid "I want to submit anonymously"
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:242
+#: src/Api/Representation/CollectingFormRepresentation.php:267
 msgid "Email me my submission"
 msgstr ""
 

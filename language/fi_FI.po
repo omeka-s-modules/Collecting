@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-29 15:15-0500\n"
+"POT-Creation-Date: 2019-01-31 13:47-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Matti Lassila <matti.lassila@gmail.com>, 2018\n"
 "Language-Team: Finnish (Finland) (https://www.transifex.com/omeka/teams/14184/fi_FI/)\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:138
+#: Module.php:141
 msgid "Click here to view the collected data."
 msgstr "Näytä oheistiedot."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:245
+#: src/Api/Representation/CollectingFormRepresentation.php:262
 #, php-format
 msgid "I accept the %s"
 msgstr "Hyväksyn %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:248
+#: src/Api/Representation/CollectingFormRepresentation.php:265
 msgid "Terms of Service"
 msgstr "käyttöehdot"
 
@@ -57,67 +57,79 @@ msgstr "Muokataan lomaketta: “%s”"
 msgid "Add collecting form"
 msgstr "Lisää lomake"
 
-#: view/collecting/site-admin/form/form.phtml:31
+#: view/collecting/site-admin/form/form.phtml:32
 msgid "Undo delete"
 msgstr "Peru poisto"
 
-#: view/collecting/site-admin/form/form.phtml:50
+#: view/collecting/site-admin/form/form.phtml:51
 #: view/collecting/site-admin/form/show.phtml:38
 msgid "Prompts"
 msgstr "Lomakkeen kentät"
 
-#: view/collecting/site-admin/form/form.phtml:52
+#: view/collecting/site-admin/form/form.phtml:53
 msgid "Add prompt"
 msgstr "Lisää kenttä"
 
-#: view/collecting/site-admin/form/form.phtml:72
+#: view/collecting/site-admin/form/form.phtml:73
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
 msgstr "Kenttä"
 
-#: view/collecting/site-admin/form/form.phtml:75
+#: view/collecting/site-admin/form/form.phtml:76
 msgid "Prompt type"
 msgstr "Tyyppi"
 
-#: view/collecting/site-admin/form/form.phtml:77
+#: view/collecting/site-admin/form/form.phtml:78
 msgid "Select a prompt type"
 msgstr "Valitse kentän tyyppi"
 
-#: view/collecting/site-admin/form/form.phtml:90
+#: view/collecting/site-admin/form/form.phtml:91
 msgid "Media type"
 msgstr "Liitteen tyyppi"
 
-#: view/collecting/site-admin/form/form.phtml:92
+#: view/collecting/site-admin/form/form.phtml:93
 msgid "Select a media type"
 msgstr "Valitse liitteen tyyppi"
 
-#: view/collecting/site-admin/form/form.phtml:100
+#: view/collecting/site-admin/form/form.phtml:101
 msgid "Prompt text"
 msgstr "Kentän otsikko tai kysymys"
 
-#: view/collecting/site-admin/form/form.phtml:105
+#: view/collecting/site-admin/form/form.phtml:106
 msgid "Input type"
 msgstr "Kentän tyyppi"
 
-#: view/collecting/site-admin/form/form.phtml:107
+#: view/collecting/site-admin/form/form.phtml:108
 msgid "Select an input type"
 msgstr "Valitse kentän tyyppi"
 
-#: view/collecting/site-admin/form/form.phtml:115
+#: view/collecting/site-admin/form/form.phtml:116
 msgid "Select menu options"
 msgstr "Valikon kohdat"
 
-#: view/collecting/site-admin/form/form.phtml:120
+#: view/collecting/site-admin/form/form.phtml:121
 msgid "Filter query"
 msgstr "Haku-URL"
 
-#: view/collecting/site-admin/form/form.phtml:120
+#: view/collecting/site-admin/form/form.phtml:121
 msgid "Filter resources by entering an advanced search URL query string."
 msgstr ""
 "Ylläpitonäkymän tarkennetun haun kysely-URL. Käytä osioita osoitteen admin/ "
 "-tekstin jälkeen."
 
-#: view/collecting/site-admin/form/form.phtml:129
+#: view/collecting/site-admin/form/form.phtml:127
+msgid "Custom vocab"
+msgstr ""
+
+#: view/collecting/site-admin/form/form.phtml:130
+msgid "Select a custom vocab"
+msgstr ""
+
+#: view/collecting/site-admin/form/form.phtml:137
+msgid "The Custom Vocab module is not enabled"
+msgstr ""
+
+#: view/collecting/site-admin/form/form.phtml:147
 msgid "Add changes"
 msgstr "Lisää kenttä"
 
@@ -268,47 +280,47 @@ msgstr "Käyttäjätiedot"
 msgid "Public citation"
 msgstr "Viite"
 
-#: src/Entity/CollectingPrompt.php:96
+#: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
 msgstr "Kenttä"
 
-#: src/Entity/CollectingPrompt.php:97
+#: src/Entity/CollectingPrompt.php:102
 msgid "Item Media"
 msgstr "Liite"
 
-#: src/Entity/CollectingPrompt.php:98
+#: src/Entity/CollectingPrompt.php:103
 msgid "Item Supplementary"
 msgstr "Oheistieto"
 
-#: src/Entity/CollectingPrompt.php:99
+#: src/Entity/CollectingPrompt.php:104
 msgid "User Name"
 msgstr "Nimi"
 
-#: src/Entity/CollectingPrompt.php:100
+#: src/Entity/CollectingPrompt.php:105
 msgid "User Email"
 msgstr "Sähköposti"
 
-#: src/Entity/CollectingPrompt.php:101
+#: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
 msgstr "Yksityinen lisätieto, ei julkaista"
 
-#: src/Entity/CollectingPrompt.php:102
+#: src/Entity/CollectingPrompt.php:107
 msgid "User Public"
 msgstr "Julkinen lisätieto, voi julkaista"
 
-#: src/Entity/CollectingPrompt.php:110
+#: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
 msgstr "Tekstikenttä (yksi rivi)"
 
-#: src/Entity/CollectingPrompt.php:111
+#: src/Entity/CollectingPrompt.php:116
 msgid "Text box (multiple line)"
 msgstr "Tekstikenttä (monirivinen)"
 
-#: src/Entity/CollectingPrompt.php:112
+#: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
 msgstr "Pudotusvalikko"
 
-#: src/Entity/CollectingPrompt.php:113
+#: src/Entity/CollectingPrompt.php:118
 msgid "Item Resource"
 msgstr "Aineistovalikko"
 
@@ -324,20 +336,21 @@ msgstr "“Julkinen lisätieto” ja “Nimi” -kentät ovat julkisia"
 msgid "“User Public” and “User Name” inputs are private"
 msgstr "“Yksityinen lisätieto” ja “Nimi” -kentät ovat yksityisiä"
 
-#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:79
+#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
 msgid "Collecting"
 msgstr "Lomakkeet"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:150
-#: src/Api/Representation/CollectingFormRepresentation.php:157
+#: src/Api/Representation/CollectingFormRepresentation.php:152
+#: src/Api/Representation/CollectingFormRepresentation.php:159
+#: src/Api/Representation/CollectingFormRepresentation.php:176
 msgid "Please choose one..."
 msgstr "Valitse vaihtoehdoista"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:215
+#: src/Api/Representation/CollectingFormRepresentation.php:232
 msgid "I want to submit anonymously"
 msgstr "Osallistun nimettömänä"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:225
+#: src/Api/Representation/CollectingFormRepresentation.php:242
 msgid "Email me my submission"
 msgstr "Lähetä lomakkeen tiedot sähköpostilla"
 
@@ -345,63 +358,70 @@ msgstr "Lähetä lomakkeen tiedot sähköpostilla"
 msgid "A collecting form must be assigned a site on creation."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:187
+#: src/Api/Adapter/CollectingFormAdapter.php:192
 msgid "A property prompt must have a property."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:190
+#: src/Api/Adapter/CollectingFormAdapter.php:195
 msgid "A property prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:195
+#: src/Api/Adapter/CollectingFormAdapter.php:200
+#: src/Api/Adapter/CollectingFormAdapter.php:221
+#: src/Api/Adapter/CollectingFormAdapter.php:234
+#: src/Api/Adapter/CollectingFormAdapter.php:247
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:205
 msgid "A media prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:198
+#: src/Api/Adapter/CollectingFormAdapter.php:208
 msgid "A media prompt must have a media type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:203
+#: src/Api/Adapter/CollectingFormAdapter.php:213
 msgid "An input prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:206
+#: src/Api/Adapter/CollectingFormAdapter.php:216
 msgid "An input prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:211
+#: src/Api/Adapter/CollectingFormAdapter.php:226
 msgid "A user_private prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:214
+#: src/Api/Adapter/CollectingFormAdapter.php:229
 msgid "A user_private prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:219
+#: src/Api/Adapter/CollectingFormAdapter.php:239
 msgid "A user_public prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:222
+#: src/Api/Adapter/CollectingFormAdapter.php:242
 msgid "A user_public prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:227
+#: src/Api/Adapter/CollectingFormAdapter.php:252
 msgid "A user_name prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:232
+#: src/Api/Adapter/CollectingFormAdapter.php:257
 msgid "A user_email prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:237
+#: src/Api/Adapter/CollectingFormAdapter.php:262
 msgid "A html prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:241
+#: src/Api/Adapter/CollectingFormAdapter.php:266
 msgid "Prompts must have a type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:253
+#: src/Api/Adapter/CollectingFormAdapter.php:278
 msgid "Invalid anonymity type."
 msgstr ""
 
@@ -415,6 +435,14 @@ msgstr ""
 
 #: src/Api/Adapter/CollectingItemAdapter.php:139
 msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+
+#: src/MediaType/Upload.php:20
+msgid "Upload One"
+msgstr ""
+
+#: src/MediaType/UploadMultiple.php:20
+msgid "Upload Multiple"
 msgstr ""
 
 #: src/Controller/SiteAdmin/FormController.php:83
@@ -470,10 +498,10 @@ msgstr ""
 "Teksti joka liitetään käyttäjälle hänen halutessaan lähetettävään "
 "sähköpostiin."
 
-#: config/module.config.php:109
+#: config/module.config.php:110
 msgid "Form Information"
 msgstr "Lomakkeen tiedot"
 
-#: config/module.config.php:115
+#: config/module.config.php:116
 msgid "Collected Items"
 msgstr "Tallennetut tiedot"
