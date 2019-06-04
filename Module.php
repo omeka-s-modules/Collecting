@@ -221,7 +221,7 @@ class Module extends AbstractModule
 
         // Users can view collecting forms they do not own that are public.
         $siteAlias = $adapter->createAlias();
-        $qb->join('Collecting\Entity\CollectingForm.site', $siteAlias);
+        $qb->join('omeka_root.site', $siteAlias);
         $expression = $qb->expr()->eq("$siteAlias.isPublic", true);
 
         $identity = $this->getServiceLocator()
@@ -234,7 +234,7 @@ class Module extends AbstractModule
                 $expression,
                 // Users can view all collecting forms they own.
                 $qb->expr()->eq(
-                    "Collecting\Entity\CollectingForm.owner",
+                    "omeka_root.owner",
                     $adapter->createNamedParameter($qb, $identity)
                 ),
                 // Users can view sites where they have a role (any role).
