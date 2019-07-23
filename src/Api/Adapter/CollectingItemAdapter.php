@@ -145,37 +145,37 @@ class CollectingItemAdapter extends AbstractEntityAdapter
     {
         if (isset($query['form_id'])) {
             $qb->andWhere($qb->expr()->eq(
-                $this->getEntityClass() . '.form',
+                'omeka_root.form',
                 $this->createNamedParameter($qb, $query['form_id']))
             );
         }
         if (isset($query['item_id'])) {
             $qb->andWhere($qb->expr()->eq(
-                $this->getEntityClass() . '.item',
+                'omeka_root.item',
                 $this->createNamedParameter($qb, $query['item_id']))
             );
         }
         if (isset($query['status'])) {
             if ('needs_review' === $query['status']) {
                 $qb->andWhere($qb->expr()->eq(
-                    'Collecting\Entity\CollectingItem.reviewed',
+                    'omeka_root.reviewed',
                     $qb->expr()->literal(false)
                 ));
             } elseif ('public' === $query['status']) {
                 $qb->andWhere($qb->expr()->eq(
-                    'Collecting\Entity\CollectingItem.reviewed',
+                    'omeka_root.reviewed',
                     $qb->expr()->literal(true)
                 ));
                 $itemAlias = $this->createAlias();
-                $qb->innerJoin('Collecting\Entity\CollectingItem.item', $itemAlias);
+                $qb->innerJoin('omeka_root.item', $itemAlias);
                 $qb->andWhere($qb->expr()->eq("$itemAlias.isPublic", $qb->expr()->literal(true)));
             } elseif ('private' === $query['status']) {
                 $qb->andWhere($qb->expr()->eq(
-                    'Collecting\Entity\CollectingItem.reviewed',
+                    'omeka_root.reviewed',
                     $qb->expr()->literal(true)
                 ));
                 $itemAlias = $this->createAlias();
-                $qb->innerJoin('Collecting\Entity\CollectingItem.item', $itemAlias);
+                $qb->innerJoin('omeka_root.item', $itemAlias);
                 $qb->andWhere($qb->expr()->eq("$itemAlias.isPublic", $qb->expr()->literal(false)));
             }
         }

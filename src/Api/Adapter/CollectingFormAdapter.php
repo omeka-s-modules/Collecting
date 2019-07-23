@@ -283,7 +283,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
     {
         if (isset($query['site_id'])) {
             $qb->andWhere($qb->expr()->eq(
-                $this->getEntityClass() . '.site',
+                'omeka_root.site',
                 $this->createNamedParameter($qb, $query['site_id']))
             );
         }
