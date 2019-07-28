@@ -98,83 +98,34 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
         $sharedEventManager->attach(
             '*',
             'sql_filter.resource_visibility',
-            function (Event $event) {
-                // Users can view collecting items only if they have permission
-                // to view the attached item.
-                $relatedEntities = $event->getParam('relatedEntities');
-                $relatedEntities['Collecting\Entity\CollectingItem'] = 'item_id';
-                $event->setParam('relatedEntities', $relatedEntities);
-            }
+            [$this, 'filterSqlResourceVisibility']
         );
 
         // Add collecting data to the item show page.
         $sharedEventManager->attach(
             'Omeka\Controller\Admin\Item',
             'view.show.after',
-            function (Event $event) {
-                $view = $event->getTarget();
-                $cItem = $view->api()
-                    ->searchOne('collecting_items', ['item_id' => $view->item->id()])
-                    ->getContent();
-                if (!$cItem) {
-                    // Don't render the partial if there's no collecting item.
-                    return;
-                }
-                echo $view->partial('common/collecting-item-section', ['cItem' => $cItem]);
-            }
+            [$this, 'handleAdminShowAfter']
         );
 
         $sharedEventManager->attach(
             'Omeka\Controller\Site\Item',
             'view.show.after',
-            function (Event $event) {
-                $view = $event->getTarget();
-                $cItem = $view->api()
-                    ->searchOne('collecting_items', ['item_id' => $view->item->id()])
-                    ->getContent();
-                if (!$cItem) {
-                    // Don't render the link if there's no collecting item.
-                    return;
-                }
-                echo '<p>' . $cItem->displayCitation() . '</p>';
-                echo $view->hyperlink(
-                    $view->translate('Click here to view the collected data.'),
-                    $view->url('site/collecting-item', [
-                        'site-slug' => $view->site->slug(),
-                        'item-id' => $cItem->id(),
-                    ])
-                );
-            }
+            [$this, 'handlePublicShowAfter']
         );
 
         // Add the collecting tab to the item show section navigation.
         $sharedEventManager->attach(
             'Omeka\Controller\Admin\Item',
             'view.show.section_nav',
-            function (Event $event) {
-                $view = $event->getTarget();
-                $cItem = $view->api()
-                    ->searchOne('collecting_items', ['item_id' => $view->item->id()])
-                    ->getContent();
-                if (!$cItem) {
-                    // Don't render the tab if there's no collecting item.
-                    return;
-                }
-                $sectionNav = $event->getParam('section_nav');
-                $sectionNav['collecting-section'] = 'Collecting';
-                $event->setParam('section_nav', $sectionNav);
-            }
+            [$this, 'filterSectionNav']
         );
 
         // Add the Collecting term definition to the JSON-LD context.
         $sharedEventManager->attach(
             '*',
             'api.context',
-            function (Event $event) {
-                $context = $event->getParam('context');
-                $context['o-module-collecting'] = 'http://omeka.org/s/vocabs/module/collecting#';
-                $event->setParam('context', $context);
-            }
+            [$this, 'filterApiContext']
         );
     }
 
@@ -248,6 +199,70 @@ DELETE FROM site_setting WHERE id = "collecting_tos";
             );
         }
         $qb->andWhere($expression);
+    }
+
+    public function filterSqlResourceVisibility(Event $event)
+    {
+        // Users can view collecting items only if they have permission
+        // to view the attached item.
+        $relatedEntities = $event->getParam('relatedEntities');
+        $relatedEntities['Collecting\Entity\CollectingItem'] = 'item_id';
+        $event->setParam('relatedEntities', $relatedEntities);
+    }
+
+    public function handleAdminShowAfter(Event $event)
+    {
+        $view = $event->getTarget();
+        $cItem = $view->api()
+            ->searchOne('collecting_items', ['item_id' => $view->item->id()])
+            ->getContent();
+        if (!$cItem) {
+            // Don't render the partial if there's no collecting item.
+            return;
+        }
+        echo $view->partial('common/collecting-item-section', ['cItem' => $cItem]);
+    }
+
+    public function handlePublicShowAfter(Event $event)
+    {
+        $view = $event->getTarget();
+        $cItem = $view->api()
+            ->searchOne('collecting_items', ['item_id' => $view->item->id()])
+            ->getContent();
+        if (!$cItem) {
+            // Don't render the link if there's no collecting item.
+            return;
+        }
+        echo '<p>' . $cItem->displayCitation() . '</p>';
+        echo $view->hyperlink(
+            $view->translate('Click here to view the collected data.'),
+            $view->url('site/collecting-item', [
+                'site-slug' => $view->site->slug(),
+                'item-id' => $cItem->id(),
+            ])
+        );
+    }
+
+    public function filterSectionNav(Event $event)
+    {
+        $view = $event->getTarget();
+        $cItem = $view->api()
+            ->searchOne('collecting_items', ['item_id' => $view->item->id()])
+            ->getContent();
+        if (!$cItem) {
+            // Don't render the tab if there's no collecting item.
+            return;
+        }
+        $sectionNav = $event->getParam('section_nav');
+        $sectionNav['collecting-section'] = 'Collecting';
+        $event->setParam('section_nav', $sectionNav);
+    }
+
+    public function filterApiContext(Event $event)
+    {
+        $context = $event->getParam('context');
+        $context['o-module-collecting'] = 'http://omeka.org/s/vocabs/module/collecting#';
+        $event->setParam('context', $context);
     }
 
     /**
