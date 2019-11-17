@@ -1,5 +1,7 @@
 <?php
-namespace Collecting\Form\Element;;
+namespace Collecting\Form\Element;
+
+;
 
 /**
  * Flag a prompt element as required or optional.
@@ -17,5 +19,4 @@ trait PromptIsRequiredTrait
         $this->setAttribute('required', $this->required);
         return $this;
     }
-
 }

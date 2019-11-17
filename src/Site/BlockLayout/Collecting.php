@@ -19,7 +19,8 @@ class Collecting extends AbstractBlockLayout
     }
 
     public function onHydrate(SitePageBlock $block, ErrorStore $errorStore)
-    {}
+    {
+    }
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
         SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null)

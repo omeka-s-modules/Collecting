@@ -13,6 +13,5 @@ class PromptNumericInteger extends IntegerElement implements InputProviderInterf
         return [
             'required' => $this->required,
         ];
-
     }
 }

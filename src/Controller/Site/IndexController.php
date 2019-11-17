@@ -38,7 +38,6 @@ class IndexController extends AbstractActionController
         $form = $cForm->getForm();
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
-
             list($itemData, $cItemData) = $this->getPromptData($cForm);
 
             // Temporarily give the user permission to create the Omeka and
@@ -88,7 +87,6 @@ class IndexController extends AbstractActionController
 
             // Out of an abundance of caution, revert back to default permissions.
             $this->acl->removeAllow();
-
         } else {
             $this->messenger()->addErrors($form->getMessages());
         }
@@ -203,6 +201,7 @@ class IndexController extends AbstractActionController
                     // Note that there's no break here. We need to save all
                     // property types as inputs so the relationship between the
                     // prompt and the user input isn't lost.
+                    // no break
                 case 'input':
                 case 'user_private':
                 case 'user_public':

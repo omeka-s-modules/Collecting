@@ -175,7 +175,9 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
         }
 
         $inputs = [];
-        $inputsByType = array_map(function () {return [];}, CollectingPrompt::getTypes());
+        $inputsByType = array_map(function () {
+            return [];
+        }, CollectingPrompt::getTypes());
         $services = $this->getServiceLocator();
         foreach ($this->resource->getInputs() as $input) {
             $inputRep = new CollectingInputRepresentation($input, $services);

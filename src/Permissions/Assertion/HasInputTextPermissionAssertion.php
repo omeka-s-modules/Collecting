@@ -23,7 +23,6 @@ class HasInputTextPermissionAssertion implements AssertionInterface
 
         // "User Public" inputs are conditionally restricted.
         if ('user_public' === $promptType) {
-
             $cItem = $resource->getCollectingItem();
             $cForm = $cItem->getForm();
 

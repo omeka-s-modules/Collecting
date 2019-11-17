@@ -9,7 +9,7 @@ class CollectingCurrentForm extends AbstractPlugin
     {
         $controller = $this->getController();
         return $controller->api()->read(
-            'collecting_forms',$controller->params('form-id')
+            'collecting_forms', $controller->params('form-id')
         )->getContent();
     }
 }

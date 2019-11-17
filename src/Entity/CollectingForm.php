@@ -93,7 +93,8 @@ class CollectingForm extends AbstractEntity
         ];
     }
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->prompts = new ArrayCollection;
     }
 

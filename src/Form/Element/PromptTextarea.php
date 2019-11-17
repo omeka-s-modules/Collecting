@@ -13,6 +13,5 @@ class PromptTextarea extends Textarea implements InputProviderInterface
         return [
             'required' => $this->required,
         ];
-
     }
 }

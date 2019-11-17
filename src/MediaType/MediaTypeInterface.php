@@ -23,7 +23,6 @@ interface MediaTypeInterface
      */
     public function prepareForm(PhpRenderer $view);
 
-
     /**
      * Add this media type to the collecting form.
      *

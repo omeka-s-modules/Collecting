@@ -13,6 +13,5 @@ class PromptNumericInterval extends IntervalElement implements InputProviderInte
         return [
             'required' => $this->required,
         ];
-
     }
 }

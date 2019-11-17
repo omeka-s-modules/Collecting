@@ -305,7 +305,7 @@ class Module extends AbstractModule
         $adminAssertion = new AssertionAggregate;
         $adminAssertion->addAssertions([
             new OwnsEntityAssertion,
-            new HasSitePermissionAssertion('admin')
+            new HasSitePermissionAssertion('admin'),
         ]);
         $adminAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
@@ -321,7 +321,7 @@ class Module extends AbstractModule
         $editorAssertion = new AssertionAggregate;
         $editorAssertion->addAssertions([
             new OwnsEntityAssertion,
-            new HasSitePermissionAssertion('editor')
+            new HasSitePermissionAssertion('editor'),
         ]);
         $editorAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
@@ -338,7 +338,7 @@ class Module extends AbstractModule
         $viewerAssertion->addAssertions([
             new SiteIsPublicAssertion,
             new OwnsEntityAssertion,
-            new HasSitePermissionAssertion('viewer')
+            new HasSitePermissionAssertion('viewer'),
         ]);
         $viewerAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(

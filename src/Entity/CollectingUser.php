@@ -38,7 +38,8 @@ class CollectingUser extends AbstractEntity
      */
     protected $collectingItems;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->collectingItems = new ArrayCollection;
     }
 
