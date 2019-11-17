@@ -1,11 +1,13 @@
 <?php
 namespace Collecting;
 
+use Collecting\Permissions\Acl;
 use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserNamePermissionAssertion;
 use Composer\Semver\Comparator;
 use Omeka\Module\AbstractModule;
 use Omeka\Permissions\Assertion\HasSitePermissionAssertion;
+use Omeka\Permissions\Assertion\IsSelfAssertion;
 use Omeka\Permissions\Assertion\OwnsEntityAssertion;
 use Omeka\Permissions\Assertion\SiteIsPublicAssertion;
 use Zend\EventManager\Event;
@@ -267,7 +269,52 @@ class Module extends AbstractModule
      */
     protected function addAclRules()
     {
+        /** @var \Omeka\Permissions\Acl $acl */
         $acl = $this->getServiceLocator()->get('Omeka\Acl');
+
+        // This check allows to add the role "contributor" by dependencies without
+        // complex process. It avoids issues when the module is disabled too.
+        // TODO Find a way to set the role "contributor" during init or via Omeka\Service\AclFactory (allowing multiple delegators).
+        if (!$acl->hasRole(Acl::ROLE_CONTRIBUTOR)) {
+            $acl->addRole(Acl::ROLE_CONTRIBUTOR);
+        }
+        $acl->addRoleLabel(Acl::ROLE_CONTRIBUTOR, 'Contributor'); // @translate
+
+        $acl
+            ->allow(
+                [Acl::ROLE_CONTRIBUTOR],
+                [\Omeka\Entity\User::class],
+                ['read', 'update', 'change-password'],
+                new IsSelfAssertion
+            )
+            ->allow(
+                [Acl::ROLE_CONTRIBUTOR],
+                [\Omeka\Api\Adapter\UserAdapter::class],
+                ['read', 'update']
+            )
+            ->deny(
+                [Acl::ROLE_CONTRIBUTOR],
+                [
+                    'Omeka\Controller\Admin\Asset',
+                    'Omeka\Controller\Admin\Index',
+                    'Omeka\Controller\Admin\Item',
+                    'Omeka\Controller\Admin\ItemSet',
+                    'Omeka\Controller\Admin\Job',
+                    'Omeka\Controller\Admin\Media',
+                    'Omeka\Controller\Admin\Module',
+                    'Omeka\Controller\Admin\Property',
+                    'Omeka\Controller\Admin\ResourceClass',
+                    'Omeka\Controller\Admin\ResourceTemplate',
+                    'Omeka\Controller\Admin\Setting',
+                    'Omeka\Controller\Admin\SystemInfo',
+                    'Omeka\Controller\Admin\Vocabulary',
+                    'Omeka\Controller\Admin\User',
+                    'Omeka\Controller\Admin\Vocabulary',
+                    'Omeka\Controller\SiteAdmin\Index',
+                    'Omeka\Controller\SiteAdmin\Page',
+                ]
+            );
+
         $acl->allow(
             null,
             'Collecting\Controller\Site\Index'
