@@ -113,6 +113,27 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
      */
     public function getForm()
     {
+        // Check access of the current user for this form.
+        $services = $this->getServiceLocator();
+        $siteSettings = $services->get('Omeka\Settings\Site');
+        $allowedRoles = $siteSettings->get('collecting_roles', []);
+        if ($allowedRoles) {
+            $auth = $services->get('Omeka\AuthenticationService');
+            $user = $auth->getIdentity();
+            if (!$user) {
+                return null;
+            }
+
+            // Check role and acl for items (allow standard roles).
+            $userRole = $user->getRole();
+            if (!in_array($userRole, $allowedRoles)) {
+                $acl = $services->get('Omeka\Acl');
+                if (!$acl->isAllowed($userRole, \Omeka\Entity\Item::class, 'create')) {
+                    return null;
+                }
+            }
+        }
+
         if ($this->form) {
             return $this->form; // build the form object only once
         }

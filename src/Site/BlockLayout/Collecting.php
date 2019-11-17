@@ -54,11 +54,16 @@ class Collecting extends AbstractBlockLayout
         $cForms = [];
         foreach ($block->dataValue('forms', []) as $formId) {
             try {
-                $cForms[] = $view->api()->read('collecting_forms', $formId)->getContent();
+                $formContent = $view->api()->read('collecting_forms', $formId)->getContent();
+                // Add the form only if user has rights to contribute.
+                if ($formContent->getForm()) {
+                    $cForms[] = $formContent;
+                }
             } catch (NotFoundException $e) {
                 // The form was likely deleted since it was added to this block.
             }
         }
+
         if (1 === count($cForms)) {
             return $view->partial('common/block-layout/collecting-block-one', [
                 'cForm' => $cForms[0],

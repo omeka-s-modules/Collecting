@@ -87,6 +87,11 @@ class Module extends AbstractModule
             'form.add_elements',
             [$this, 'addSiteSettings']
         );
+        $sharedEventManager->attach(
+            \Omeka\Form\SiteSettingsForm::class,
+            'form.add_input_filters',
+            [$this, 'handleSiteSettingsFilters']
+        );
 
         $sharedEventManager->attach(
             'Collecting\Api\Adapter\CollectingFormAdapter',
@@ -154,7 +159,38 @@ class Module extends AbstractModule
             ],
         ]);
 
+        $roles = $this->listRolesWithoutCreationRights();
+        $fieldset
+            ->add([
+                'name' => 'collecting_roles',
+                'type' => \Zend\Form\Element\Select::class,
+                'options' => [
+                    'label' => 'Roles that can contribute', // @translate
+                    'info' => 'Roles that can create items are automatically added. An empty list means public collecting.', // @translate
+                    'empty_option' => '',
+                    'value_options' => $roles,
+                ],
+                'attributes' => [
+                    'id' => 'collecting_roles',
+                    'multiple' => true,
+                    'required' => false,
+                    'class' => 'chosen-select',
+                    'data-placeholder' => 'Select roles…', // @translate
+                    'value' => $siteSettings->get('collecting_roles', []),
+                ],
+            ]);
+
         $form->add($fieldset);
+    }
+
+    public function handleSiteSettingsFilters(Event $event)
+    {
+        $inputFilter = $event->getParam('inputFilter');
+        $inputFilter->get('collecting')
+            ->add([
+                'name' => 'collecting_roles',
+                'required' => false,
+            ]);
     }
 
     /**
@@ -411,5 +447,29 @@ class Module extends AbstractModule
             'view-collecting-user-name',
             new HasUserNamePermissionAssertion
         );
+    }
+
+    /**
+     * Get the list of roles that can't create resources in order to control
+     * access to collecting form.
+     *
+     * @return array
+     */
+    protected function listRolesWithoutCreationRights()
+    {
+        $result = [];
+
+        /** @var \Omeka\Permissions\Acl $acl */
+        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        $roles = $acl->getRoles();
+        $roleLabels = $acl->getRoleLabels();
+        foreach ($roles as $role) {
+            if ($acl->isAllowed($role, \Omeka\Entity\Item::class, 'create')) {
+                continue;
+            }
+            $result[$role] = isset($roleLabels[$role]) ? $roleLabels[$role] : $role;
+        }
+
+        return $result;
     }
 }
