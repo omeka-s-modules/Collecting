@@ -142,6 +142,8 @@ class IndexController extends AbstractActionController
             }
         }
 
+        $identity = $this->identity();
+
         $itemData = [];
         $cItemData = [];
         $inputData = [];
@@ -207,10 +209,14 @@ class IndexController extends AbstractActionController
                     }
                     break;
                 case 'user_name':
-                    $cItemData['o-module-collecting:user_name'] = $value;
+                    $cItemData['o-module-collecting:user_name'] = $identity
+                        ? $identity->getName()
+                        : $value;
                     break;
                 case 'user_email':
-                    $cItemData['o-module-collecting:user_email'] = $value;
+                    $cItemData['o-module-collecting:user_email'] = $identity
+                        ? $identity->getEmail()
+                        : $value;
                     break;
                 case 'media':
                     $itemData = $this->mediaTypeManager->get($prompt->mediaType())
@@ -244,14 +250,18 @@ class IndexController extends AbstractActionController
             $messageContent .= $cForm->emailText();
         }
         $messageContent .= sprintf(
-            '<p>You submitted the following data on %s using the form “%s” on the site “%s”: %s</p>',
+            '<p>'
+            . $this->translate('You submitted the following data on %s using the form “%s” on the site “%s”: %s') // @translate
+            . '</p>',
             $i18nHelper->dateFormat($cItem->item()->created(), 'long'),
             $cItem->form()->label(),
             $cItem->form()->site()->title(),
             $cItem->form()->site()->siteUrl(null, true)
         );
         $messageContent .= $partialHelper('common/collecting-item-inputs', ['cItem' => $cItem]);
-        $messageContent .= '<p>(All data you submitted was saved, even if you do not see it here.)</p>';
+        $messageContent .= '<p>'
+            . $this->translate('(All data you submitted was saved, even if you do not see it here.)') // @translate
+            . '</p>';
 
         $messagePart = new MimePart($messageContent);
         $messagePart->setType('text/html');
@@ -261,7 +271,7 @@ class IndexController extends AbstractActionController
 
         $message = $this->mailer()->createMessage()
             ->addTo($cItem->userEmail(), $cItem->userName())
-            ->setSubject($this->translate('Thank you for your submission'))
+            ->setSubject($this->translate('Thank you for your submission')) // @translate
             ->setBody($body);
         $this->mailer()->send($message);
     }

@@ -116,10 +116,10 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         // Check access of the current user for this form.
         $services = $this->getServiceLocator();
         $siteSettings = $services->get('Omeka\Settings\Site');
+        $auth = $services->get('Omeka\AuthenticationService');
+        $user = $auth->getIdentity();
         $allowedRoles = $siteSettings->get('collecting_roles', []);
         if ($allowedRoles) {
-            $auth = $services->get('Omeka\AuthenticationService');
-            $user = $auth->getIdentity();
             if (!$user) {
                 return null;
             }
@@ -139,10 +139,8 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         }
         $url = $this->getViewHelper('Url');
         $collecting = $this->getViewHelper('collecting');
-        $mediaTypes = $this->getServiceLocator()->get('Collecting\MediaTypeManager');
-        $api = $this->getServiceLocator()->get('Omeka\ApiManager');
-        $auth = $this->getServiceLocator()->get('Omeka\AuthenticationService');
-        $user = $auth->getIdentity(); // returns a User entity or null
+        $mediaTypes = $services->get('Collecting\MediaTypeManager');
+        $api = $services->get('Omeka\ApiManager');
 
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
@@ -266,9 +264,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             }
         }
 
-        $settings = $this->getServiceLocator()->get('Omeka\Settings');
-        $siteSettings = $this->getServiceLocator()->get('Omeka\Settings\Site');
-        $translator = $this->getServiceLocator()->get('MvcTranslator');
+        $settings = $services->get('Omeka\Settings');
+        $siteSettings = $services->get('Omeka\Settings\Site');
+        $translator = $services->get('MvcTranslator');
 
         if ('user' === $this->anonType()) {
             $form->add([
@@ -323,7 +321,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $siteKey = $settings->get('recaptcha_site_key');
         $secretKey = $settings->get('recaptcha_secret_key');
         if ($siteKey && $secretKey) {
-            $element = $this->getServiceLocator()
+            $element = $services
                 ->get('FormElementManager')
                 ->get('Omeka\Form\Element\Recaptcha', [
                     'site_key' => $siteKey,
