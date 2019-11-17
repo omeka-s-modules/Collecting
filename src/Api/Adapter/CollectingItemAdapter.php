@@ -26,12 +26,12 @@ class CollectingItemAdapter extends AbstractEntityAdapter
 
     public function getRepresentationClass()
     {
-        return 'Collecting\Api\Representation\CollectingItemRepresentation';
+        return \Collecting\Api\Representation\CollectingItemRepresentation::class;
     }
 
     public function getEntityClass()
     {
-        return 'Collecting\Entity\CollectingItem';
+        return \Collecting\Entity\CollectingItem::class;
     }
 
     public function batchCreate(Request $request)

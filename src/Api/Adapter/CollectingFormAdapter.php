@@ -23,12 +23,12 @@ class CollectingFormAdapter extends AbstractEntityAdapter
 
     public function getRepresentationClass()
     {
-        return 'Collecting\Api\Representation\CollectingFormRepresentation';
+        return \Collecting\Api\Representation\CollectingFormRepresentation::class;
     }
 
     public function getEntityClass()
     {
-        return 'Collecting\Entity\CollectingForm';
+        return \Collecting\Entity\CollectingForm::class;
     }
 
     public function batchCreate(Request $request)

@@ -17,12 +17,12 @@ class CollectingUserAdapter extends AbstractEntityAdapter
 
     public function getRepresentationClass()
     {
-        return 'Collecting\Api\Representation\CollectingUserRepresentation';
+        return \Collecting\Api\Representation\CollectingUserRepresentation::class;
     }
 
     public function getEntityClass()
     {
-        return 'Collecting\Entity\CollectingUser';
+        return \Collecting\Entity\CollectingUser::class;
     }
 
     public function create(Request $request)

@@ -1,4 +1,6 @@
 <?php
+namespace Collecting;
+
 return [
     'view_manager' => [
         'template_path_stack' => [
@@ -7,11 +9,11 @@ return [
     ],
     'view_helpers' => [
         'invokables' => [
-            'formPromptHtml' => 'Collecting\Form\View\Helper\FormPromptHtml',
+            'formPromptHtml' => Form\View\Helper\FormPromptHtml::class,
         ],
         'factories' => [
-            'collectingPrepareForm' => 'Collecting\Service\ViewHelper\CollectingPrepareFormFactory',
-            'collecting' => 'Collecting\Service\ViewHelper\CollectingFactory',
+            'collectingPrepareForm' => Service\ViewHelper\CollectingPrepareFormFactory::class,
+            'collecting' => Service\ViewHelper\CollectingFactory::class,
         ],
     ],
     'translator' => [
@@ -26,22 +28,22 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'Collecting\Controller\SiteAdmin\Form' => 'Collecting\Controller\SiteAdmin\FormController',
-            'Collecting\Controller\SiteAdmin\Item' => 'Collecting\Controller\SiteAdmin\ItemController',
-            'Collecting\Controller\SiteAdmin\User' => 'Collecting\Controller\SiteAdmin\UserController',
+            'Collecting\Controller\SiteAdmin\Form' => Controller\SiteAdmin\FormController::class,
+            'Collecting\Controller\SiteAdmin\Item' => Controller\SiteAdmin\ItemController::class,
+            // 'Collecting\Controller\SiteAdmin\User' => Controller\SiteAdmin\UserController::class,
         ],
         'factories' => [
-            'Collecting\Controller\Site\Index' => 'Collecting\Service\Controller\Site\IndexControllerFactory',
+            'Collecting\Controller\Site\Index' => Service\Controller\Site\IndexControllerFactory::class,
         ],
     ],
     'controller_plugins' => [
         'invokables' => [
-            'collectingCurrentForm' => 'Collecting\Mvc\Controller\Plugin\CollectingCurrentForm',
+            'collectingCurrentForm' => Mvc\Controller\Plugin\CollectingCurrentForm::class,
         ],
     ],
     'block_layouts' => [
         'invokables' => [
-            'collecting' => 'Collecting\Site\BlockLayout\Collecting',
+            'collecting' => Site\BlockLayout\Collecting::class,
         ],
     ],
     'entity_manager' => [
@@ -54,24 +56,24 @@ return [
     ],
     'api_adapters' => [
         'invokables' => [
-            'collecting_forms' => 'Collecting\Api\Adapter\CollectingFormAdapter',
-            'collecting_items' => 'Collecting\Api\Adapter\CollectingItemAdapter',
-            'collecting_users' => 'Collecting\Api\Adapter\CollectingUserAdapter',
+            'collecting_forms' => Api\Adapter\CollectingFormAdapter::class,
+            'collecting_items' => Api\Adapter\CollectingItemAdapter::class,
+            'collecting_users' => Api\Adapter\CollectingUserAdapter::class,
         ],
     ],
     'service_manager' => [
         'factories' => [
-            'Collecting\MediaTypeManager' => 'Collecting\Service\MediaTypeManagerFactory',
+            'Collecting\MediaTypeManager' => Service\MediaTypeManagerFactory::class,
         ],
     ],
     'collecting_media_types' => [
         'invokables' => [
-            'url' => 'Collecting\MediaType\Url',
-            'html' => 'Collecting\MediaType\Html',
+            'url' => MediaType\Url::class,
+            'html' => MediaType\Html::class,
         ],
         'factories' => [
-            'upload' => 'Collecting\Service\MediaType\UploadFactory',
-            'upload_multiple' => 'Collecting\Service\MediaType\UploadMultipleFactory',
+            'upload' => Service\MediaType\UploadFactory::class,
+            'upload_multiple' => Service\MediaType\UploadMultipleFactory::class,
         ],
     ],
     'navigation' => [
@@ -135,7 +137,7 @@ return [
             'site' => [
                 'child_routes' => [
                     'collecting' => [
-                        'type' => 'Segment',
+                        'type' => \Zend\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/collecting/:form-id/:action',
                             'defaults' => [
@@ -147,7 +149,7 @@ return [
                         ],
                     ],
                     'collecting-item' => [
-                        'type' => 'Segment',
+                        'type' => \Zend\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/collecting/item/:item-id',
                             'defaults' => [
@@ -168,7 +170,7 @@ return [
                             'slug' => [
                                 'child_routes' => [
                                     'collecting' => [
-                                        'type' => 'Literal',
+                                        'type' => \Zend\Router\Http\Literal::class,
                                         'options' => [
                                             'route' => '/collecting',
                                             'defaults' => [
@@ -180,7 +182,7 @@ return [
                                         'may_terminate' => true,
                                         'child_routes' => [
                                             'id' => [
-                                                'type' => 'Segment',
+                                                'type' => \Zend\Router\Http\Segment::class,
                                                 'options' => [
                                                     'route' => '/:form-id[/:action]',
                                                     'constraints' => [
@@ -193,7 +195,7 @@ return [
                                                 ],
                                             ],
                                             'default' => [
-                                                'type' => 'Segment',
+                                                'type' => \Zend\Router\Http\Segment::class,
                                                 'options' => [
                                                     'route' => '/:action',
                                                     'constraints' => [
@@ -202,7 +204,7 @@ return [
                                                 ],
                                             ],
                                             'item' => [
-                                                'type' => 'Segment',
+                                                'type' => \Zend\Router\Http\Segment::class,
                                                 'options' => [
                                                     'route' => '/:form-id/item',
                                                     'constraints' => [
@@ -216,7 +218,7 @@ return [
                                                 'may_terminate' => true,
                                                 'child_routes' => [
                                                     'id' => [
-                                                        'type' => 'Segment',
+                                                        'type' => \Zend\Router\Http\Segment::class,
                                                         'options' => [
                                                             'route' => '/:item-id[/:action]',
                                                             'constraints' => [
@@ -229,7 +231,7 @@ return [
                                                         ],
                                                     ],
                                                     'default' => [
-                                                        'type' => 'Segment',
+                                                        'type' => \Zend\Router\Http\Segment::class,
                                                         'options' => [
                                                             'route' => '/:action',
                                                             'constraints' => [
