@@ -6,6 +6,7 @@ use Collecting\Entity\CollectingPrompt;
 use Collecting\MediaType\Manager as MediaTypeManager;
 use Composer\Semver\Comparator;
 use Omeka\Api\Exception\BadRequestException;
+use Omeka\DataType\Manager as DataTypeManager;
 use Omeka\Module\Manager as ModuleManager;
 use Zend\View\Helper\AbstractHelper;
 
@@ -20,6 +21,11 @@ class Collecting extends AbstractHelper
      * @var ModuleManager
      */
     protected $moduleManager;
+
+    /**
+     * @var DataTypeManager
+     */
+    protected $dataTypeManager;
 
     /**
      * @var array
@@ -46,10 +52,19 @@ class Collecting extends AbstractHelper
      */
     protected $customVocabs;
 
-    public function __construct(MediaTypeManager $mediaTypeManager, ModuleManager $moduleManager)
-    {
+    /**
+     * @var array
+     */
+    protected $valueSuggesters;
+
+    public function __construct(
+        MediaTypeManager $mediaTypeManager,
+        ModuleManager $moduleManager,
+        DataTypeManager $dataTypeManager
+    ) {
         $this->mediaTypeManager = $mediaTypeManager;
         $this->moduleManager = $moduleManager;
+        $this->dataTypeManager = $dataTypeManager;
     }
 
     /**
@@ -105,6 +120,13 @@ class Collecting extends AbstractHelper
                     $module
                     && ModuleManager::STATE_ACTIVE === $module->getState()
                     && Comparator::greaterThanOrEqualTo($module->getDb('version'), '1.2.0')
+                );
+            case 'value_suggest':
+                // Available when the ValueSuggest module is active.
+                $module = $this->moduleManager->getModule('ValueSuggest');
+                return (
+                    $module
+                    && ModuleManager::STATE_ACTIVE === $module->getState()
                 );
             case 'text':
             case 'textarea':
@@ -168,6 +190,30 @@ class Collecting extends AbstractHelper
             }
         }
         return $this->customVocabs;
+    }
+
+    /**
+     * Get all value suggesters from the ValueSuggest module.
+     *
+     * @return array|false
+     */
+    public function valueSuggesters()
+    {
+        if (null === $this->valueSuggesters) {
+            $suggesters = [];
+            $dataTypes = $this->dataTypeManager->getRegisteredNames();
+            foreach ($dataTypes as $dataTypeName) {
+                if (strpos($dataTypeName, 'valuesuggest:') === 0
+                    || strpos($dataTypeName, 'valuesuggestall:') === 0
+                ) {
+                    $suggesters[$dataTypeName] = $this->dataTypeManager->get($dataTypeName)->getLabel();
+                }
+            }
+            unset($suggesters['valuesuggest:any']);
+            // Set false if the ValueSuggest module is not installed or active.
+            $this->valueSuggesters = $suggesters ?: false;
+        }
+        return $this->valueSuggesters;
     }
 
     public function typeValue($key)

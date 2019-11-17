@@ -48,6 +48,23 @@ class Collecting extends AbstractBlockLayout
         $assetUrl = $view->plugin('assetUrl');
         $view->headLink()->appendStylesheet($assetUrl('css/collecting.css', 'Collecting'));
         $view->headScript()->appendFile($assetUrl('js/collecting-block.js', 'Collecting'), 'text/javascript', ['defer' => 'defer']);
+
+        // TODO Append value suggest js only if a property uses it.
+        // To check if ValueSuggest is available, just try to get the routed url.
+        try {
+            $proxyUrl = $view->url('admin/value-suggest/proxy');
+        } catch (\Exception $e) {
+            return;
+        }
+        $view->headLink()
+            ->appendStylesheet($assetUrl('css/valuesuggest.css', 'ValueSuggest'));
+        $view->headScript()
+            ->appendFile($assetUrl('js/jQuery-Autocomplete/1.2.26/jquery.autocomplete.min.js', 'ValueSuggest'), 'text/javascript', ['defer' => 'defer'])
+            ->appendFile($assetUrl('js/value-suggest.js', 'ValueSuggest'), 'text/javascript', ['defer' => 'defer'])
+            ->appendScript(sprintf(
+                'var valueSuggestProxyUrl = "%s";',
+                $view->escapeJs($proxyUrl)
+            ));
     }
 
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)

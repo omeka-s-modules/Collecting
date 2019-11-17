@@ -1,7 +1,7 @@
 <?php
 $prompt = $cInput->prompt();
 $displayText = $cInput->displayText();
-if ('item' !== $prompt->inputType()) {
+if (!in_array($prompt->inputType(), ['item', 'value_suggest'])) {
     $displayText = $this->escapeHtml($displayText);
 }
 ?>

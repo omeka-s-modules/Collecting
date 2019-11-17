@@ -136,6 +136,7 @@ class IndexController extends AbstractActionController
     {
         // Derive the prompt IDs from the form names.
         $postedPrompts = [];
+        $matches = [];
         foreach ($this->params()->fromPost() as $key => $value) {
             if (preg_match('/^prompt_(\d+)$/', $key, $matches)) {
                 $postedPrompts[$matches[1]] = $value;
@@ -182,6 +183,18 @@ class IndexController extends AbstractActionController
                                 'type' => $inputType,
                                 'property_id' => $propertyId,
                                 '@value' => $value,
+                            ];
+                            break;
+                        case 'value_suggest':
+                            // TODO Move the validation for value_suggest into the prompt element. Note: the query part of the url is removed, because it is never used in uri.
+                            if (!preg_match('~<a href="(https?://[^\s()<>"\?]+)" target="_blank">\s*(.+)\s*</a>~', $value, $matches)) {
+                                break 2;
+                            }
+                            $itemData[$propertyTerm][] = [
+                                'type' => $prompt->selectOptions(),
+                                'property_id' => $propertyId,
+                                '@id' => $matches[1],
+                                'o:label' => $matches[2],
                             ];
                             break;
                         default:

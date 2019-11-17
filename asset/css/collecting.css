@@ -8,3 +8,10 @@
 #prompts-table .actions {
     padding-left: 0;
 }
+
+input.valuesuggest-input.form-control {
+    padding: .375rem .75rem;
+}
+.autocomplete-suggestions .autocomplete-suggestion {
+    margin-left: 0;
+}
