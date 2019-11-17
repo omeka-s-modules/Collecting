@@ -1,6 +1,6 @@
 <div>
     <select class="collecting-form-select">
-        <option value=""><?php echo $this->translate('Select a form...'); ?></option>
+        <option value=""><?php echo $this->translate('Select a form…'); ?></option>
         <?php foreach ($cForms as $cForm): ?>
         <option value="<?php echo $cForm->id(); ?>"><?php echo $this->escapeHtml($cForm->label()); ?></option>
         <?php endforeach; ?>

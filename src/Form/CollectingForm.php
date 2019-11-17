@@ -26,7 +26,7 @@ class CollectingForm extends Form
             'options' => [
                 'label' => 'Item set', // @translate
                 'info' => 'Assign all items created by this form to this item set.', // @translate
-                'empty_option' => 'Select Item Set...', // @translate
+                'empty_option' => 'Select Item Set…', // @translate
             ],
             'attributes' => [
                 'required' => false,

@@ -150,14 +150,14 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                         case 'select':
                             $selectOptions = explode(PHP_EOL, $prompt->selectOptions());
                             $element = new Element\PromptSelect($name);
-                            $element->setEmptyOption('Please choose one...') // @translate
+                            $element->setEmptyOption('Please choose one…') // @translate
                                 ->setValueOptions(array_combine($selectOptions, $selectOptions));
                             break;
                         case 'item':
                             parse_str(ltrim($prompt->resourceQuery(), '?'), $resourceQuery);
                             $element = new Element\PromptItem($name);
                             $element->setApiManager($api);
-                            $element->setEmptyOption('Please choose one...') // @translate
+                            $element->setEmptyOption('Please choose one…') // @translate
                                 ->setResourceValueOptions('items', function ($item) {
                                     return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
                                 }, $resourceQuery);
