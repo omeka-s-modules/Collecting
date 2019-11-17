@@ -106,6 +106,7 @@ class CollectingPrompt extends AbstractEntity
             'user_private' => 'User Private', // @translate
             'user_public' => 'User Public', // @translate
             'html' => 'HTML', // @translate
+            'metadata' => 'Default metadata', // @translate
         ];
     }
 
@@ -113,7 +114,7 @@ class CollectingPrompt extends AbstractEntity
     {
         return [
             'text' => 'Text box (one line)', // @translate
-            'textarea' => 'Text box (multiple line)', // @translate
+            'textarea' => 'Text box (multiple lines)', // @translate
             'select' => 'Select menu', // @translate
             'item' => 'Item resource', // @translate
             'custom_vocab' => 'Custom vocab', // @translate

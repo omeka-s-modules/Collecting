@@ -142,15 +142,36 @@ class IndexController extends AbstractActionController
             }
         }
 
+        $api = $this->api();
+
         $itemData = [];
         $cItemData = [];
         $inputData = [];
 
         // Note that we're iterating the known prompts, not the ones submitted
         // with the form. This way we accept only valid prompts.
+        /** @var \Collecting\Api\Representation\CollectingPromptRepresentation $prompt */
         foreach ($cForm->prompts() as $prompt) {
             if (!isset($postedPrompts[$prompt->id()])) {
                 // This prompt was not found in the POSTed data.
+                // Check if this is default metadata, not passed to the form.
+                if ($prompt->type() === 'metadata') {
+                    switch ($prompt->inputType()) {
+                        case 'resource_class':
+                            $resourceClass = $api->searchOne('resource_classes', ['term' => $prompt->selectOptions()])->getContent();
+                            if ($resourceClass) {
+                                $itemData['o:resource_class'] = ['o:id' => $resourceClass->id()];
+                            }
+                            break;
+                        case 'resource_template':
+                            try {
+                                $resourceTemplate = $api->read('resource_templates', ['id' => $prompt->selectOptions()])->getContent();
+                                $itemData['o:resource_template'] = ['o:id' => $resourceTemplate->id()];
+                            } catch (\Omeka\Api\Exception\NotFoundException $e) {
+                            }
+                            break;
+                    }
+                }
                 continue;
             }
             $value = $postedPrompts[$prompt->id()];

@@ -263,6 +263,26 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                     $errorStore->addError('o-module-collecting:text', 'A html prompt must have text.'); // @translate
                 }
                 break;
+            case 'metadata':
+                $api = $this->getServiceLocator()->get('ControllerPluginManager')->get('api');
+                switch ($validatedData['o-module-collecting:input_type']) {
+                    case 'resource_class':
+                        $resourceClass = $api->searchOne('resource_classes', ['term' => $validatedData['o-module-collecting:select_options']])->getContent();
+                        if (!$resourceClass) {
+                            $errorStore->addError('o-module-collecting:select_options', 'A resource class must exist in vocabularies.'); // @translate
+                        }
+                        break;
+                    case 'resource_template':
+                        try {
+                            $api->read('resource_templates', ['id' => $validatedData['o-module-collecting:select_options']])->getContent();
+                        } catch (\Omeka\Api\Exception\NotFoundException $e) {
+                            $errorStore->addError('o-module-collecting:select_options', 'A resource template must have an existing identifier.'); // @translate
+                        }
+                        break;
+                    default:
+                        $errorStore->addError('o-module-collecting:input_type', 'A metadata must have a type.'); // @translate
+                }
+                break;
             default:
                 $errorStore->addError('o-module-collecting:type', 'Prompts must have a type.'); // @translate
         }
