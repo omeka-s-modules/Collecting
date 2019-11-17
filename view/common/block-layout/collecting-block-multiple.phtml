@@ -1,16 +1,18 @@
 <?php
 $translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$partial = $this->plugin('partial');
 ?>
 <div>
     <select class="collecting-form-select">
         <option value=""><?php echo $translate('Select a form…'); ?></option>
         <?php foreach ($cForms as $cForm): ?>
-        <option value="<?php echo $cForm->id(); ?>"><?php echo $this->escapeHtml($cForm->label()); ?></option>
+        <option value="<?php echo $cForm->id(); ?>"><?php echo $escape($cForm->label()); ?></option>
         <?php endforeach; ?>
     </select>
     <?php foreach ($cForms as $cForm): ?>
     <div class="collecting-form <?php echo sprintf('collecting-form-%s', $cForm->id()); ?>">
-        <?php echo $this->partial('common/block-layout/collecting-block-one', [
+        <?php echo $partial('common/block-layout/collecting-block-one', [
             'cForm' => $cForm,
         ]); ?>
     </div>
