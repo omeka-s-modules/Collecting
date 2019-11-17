@@ -1,7 +1,10 @@
+<?php
+$translate = $this->plugin('translate');
+?>
 <div class="resource-details">
     <h3><?php echo $cItem->item()->displayTitle(); ?></h3>
     <div class="meta-group">
-        <h4><?php echo $this->translate('Media'); ?></h4>
+        <h4><?php echo $translate('Media'); ?></h4>
         <?php foreach ($cItem->item()->media() as $media): ?>
         <div class="value">
             <a href="<?php echo $media->url(); ?>" target="_blank">
@@ -16,28 +19,28 @@
     </div>
     <div class="meta-group">
         <div>
-            <h4><?php echo $this->translate('User name'); ?></h4>
+            <h4><?php echo $translate('User name'); ?></h4>
             <div><?php
             $name = $cItem->displayUserName();
-            echo null === $name ? $this->translate('[not asked]') : $name;
+            echo null === $name ? $translate('[not asked]') : $name;
             ?></div>
         </div>
         <div class="property">
-            <h4><?php echo $this->translate('User email'); ?></h4>
+            <h4><?php echo $translate('User email'); ?></h4>
             <div class="value"><?php
             $email = $cItem->displayUserEmail();
-            echo null === $email ? $this->translate('[not asked]') : $email;
+            echo null === $email ? $translate('[not asked]') : $email;
             ?></div>
         </div>
         <div class="property">
-            <h4><?php echo $this->translate('Anonymous?'); ?></h4>
+            <h4><?php echo $translate('Anonymous?'); ?></h4>
             <div class="value"><?php
             if (null === $cItem->anon()) {
-                echo $this->translate('[not asked]');
+                echo $translate('[not asked]');
             } elseif ($cItem->anon()) {
-                echo $this->translate('Yes');
+                echo $translate('Yes');
             } else {
-                echo $this->translate('No');
+                echo $translate('No');
             }
             ?></div>
         </div>

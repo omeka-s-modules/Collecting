@@ -1,14 +1,17 @@
+<?php
+$translate = $this->plugin('translate');
+?>
 <div id="collecting-section" class="section">
 
-    <h3><?php echo $this->translate('Collected Inputs'); ?></h3>
+    <h3><?php echo $translate('Collected Inputs'); ?></h3>
 
     <?php if ($inputs = $cItem->inputs()): ?>
 
     <table class="browse tablesaw" data-tablesaw-mode="stack">
         <thead>
         <tr>
-            <th><?php echo $this->translate('Prompt'); ?></th>
-            <th><?php echo $this->translate('User Input'); ?></th>
+            <th><?php echo $translate('Prompt'); ?></th>
+            <th><?php echo $translate('User Input'); ?></th>
         </tr>
         </thead>
         <tbody>
@@ -30,35 +33,35 @@
 
     <?php endif; ?>
 
-    <h3><?php echo $this->translate('User Information'); ?></h3>
+    <h3><?php echo $translate('User Information'); ?></h3>
     <div class="property">
-        <h4><?php echo $this->translate('User name'); ?></h4>
+        <h4><?php echo $translate('User name'); ?></h4>
         <div class="value"><?php
         $name = $cItem->displayUserName();
-        echo null === $name ? $this->translate('[not asked]') : $name;
+        echo null === $name ? $translate('[not asked]') : $name;
         ?></div>
     </div>
     <div class="property">
-        <h4><?php echo $this->translate('User email'); ?></h4>
+        <h4><?php echo $translate('User email'); ?></h4>
         <div class="value"><?php
         $email = $cItem->displayUserEmail();
-        echo null === $email ? $this->translate('[not asked]') : $email;
+        echo null === $email ? $translate('[not asked]') : $email;
         ?></div>
     </div>
     <div class="property">
-        <h4><?php echo $this->translate('Anonymous?'); ?></h4>
+        <h4><?php echo $translate('Anonymous?'); ?></h4>
         <div class="value"><?php
         if (null === $cItem->anon()) {
-            echo $this->translate('[not asked]');
+            echo $translate('[not asked]');
         } elseif ($cItem->anon()) {
-            echo $this->translate('Yes');
+            echo $translate('Yes');
         } else {
-            echo $this->translate('No');
+            echo $translate('No');
         }
         ?></div>
     </div>
     <div class="property">
-        <h4><?php echo $this->translate('Public citation') ?></h4>
+        <h4><?php echo $translate('Public citation') ?></h4>
         <div class="value"><?php echo $cItem->displayCitation(); ?></div>
     </div>
 </div>
