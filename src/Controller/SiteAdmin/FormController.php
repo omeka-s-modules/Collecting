@@ -3,7 +3,6 @@ namespace Collecting\Controller\SiteAdmin;
 
 use Collecting\Form\CollectingForm;
 use Omeka\Form\ConfirmForm;
-use Omeka\Mvc\Exception;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\Controller\AbstractActionController;
 
@@ -95,7 +94,6 @@ class FormController extends AbstractActionController
 
     public function deleteConfirmAction()
     {
-        $site = $this->currentSite();
         $cForm = $this->api()
             ->read('collecting_forms', $this->params('form-id'))->getContent();
 

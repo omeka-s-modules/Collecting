@@ -2,6 +2,7 @@
 namespace Collecting\Controller\Site;
 
 use Collecting\Api\Representation\CollectingFormRepresentation;
+use Collecting\Api\Representation\CollectingItemRepresentation;
 use Collecting\MediaType\Manager;
 use Omeka\Permissions\Acl;
 use Zend\Mime\Message as MimeMessage;
@@ -239,8 +240,10 @@ class IndexController extends AbstractActionController
      * @param CollectingFormRepresentation $cForm
      * @param CollectingItemRepresentation $cItem
      */
-    protected function sendSubmissionEmail($cForm, $cItem)
-    {
+    protected function sendSubmissionEmail(
+        CollectingFormRepresentation $cForm,
+        CollectingItemRepresentation $cItem
+    ) {
         $i18nHelper = $this->viewHelpers()->get('i18n');
         $partialHelper = $this->viewHelpers()->get('partial');
 
