@@ -63,7 +63,7 @@ class IndexController extends AbstractActionController
 
                 if ('user' === $cForm->anonType()) {
                     // If the form has the "user" anonymity type, the item's
-                    // defualt anonymous flag is "false" becuase the related
+                    // default anonymous flag is "false" because the related
                     // prompt ("User Public") is naturally public.
                     $cItemData['o-module-collecting:anon']
                         = $this->params()->fromPost(sprintf('anon_%s', $cForm->id()), false);
