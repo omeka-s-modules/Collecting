@@ -52,7 +52,7 @@ class Collecting extends AbstractBlockLayout
         // TODO Append value suggest js only if a property uses it.
         // To check if ValueSuggest is available, just try to get the routed url.
         try {
-            $proxyUrl = $view->url('admin/value-suggest/proxy');
+            $proxyUrl = $view->url('site/value-suggest/proxy', [], true);
         } catch (\Exception $e) {
             return;
         }
