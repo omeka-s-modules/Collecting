@@ -65,6 +65,7 @@ class Module extends AbstractModule
         $conn->exec('SET FOREIGN_KEY_CHECKS=1;');
         $conn->exec('DELETE FROM site_page_block WHERE layout = "collecting";');
         $conn->exec('DELETE FROM site_setting WHERE id = "collecting_tos";');
+        $conn->exec('DELETE FROM site_setting WHERE id = "collecting_redirect_current";');
     }
 
     public function upgrade($oldVersion, $newVersion, ServiceLocatorInterface $services)
@@ -151,6 +152,20 @@ class Module extends AbstractModule
                 'value' => $siteSettings->get('collecting_tos'),
             ],
         ]);
+
+        $fieldset
+            ->add([
+                'name' => 'collecting_redirect_current',
+                'type' => \Zend\Form\Element\Checkbox::class,
+                'options' => [
+                    'label' => 'Redirect to current page on success', // @translate
+                ],
+                'attributes' => [
+                    'id' => 'collecting_redirect_current',
+                    'value' => $siteSettings->get('collecting_redirect_current', false),
+                ],
+            ])
+        ;
 
         $form->add($fieldset);
     }

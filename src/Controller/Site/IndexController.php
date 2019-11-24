@@ -36,7 +36,8 @@ class IndexController extends AbstractActionController
             ->getContent();
 
         $form = $cForm->getForm();
-        $form->setData($this->params()->fromPost());
+        $post = $this->params()->fromPost();
+        $form->setData($post);
         if ($form->isValid()) {
             list($itemData, $cItemData) = $this->getPromptData($cForm);
 
@@ -79,6 +80,13 @@ class IndexController extends AbstractActionController
                     $sendEmail = $this->params()->fromPost(sprintf('email_send_%s', $cForm->id()), false);
                     if ($sendEmail && $cItem->userEmail()) {
                         $this->sendSubmissionEmail($cForm, $cItem);
+                    }
+
+                    if ($this->siteSettings()->get('collecting_redirect_current', false)) {
+                        $page = $this->api()->read('site_pages', ['id' => (int) $post['page']])->getContent();
+                        $message = $cForm->successText() ?: $this->translate('Form successfully submitted!'); // @translate
+                        $this->messenger()->addSuccess($message);
+                        return $this->redirect()->toRoute('site/page', ['page-slug' => $page->slug()], true);
                     }
 
                     return $this->redirect()->toRoute(null, ['action' => 'success'], true);

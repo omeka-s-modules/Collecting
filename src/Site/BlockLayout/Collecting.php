@@ -52,9 +52,22 @@ class Collecting extends AbstractBlockLayout
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
         $cForms = [];
+
+        $redirectCurrent = $view->siteSetting('collecting_redirect_current', false);
+        if ($redirectCurrent) {
+            $redirectHidden = new Element\Hidden('page');
+            $redirectHidden->setValue($block->page()->id());
+        }
+
         foreach ($block->dataValue('forms', []) as $formId) {
             try {
-                $cForms[] = $view->api()->read('collecting_forms', $formId)->getContent();
+                $formContent = $view->api()->read('collecting_forms', $formId)->getContent();
+                if ($form = $formContent->getForm()) {
+                    if ($redirectCurrent) {
+                        $form->add($redirectHidden);
+                    }
+                }
+                $cForms[] = $formContent;
             } catch (NotFoundException $e) {
                 // The form was likely deleted since it was added to this block.
             }
