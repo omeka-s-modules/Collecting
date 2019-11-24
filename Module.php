@@ -68,6 +68,7 @@ class Module extends AbstractModule
         $conn->exec('DELETE FROM site_page_block WHERE layout = "collecting";');
         $conn->exec('DELETE FROM site_setting WHERE id = "collecting_tos";');
         $conn->exec('DELETE FROM site_setting WHERE id = "collecting_roles";');
+        $conn->exec('DELETE FROM site_setting WHERE id = "collecting_visibility";');
     }
 
     public function upgrade($oldVersion, $newVersion, ServiceLocatorInterface $services)
@@ -179,7 +180,26 @@ class Module extends AbstractModule
                     'data-placeholder' => 'Select roles…', // @translate
                     'value' => $siteSettings->get('collecting_roles', []),
                 ],
-            ]);
+            ])
+            ->add([
+                'name' => 'collecting_visibility',
+                'type' => \Zend\Form\Element\Radio::class,
+                'options' => [
+                    'label' => 'Visibility of collected items', // @translate
+                    'empty_option' => '',
+                    'value_options' => [
+                        'private' => 'Private', // @translate
+                        'logged' => 'Public for logged users', // @translate
+                        'public' => 'Public', // @translate
+                    ],
+                ],
+                'attributes' => [
+                    'id' => 'collecting_visibility',
+                    'required' => false,
+                    'value' => $siteSettings->get('collecting_visibility', 'private'),
+                ],
+            ])
+        ;
 
         $form->add($fieldset);
     }
@@ -190,6 +210,10 @@ class Module extends AbstractModule
         $inputFilter->get('collecting')
             ->add([
                 'name' => 'collecting_roles',
+                'required' => false,
+            ])
+            ->add([
+                'name' => 'collecting_visibility',
                 'required' => false,
             ]);
     }

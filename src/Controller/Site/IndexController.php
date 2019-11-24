@@ -47,7 +47,10 @@ class IndexController extends AbstractActionController
             $this->acl->allow();
 
             // Create the Omeka item.
-            $itemData['o:is_public'] = false;
+            $visibility = $this->siteSettings()->get('collecting_visibility', 'private');
+            $itemData['o:is_public'] = $visibility === 'logged'
+                ? (bool) $this->identity()
+                : $visibility === 'public';
             $itemData['o:item_set'] = [
                 'o:id' => $cForm->itemSet() ? $cForm->itemSet()->id() : null,
             ];
