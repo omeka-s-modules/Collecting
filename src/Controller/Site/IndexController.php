@@ -84,7 +84,12 @@ class IndexController extends AbstractActionController
 
                     if ($this->siteSettings()->get('collecting_redirect_current', false)) {
                         $page = $this->api()->read('site_pages', ['id' => (int) $post['page']])->getContent();
-                        $message = $cForm->successText() ?: $this->translate('Form successfully submitted!'); // @translate
+                        if ($message = $cForm->successText()) {
+                            $message = new \Omeka\Stdlib\Message($message);
+                            $message->setEscapeHtml(false);
+                        } else {
+                            $message = $this->translate('Form successfully submitted!'); // @translate
+                        }
                         $this->messenger()->addSuccess($message);
                         return $this->redirect()->toRoute('site/page', ['page-slug' => $page->slug()], true);
                     }
