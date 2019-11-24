@@ -121,6 +121,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $allowedRoles = $siteSettings->get('collecting_roles', []);
         if ($allowedRoles) {
             if (!$user) {
+                $this->form = false;
                 return null;
             }
 
@@ -129,12 +130,13 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             if (!in_array($userRole, $allowedRoles)) {
                 $acl = $services->get('Omeka\Acl');
                 if (!$acl->isAllowed($userRole, \Omeka\Entity\Item::class, 'create')) {
+                    $this->form = false;
                     return null;
                 }
             }
         }
 
-        if ($this->form) {
+        if (!is_null($this->form)) {
             return $this->form; // build the form object only once
         }
         $url = $this->getViewHelper('Url');
