@@ -302,6 +302,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 'name' => sprintf('tos_accept_%s', $this->id()),
                 'attributes' => [
                     'required' => true,
+                    'value' => (bool) $user,
                 ],
                 'options' => [
                     'label' => sprintf(
