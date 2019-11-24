@@ -67,6 +67,7 @@ class Module extends AbstractModule
         $conn->exec('SET FOREIGN_KEY_CHECKS=1;');
         $conn->exec('DELETE FROM site_page_block WHERE layout = "collecting";');
         $conn->exec('DELETE FROM site_setting WHERE id = "collecting_tos";');
+        $conn->exec('DELETE FROM site_setting WHERE id = "collecting_roles";');
     }
 
     public function upgrade($oldVersion, $newVersion, ServiceLocatorInterface $services)
