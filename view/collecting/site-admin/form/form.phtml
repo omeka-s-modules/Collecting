@@ -3,9 +3,10 @@ $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 
 $form->prepare();
-$this->headScript()->appendFile($this->assetUrl('vendor/sortablejs/Sortable.min.js', 'Omeka'));
-$this->headScript()->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/collecting.css', 'Collecting'));
+$this->headScript()
+    ->appendFile($this->assetUrl('vendor/sortablejs/Sortable.min.js', 'Omeka'), 'text/javascript', ['defer' => 'defer'])
+    ->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'), 'text/javascript', ['defer' => 'defer']);
 $this->ckEditor();
 
 $pageTitle = $isEdit
