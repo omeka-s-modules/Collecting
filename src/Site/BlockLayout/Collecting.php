@@ -57,7 +57,7 @@ class Collecting extends AbstractBlockLayout
             return;
         }
         $view->headLink()
-            ->appendStylesheet($assetUrl('css/valuesuggest.css', 'ValueSuggest'));
+            ->appendStylesheet($assetUrl('css/value-suggest.css', 'ValueSuggest'));
         $view->headScript()
             ->appendFile($assetUrl('js/jQuery-Autocomplete/1.2.26/jquery.autocomplete.min.js', 'ValueSuggest'), 'text/javascript', ['defer' => 'defer'])
             ->appendFile($assetUrl('js/value-suggest.js', 'ValueSuggest'), 'text/javascript', ['defer' => 'defer'])
