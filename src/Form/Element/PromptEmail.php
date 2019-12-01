@@ -6,6 +6,7 @@ use Zend\InputFilter\InputProviderInterface;
 
 class PromptEmail extends Email implements InputProviderInterface
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     public function getInputSpecification()

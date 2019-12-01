@@ -52,6 +52,7 @@ var populatePromptRow = function(promptData) {
     promptRow.find('.prompt-custom-vocab').val(promptData['o-module-collecting:custom_vocab']);
     promptRow.find('.prompt-media-type').val(promptData['o-module-collecting:media_type']);
     promptRow.find('.prompt-required').val(promptData['o-module-collecting:required'] ? '1' : '0');
+    promptRow.find('.prompt-multiple').val(promptData['o-module-collecting:multiple'] ? '1' : '0');
     if (promptData['o:property']) {
         promptRow.find('.prompt-property-id').val(promptData['o:property']['o:id']);
     }
@@ -79,6 +80,7 @@ var resetSidebar = function() {
     $('#prompt-value-suggest').val('').closest('.sidebar-section').hide();
     $('#prompt-custom-vocab').val('').closest('.sidebar-section').hide();
     $('#prompt-required').prop('checked', false).closest('.sidebar-section').hide();
+    $('#prompt-multiple').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-save').hide();
 
     // The form may only have one "user_name" prompt.
@@ -106,28 +108,34 @@ var setSidebarForType = function(type) {
             $('#prompt-property').closest('.sidebar-section').show();
             $('#prompt-input-type').closest('.sidebar-section').show();
             $('#prompt-required').closest('.sidebar-section').show();
+            $('#prompt-multiple').closest('.sidebar-section').show();
             break;
         case 'media':
             $('#prompt-media-type').closest('.sidebar-section').show();
             $('#prompt-required').closest('.sidebar-section').show();
+            $('#prompt-multiple').closest('.sidebar-section').show();
             break;
         case 'user_name':
         case 'user_email':
             $('#prompt-required').closest('.sidebar-section').show();
+            $('#prompt-multiple').closest('.sidebar-section').hide();
             break;
         case 'input':
         case 'user_private':
         case 'user_public':
             $('#prompt-input-type').closest('.sidebar-section').show();
             $('#prompt-required').closest('.sidebar-section').show();
+            $('#prompt-multiple').closest('.sidebar-section').show();
             break;
         case 'html':
             $('#prompt-text').addClass('html-editor').ckeditor();
+            $('#prompt-multiple').closest('.sidebar-section').hide();
             break;
         case 'metadata':
             $('#prompt-text').closest('.sidebar-section').hide();
             $('#prompt-metadata-type').closest('.sidebar-section').show();
             $('#prompt-metadata-value').closest('.sidebar-section').show();
+            $('#prompt-multiple').closest('.sidebar-section').hide();
             break;
         default:
             // invalid or no prompt type
@@ -181,6 +189,7 @@ $(document).ready(function() {
             'o-module-collecting:select_options': null,
             'o-module-collecting:media_type': null,
             'o-module-collecting:required': true,
+            'o-module-collecting:multiple': false,
             'o:property': {'o:id': $('#prompt-property option[data-term="dcterms:title"]').val()},
         }];
     }
@@ -337,6 +346,7 @@ $(document).ready(function() {
         // A prompt type cannot be changed once it's saved.
         $('#prompt-type').prop('disabled', true).css('background-color', '#dfdfdf');
         $('#prompt-required').prop('checked', '1' === prompt.find('.prompt-required').val() ? true : false);
+        $('#prompt-multiple').prop('checked', '1' === prompt.find('.prompt-multiple').val() ? true : false);
         Omeka.openSidebar($('#prompt-sidebar'));
     });
 
@@ -353,6 +363,7 @@ $(document).ready(function() {
             'o-module-collecting:custom_vocab': $('#prompt-custom-vocab').val(),
             'o-module-collecting:media_type': $('#prompt-media-type').val(),
             'o-module-collecting:required': $('#prompt-required').prop('checked'),
+            'o-module-collecting:multiple': $('#prompt-multiple').prop('checked'),
             'o:property': {'o:id': $('#prompt-property').val()},
         };
 

@@ -6,6 +6,7 @@ use Zend\InputFilter\InputProviderInterface;
 
 class PromptNumericTimestamp extends TimestampElement implements InputProviderInterface
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     public function getInputSpecification()

@@ -64,10 +64,10 @@ class CollectingPrompt extends \Collecting\Entity\CollectingPrompt implements \D
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'customVocab', 'mediaType', 'required', 'property'];
+            return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'customVocab', 'mediaType', 'required', 'multiple', 'property'];
         }
 
-        return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'customVocab', 'mediaType', 'required', 'property'];
+        return ['__isInitialized__', 'id', 'form', 'inputs', 'position', 'type', 'text', 'inputType', 'selectOptions', 'resourceQuery', 'customVocab', 'mediaType', 'required', 'multiple', 'property'];
     }
 
     /**
@@ -406,6 +406,28 @@ class CollectingPrompt extends \Collecting\Entity\CollectingPrompt implements \D
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRequired', []);
 
         return parent::getRequired();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setMultiple($multiple)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMultiple', [$multiple]);
+
+        return parent::setMultiple($multiple);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMultiple()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMultiple', []);
+
+        return parent::getMultiple();
     }
 
     /**

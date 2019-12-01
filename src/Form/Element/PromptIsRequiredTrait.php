@@ -1,8 +1,6 @@
 <?php
 namespace Collecting\Form\Element;
 
-;
-
 /**
  * Flag a prompt element as required or optional.
  *

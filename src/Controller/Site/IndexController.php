@@ -32,11 +32,12 @@ class IndexController extends AbstractActionController
             return $this->redirect()->toRoute('site', [], true);
         }
 
+        /** @var \Collecting\Api\Representation\CollectingFormRepresentation $cForm */
         $cForm = $this->api()
             ->read('collecting_forms', $this->params('form-id'))
             ->getContent();
 
-        $form = $cForm->getForm();
+        $form = $cForm->getForm(true);
         // Add the form only if user has rights to contribute.
         if ($form) {
             if (empty($form)) {
@@ -183,10 +184,11 @@ class IndexController extends AbstractActionController
         // with the form. This way we accept only valid prompts.
         /** @var \Collecting\Api\Representation\CollectingPromptRepresentation $prompt */
         foreach ($cForm->prompts() as $prompt) {
+            $promptType = $prompt->type();
             if (!isset($postedPrompts[$prompt->id()])) {
                 // This prompt was not found in the POSTed data.
                 // Check if this is default metadata, not passed to the form.
-                if ($prompt->type() === 'metadata') {
+                if ($promptType === 'metadata') {
                     switch ($prompt->inputType()) {
                         case 'resource_class':
                             $resourceClass = $api->searchOne('resource_classes', ['term' => $prompt->selectOptions()])->getContent();
@@ -290,13 +292,10 @@ class IndexController extends AbstractActionController
                 case 'input':
                 case 'user_private':
                 case 'user_public':
-                    // Do not save empty inputs.
-                    if ('' !== trim($value)) {
-                        $inputData[] = [
-                            'o-module-collecting:prompt' => $prompt->id(),
-                            'o-module-collecting:text' => $value,
-                        ];
-                    }
+                    $inputData[] = [
+                        'o-module-collecting:prompt' => $prompt->id(),
+                        'o-module-collecting:text' => $value,
+                    ];
                     break;
                 case 'user_name':
                     $cItemData['o-module-collecting:user_name'] = $identity

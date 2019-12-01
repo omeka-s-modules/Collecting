@@ -5,6 +5,7 @@ use Zend\Form\Element\Url;
 
 class PromptUrl extends Url
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     public function getInputSpecification()

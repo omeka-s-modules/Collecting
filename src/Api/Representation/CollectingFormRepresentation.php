@@ -109,9 +109,11 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     /**
      * Get the object used to validate and render this form.
      *
+     * @param bool $isValidation Hack to manage multiple values with a simpler
+     * form. The name should have "[]" in render, but not in validation.
      * @return Form
      */
-    public function getForm()
+    public function getForm($isValidation = false)
     {
         // Check access of the current user for this form.
         $services = $this->getServiceLocator();
@@ -139,6 +141,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         if (!is_null($this->form)) {
             return $this->form; // build the form object only once
         }
+
         $url = $this->getViewHelper('Url');
         $collecting = $this->getViewHelper('collecting');
         $mediaTypes = $services->get('Collecting\MediaTypeManager');
@@ -166,6 +169,10 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $hasUserEmailPrompt = false;
         foreach ($this->prompts() as $prompt) {
             $name = sprintf('prompt_%s', $prompt->id());
+            $isMultiple = $prompt->multiple();
+            if ($isMultiple && !$isValidation) {
+                $name .= '[]';
+            }
             switch ($prompt->type()) {
                 // Note that there's no break here. When building the form we
                 // handle property, input, and user prompts the same.
@@ -181,6 +188,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             $element = new Element\PromptTextarea($name);
                             break;
                         case 'select':
+                            if ($isMultiple) {
+                                $name = rtrim($name, '[]');
+                            }
                             $selectOptions = explode(PHP_EOL, $prompt->selectOptions());
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one…') // @translate
@@ -256,6 +266,14 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                         : $prompt->text();
                     $element->setLabel($label)
                         ->setIsRequired($prompt->required());
+                    if ($isMultiple) {
+                        $element
+                            ->setAttribute('data-multiple', true);
+                        if ($isValidation) {
+                            $element
+                                ->setOption('isArray', true);
+                        }
+                    }
                     $form->add($element);
                     break;
                 case 'user_name':

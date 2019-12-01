@@ -5,6 +5,7 @@ use Omeka\Form\Element\ResourceSelect;
 
 class PromptItem extends ResourceSelect
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     public function getInputSpecification()

@@ -32,6 +32,7 @@ $promptRowTemplate = '
         <input type="hidden" class="prompt-custom-vocab" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:custom_vocab]">
         <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
         <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
+        <input type="hidden" class="prompt-multiple" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:multiple]">
         <input type="hidden" class="prompt-property-id" name="o-module-collecting:prompt[__INDEX__][o:property][o:id]">
         <ul class="actions">
             <li><a href="#" class="prompt-edit o-icon-edit" aria-label="' . $translate('Edit') . '" title="' . $translate('Edit') . '"></a></li>
@@ -178,6 +179,11 @@ echo $this->form()->openTag($form);
         <div class="sidebar-section">
             <h4><?php echo $translate('Required?'); ?></h4>
             <input type="checkbox" id="prompt-required" name="required">
+        </div>
+
+        <div class="sidebar-section">
+            <h4><?php echo $translate('Multiple?'); ?></h4>
+            <input type="checkbox" id="prompt-multiple" name="multiple">
         </div>
 
         <a id="prompt-save" href="#" class="button"><?php echo $translate('Add changes'); ?></a>

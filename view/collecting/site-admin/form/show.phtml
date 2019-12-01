@@ -47,6 +47,7 @@ $itemSetLabel = $cForm->itemSet()
         <th><?php echo $translate('Type'); ?></th>
         <th><?php echo $translate('Text'); ?></th>
         <th><?php echo $translate('Required?'); ?></th>
+        <th><?php echo $translate('Multiple?'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -55,6 +56,7 @@ $itemSetLabel = $cForm->itemSet()
         <td><?php echo $this->escapeHtml($translate($prompt->displayType())); ?></td>
         <td><?php echo $this->escapeHtml($prompt->displayText()); ?></td>
         <td><?php echo $prompt->required() ? $translate('Yes') : $translate('No'); ?></td>
+        <td><?php echo $prompt->multiple() ? $translate('Yes') : $translate('No'); ?></td>
     </tr>
     <?php endforeach; ?>
     </tbody>

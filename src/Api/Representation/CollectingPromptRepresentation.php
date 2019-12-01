@@ -28,6 +28,7 @@ class CollectingPromptRepresentation extends AbstractRepresentation
             'o-module-collecting:custom_vocab' => $this->customVocab(),
             'o-module-collecting:media_type' => $this->mediaType(),
             'o-module-collecting:required' => $this->required(),
+            'o-module-collecting:multiple' => $this->multiple(),
             'o:property' => $property,
         ];
     }
@@ -75,6 +76,11 @@ class CollectingPromptRepresentation extends AbstractRepresentation
     public function required()
     {
         return $this->resource->getRequired();
+    }
+
+    public function multiple()
+    {
+        return $this->resource->getMultiple();
     }
 
     public function property()

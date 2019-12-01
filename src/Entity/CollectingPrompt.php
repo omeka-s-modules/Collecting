@@ -85,6 +85,11 @@ class CollectingPrompt extends AbstractEntity
     protected $required = false;
 
     /**
+     * @Column(type="boolean", nullable=false)
+     */
+    protected $multiple = false;
+
+    /**
      * @ManyToOne(
      *     targetEntity="Omeka\Entity\Property"
      * )
@@ -236,6 +241,16 @@ class CollectingPrompt extends AbstractEntity
     public function getRequired()
     {
         return $this->required;
+    }
+
+    public function setMultiple($multiple)
+    {
+        $this->multiple = (bool) $multiple;
+    }
+
+    public function getMultiple()
+    {
+        return $this->multiple;
     }
 
     public function setProperty(Property $property = null)

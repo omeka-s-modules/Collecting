@@ -108,6 +108,11 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                 $prompt->setCustomVocab($promptData['o-module-collecting:custom_vocab']);
                 $prompt->setMediaType($promptData['o-module-collecting:media_type']);
                 $prompt->setRequired($promptData['o-module-collecting:required']);
+                if (in_array($promptData['o-module-collecting:type'], ['user_email', 'user_name', 'html', 'metadata'])) {
+                    $prompt->setMultiple(false);
+                } else {
+                    $prompt->setMultiple($promptData['o-module-collecting:multiple']);
+                }
                 if (is_numeric($promptData['o:property']['o:id'])) {
                     $property = $propertyAdapter->findEntity($promptData['o:property']['o:id']);
                     $prompt->setProperty($property);
@@ -143,6 +148,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             'o-module-collecting:custom_vocab' => null,
             'o-module-collecting:media_type' => null,
             'o-module-collecting:required' => false,
+            'o-module-collecting:multiple' => false,
             'o:property' => ['o:id' => null],
         ];
 
@@ -173,6 +179,9 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         }
         if (isset($data['o-module-collecting:required']) && $data['o-module-collecting:required']) {
             $validatedData['o-module-collecting:required'] = true;
+        }
+        if (isset($data['o-module-collecting:multiple']) && $data['o-module-collecting:multiple']) {
+            $validatedData['o-module-collecting:multiple'] = true;
         }
         if (isset($data['o:property']['o:id']) && is_numeric($data['o:property']['o:id'])) {
             $validatedData['o:property']['o:id'] = $data['o:property']['o:id'];

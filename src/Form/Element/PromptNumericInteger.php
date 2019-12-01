@@ -6,6 +6,7 @@ use Zend\InputFilter\InputProviderInterface;
 
 class PromptNumericInteger extends IntegerElement implements InputProviderInterface
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     public function getInputSpecification()

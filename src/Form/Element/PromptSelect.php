@@ -5,6 +5,7 @@ use Zend\Form\Element\Select;
 
 class PromptSelect extends Select
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     public function getInputSpecification()

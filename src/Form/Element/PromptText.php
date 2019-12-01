@@ -6,6 +6,7 @@ use Zend\InputFilter\InputProviderInterface;
 
 class PromptText extends Text implements InputProviderInterface
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     public function getInputSpecification()

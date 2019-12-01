@@ -6,6 +6,7 @@ use Zend\InputFilter\InputProviderInterface;
 
 class PromptValueSuggest extends Text implements InputProviderInterface
 {
+    use PromptIsMultipleTrait;
     use PromptIsRequiredTrait;
 
     /**
