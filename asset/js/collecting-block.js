@@ -14,17 +14,19 @@ $(document).ready(function() {
 
     // Handle multiple fields.
     $('[data-multiple=1]').each(function() {
-        var field = $(this);
-        field.parent().append('<a class="add-value" href="#">' + 'Add new value' + '</a>')
-            .find('.add-value').attr('data-field',
-                '<div class="form-row value">'
-                + '<div class="col">'
+        var fieldInput = $(this);
+        fieldInput.wrap('<div class="form-row value"><div class="col"></div></div>');
+        var field = $(this).closest('.form-row.value');
+        var addValue = field.parent().append('<a class="add-value" href="#">' + 'Add new value' + '</a>').find('.add-value');
+        addValue
+            .attr('data-field',
                 // Only the first field may be required.
-                + field[0].outerHTML.replace(/(required|required="required")/g, '')
-                + '</div>'
-                + '</div>'
+                field[0].outerHTML.replace(/(required|required="required")/g, '')
             );
-        field.wrap('<div class="form-row value"><div class="col"></div></div>');
+        if (fieldInput.hasClass('valuesuggest-input')) {
+            addValue
+                .attr('data-collecting-type', 'value-suggest');
+        }
     });
 
     // Add a value.
@@ -32,6 +34,10 @@ $(document).ready(function() {
         e.preventDefault();
         var addValue = $(this);
         addValue.before(addValue.attr('data-field'));
+        if (addValue.attr('data-collecting-type') === 'value-suggest') {
+            var suggestInput = $(addValue.prev('.form-row.value').find('input.valuesuggest-input'));
+            valueSuggestAutocomplete(suggestInput);
+        }
     });
 
 });

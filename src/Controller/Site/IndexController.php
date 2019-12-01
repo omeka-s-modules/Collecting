@@ -210,7 +210,12 @@ class IndexController extends AbstractActionController
 
             $value = $postedPrompts[$prompt->id()];
             $inputType = $prompt->inputType();
-            switch ($inputType) {
+
+            $isMultiple = $prompt->multiple();
+            $postedValues = $isMultiple ? $value : [$value];
+            // Do not save empty inputs.
+            $postedValues = array_filter(array_map('trim', $postedValues), 'strlen');
+            foreach ($postedValues as $value) switch ($promptType) {
                 case 'property':
                     $propertyTerm = $prompt->property()->term();
                     $propertyId = $prompt->property()->id();
