@@ -49,5 +49,5 @@ class PromptValueSuggest extends Text implements InputProviderInterface
         return $this->dataType;
     }
 
-    // TODO Add a validator for link (absolute uri + text).
+    // TODO Add a validator for link (absolute uri + text, but sometime only value).
 }

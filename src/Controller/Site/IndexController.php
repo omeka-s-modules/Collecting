@@ -186,16 +186,23 @@ class IndexController extends AbstractActionController
                             ];
                             break;
                         case 'value_suggest':
+                            // Sometime, the uri is absent (for example isbn
+                            // reference). The uri can be removed in admin too.
                             // TODO Move the validation for value_suggest into the prompt element. Note: the query part of the url is removed, because it is never used in uri.
-                            if (!preg_match('~<a href="(https?://[^\s()<>"\?]+)" target="_blank">\s*(.+)\s*</a>~', $value, $matches)) {
-                                break 2;
+                            if (preg_match('~^<a href="(https?://[^\s()<>"\?]+)" target="_blank">\s*(.+)\s*</a>$~', $value, $matches)) {
+                                $itemData[$propertyTerm][] = [
+                                    'type' => $prompt->selectOptions(),
+                                    'property_id' => $propertyId,
+                                    '@id' => $matches[1],
+                                    'o:label' => $matches[2],
+                                ];
+                            } else {
+                                $itemData[$propertyTerm][] = [
+                                    'type' => $prompt->selectOptions(),
+                                    'property_id' => $propertyId,
+                                    '@value' => $value,
+                                ];
                             }
-                            $itemData[$propertyTerm][] = [
-                                'type' => $prompt->selectOptions(),
-                                'property_id' => $propertyId,
-                                '@id' => $matches[1],
-                                'o:label' => $matches[2],
-                            ];
                             break;
                         default:
                             $itemData[$propertyTerm][] = [
