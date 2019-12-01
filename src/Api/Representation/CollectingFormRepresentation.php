@@ -173,6 +173,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             if ($isMultiple && !$isValidation) {
                 $name .= '[]';
             }
+            $isSelect = false;
             switch ($prompt->type()) {
                 // Note that there's no break here. When building the form we
                 // handle property, input, and user prompts the same.
@@ -188,19 +189,34 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             $element = new Element\PromptTextarea($name);
                             break;
                         case 'select':
+                            $isSelect = true;
                             if ($isMultiple) {
                                 $name = rtrim($name, '[]');
                             }
                             $selectOptions = explode(PHP_EOL, $prompt->selectOptions());
                             $element = new Element\PromptSelect($name);
-                            $element->setEmptyOption('Please choose one…') // @translate
+                            if ($isMultiple) {
+                                $element->setEmptyOption('');
+                            } else {
+                                $element->setEmptyOption('Please choose one…'); // @translate
+                            }
+                            $element
                                 ->setValueOptions(array_combine($selectOptions, $selectOptions));
                             break;
                         case 'item':
+                            $isSelect = true;
+                            if ($isMultiple) {
+                                $name = rtrim($name, '[]');
+                            }
                             parse_str(ltrim($prompt->resourceQuery(), '?'), $resourceQuery);
                             $element = new Element\PromptItem($name);
+                            if ($isMultiple) {
+                                $element->setEmptyOption('');
+                            } else {
+                                $element->setEmptyOption('Please choose one…'); // @translate
+                            }
                             $element->setApiManager($api);
-                            $element->setEmptyOption('Please choose one…') // @translate
+                            $element
                                 ->setResourceValueOptions('items', function ($item) {
                                     return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
                                 }, $resourceQuery);
@@ -215,9 +231,20 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                 // The CustomVocab module is not installed or active.
                                 continue 3;
                             }
+                            $isSelect = true;
+                            if ($isMultiple) {
+                                $name = rtrim($name, '[]');
+                            }
                             $terms = array_map('trim', explode(PHP_EOL, $response->getContent()->terms()));
                             $element = new Element\PromptSelect($name);
-                            $element->setEmptyOption('Please choose one...') // @translate
+                            if ($isMultiple) {
+                                $element
+                                    ->setEmptyOption('');
+                            } else {
+                                $element
+                                    ->setEmptyOption('Please choose one...'); // @translate
+                            }
+                            $element
                                 ->setValueOptions(array_combine($terms, $terms));
                             break;
                         case 'numeric:timestamp':
@@ -267,8 +294,13 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                     $element->setLabel($label)
                         ->setIsRequired($prompt->required());
                     if ($isMultiple) {
-                        $element
-                            ->setAttribute('data-multiple', true);
+                        if ($isSelect) {
+                            $element
+                                ->setAttribute('multiple', 'multiple');
+                        } else {
+                            $element
+                                ->setAttribute('data-multiple', true);
+                        }
                         if ($isValidation) {
                             $element
                                 ->setOption('isArray', true);
