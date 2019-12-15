@@ -30,6 +30,11 @@ var populatePromptRow = function(promptData) {
             .find('option[value="' + promptData['o-module-collecting:media_type'] + '"]')
             .text();
         typeText += ' [' + mediaTypeText + ']';
+    } else if ('metadata' === promptData['o-module-collecting:type']) {
+        var metadataText = $('#prompt-metadata-type')
+            .find('option[value="' + promptData['o-module-collecting:input_type'] + '"]')
+            .text();
+        typeText += ' [' + metadataText + ']';
     }
     promptRow.find('.prompt-type-span').html(typeText);
     promptRow.find('.prompt-text-span').text(promptData['o-module-collecting:text']);
@@ -40,6 +45,9 @@ var populatePromptRow = function(promptData) {
     promptRow.find('.prompt-input-type').val(promptData['o-module-collecting:input_type']);
     promptRow.find('.prompt-select-options').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-resource-query').val(promptData['o-module-collecting:resource_query']);
+    // TODO Currently, the input values for "metadata" and "value_suggest" comes from other columns.
+    promptRow.find('.prompt-metadata-type').val(promptData['o-module-collecting:input_type']);
+    promptRow.find('.prompt-metadata-value').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-custom-vocab').val(promptData['o-module-collecting:custom_vocab']);
     promptRow.find('.prompt-media-type').val(promptData['o-module-collecting:media_type']);
     promptRow.find('.prompt-required').val(promptData['o-module-collecting:required'] ? '1' : '0');
@@ -64,6 +72,9 @@ var resetSidebar = function() {
     $('#prompt-input-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-select-options').val('').closest('.sidebar-section').hide();
     $('#prompt-resource-query').val('').closest('.sidebar-section').hide();
+    // TODO Currently, the input values for "metadata" and "value_suggest" comes from other columns.
+    $('#prompt-metadata-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
+    $('#prompt-metadata-value').val('').closest('.sidebar-section').hide();
     $('#prompt-custom-vocab').val('').closest('.sidebar-section').hide();
     $('#prompt-required').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-save').hide();
@@ -86,6 +97,8 @@ var resetSidebar = function() {
  */
 var setSidebarForType = function(type) {
     resetSidebar();
+    $('#prompt-type').val(type);
+    $('#prompt-text').closest('.sidebar-section').show();
     switch (type) {
         case 'property':
             $('#prompt-property').closest('.sidebar-section').show();
@@ -109,12 +122,15 @@ var setSidebarForType = function(type) {
         case 'html':
             $('#prompt-text').addClass('html-editor').ckeditor();
             break;
+        case 'metadata':
+            $('#prompt-text').closest('.sidebar-section').hide();
+            $('#prompt-metadata-type').closest('.sidebar-section').show();
+            $('#prompt-metadata-value').closest('.sidebar-section').show();
+            break;
         default:
             // invalid or no prompt type
             return;
     }
-    $('#prompt-type').val(type);
-    $('#prompt-text').closest('.sidebar-section').show();
     $('#prompt-save').show();
 }
 
@@ -282,6 +298,12 @@ $(document).ready(function() {
             case 'html':
                 $('#prompt-text').val(text);
                 break;
+            case 'metadata':
+                var metadataType = prompt.find('.prompt-metadata-type').val();
+                $('#prompt-metadata-type').val(metadataType);
+                var metadataValue = prompt.find('.prompt-metadata-value').val();
+                $('#prompt-metadata-value').val(metadataValue);
+                break;
             default:
                 // invalid or no prompt type
                 return;
@@ -360,6 +382,31 @@ $(document).ready(function() {
             case 'html':
                 if (!promptData['o-module-collecting:text']) {
                     alert('You must provide prompt text.');
+                    return;
+                }
+                break;
+            case 'metadata':
+                // TODO Currently, the input values for "metadata" and "value_suggest" comes from other columns.
+                promptData['o-module-collecting:input_type'] = $('#prompt-metadata-type').val();
+                promptData['o-module-collecting:select_options'] = $('#prompt-metadata-value').val();
+                if (!promptData['o-module-collecting:input_type']) {
+                    alert('You must select a metadata type.');
+                    return;
+                }
+                if (!promptData['o-module-collecting:select_options']) {
+                    alert('You must select a value to the metadata.');
+                    return;
+                }
+                if (promptData['o-module-collecting:input_type'] === 'resource_class'
+                    && !/^[a-zA-Z0-9][a-zA-Z0-9-_]*:[A-Z0-9][a-zA-Z0-9-_]*$/.test(promptData['o-module-collecting:select_options'])
+                ) {
+                    alert('You should set the canonical name of the resource class.');
+                    return;
+                }
+                if (promptData['o-module-collecting:input_type'] === 'resource_template'
+                    && !/^[1-9][0-9]*$/.test(promptData['o-module-collecting:select_options'])
+                ) {
+                    alert('You should set the identifier of the resource template.');
                     return;
                 }
                 break;

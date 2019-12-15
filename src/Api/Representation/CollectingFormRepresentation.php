@@ -260,6 +260,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                 case 'media':
                     $mediaTypes->get($prompt->mediaType())->form($form, $prompt, $name);
                     break;
+                case 'metadata':
+                    // Invalid prompt input type. Don't use element Hidden.
+                    continue 2;
                 default:
                     // Invalid prompt type. Do nothing.
                     continue 2;

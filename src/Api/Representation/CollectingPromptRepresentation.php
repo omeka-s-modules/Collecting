@@ -98,6 +98,23 @@ class CollectingPromptRepresentation extends AbstractRepresentation
             $displayType = sprintf('%s [%s]', $translator->translate($displayType), $this->property()->term());
         } elseif ('media' === $type) {
             $displayType = sprintf('%s [%s]', $translator->translate($displayType), $collecting->mediaTypeValue($this->mediaType()));
+        } elseif ('metadata' === $type) {
+            $metadataType = $this->inputType();
+            $metadataValue = $this->selectOptions();
+            if ($metadataType === 'resource_template') {
+                try {
+                    $resourceTemplate = $this->getServiceLocator()->get('Omeka\ApiManager')->read('resource_templates', ['id' => $metadataValue])->getContent();
+                    $metadataValue = $resourceTemplate->label();
+                } catch (\Omeka\Api\Exception\NotFoundException $e) {
+                    $metadataValue = $translator->translate('Removed resource template'); // @translate
+                }
+            }
+            $displayType = sprintf(
+                '%s [%s = %s]',
+                $translator->translate($displayType),
+                $translator->translate($metadataType),
+                $metadataValue
+            );
         }
         return $displayType;
     }

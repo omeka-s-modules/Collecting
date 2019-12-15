@@ -25,6 +25,8 @@ $promptRowTemplate = '
         <input type="hidden" class="prompt-input-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
         <input type="hidden" class="prompt-select-options" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-resource-query" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:resource_query]">
+        <input type="hidden" class="prompt-metadata-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
+        <input type="hidden" class="prompt-metadata-value" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-custom-vocab" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:custom_vocab]">
         <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
         <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
@@ -127,6 +129,22 @@ echo $this->form()->openTag($form);
         <div class="sidebar-section">
             <h4><?php echo $translate('Filter query'); ?> <span title="<?php echo $translate('Filter resources by entering an advanced search URL query string.'); ?>">[?]</span></h4>
             <input type="text" id="prompt-resource-query" name="resource-query" style="width:100%;">
+        </div>
+
+        <?php // TODO Replace all specific columns by a main json params in prompt entity to allow any input. ?>
+        <div class="sidebar-section">
+            <h4><?php echo $translate('Metadata type'); ?></h4>
+            <select id="prompt-metadata-type" name="metadata-type">
+                <option value=""><?php echo $translate('Select a metadata type'); ?></option>
+                <option value="<?php echo $escape('resource_class'); ?>"><?php echo $translate('Resource class'); ?></option>
+                <option value="<?php echo $escape('resource_template'); ?>"><?php echo $translate('Resource template'); ?></option>
+            </select>
+        </div>
+
+        <div class="sidebar-section">
+            <h4><?php echo $translate('Value'); ?></h4>
+            <p style="font-size: small; margin: 6px 0;"><?php echo $translate('Use canonical name for resource class, and id for resource template'); ?></p>
+            <input type="text" id="prompt-metadata-value" name="metadata-value" style="width:100%;">
         </div>
 
         <?php if ($this->collecting()->inputTypeIsAvailable('custom_vocab')): ?>
