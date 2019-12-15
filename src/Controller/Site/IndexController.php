@@ -36,7 +36,18 @@ class IndexController extends AbstractActionController
             ->getContent();
 
         $form = $cForm->getForm();
-        $form->setData($this->params()->fromPost());
+        // Add the form only if user has rights to contribute.
+        if ($form = $cForm->getForm()) {
+            if (empty($form)) {
+                return $this->redirect()->toRoute('site', [], true);
+            }
+        }
+
+        $post = $this->params()->fromPost();
+
+        // TODO Improve checking.
+
+        $form->setData($post);
         if ($form->isValid()) {
             list($itemData, $cItemData) = $this->getPromptData($cForm);
 
