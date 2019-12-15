@@ -214,7 +214,7 @@ class IndexController extends AbstractActionController
             $isMultiple = $prompt->multiple();
             $postedValues = $isMultiple ? $value : [$value];
             // Do not save empty inputs.
-            $postedValues = array_filter(array_map('trim', $postedValues), 'strlen');
+            $postedValues = array_unique(array_filter(array_map('trim', $postedValues), 'strlen'));
             foreach ($postedValues as $value) switch ($promptType) {
                 case 'property':
                     $propertyTerm = $prompt->property()->term();
