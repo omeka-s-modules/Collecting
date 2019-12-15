@@ -113,7 +113,7 @@ var setSidebarForType = function(type) {
         case 'media':
             $('#prompt-media-type').closest('.sidebar-section').show();
             $('#prompt-required').closest('.sidebar-section').show();
-            $('#prompt-multiple').closest('.sidebar-section').show();
+            $('#prompt-multiple').closest('.sidebar-section').hide();
             break;
         case 'user_name':
         case 'user_email':
