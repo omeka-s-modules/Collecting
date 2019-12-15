@@ -155,7 +155,7 @@ class IndexController extends AbstractActionController
             }
             $value = $postedPrompts[$prompt->id()];
             $inputType = $prompt->inputType();
-            switch ($prompt->type()) {
+            switch ($inputType) {
                 case 'property':
                     $propertyTerm = $prompt->property()->term();
                     $propertyId = $prompt->property()->id();
