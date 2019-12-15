@@ -48,6 +48,7 @@ var populatePromptRow = function(promptData) {
     // TODO Currently, the input values for "metadata" and "value_suggest" comes from other columns.
     promptRow.find('.prompt-metadata-type').val(promptData['o-module-collecting:input_type']);
     promptRow.find('.prompt-metadata-value').val(promptData['o-module-collecting:select_options']);
+    promptRow.find('.prompt-value-suggest').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-custom-vocab').val(promptData['o-module-collecting:custom_vocab']);
     promptRow.find('.prompt-media-type').val(promptData['o-module-collecting:media_type']);
     promptRow.find('.prompt-required').val(promptData['o-module-collecting:required'] ? '1' : '0');
@@ -75,6 +76,7 @@ var resetSidebar = function() {
     // TODO Currently, the input values for "metadata" and "value_suggest" comes from other columns.
     $('#prompt-metadata-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-metadata-value').val('').closest('.sidebar-section').hide();
+    $('#prompt-value-suggest').val('').closest('.sidebar-section').hide();
     $('#prompt-custom-vocab').val('').closest('.sidebar-section').hide();
     $('#prompt-required').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-save').hide();
@@ -135,6 +137,20 @@ var setSidebarForType = function(type) {
 }
 
 /**
+ * Set the value suggest section of the edit prompt sidebar.
+ *
+ * @param {Object} prompt
+ */
+var setValueSuggestSection = function(prompt) {
+    var valueSuggest = prompt.find('.prompt-value-suggest').val();
+    var valueSuggestSelect = $('#prompt-value-suggest');
+    if (!valueSuggestSelect.has('option[value="' + valueSuggest + '"]').length) {
+        valueSuggest = ''; // Value Suggest does not exist
+    }
+    valueSuggestSelect.val(valueSuggest).closest('.sidebar-section').show();
+}
+
+/**
  * Set the custom vocab section of the edit prompt sidebar.
  *
  * @param {Object} prompt
@@ -191,6 +207,7 @@ $(document).ready(function() {
         var inputType = $(this).val();
         var selectOptionsSection = $('#prompt-select-options').closest('.sidebar-section');
         var resourceQuerySection = $('#prompt-resource-query').closest('.sidebar-section');
+        var valueSuggestSection = $('#prompt-value-suggest').closest('.sidebar-section');
         var customVocabSection = $('#prompt-custom-vocab').closest('.sidebar-section');
         if ('select' === inputType) {
             selectOptionsSection.show();
@@ -201,6 +218,11 @@ $(document).ready(function() {
             resourceQuerySection.show();
         } else {
             resourceQuerySection.hide();
+        }
+        if ('value_suggest' === inputType) {
+            valueSuggestSection.show();
+        } else {
+            valueSuggestSection.hide();
         }
         if ('custom_vocab' === inputType) {
             customVocabSection.show();
@@ -269,6 +291,9 @@ $(document).ready(function() {
                 if ('item' === inputType) {
                     var resourceQuery = prompt.find('.prompt-resource-query').val();
                     $('#prompt-resource-query').val(resourceQuery).closest('.sidebar-section').show();
+                }
+                if ('value_suggest' === inputType) {
+                    setValueSuggestSection(prompt);
                 }
                 if ('custom_vocab' === inputType) {
                     setCustomVocabSection(prompt);
@@ -341,6 +366,14 @@ $(document).ready(function() {
                 if (!promptData['o-module-collecting:input_type']) {
                     alert('You must select an input type.');
                     return;
+                }
+                if ('value_suggest' === promptData['o-module-collecting:input_type']) {
+                    // TODO Currently, the input value for value_suggest come from column select_options.
+                    promptData['o-module-collecting:select_options'] = $('#prompt-value-suggest').val();
+                    if (!promptData['o-module-collecting:select_options']) {
+                        alert('You must select a value suggester.');
+                        return;
+                    }
                 }
                 if ('custom_vocab' === promptData['o-module-collecting:input_type']
                     && !promptData['o-module-collecting:custom_vocab']

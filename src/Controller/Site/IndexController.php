@@ -165,6 +165,7 @@ class IndexController extends AbstractActionController
     {
         // Derive the prompt IDs from the form names.
         $postedPrompts = [];
+        $matches = [];
         foreach ($this->params()->fromPost() as $key => $value) {
             if (preg_match('/^prompt_(\d+)$/', $key, $matches)) {
                 $postedPrompts[$matches[1]] = $value;
@@ -235,6 +236,45 @@ class IndexController extends AbstractActionController
                                 'property_id' => $propertyId,
                                 '@value' => $value,
                             ];
+                            break;
+                        case 'value_suggest':
+                            if (substr($prompt->selectOptions(), -7) === ':record') {
+                                if (!preg_match('~^<a href="(.+)" target="_blank">\s*(.+)\s*</a>$~', $value, $matches)) {
+                                    break;
+                                }
+                                $record = json_decode(htmlspecialchars_decode($matches[1]), true);
+                                if (!$record) {
+                                    break;
+                                }
+                                foreach ($record as $key => $v) {
+                                    // Strip tags of each value for security.
+                                    if (in_array($key, ['o:resource_class'])) {
+                                        $itemData[$key] = array_map('strip_tags', $v);
+                                    } else {
+                                        foreach ($v as $vv) {
+                                            $itemData[$key][] = array_map('strip_tags', $vv);
+                                        }
+                                    }
+                                }
+                            } else {
+                                // Sometime, the uri is absent (for example isbn
+                                // reference). The uri can be removed in admin too.
+                                // TODO Move the validation for value_suggest into the prompt element. Note: the query part of the url is removed, because it is never used in uri and is a security issue.
+                                if (preg_match('~^<a href="(https?://[^\s()<>"\?]+)" target="_blank">\s*(.+)\s*</a>$~', $value, $matches)) {
+                                    $itemData[$propertyTerm][] = [
+                                        'type' => $prompt->selectOptions(),
+                                        'property_id' => $propertyId,
+                                        '@id' => $matches[1],
+                                        'o:label' => $matches[2],
+                                    ];
+                                } else {
+                                    $itemData[$propertyTerm][] = [
+                                        'type' => $prompt->selectOptions(),
+                                        'property_id' => $propertyId,
+                                        '@value' => $value,
+                                    ];
+                                }
+                            }
                             break;
                         default:
                             $itemData[$propertyTerm][] = [

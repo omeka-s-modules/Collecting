@@ -11,7 +11,8 @@ class CollectingFactory implements FactoryInterface
     {
         return new Collecting(
             $services->get('Collecting\MediaTypeManager'),
-            $services->get('Omeka\ModuleManager')
+            $services->get('Omeka\ModuleManager'),
+            $services->get('Omeka\DataTypeManager')
         );
     }
 }

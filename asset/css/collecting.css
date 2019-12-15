@@ -8,3 +8,18 @@
 #prompts-table .actions {
     padding-left: 0;
 }
+
+input.valuesuggest-input.form-control {
+    padding: .375rem .75rem;
+}
+.autocomplete-suggestions .autocomplete-suggestion {
+    margin-left: 0;
+}
+
+.autocomplete-suggestion:hover,
+.autocomplete-suggestion.autocomplete-selected {
+    background-color: #e5e5e5 !important;
+}
+.autocomplete-suggestion .suggest-info {
+    color: #666666;
+}

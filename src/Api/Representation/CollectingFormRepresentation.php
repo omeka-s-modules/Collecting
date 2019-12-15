@@ -144,6 +144,18 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $mediaTypes = $services->get('Collecting\MediaTypeManager');
         $api = $services->get('Omeka\ApiManager');
 
+        $dataTypeManager = $services->get('Omeka\DataTypeManager');
+        $suggesters = [];
+        $dataTypes = $dataTypeManager->getRegisteredNames();
+        foreach ($dataTypes as $dataTypeName) {
+            if (strpos($dataTypeName, 'valuesuggest:') === 0
+                || strpos($dataTypeName, 'valuesuggestall:') === 0
+            ) {
+                $suggesters[$dataTypeName] = $dataTypeManager->get($dataTypeName)->getLabel();
+            }
+        }
+        unset($suggesters['valuesuggest:any']);
+
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
         $form->setAttribute('action', $url('site/collecting', [
@@ -221,6 +233,19 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                 continue 3;
                             }
                             $element = new Element\PromptNumericInteger($name);
+                            break;
+                        case 'value_suggest':
+                            // The ValueSuggest module is not installed or active.
+                            if (!$suggesters) {
+                                continue 3;
+                            }
+                            // The suggester does not exist or is not active.
+                            $suggester = $prompt->selectOptions();
+                            if (!isset($suggesters[$suggester])) {
+                                continue 3;
+                            }
+                            $element = new Element\PromptValueSuggest($name);
+                            $element->setDataType($suggester);
                             break;
                         default:
                             // Invalid prompt input type. Do nothing.

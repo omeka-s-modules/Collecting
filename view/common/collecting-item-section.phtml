@@ -19,7 +19,7 @@ $translate = $this->plugin('translate');
         <?php
         $prompt = $input->prompt();
         $displayText = $input->displayText();
-        if ('item' !== $prompt->inputType()) {
+        if (!in_array($prompt->inputType(), ['item', 'value_suggest'])) {
             $displayText = $this->escapeHtml($displayText);
         }
         ?>

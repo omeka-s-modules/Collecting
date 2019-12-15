@@ -3,9 +3,10 @@ $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 
 $form->prepare();
-$this->headScript()->appendFile($this->assetUrl('vendor/sortablejs/Sortable.min.js', 'Omeka'));
-$this->headScript()->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/collecting.css', 'Collecting'));
+$this->headScript()
+    ->appendFile($this->assetUrl('vendor/sortablejs/Sortable.min.js', 'Omeka'), 'text/javascript', ['defer' => 'defer'])
+    ->appendFile($this->assetUrl('js/collecting-form.js', 'Collecting'), 'text/javascript', ['defer' => 'defer']);
 $this->ckEditor();
 
 $pageTitle = $isEdit
@@ -27,6 +28,7 @@ $promptRowTemplate = '
         <input type="hidden" class="prompt-resource-query" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:resource_query]">
         <input type="hidden" class="prompt-metadata-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
         <input type="hidden" class="prompt-metadata-value" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
+        <input type="hidden" class="prompt-value-suggest" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-custom-vocab" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:custom_vocab]">
         <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
         <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
@@ -146,6 +148,19 @@ echo $this->form()->openTag($form);
             <p style="font-size: small; margin: 6px 0;"><?php echo $translate('Use canonical name for resource class, and id for resource template'); ?></p>
             <input type="text" id="prompt-metadata-value" name="metadata-value" style="width:100%;">
         </div>
+
+        <?php if ($this->collecting()->inputTypeIsAvailable('value_suggest')): ?>
+        <?php $valueSuggesters = $this->collecting()->valueSuggesters(); ?>
+        <div class="sidebar-section">
+            <h4><?php echo $translate('Value suggester'); ?></h4>
+            <select id="prompt-value-suggest" name="value-suggest">
+                <option value=""><?php echo $translate("Select a value suggester"); ?></option>
+                <?php foreach ($valueSuggesters as $id => $label): ?>
+                <option value="<?php echo $escape($id); ?>"><?php echo $translate($label); ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <?php endif; ?>
 
         <?php if ($this->collecting()->inputTypeIsAvailable('custom_vocab')): ?>
         <?php $customVocabs = $this->collecting()->customVocabs(); ?>
