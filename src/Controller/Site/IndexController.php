@@ -212,9 +212,15 @@ class IndexController extends AbstractActionController
             $inputType = $prompt->inputType();
 
             $isMultiple = $prompt->multiple();
-            $postedValues = $isMultiple ? $value : [$value];
-            // Do not save empty inputs.
-            $postedValues = array_unique(array_filter(array_map('trim', $postedValues), 'strlen'));
+
+            // Media is an exception managed by another array.
+            if ($promptType === 'media') {
+                $postedValues = [''];
+            } else {
+                $postedValues = $isMultiple ? $value : [$value];
+                // Do not save empty inputs.
+                $postedValues = array_unique(array_filter(array_map('trim', $postedValues ?: []), 'strlen'));
+            }
             foreach ($postedValues as $value) switch ($promptType) {
                 case 'property':
                     $propertyTerm = $prompt->property()->term();
