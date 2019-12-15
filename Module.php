@@ -69,6 +69,7 @@ class Module extends AbstractModule
         $conn->exec('DELETE FROM site_setting WHERE id = "collecting_tos";');
         $conn->exec('DELETE FROM site_setting WHERE id = "collecting_roles";');
         $conn->exec('DELETE FROM site_setting WHERE id = "collecting_visibility";');
+        $conn->exec('DELETE FROM site_setting WHERE id = "collecting_redirect_current";');
     }
 
     public function upgrade($oldVersion, $newVersion, ServiceLocatorInterface $services)
@@ -197,6 +198,17 @@ class Module extends AbstractModule
                     'id' => 'collecting_visibility',
                     'required' => false,
                     'value' => $siteSettings->get('collecting_visibility', 'private'),
+                ],
+            ])
+            ->add([
+                'name' => 'collecting_redirect_current',
+                'type' => \Zend\Form\Element\Checkbox::class,
+                'options' => [
+                    'label' => 'Redirect to current page on success', // @translate
+                ],
+                'attributes' => [
+                    'id' => 'collecting_redirect_current',
+                    'value' => $siteSettings->get('collecting_redirect_current', false),
                 ],
             ])
         ;

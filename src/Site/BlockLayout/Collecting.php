@@ -52,11 +52,21 @@ class Collecting extends AbstractBlockLayout
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
         $cForms = [];
+
+        $redirectCurrent = $view->siteSetting('collecting_redirect_current', false);
+        if ($redirectCurrent) {
+            $redirectHidden = new Element\Hidden('page');
+            $redirectHidden->setValue($block->page()->id());
+        }
+
         foreach ($block->dataValue('forms', []) as $formId) {
             try {
                 $formContent = $view->api()->read('collecting_forms', $formId)->getContent();
                 // Add the form only if user has rights to contribute.
-                if ($formContent->getForm()) {
+                if ($form = $formContent->getForm()) {
+                    if ($redirectCurrent) {
+                        $form->add($redirectHidden);
+                    }
                     $cForms[] = $formContent;
                 }
             } catch (NotFoundException $e) {

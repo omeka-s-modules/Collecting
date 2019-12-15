@@ -4,6 +4,7 @@ namespace Collecting\Controller\Site;
 use Collecting\Api\Representation\CollectingFormRepresentation;
 use Collecting\Api\Representation\CollectingItemRepresentation;
 use Collecting\MediaType\Manager;
+use Omeka\Api\Exception\NotFoundException;
 use Omeka\Permissions\Acl;
 use Zend\Mime\Message as MimeMessage;
 use Zend\Mime\Part as MimePart;
@@ -37,16 +38,15 @@ class IndexController extends AbstractActionController
 
         $form = $cForm->getForm();
         // Add the form only if user has rights to contribute.
-        if ($form = $cForm->getForm()) {
+        if ($form) {
             if (empty($form)) {
                 return $this->redirect()->toRoute('site', [], true);
             }
         }
 
-        $post = $this->params()->fromPost();
-
         // TODO Improve checking.
 
+        $post = $this->params()->fromPost();
         $form->setData($post);
         if ($form->isValid()) {
             list($itemData, $cItemData) = $this->getPromptData($cForm);
@@ -95,7 +95,19 @@ class IndexController extends AbstractActionController
                         $this->sendSubmissionEmail($cForm, $cItem);
                     }
 
-                    return $this->redirect()->toRoute(null, ['action' => 'success'], true);
+                    $page = $this->collectingPage();
+                    if ($page) {
+                        if ($message = $cForm->successText()) {
+                            $message = new \Omeka\Stdlib\Message($message);
+                            $message->setEscapeHtml(false);
+                        } else {
+                            $message = $this->translate('Form successfully submitted!'); // @translate
+                        }
+                        $this->messenger()->addSuccess($message);
+                        return $this->redirect()->toRoute('site/page', ['site-slug' => $page->site()->slug(), 'page-slug' => $page->slug()], true);
+                    }
+
+                    return $this->redirect()->toRoute('site/collecting', ['form-id' => $cForm->id(), 'action' => 'success'], true);
                 }
             }
 
@@ -105,8 +117,11 @@ class IndexController extends AbstractActionController
             $this->messenger()->addErrors($form->getMessages());
         }
 
+        $this->prepareRender();
+
         $view = new ViewModel;
         $view->setVariable('cForm', $cForm);
+        $view->setVariable('page', $this->collectingPage());
         return $view;
     }
 
@@ -189,6 +204,7 @@ class IndexController extends AbstractActionController
                 }
                 continue;
             }
+
             $value = $postedPrompts[$prompt->id()];
             $inputType = $prompt->inputType();
             switch ($inputType) {
@@ -264,6 +280,69 @@ class IndexController extends AbstractActionController
 
         $cItemData['o-module-collecting:input'] = $inputData;
         return [$itemData, $cItemData];
+    }
+
+    /**
+     * Append css and js in the specific submit page when there are errors.
+     *
+     * @see \Collecting\Site\BlockLayout\Collecting::prepareRender()
+     *
+     * @param ViewModel $view
+     */
+    protected function prepareRender()
+    {
+        $viewHelpers = $this->viewHelpers();
+        $assetUrl = $viewHelpers->get('assetUrl');
+        $headLink = $viewHelpers->get('headLink');
+        $headScript = $viewHelpers->get('headScript');
+        $url = $viewHelpers->get('url');
+
+        $headLink->appendStylesheet($assetUrl('css/collecting.css', 'Collecting'));
+        $headScript->appendFile($assetUrl('js/collecting-block.js', 'Collecting'), 'text/javascript', ['defer' => 'defer']);
+
+        // TODO Append value suggest js only if a property uses it.
+        // To check if ValueSuggest is available, just try to get the routed url.
+        try {
+            $proxyUrl = $url('site/value-suggest/proxy', [], true);
+        } catch (\Exception $e) {
+            return;
+        }
+
+        $escapeJs = $viewHelpers->get('escapeJs');
+
+        $headLink()
+            ->appendStylesheet($assetUrl('css/value-suggest.css', 'ValueSuggest'));
+        $headScript()
+            ->appendFile($assetUrl('js/jQuery-Autocomplete/1.2.26/jquery.autocomplete.min.js', 'ValueSuggest'), 'text/javascript', ['defer' => 'defer'])
+            ->appendFile($assetUrl('js/value-suggest.js', 'ValueSuggest'), 'text/javascript', ['defer' => 'defer'])
+            ->appendScript(sprintf(
+                'var valueSuggestProxyUrl = "%s";',
+                $escapeJs($proxyUrl)
+            ));
+    }
+
+    /**
+     * Get the page where the collecting form is from the hidden value "page".
+     *
+     * @return \Omeka\Api\Representation\SitePageRepresentation|null
+     */
+    protected function collectingPage()
+    {
+        if (!$this->siteSettings()->get('collecting_redirect_current', false)) {
+            return null;
+        }
+
+        $pageId = (int) $this->params()->fromPost('page');
+        if (empty($pageId)) {
+            return null;
+        }
+
+        try {
+            $page = $this->api()->read('site_pages', ['id' => $pageId])->getContent();
+        } catch (NotFoundException $e) {
+            $page = null;
+        }
+        return $page;
     }
 
     /**
