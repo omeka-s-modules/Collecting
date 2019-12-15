@@ -167,6 +167,13 @@ class IndexController extends AbstractActionController
                                 'value_resource_id' => $value,
                             ];
                             break;
+                        case 'custom_vocab':
+                            $itemData[$propertyTerm][] = [
+                                'type' => 'customvocab:' . $prompt->customVocab(),
+                                'property_id' => $propertyId,
+                                '@value' => $value,
+                            ];
+                            break;
                         case 'numeric:timestamp':
                         case 'numeric:interval':
                         case 'numeric:duration':
