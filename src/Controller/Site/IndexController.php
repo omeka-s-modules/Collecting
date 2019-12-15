@@ -153,49 +153,35 @@ class IndexController extends AbstractActionController
                 // This prompt was not found in the POSTed data.
                 continue;
             }
+            $value = $postedPrompts[$prompt->id()];
+            $inputType = $prompt->inputType();
             switch ($prompt->type()) {
                 case 'property':
-                    switch ($prompt->inputType()) {
+                    $propertyTerm = $prompt->property()->term();
+                    $propertyId = $prompt->property()->id();
+                    switch ($inputType) {
                         case 'item':
-                            $itemData[$prompt->property()->term()][] = [
+                            $itemData[$propertyTerm][] = [
                                 'type' => 'resource',
-                                'property_id' => $prompt->property()->id(),
-                                'value_resource_id' => $postedPrompts[$prompt->id()],
+                                'property_id' => $propertyId,
+                                'value_resource_id' => $value,
                             ];
                             break;
                         case 'numeric:timestamp':
-                            $itemData[$prompt->property()->term()][] = [
-                                'type' => 'numeric:timestamp',
-                                'property_id' => $prompt->property()->id(),
-                                '@value' => $postedPrompts[$prompt->id()],
-                            ];
-                            break;
                         case 'numeric:interval':
-                            $itemData[$prompt->property()->term()][] = [
-                                'type' => 'numeric:interval',
-                                'property_id' => $prompt->property()->id(),
-                                '@value' => $postedPrompts[$prompt->id()],
-                            ];
-                            break;
                         case 'numeric:duration':
-                            $itemData[$prompt->property()->term()][] = [
-                                'type' => 'numeric:duration',
-                                'property_id' => $prompt->property()->id(),
-                                '@value' => $postedPrompts[$prompt->id()],
-                            ];
-                            break;
                         case 'numeric:integer':
-                            $itemData[$prompt->property()->term()][] = [
-                                'type' => 'numeric:integer',
-                                'property_id' => $prompt->property()->id(),
-                                '@value' => $postedPrompts[$prompt->id()],
+                            $itemData[$propertyTerm][] = [
+                                'type' => $inputType,
+                                'property_id' => $propertyId,
+                                '@value' => $value,
                             ];
                             break;
                         default:
-                            $itemData[$prompt->property()->term()][] = [
+                            $itemData[$propertyTerm][] = [
                                 'type' => 'literal',
-                                'property_id' => $prompt->property()->id(),
-                                '@value' => $postedPrompts[$prompt->id()],
+                                'property_id' => $propertyId,
+                                '@value' => $value,
                             ];
                     }
                     // Note that there's no break here. We need to save all
@@ -206,22 +192,22 @@ class IndexController extends AbstractActionController
                 case 'user_private':
                 case 'user_public':
                     // Do not save empty inputs.
-                    if ('' !== trim($postedPrompts[$prompt->id()])) {
+                    if ('' !== trim($value)) {
                         $inputData[] = [
                             'o-module-collecting:prompt' => $prompt->id(),
-                            'o-module-collecting:text' => $postedPrompts[$prompt->id()],
+                            'o-module-collecting:text' => $value,
                         ];
                     }
                     break;
                 case 'user_name':
-                    $cItemData['o-module-collecting:user_name'] = $postedPrompts[$prompt->id()];
+                    $cItemData['o-module-collecting:user_name'] = $value;
                     break;
                 case 'user_email':
-                    $cItemData['o-module-collecting:user_email'] = $postedPrompts[$prompt->id()];
+                    $cItemData['o-module-collecting:user_email'] = $value;
                     break;
                 case 'media':
                     $itemData = $this->mediaTypeManager->get($prompt->mediaType())
-                        ->itemData($itemData, $postedPrompts[$prompt->id()], $prompt);
+                        ->itemData($itemData, $value, $prompt);
                     break;
                 default:
                     // Invalid prompt type. Do nothing.
