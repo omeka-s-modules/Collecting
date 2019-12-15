@@ -36,6 +36,7 @@ echo $this->pageTitle($translate('Collecting Forms'));
                 <?php if ($cForm->userIsAllowed('update')): ?>
                 <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'edit', 'form-id' => $cForm->id()], true); ?>" class="o-icon-edit" aria-label="<?php echo $translate('Edit'); ?>" title="<?php echo $translate('Edit'); ?>"></a></li>
                 <?php endif; ?>
+                <li><a href="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'item', 'form-id' => $cForm->id()], true); ?>" class="o-icon-jobs" aria-label="<?php echo $translate('Edit'); ?>" title="<?php echo $translate('Review collected items'); ?>"></a></li>
                 <?php if ($cForm->userIsAllowed('delete')): ?>
                 <li><a href="#" class="sidebar-content o-icon-delete" aria-label="<?php echo $translate('Delete'); ?>" title="<?php echo $translate('Delete'); ?>" data-sidebar-content-url="<?php echo $this->url('admin/site/slug/collecting/id', ['action' => 'delete-confirm', 'form-id' => $cForm->id()], true); ?>"></a></li>
                 <?php endif; ?>
