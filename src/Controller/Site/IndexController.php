@@ -39,10 +39,8 @@ class IndexController extends AbstractActionController
 
         $form = $cForm->getForm(true);
         // Add the form only if user has rights to contribute.
-        if ($form) {
-            if (empty($form)) {
-                return $this->redirect()->toRoute('site', [], true);
-            }
+        if (empty($form)) {
+            return $this->redirect()->toRoute('site', [], true);
         }
 
         // TODO Improve checking.
