@@ -214,7 +214,40 @@ class Module extends AbstractModule
                     'value' => $siteSettings->get('collecting_redirect_current', false),
                 ],
             ])
+            ->add([
+                'name' => 'collecting_notify',
+                'type' => \Zend\Form\Element\Checkbox::class,
+                'options' => [
+                    'label' => 'Notify each contribution', // @translate
+                ],
+                'attributes' => [
+                    'id' => 'collecting_notify',
+                    'value' => $siteSettings->get('collecting_notify', false),
+                ],
+            ])
+            ->add([
+                'name' => 'collecting_notify_recipients',
+                'type' => \Zend\Form\Element\Textarea::class,
+                'options' => [
+                    'label' => 'Emails to notify', // @translate
+                    'info' => 'The list of recipients to notify, one by row.', // @translate
+                ],
+                'attributes' => [
+                    'id' => 'collecting_notify_recipients',
+                    'required' => false,
+                    'placeholder' => 'Let empty to use the site owner email.
+contact@example.org
+info@example2.org', // @translate
+                    'rows' => 5,
+                ],
+            ])
         ;
+
+        $recipients = $siteSettings->get('collecting_notify_recipients') ?: [];
+        $value = is_array($recipients) ? implode("\n", $recipients) : $recipients;
+        $fieldset
+            ->get('collecting_notify_recipients')
+            ->setValue($value);
 
         $form->add($fieldset);
     }
@@ -230,7 +263,24 @@ class Module extends AbstractModule
             ->add([
                 'name' => 'collecting_visibility',
                 'required' => false,
+            ])
+            ->add([
+                'name' => 'collecting_notify_recipients',
+                'required' => false,
+                'filters' => [
+                    [
+                        'name' => \Zend\Filter\Callback::class,
+                        'options' => [
+                            'callback' => function ($string) {
+                                return is_array($string)
+                                    ? $string
+                                    : array_filter(array_map('trim', explode("\n", str_replace(["\r\n", "\n\r", "\r"], ["\n", "\n", "\n"], $string))));
+                            },
+                        ],
+                    ],
+                ],
             ]);
+        ;
     }
 
     /**
