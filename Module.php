@@ -354,18 +354,7 @@ info@example2.org', // @translate
         $cItem = $view->api()
             ->searchOne('collecting_items', ['item_id' => $view->item->id()])
             ->getContent();
-        if (!$cItem) {
-            // Don't render the link if there's no collecting item.
-            return;
-        }
-        echo '<p>' . $cItem->displayCitation() . '</p>';
-        echo $view->hyperlink(
-            $view->translate('Click here to view the collected data.'),
-            $view->url('site/collecting-item', [
-                'site-slug' => $view->site->slug(),
-                'item-id' => $cItem->id(),
-            ])
-        );
+        echo $view->partial('common/collecting-item-block', ['cItem' => $cItem]);
     }
 
     public function filterSectionNav(Event $event)

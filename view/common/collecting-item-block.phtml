@@ -1,0 +1,20 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var \Collecting\Api\Representation\CollectingItemRepresentation $cItem
+ */
+
+// Don't render the link if there's no collecting item.
+if (!$cItem) {
+    return;
+}
+?>
+
+<p><?php echo $cItem->displayCitation(); ?></p>
+<?php echo $this->hyperlink(
+    $this->translate('Click here to view the collected data.'),
+    $this->url('site/collecting-item', [
+        'site-slug' => $this->params()->fromRoute('site-slug'),
+        'item-id' => $cItem->id(),
+    ])
+);
