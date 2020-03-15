@@ -208,18 +208,29 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             if ($isMultiple) {
                                 $name = rtrim($name, '[]');
                             }
+                            $resourceQuery = [];
                             parse_str(ltrim($prompt->resourceQuery(), '?'), $resourceQuery);
                             $element = new Element\PromptItem($name);
                             if ($isMultiple) {
-                                $element->setEmptyOption('');
+                                $element
+                                    ->setEmptyOption('')
+                                    ->setAttribute('data-placeholder', 'Please choose one or more…'); // @translate
                             } else {
                                 $element->setEmptyOption('Please choose one…'); // @translate
                             }
                             $element->setApiManager($api);
-                            $element
-                                ->setResourceValueOptions('items', function ($item) {
-                                    return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
-                                }, $resourceQuery);
+                            $prependId = (bool) $prompt->selectOptions();
+                            if ($prependId) {
+                                $element
+                                    ->setResourceValueOptions('items', function ($item) {
+                                        return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
+                                    }, $resourceQuery);
+                            } else {
+                                $element
+                                    ->setResourceValueOptions('items', function ($item) {
+                                        return mb_substr($item->displayTitle(), 0, 80);
+                                    }, $resourceQuery);
+                            }
                             break;
                         case 'custom_vocab':
                             try {

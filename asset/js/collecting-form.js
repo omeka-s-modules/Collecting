@@ -45,7 +45,8 @@ var populatePromptRow = function(promptData) {
     promptRow.find('.prompt-input-type').val(promptData['o-module-collecting:input_type']);
     promptRow.find('.prompt-select-options').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-resource-query').val(promptData['o-module-collecting:resource_query']);
-    // TODO Currently, the input values for "metadata" and "value_suggest" comes from other columns.
+    // TODO Currently, the input values for "prepend-id", "metadata" and "value_suggest" comes from other columns.
+    promptRow.find('.prompt-prepend-id').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-metadata-type').val(promptData['o-module-collecting:input_type']);
     promptRow.find('.prompt-metadata-value').val(promptData['o-module-collecting:select_options']);
     promptRow.find('.prompt-value-suggest').val(promptData['o-module-collecting:select_options']);
@@ -74,7 +75,8 @@ var resetSidebar = function() {
     $('#prompt-input-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-select-options').val('').closest('.sidebar-section').hide();
     $('#prompt-resource-query').val('').closest('.sidebar-section').hide();
-    // TODO Currently, the input values for "metadata" and "value_suggest" comes from other columns.
+    // TODO Currently, the input values for "prepend-id", "metadata" and "value_suggest" comes from other columns.
+    $('#prompt-prepend-id').prop('checked', false).closest('.sidebar-section').hide();
     $('#prompt-metadata-type').prop('selectedIndex', 0).closest('.sidebar-section').hide();
     $('#prompt-metadata-value').val('').closest('.sidebar-section').hide();
     $('#prompt-value-suggest').val('').closest('.sidebar-section').hide();
@@ -216,6 +218,7 @@ $(document).ready(function() {
         var inputType = $(this).val();
         var selectOptionsSection = $('#prompt-select-options').closest('.sidebar-section');
         var resourceQuerySection = $('#prompt-resource-query').closest('.sidebar-section');
+        var prependIdSection = $('#prompt-prepend-id').closest('.sidebar-section');
         var valueSuggestSection = $('#prompt-value-suggest').closest('.sidebar-section');
         var customVocabSection = $('#prompt-custom-vocab').closest('.sidebar-section');
         if ('select' === inputType) {
@@ -225,8 +228,10 @@ $(document).ready(function() {
         }
         if ('item' === inputType) {
             resourceQuerySection.show();
+            prependIdSection.show();
         } else {
             resourceQuerySection.hide();
+            prependIdSection.hide();
         }
         if ('value_suggest' === inputType) {
             valueSuggestSection.show();
@@ -300,6 +305,8 @@ $(document).ready(function() {
                 if ('item' === inputType) {
                     var resourceQuery = prompt.find('.prompt-resource-query').val();
                     $('#prompt-resource-query').val(resourceQuery).closest('.sidebar-section').show();
+                    var prependIdQuery = prompt.find('.prompt-prepend-id').val();
+                    $('#prompt-prepend-id').prop('checked', '1' === prependIdQuery ? true : false).closest('.sidebar-section').show();
                 }
                 if ('value_suggest' === inputType) {
                     setValueSuggestSection(prompt);
@@ -377,6 +384,10 @@ $(document).ready(function() {
                 if (!promptData['o-module-collecting:input_type']) {
                     alert('You must select an input type.');
                     return;
+                }
+                if ('item' === promptData['o-module-collecting:input_type']) {
+                    // TODO Currently, the input value for item come from column select_options.
+                    promptData['o-module-collecting:select_options'] = $('#prompt-prepend-id').prop('checked') ? '1' : null;
                 }
                 if ('value_suggest' === promptData['o-module-collecting:input_type']) {
                     // TODO Currently, the input value for value_suggest come from column select_options.

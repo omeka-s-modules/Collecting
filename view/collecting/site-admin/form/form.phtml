@@ -26,6 +26,7 @@ $promptRowTemplate = '
         <input type="hidden" class="prompt-input-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
         <input type="hidden" class="prompt-select-options" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-resource-query" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:resource_query]">
+        <input type="hidden" class="prompt-prepend-id" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-metadata-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
         <input type="hidden" class="prompt-metadata-value" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
         <input type="hidden" class="prompt-value-suggest" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
@@ -132,6 +133,11 @@ echo $this->form()->openTag($form);
         <div class="sidebar-section">
             <h4><?php echo $translate('Filter query'); ?> <span title="<?php echo $translate('Filter resources by entering an advanced search URL query string.'); ?>">[?]</span></h4>
             <input type="text" id="prompt-resource-query" name="resource-query" style="width:100%;">
+        </div>
+
+        <div class="sidebar-section">
+            <h4><?php echo $translate('Prepend item id?'); ?></h4>
+            <input type="checkbox" id="prompt-prepend-id" name="multiple">
         </div>
 
         <?php // TODO Replace all specific columns by a main json params in prompt entity to allow any input. ?>
