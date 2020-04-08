@@ -2,7 +2,7 @@
 namespace Collecting\View\Helper;
 
 use Collecting\MediaType\Manager;
-use Zend\View\Helper\AbstractHelper;
+use Laminas\View\Helper\AbstractHelper;
 
 class CollectingPrepareForm extends AbstractHelper
 {

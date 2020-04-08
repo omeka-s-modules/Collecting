@@ -1,7 +1,7 @@
 <?php
 namespace Collecting\Form\Element;
 
-use Zend\Form\Element;
+use Laminas\Form\Element;
 
 /**
  * A form element used to add markup to the form.

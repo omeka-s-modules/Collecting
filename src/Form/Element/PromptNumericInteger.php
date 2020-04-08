@@ -2,7 +2,7 @@
 namespace Collecting\Form\Element;
 
 use NumericDataTypes\Form\Element\Integer as IntegerElement;
-use Zend\InputFilter\InputProviderInterface;
+use Laminas\InputFilter\InputProviderInterface;
 
 class PromptNumericInteger extends IntegerElement implements InputProviderInterface
 {

@@ -2,9 +2,9 @@
 namespace Collecting\MediaType;
 
 use Collecting\Api\Representation\CollectingPromptRepresentation;
-use Zend\Form\Form;
-use Zend\I18n\Translator\TranslatorInterface;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\Form\Form;
+use Laminas\I18n\Translator\TranslatorInterface;
+use Laminas\View\Renderer\PhpRenderer;
 
 class Fallback implements MediaTypeInterface
 {

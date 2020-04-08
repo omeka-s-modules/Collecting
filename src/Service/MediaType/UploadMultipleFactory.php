@@ -3,7 +3,7 @@ namespace Collecting\Service\MediaType;
 
 use Collecting\MediaType\UploadMultiple;
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class UploadMultipleFactory implements FactoryInterface
 {

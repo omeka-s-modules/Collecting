@@ -5,8 +5,8 @@ use Collecting\Form\Element;
 use Omeka\Api\Exception\BadRequestException;
 use Omeka\Api\Exception\NotFoundException;
 use Omeka\Api\Representation\AbstractEntityRepresentation;
-use Zend\Form\Form;
-use Zend\Http\PhpEnvironment\RemoteAddress;
+use Laminas\Form\Form;
+use Laminas\Http\PhpEnvironment\RemoteAddress;
 
 class CollectingFormRepresentation extends AbstractEntityRepresentation
 {

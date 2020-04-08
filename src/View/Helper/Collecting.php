@@ -7,7 +7,7 @@ use Collecting\MediaType\Manager as MediaTypeManager;
 use Composer\Semver\Comparator;
 use Omeka\Api\Exception\BadRequestException;
 use Omeka\Module\Manager as ModuleManager;
-use Zend\View\Helper\AbstractHelper;
+use Laminas\View\Helper\AbstractHelper;
 
 class Collecting extends AbstractHelper
 {

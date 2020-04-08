@@ -4,7 +4,7 @@ namespace Collecting\Service;
 use Collecting\MediaType\Manager;
 use Interop\Container\ContainerInterface;
 use Omeka\Service\Exception;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class MediaTypeManagerFactory implements FactoryInterface
 {

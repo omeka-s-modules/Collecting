@@ -4,10 +4,10 @@ namespace Collecting\Controller\Site;
 use Collecting\Api\Representation\CollectingFormRepresentation;
 use Collecting\MediaType\Manager;
 use Omeka\Permissions\Acl;
-use Zend\Mime\Message as MimeMessage;
-use Zend\Mime\Part as MimePart;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\Mime\Message as MimeMessage;
+use Laminas\Mime\Part as MimePart;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {

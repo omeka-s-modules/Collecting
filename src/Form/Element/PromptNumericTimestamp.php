@@ -2,7 +2,7 @@
 namespace Collecting\Form\Element;
 
 use NumericDataTypes\Form\Element\Timestamp as TimestampElement;
-use Zend\InputFilter\InputProviderInterface;
+use Laminas\InputFilter\InputProviderInterface;
 
 class PromptNumericTimestamp extends TimestampElement implements InputProviderInterface
 {

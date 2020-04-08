@@ -3,7 +3,7 @@ namespace Collecting\Api\Representation;
 
 use Collecting\Entity\CollectingPrompt;
 use Omeka\Api\Representation\AbstractRepresentation;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 class CollectingPromptRepresentation extends AbstractRepresentation
 {

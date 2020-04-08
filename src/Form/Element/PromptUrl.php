@@ -1,7 +1,7 @@
 <?php
 namespace Collecting\Form\Element;
 
-use Zend\Form\Element\Url;
+use Laminas\Form\Element\Url;
 
 class PromptUrl extends Url
 {

@@ -2,7 +2,7 @@
 namespace Collecting\Form\Element;
 
 use NumericDataTypes\Form\Element\Interval as IntervalElement;
-use Zend\InputFilter\InputProviderInterface;
+use Laminas\InputFilter\InputProviderInterface;
 
 class PromptNumericInterval extends IntervalElement implements InputProviderInterface
 {

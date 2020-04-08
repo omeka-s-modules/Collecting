@@ -206,7 +206,7 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
 
     public function statusSelect()
     {
-        $select = new \Zend\Form\Element\Select(sprintf('statuses[%s]', $this->id()));
+        $select = new \Laminas\Form\Element\Select(sprintf('statuses[%s]', $this->id()));
         $select->setValueOptions([
             'needs_review' => 'Needs review', // @translate
             'public' => 'Public', // @translate

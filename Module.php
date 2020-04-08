@@ -8,12 +8,12 @@ use Omeka\Module\AbstractModule;
 use Omeka\Permissions\Assertion\HasSitePermissionAssertion;
 use Omeka\Permissions\Assertion\OwnsEntityAssertion;
 use Omeka\Permissions\Assertion\SiteIsPublicAssertion;
-use Zend\EventManager\Event;
-use Zend\EventManager\SharedEventManagerInterface;
-use Zend\Form\Fieldset;
-use Zend\Mvc\MvcEvent;
-use Zend\Permissions\Acl\Assertion\AssertionAggregate;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\EventManager\Event;
+use Laminas\EventManager\SharedEventManagerInterface;
+use Laminas\Form\Fieldset;
+use Laminas\Mvc\MvcEvent;
+use Laminas\Permissions\Acl\Assertion\AssertionAggregate;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 class Module extends AbstractModule
 {

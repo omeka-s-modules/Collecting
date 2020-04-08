@@ -3,7 +3,7 @@ namespace Collecting\Mvc\Controller\Plugin;
 
 use Omeka\Api\Representation\CollectingFormRepresentation;
 use Omeka\Api\Manager as ApiManager;
-use Zend\Mvc\Controller\Plugin\AbstractPlugin;
+use Laminas\Mvc\Controller\Plugin\AbstractPlugin;
 
 class CollectingCurrentForm extends AbstractPlugin
 {

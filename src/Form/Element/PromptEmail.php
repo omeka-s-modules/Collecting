@@ -1,8 +1,8 @@
 <?php
 namespace Collecting\Form\Element;
 
-use Zend\Form\Element\Email;
-use Zend\InputFilter\InputProviderInterface;
+use Laminas\Form\Element\Email;
+use Laminas\InputFilter\InputProviderInterface;
 
 class PromptEmail extends Email implements InputProviderInterface
 {

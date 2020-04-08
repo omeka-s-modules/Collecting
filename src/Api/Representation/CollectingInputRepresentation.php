@@ -4,7 +4,7 @@ namespace Collecting\Api\Representation;
 use Collecting\Api\Representation\CollectingPromptRepresentation;
 use Collecting\Entity\CollectingInput;
 use Omeka\Api\Representation\AbstractRepresentation;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 class CollectingInputRepresentation extends AbstractRepresentation
 {

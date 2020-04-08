@@ -4,7 +4,7 @@ namespace Collecting\Form;
 use Collecting\Entity\CollectingForm as CollectingFormEntity;
 use Omeka\Form\Element\CkeditorInline;
 use Omeka\Form\Element\ItemSetSelect;
-use Zend\Form\Form;
+use Laminas\Form\Form;
 
 class CollectingForm extends Form
 {

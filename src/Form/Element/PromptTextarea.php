@@ -1,8 +1,8 @@
 <?php
 namespace Collecting\Form\Element;
 
-use Zend\Form\Element\Textarea;
-use Zend\InputFilter\InputProviderInterface;
+use Laminas\Form\Element\Textarea;
+use Laminas\InputFilter\InputProviderInterface;
 
 class PromptTextarea extends Textarea implements InputProviderInterface
 {

@@ -3,7 +3,7 @@ namespace Collecting\Service\ViewHelper;
 
 use Collecting\View\Helper\Collecting;
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 class CollectingFactory implements FactoryInterface
 {
