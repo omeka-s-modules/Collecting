@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-23 15:52-0400\n"
+"POT-Creation-Date: 2020-04-30 14:11-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Module.php:138
+#: Module.php:268
 msgid "Click here to view the collected data."
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr ""
 msgid "[unknown item]"
 msgstr ""
 
-#: src/Controller/Site/IndexController.php:269
+#: src/Controller/Site/IndexController.php:274
 msgid "Thank you for your submission"
 msgstr ""
 
@@ -53,77 +53,77 @@ msgstr ""
 msgid "Add collecting form"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:32
+#: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:51
-#: view/collecting/site-admin/form/show.phtml:38
+#: view/collecting/site-admin/form/form.phtml:53
+#: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:53
+#: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:73
+#: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:76
+#: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:78
+#: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:91
+#: view/collecting/site-admin/form/form.phtml:93
 msgid "Media type"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:93
+#: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:101
+#: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:106
+#: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:108
+#: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:112
+#: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:120
+#: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:125
+#: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:125
+#: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:132
+#: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:134
+#: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:147
+#: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
 msgstr ""
 
@@ -140,30 +140,30 @@ msgstr ""
 msgid "This site has no collecting forms."
 msgstr ""
 
-#: view/collecting/site-admin/form/show.phtml:2
+#: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
 msgstr ""
 
-#: view/collecting/site-admin/form/show.phtml:5
+#: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
 msgstr ""
 
-#: view/collecting/site-admin/form/show.phtml:10
+#: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
 msgstr ""
 
-#: view/collecting/site-admin/form/show.phtml:15
+#: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
 msgstr ""
 
-#: view/collecting/site-admin/form/show.phtml:28
+#: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
 msgstr ""
 
-#: view/collecting/site-admin/form/show.phtml:63
+#: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
 msgstr ""
 
@@ -500,6 +500,23 @@ msgstr ""
 
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
+msgstr ""
+
+#: Module.php:154
+msgid "Terms of service"
+msgstr ""
+
+#: Module.php:155
+msgid ""
+"Enter the terms of service (TOS) for users who submit content to this site."
+msgstr ""
+
+#: Module.php:165
+msgid "Email address"
+msgstr ""
+
+#: Module.php:166
+msgid "Enter an email address from which submission emails will be sent."
 msgstr ""
 
 #: config/module.config.php:110
