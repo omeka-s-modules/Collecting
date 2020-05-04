@@ -18,27 +18,29 @@ $promptsData = $isEdit
 $promptRowTemplate = '
 <tr class="prompt">
     <td>
-        <span class="sortable-handle"></span>
-        <span class="prompt-type-span"></span>
-        <input type="hidden" class="prompt-id" name="o-module-collecting:prompt[__INDEX__][o:id]">
-        <input type="hidden" class="prompt-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:type]">
-        <input type="hidden" class="prompt-text" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:text]">
-        <input type="hidden" class="prompt-input-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
-        <input type="hidden" class="prompt-select-options" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
-        <input type="hidden" class="prompt-resource-query" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:resource_query]">
-        <input type="hidden" class="prompt-metadata-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
-        <input type="hidden" class="prompt-metadata-value" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
-        <input type="hidden" class="prompt-value-suggest" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
-        <input type="hidden" class="prompt-custom-vocab" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:custom_vocab]">
-        <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
-        <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
-        <input type="hidden" class="prompt-multiple" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:multiple]">
-        <input type="hidden" class="prompt-property-id" name="o-module-collecting:prompt[__INDEX__][o:property][o:id]">
-        <ul class="actions">
-            <li><a href="#" class="prompt-edit o-icon-edit" aria-label="' . $translate('Edit') . '" title="' . $translate('Edit') . '"></a></li>
-            <li><a href="#" class="prompt-delete o-icon-delete" aria-label="' . $translate('Delete') . '" title="' . $translate('Delete') . '"></a></li>
-            <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="' . $translate('Undo delete') . '" title="' . $translate('Undo delete') . '" style="display: none;"></a></li>
-        </ul>
+        <div class="title-wrapper">
+            <span class="sortable-handle"></span>
+            <span class="prompt-type-span"></span>
+            <input type="hidden" class="prompt-id" name="o-module-collecting:prompt[__INDEX__][o:id]">
+            <input type="hidden" class="prompt-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:type]">
+            <input type="hidden" class="prompt-text" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:text]">
+            <input type="hidden" class="prompt-input-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
+            <input type="hidden" class="prompt-select-options" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
+            <input type="hidden" class="prompt-resource-query" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:resource_query]">
+            <input type="hidden" class="prompt-metadata-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:input_type]">
+            <input type="hidden" class="prompt-metadata-value" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
+            <input type="hidden" class="prompt-value-suggest" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:select_options]">
+            <input type="hidden" class="prompt-custom-vocab" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:custom_vocab]">
+            <input type="hidden" class="prompt-media-type" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:media_type]">
+            <input type="hidden" class="prompt-required" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:required]">
+            <input type="hidden" class="prompt-multiple" name="o-module-collecting:prompt[__INDEX__][o-module-collecting:multiple]">
+            <input type="hidden" class="prompt-property-id" name="o-module-collecting:prompt[__INDEX__][o:property][o:id]">
+            <ul class="actions">
+                <li><a href="#" class="prompt-edit o-icon-edit" aria-label="' . $translate('Edit') . '" title="' . $translate('Edit') . '"></a></li>
+                <li><a href="#" class="prompt-delete o-icon-delete" aria-label="' . $translate('Delete') . '" title="' . $translate('Delete') . '"></a></li>
+                <li><a href="#" class="prompt-undo-delete o-icon-undo" aria-label="' . $translate('Undo delete') . '" title="' . $translate('Undo delete') . '" style="display: none;"></a></li>
+            </ul>
+        </div>
     </td>
     <td><span class="prompt-text-span"></span></td>
 </tr>';

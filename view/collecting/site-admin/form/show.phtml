@@ -1,6 +1,7 @@
 <?php
 $translate = $this->plugin('translate');
 
+$this->headLink()->appendStylesheet($this->assetUrl('css/collecting.css', 'Collecting'));
 echo $this->pageTitle(sprintf($translate('Collecting Form: “%s”'), $cForm->label()));
 $itemSetLabel = $cForm->itemSet()
     ? $cForm->itemSet()->displayTitle()
@@ -41,7 +42,7 @@ $itemSetLabel = $cForm->itemSet()
 
 <?php if ($prompts = $cForm->prompts()): ?>
 
-<table class="browse tablesaw" data-tablesaw-mode="stack">
+<table id="prompts-table" class="browse tablesaw" data-tablesaw-mode="stack">
     <thead>
     <tr>
         <th><?php echo $translate('Type'); ?></th>
