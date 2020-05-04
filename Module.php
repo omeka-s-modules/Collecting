@@ -88,6 +88,12 @@ class Module extends AbstractModule
         );
 
         $sharedEventManager->attach(
+            'Omeka\Form\SiteSettingsForm',
+            'form.add_input_filters',
+            [$this, 'addSiteSettingsInputFilters']
+        );
+
+        $sharedEventManager->attach(
             'Collecting\Api\Adapter\CollectingFormAdapter',
             'api.search.query',
             [$this, 'filterCollectingForms']
@@ -141,15 +147,27 @@ class Module extends AbstractModule
         $fieldset = new Fieldset('collecting');
         $fieldset->setLabel('Collecting');
 
-        // Add the terms of service to the form.
+        // Add the terms of service and email address to the form.
         $fieldset->add([
             'type' => 'textarea',
             'name' => 'collecting_tos',
             'options' => [
-                'label' => 'Collecting terms of service',
+                'label' => 'Terms of service', // @translate
+                'info' => 'Enter the terms of service (TOS) for users who submit content to this site.', // @translate
             ],
             'attributes' => [
                 'value' => $siteSettings->get('collecting_tos'),
+            ],
+        ]);
+        $fieldset->add([
+            'type' => 'email',
+            'name' => 'collecting_email',
+            'options' => [
+                'label' => 'Email address', // @translate
+                'info' => 'Enter an email address from which submission emails will be sent.', // @translate
+            ],
+            'attributes' => [
+                'value' => $siteSettings->get('collecting_email'),
             ],
         ]);
 
@@ -168,6 +186,21 @@ class Module extends AbstractModule
         ;
 
         $form->add($fieldset);
+    }
+
+    /**
+     * Add input filters to the site settings form.
+     *
+     * @param Event $event
+     */
+    public function addSiteSettingsInputFilters(Event $event)
+    {
+        $inputFilter = $event->getParam('inputFilter');
+        $inputFilter->get('collecting')->add([
+            'name' => 'collecting_email',
+            'required' => false,
+            'allow_empty' => true,
+        ]);
     }
 
     /**
