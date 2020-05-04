@@ -259,7 +259,12 @@ class IndexController extends AbstractActionController
         $body = new MimeMessage;
         $body->addPart($messagePart);
 
-        $message = $this->mailer()->createMessage()
+        $options = [];
+        $from = $this->siteSettings()->get('collecting_email');
+        if ($from) {
+            $options['from'] = $from;
+        }
+        $message = $this->mailer()->createMessage($options)
             ->addTo($cItem->userEmail(), $cItem->userName())
             ->setSubject($this->translate('Thank you for your submission'))
             ->setBody($body);
