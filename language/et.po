@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 13:47-0500\n"
+"POT-Creation-Date: 2020-04-30 14:11-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Rivo Zängov <eraser@eraser.ee>, 2019\n"
 "Language-Team: Estonian (https://www.transifex.com/omeka/teams/14184/et/)\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:141
+#: Module.php:268
 msgid "Click here to view the collected data."
 msgstr "Kogutud andmte vaatamiseks kliki siia."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:262
+#: src/Api/Representation/CollectingFormRepresentation.php:287
 #, php-format
 msgid "I accept the %s"
 msgstr "Ma nõustun %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:265
+#: src/Api/Representation/CollectingFormRepresentation.php:290
 msgid "Terms of Service"
 msgstr "Kasutustingimustega"
 
@@ -44,7 +44,7 @@ msgstr "[privaatne]"
 msgid "[unknown item]"
 msgstr "[tundmatu ühik]"
 
-#: src/Controller/Site/IndexController.php:241
+#: src/Controller/Site/IndexController.php:274
 msgid "Thank you for your submission"
 msgstr "Täname sind panuse eest"
 
@@ -57,77 +57,77 @@ msgstr "Muuda kogumise vormi: “%s”"
 msgid "Add collecting form"
 msgstr "Lisa kogumise vorm"
 
-#: view/collecting/site-admin/form/form.phtml:32
+#: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
 msgstr "Tühista kustutamine"
 
-#: view/collecting/site-admin/form/form.phtml:51
-#: view/collecting/site-admin/form/show.phtml:38
+#: view/collecting/site-admin/form/form.phtml:53
+#: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
 msgstr "Küsimused"
 
-#: view/collecting/site-admin/form/form.phtml:53
+#: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
 msgstr "Lisa küsimus"
 
-#: view/collecting/site-admin/form/form.phtml:73
+#: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
 msgstr "Küsimus"
 
-#: view/collecting/site-admin/form/form.phtml:76
+#: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
 msgstr "Küsimuse liik"
 
-#: view/collecting/site-admin/form/form.phtml:78
+#: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
 msgstr "Vali küsimuse liik"
 
-#: view/collecting/site-admin/form/form.phtml:91
+#: view/collecting/site-admin/form/form.phtml:93
 msgid "Media type"
 msgstr "Meedia liik"
 
-#: view/collecting/site-admin/form/form.phtml:93
+#: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
 msgstr "Vali meedia liik"
 
-#: view/collecting/site-admin/form/form.phtml:101
+#: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
 msgstr "Küsimuse tekst"
 
-#: view/collecting/site-admin/form/form.phtml:106
+#: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
 msgstr "Sisendi liik"
 
-#: view/collecting/site-admin/form/form.phtml:108
+#: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
 msgstr "Vali sisendi liik"
 
-#: view/collecting/site-admin/form/form.phtml:116
+#: view/collecting/site-admin/form/form.phtml:114
+msgid "(unavailable)"
+msgstr ""
+
+#: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
 msgstr "Tee menüü valikud"
 
-#: view/collecting/site-admin/form/form.phtml:121
+#: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
 msgstr "Filtri päring"
 
-#: view/collecting/site-admin/form/form.phtml:121
+#: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:127
+#: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:130
+#: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:137
-msgid "The Custom Vocab module is not enabled"
-msgstr ""
-
-#: view/collecting/site-admin/form/form.phtml:147
+#: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
 msgstr "Lisa muudatudi"
 
@@ -144,30 +144,30 @@ msgstr "Lisa uus vorm"
 msgid "This site has no collecting forms."
 msgstr "Sellel saidil pole kogumise vorme."
 
-#: view/collecting/site-admin/form/show.phtml:2
+#: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
 msgstr "Kogumise vorm: “%s”"
 
-#: view/collecting/site-admin/form/show.phtml:5
+#: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
 msgstr "[pole]"
 
-#: view/collecting/site-admin/form/show.phtml:10
+#: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
 msgstr "Muuda vormi"
 
-#: view/collecting/site-admin/form/show.phtml:15
+#: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
 msgstr "Tagasi kogumise vormide nimekirja"
 
-#: view/collecting/site-admin/form/show.phtml:28
+#: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
 msgstr "Anonüümsuse liik"
 
-#: view/collecting/site-admin/form/show.phtml:63
+#: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
 msgstr ""
 
@@ -317,8 +317,24 @@ msgid "Select menu"
 msgstr "Vali menüü"
 
 #: src/Entity/CollectingPrompt.php:118
-msgid "Item Resource"
-msgstr "Ühiku ressurss"
+msgid "Item resource"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:120
+msgid "Numeric timestamp"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:121
+msgid "Numeric interval"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:122
+msgid "Numeric duration"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:123
+msgid "Numeric integer"
+msgstr ""
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
@@ -336,17 +352,17 @@ msgstr ""
 msgid "Collecting"
 msgstr "Kogumine"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:152
-#: src/Api/Representation/CollectingFormRepresentation.php:159
-#: src/Api/Representation/CollectingFormRepresentation.php:176
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:177
 msgid "Please choose one..."
 msgstr "Palun vali üks ..."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:232
+#: src/Api/Representation/CollectingFormRepresentation.php:257
 msgid "I want to submit anonymously"
 msgstr "Soovin lisada anonüümselt"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:242
+#: src/Api/Representation/CollectingFormRepresentation.php:267
 msgid "Email me my submission"
 msgstr "Saada minu lisatud info mulle e-postile"
 
@@ -489,6 +505,23 @@ msgstr "E-kirja tekst"
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
 msgstr "Alusta kõiki lisamise e-kirju selle tekstiga."
+
+#: Module.php:154
+msgid "Terms of service"
+msgstr ""
+
+#: Module.php:155
+msgid ""
+"Enter the terms of service (TOS) for users who submit content to this site."
+msgstr ""
+
+#: Module.php:165
+msgid "Email address"
+msgstr ""
+
+#: Module.php:166
+msgid "Enter an email address from which submission emails will be sent."
+msgstr ""
 
 #: config/module.config.php:110
 msgid "Form Information"

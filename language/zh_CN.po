@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 13:47-0500\n"
+"POT-Creation-Date: 2020-04-30 14:11-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: Module.php:141
+#: Module.php:268
 msgid "Click here to view the collected data."
 msgstr "点击此处查看收集到的数据。"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:262
+#: src/Api/Representation/CollectingFormRepresentation.php:287
 #, php-format
 msgid "I accept the %s"
 msgstr "我接受%s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:265
+#: src/Api/Representation/CollectingFormRepresentation.php:290
 msgid "Terms of Service"
 msgstr "服务条款"
 
@@ -44,7 +44,7 @@ msgstr "【私密的】"
 msgid "[unknown item]"
 msgstr "【未知条目】"
 
-#: src/Controller/Site/IndexController.php:241
+#: src/Controller/Site/IndexController.php:274
 msgid "Thank you for your submission"
 msgstr "感谢您的提交"
 
@@ -57,77 +57,77 @@ msgstr "编辑收藏表单：“%s”"
 msgid "Add collecting form"
 msgstr "添加收藏表单"
 
-#: view/collecting/site-admin/form/form.phtml:32
+#: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
 msgstr "撤销删除"
 
-#: view/collecting/site-admin/form/form.phtml:51
-#: view/collecting/site-admin/form/show.phtml:38
+#: view/collecting/site-admin/form/form.phtml:53
+#: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
 msgstr "提示"
 
-#: view/collecting/site-admin/form/form.phtml:53
+#: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
 msgstr "添加提示"
 
-#: view/collecting/site-admin/form/form.phtml:73
+#: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
 msgstr "提示"
 
-#: view/collecting/site-admin/form/form.phtml:76
+#: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
 msgstr "提示类型"
 
-#: view/collecting/site-admin/form/form.phtml:78
+#: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
 msgstr "选择一个提示类型"
 
-#: view/collecting/site-admin/form/form.phtml:91
+#: view/collecting/site-admin/form/form.phtml:93
 msgid "Media type"
 msgstr "媒体类型"
 
-#: view/collecting/site-admin/form/form.phtml:93
+#: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
 msgstr "选择一个媒体类型"
 
-#: view/collecting/site-admin/form/form.phtml:101
+#: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
 msgstr "提示文本"
 
-#: view/collecting/site-admin/form/form.phtml:106
+#: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
 msgstr "输入类型"
 
-#: view/collecting/site-admin/form/form.phtml:108
+#: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
 msgstr "选择一个输入类型"
 
-#: view/collecting/site-admin/form/form.phtml:116
+#: view/collecting/site-admin/form/form.phtml:114
+msgid "(unavailable)"
+msgstr ""
+
+#: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
 msgstr "选择菜单选项"
 
-#: view/collecting/site-admin/form/form.phtml:121
+#: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
 msgstr "过滤查询"
 
-#: view/collecting/site-admin/form/form.phtml:121
+#: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
 msgstr "输入一个高级搜索URL查询字符串以过滤资源。"
 
-#: view/collecting/site-admin/form/form.phtml:127
+#: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:130
+#: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
 msgstr ""
 
-#: view/collecting/site-admin/form/form.phtml:137
-msgid "The Custom Vocab module is not enabled"
-msgstr ""
-
-#: view/collecting/site-admin/form/form.phtml:147
+#: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
 msgstr "添加更新"
 
@@ -144,30 +144,30 @@ msgstr "添加新表单"
 msgid "This site has no collecting forms."
 msgstr "该网站没有收藏表单"
 
-#: view/collecting/site-admin/form/show.phtml:2
+#: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
 msgstr "收藏表单：“%s”"
 
-#: view/collecting/site-admin/form/show.phtml:5
+#: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
 msgstr "【无】"
 
-#: view/collecting/site-admin/form/show.phtml:10
+#: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
 msgstr "编辑表单"
 
-#: view/collecting/site-admin/form/show.phtml:15
+#: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
 msgstr "返回收藏表单列表"
 
-#: view/collecting/site-admin/form/show.phtml:28
+#: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
 msgstr "匿名类型"
 
-#: view/collecting/site-admin/form/show.phtml:63
+#: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
 msgstr "该表单没有提示符。"
 
@@ -317,8 +317,24 @@ msgid "Select menu"
 msgstr "选择菜单"
 
 #: src/Entity/CollectingPrompt.php:118
-msgid "Item Resource"
-msgstr "条目资源"
+msgid "Item resource"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:120
+msgid "Numeric timestamp"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:121
+msgid "Numeric interval"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:122
+msgid "Numeric duration"
+msgstr ""
+
+#: src/Entity/CollectingPrompt.php:123
+msgid "Numeric integer"
+msgstr ""
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
@@ -336,17 +352,17 @@ msgstr "“用户是公开的”和“用户名称”输入是私密的"
 msgid "Collecting"
 msgstr "收藏"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:152
-#: src/Api/Representation/CollectingFormRepresentation.php:159
-#: src/Api/Representation/CollectingFormRepresentation.php:176
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:177
 msgid "Please choose one..."
 msgstr "请选择一个 ......"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:232
+#: src/Api/Representation/CollectingFormRepresentation.php:257
 msgid "I want to submit anonymously"
 msgstr "我希望匿名提交"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:242
+#: src/Api/Representation/CollectingFormRepresentation.php:267
 msgid "Email me my submission"
 msgstr "把我提交的东西电邮给我"
 
@@ -489,6 +505,23 @@ msgstr "电邮文本"
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
 msgstr "所有提交电邮都以此文本开头。"
+
+#: Module.php:154
+msgid "Terms of service"
+msgstr ""
+
+#: Module.php:155
+msgid ""
+"Enter the terms of service (TOS) for users who submit content to this site."
+msgstr ""
+
+#: Module.php:165
+msgid "Email address"
+msgstr ""
+
+#: Module.php:166
+msgid "Enter an email address from which submission emails will be sent."
+msgstr ""
 
 #: config/module.config.php:110
 msgid "Form Information"
