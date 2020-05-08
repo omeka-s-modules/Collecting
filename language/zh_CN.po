@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 16:06-0400\n"
+"POT-Creation-Date: 2020-05-08 15:41-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
@@ -25,12 +25,12 @@ msgstr ""
 msgid "Click here to view the collected data."
 msgstr "点击此处查看收集到的数据。"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:287
+#: src/Api/Representation/CollectingFormRepresentation.php:290
 #, php-format
 msgid "I accept the %s"
 msgstr "我接受%s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:290
+#: src/Api/Representation/CollectingFormRepresentation.php:293
 msgid "Terms of Service"
 msgstr "服务条款"
 
@@ -44,7 +44,7 @@ msgstr "【私密的】"
 msgid "[unknown item]"
 msgstr "【未知条目】"
 
-#: src/Controller/Site/IndexController.php:274
+#: src/Controller/Site/IndexController.php:281
 msgid "Thank you for your submission"
 msgstr "感谢您的提交"
 
@@ -320,19 +320,19 @@ msgstr "选择菜单"
 msgid "Item resource"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:120
+#: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:121
+#: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:122
+#: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:123
+#: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
 msgstr ""
 
@@ -354,15 +354,15 @@ msgstr "收藏"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:153
 #: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:177
+#: src/Api/Representation/CollectingFormRepresentation.php:180
 msgid "Please choose one..."
 msgstr "请选择一个 ......"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:257
+#: src/Api/Representation/CollectingFormRepresentation.php:260
 msgid "I want to submit anonymously"
 msgstr "我希望匿名提交"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:267
+#: src/Api/Representation/CollectingFormRepresentation.php:270
 msgid "Email me my submission"
 msgstr "把我提交的东西电邮给我"
 

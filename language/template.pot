@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 16:06-0400\n"
+"POT-Creation-Date: 2020-05-08 15:41-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 msgid "Click here to view the collected data."
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:287
+#: src/Api/Representation/CollectingFormRepresentation.php:290
 #, php-format
 msgid "I accept the %s"
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:290
+#: src/Api/Representation/CollectingFormRepresentation.php:293
 msgid "Terms of Service"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr ""
 msgid "[unknown item]"
 msgstr ""
 
-#: src/Controller/Site/IndexController.php:274
+#: src/Controller/Site/IndexController.php:281
 msgid "Thank you for your submission"
 msgstr ""
 
@@ -316,19 +316,19 @@ msgstr ""
 msgid "Item resource"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:120
+#: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:121
+#: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:122
+#: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
 msgstr ""
 
-#: src/Entity/CollectingPrompt.php:123
+#: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
 msgstr ""
 
@@ -350,15 +350,15 @@ msgstr ""
 
 #: src/Api/Representation/CollectingFormRepresentation.php:153
 #: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:177
+#: src/Api/Representation/CollectingFormRepresentation.php:180
 msgid "Please choose one..."
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:257
+#: src/Api/Representation/CollectingFormRepresentation.php:260
 msgid "I want to submit anonymously"
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:267
+#: src/Api/Representation/CollectingFormRepresentation.php:270
 msgid "Email me my submission"
 msgstr ""
 
