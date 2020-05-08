@@ -157,6 +157,13 @@ class IndexController extends AbstractActionController
             switch ($prompt->type()) {
                 case 'property':
                     switch ($prompt->inputType()) {
+                        case 'url':
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'uri',
+                                'property_id' => $prompt->property()->id(),
+                                '@id' => $postedPrompts[$prompt->id()],
+                            ];
+                            break;
                         case 'item':
                             $itemData[$prompt->property()->term()][] = [
                                 'type' => 'resource',

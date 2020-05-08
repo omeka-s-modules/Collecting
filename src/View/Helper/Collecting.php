@@ -110,6 +110,7 @@ class Collecting extends AbstractHelper
             case 'textarea':
             case 'select':
             case 'item':
+            case 'url':
                 // Native input types are always available.
                 return true;
             default:

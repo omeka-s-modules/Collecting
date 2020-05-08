@@ -162,6 +162,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                     return sprintf('#%s: %s', $item->id(), mb_substr($item->displayTitle(), 0, 80));
                                 }, $resourceQuery);
                             break;
+                        case 'url':
+                            $element = new Element\PromptUrl($name);
+                            break;
                         case 'custom_vocab':
                             try {
                                 $response = $api->read('custom_vocabs', $prompt->customVocab());
