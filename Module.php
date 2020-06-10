@@ -2,6 +2,7 @@
 namespace Collecting;
 
 use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
+use Collecting\Permissions\Assertion\HasUserEmailPermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserNamePermissionAssertion;
 use Composer\Semver\Comparator;
 use Omeka\Module\AbstractModule;
@@ -396,6 +397,12 @@ class Module extends AbstractModule
             'Collecting\Entity\CollectingItem',
             'view-collecting-user-name',
             new HasUserNamePermissionAssertion
+        );
+        $acl->allow(
+            null,
+            'Collecting\Entity\CollectingItem',
+            'view-collecting-user-email',
+            new HasUserEmailPermissionAssertion
         );
     }
 }
