@@ -361,22 +361,12 @@ class Module extends AbstractModule
         $editorAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
             null,
-            'Collecting\Entity\CollectingForm',
+            [
+                'Collecting\Entity\CollectingForm',
+                'Collecting\Entity\CollectingItem'
+            ],
             'update',
             $editorAssertion
-        );
-
-        $viewerAssertion = new AssertionAggregate;
-        $viewerAssertion->addAssertions([
-            new OwnsEntityAssertion,
-            new HasSitePermissionAssertion('viewer')
-        ]);
-        $viewerAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
-        $acl->allow(
-            null,
-            'Collecting\Entity\CollectingItem',
-            'update',
-            $viewerAssertion
         );
 
         $viewerAssertion = new AssertionAggregate;
@@ -399,7 +389,7 @@ class Module extends AbstractModule
         // Discrete data permissions.
         $assertion = new AssertionAggregate;
         $assertion->addAssertions([
-            new HasSitePermissionAssertion('viewer'),
+            new HasSitePermissionAssertion('editor'),
             new HasInputTextPermissionAssertion,
         ]);
         $assertion->setMode(AssertionAggregate::MODE_ALL);
@@ -411,7 +401,7 @@ class Module extends AbstractModule
         );
         $assertion = new AssertionAggregate;
         $assertion->addAssertions([
-            new HasSitePermissionAssertion('viewer'),
+            new HasSitePermissionAssertion('editor'),
             new HasUserNamePermissionAssertion,
         ]);
         $assertion->setMode(AssertionAggregate::MODE_ALL);
@@ -423,7 +413,7 @@ class Module extends AbstractModule
         );
         $assertion = new AssertionAggregate;
         $assertion->addAssertions([
-            new HasSitePermissionAssertion('viewer'),
+            new HasSitePermissionAssertion('editor'),
             new HasUserEmailPermissionAssertion,
         ]);
         $assertion->setMode(AssertionAggregate::MODE_ALL);
