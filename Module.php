@@ -363,7 +363,7 @@ class Module extends AbstractModule
             null,
             [
                 'Collecting\Entity\CollectingForm',
-                'Collecting\Entity\CollectingItem'
+                'Collecting\Entity\CollectingItem',
             ],
             'update',
             $editorAssertion
