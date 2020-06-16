@@ -360,12 +360,22 @@ class Module extends AbstractModule
         $editorAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
             null,
-            [
-                'Collecting\Entity\CollectingForm',
-                'Collecting\Entity\CollectingItem',
-            ],
+            'Collecting\Entity\CollectingForm',
             'update',
             $editorAssertion
+        );
+
+        $viewerAssertion = new AssertionAggregate;
+        $viewerAssertion->addAssertions([
+            new OwnsEntityAssertion,
+            new HasSitePermissionAssertion('viewer')
+        ]);
+        $viewerAssertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
+        $acl->allow(
+            null,
+            'Collecting\Entity\CollectingItem',
+            'update',
+            $viewerAssertion
         );
 
         $viewerAssertion = new AssertionAggregate;
