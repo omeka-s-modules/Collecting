@@ -4,9 +4,10 @@ namespace Collecting;
 use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserEmailPermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserNamePermissionAssertion;
+use Collecting\Permissions\Assertion\InputHasSitePermissionAssertion;
 use Composer\Semver\Comparator;
 use Omeka\Module\AbstractModule;
-use Omeka\Permissions\Assertion\HasSitePermissionAssertion;
+use Collecting\Permissions\Assertion\HasSitePermissionAssertion;
 use Omeka\Permissions\Assertion\OwnsEntityAssertion;
 use Omeka\Permissions\Assertion\SiteIsPublicAssertion;
 use Zend\EventManager\Event;
@@ -396,23 +397,41 @@ class Module extends AbstractModule
         );
 
         // Discrete data permissions.
+        $assertion = new AssertionAggregate;
+        $assertion->addAssertions([
+            new HasSitePermissionAssertion('viewer'),
+            new HasInputTextPermissionAssertion,
+        ]);
+        $assertion->setMode(AssertionAggregate::MODE_ALL);
         $acl->allow(
             null,
             'Collecting\Entity\CollectingInput',
             'view-collecting-input-text',
-            new HasInputTextPermissionAssertion
+            $assertion
         );
+        $assertion = new AssertionAggregate;
+        $assertion->addAssertions([
+            new HasSitePermissionAssertion('viewer'),
+            new HasUserNamePermissionAssertion,
+        ]);
+        $assertion->setMode(AssertionAggregate::MODE_ALL);
         $acl->allow(
             null,
             'Collecting\Entity\CollectingItem',
             'view-collecting-user-name',
-            new HasUserNamePermissionAssertion
+            $assertion
         );
+        $assertion = new AssertionAggregate;
+        $assertion->addAssertions([
+            new HasSitePermissionAssertion('viewer'),
+            new HasUserEmailPermissionAssertion,
+        ]);
+        $assertion->setMode(AssertionAggregate::MODE_ALL);
         $acl->allow(
-            null,
+             null,
             'Collecting\Entity\CollectingItem',
             'view-collecting-user-email',
-            new HasUserEmailPermissionAssertion
+            $assertion
         );
     }
 }
