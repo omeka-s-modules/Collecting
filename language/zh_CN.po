@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 15:41-0400\n"
+"POT-Creation-Date: 2020-06-15 20:44-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: Module.php:268
+#: Module.php:269
 msgid "Click here to view the collected data."
 msgstr "点击此处查看收集到的数据。"
 
@@ -506,20 +506,20 @@ msgstr "电邮文本"
 msgid "Begin all submission emails with this text."
 msgstr "所有提交电邮都以此文本开头。"
 
-#: Module.php:154
+#: Module.php:155
 msgid "Terms of service"
 msgstr ""
 
-#: Module.php:155
+#: Module.php:156
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 
-#: Module.php:165
+#: Module.php:166
 msgid "Email address"
 msgstr ""
 
-#: Module.php:166
+#: Module.php:167
 msgid "Enter an email address from which submission emails will be sent."
 msgstr ""
 

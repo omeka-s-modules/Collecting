@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 15:41-0400\n"
+"POT-Creation-Date: 2020-06-15 20:44-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Daniel Berthereau <daniel.transifex@berthereau.net>, 2020\n"
 "Language-Team: French (https://www.transifex.com/omeka/teams/14184/fr/)\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: Module.php:268
+#: Module.php:269
 msgid "Click here to view the collected data."
 msgstr "Cliquer ici pour voir les données collectées."
 
@@ -522,22 +522,22 @@ msgstr "Label du mail"
 msgid "Begin all submission emails with this text."
 msgstr "Commencer tous les emails de confirmation avec ce texte."
 
-#: Module.php:154
+#: Module.php:155
 msgid "Terms of service"
 msgstr "Termes et conditions"
 
-#: Module.php:155
+#: Module.php:156
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Indiquer les termes et conditions d’utilisation du service pour les "
 "utilisateurs qui déposent des contenus sur ce site."
 
-#: Module.php:165
+#: Module.php:166
 msgid "Email address"
 msgstr "Adresse mail"
 
-#: Module.php:166
+#: Module.php:167
 msgid "Enter an email address from which submission emails will be sent."
 msgstr ""
 "Indiquer l’adresse mail qui sera utilisée pour envoyer les mails après un "

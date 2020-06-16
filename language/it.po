@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 15:41-0400\n"
+"POT-Creation-Date: 2020-06-15 20:44-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/omeka/teams/14184/it/)\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:268
+#: Module.php:269
 msgid "Click here to view the collected data."
 msgstr "Clicca qui per visualizzare i dati raccolti"
 
@@ -519,22 +519,22 @@ msgstr "Testo dell'email"
 msgid "Begin all submission emails with this text."
 msgstr "Comincia tutte le presentazioni degli emails con questo testo."
 
-#: Module.php:154
+#: Module.php:155
 msgid "Terms of service"
 msgstr "Condizioni d'utilizzo"
 
-#: Module.php:155
+#: Module.php:156
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Inserisci le condizioni d'utilizzo (TOS) per gli utenti che inseriranno "
 "contenuti in questo sito"
 
-#: Module.php:165
+#: Module.php:166
 msgid "Email address"
 msgstr "Indirizzo email"
 
-#: Module.php:166
+#: Module.php:167
 msgid "Enter an email address from which submission emails will be sent."
 msgstr ""
 "Inserisci un indirizzo email da cui verranno inviate le email con i "
