@@ -387,17 +387,11 @@ class Module extends AbstractModule
         );
 
         // Discrete data permissions.
-        $assertion = new AssertionAggregate;
-        $assertion->addAssertions([
-            new HasSitePermissionAssertion('editor'),
-            new HasInputTextPermissionAssertion,
-        ]);
-        $assertion->setMode(AssertionAggregate::MODE_ALL);
         $acl->allow(
             null,
             'Collecting\Entity\CollectingInput',
             'view-collecting-input-text',
-            $assertion
+            new HasInputTextPermissionAssertion
         );
         $assertion = new AssertionAggregate;
         $assertion->addAssertions([
