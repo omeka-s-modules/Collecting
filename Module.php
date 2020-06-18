@@ -2,12 +2,11 @@
 namespace Collecting;
 
 use Collecting\Permissions\Assertion\HasInputTextPermissionAssertion;
+use Collecting\Permissions\Assertion\HasSitePermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserEmailPermissionAssertion;
 use Collecting\Permissions\Assertion\HasUserNamePermissionAssertion;
-use Collecting\Permissions\Assertion\InputHasSitePermissionAssertion;
 use Composer\Semver\Comparator;
 use Omeka\Module\AbstractModule;
-use Collecting\Permissions\Assertion\HasSitePermissionAssertion;
 use Omeka\Permissions\Assertion\OwnsEntityAssertion;
 use Omeka\Permissions\Assertion\SiteIsPublicAssertion;
 use Zend\EventManager\Event;
