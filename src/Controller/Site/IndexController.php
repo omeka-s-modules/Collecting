@@ -157,6 +157,13 @@ class IndexController extends AbstractActionController
             switch ($prompt->type()) {
                 case 'property':
                     switch ($prompt->inputType()) {
+                        case 'url':
+                            $itemData[$prompt->property()->term()][] = [
+                                'type' => 'uri',
+                                'property_id' => $prompt->property()->id(),
+                                '@id' => $postedPrompts[$prompt->id()],
+                            ];
+                            break;
                         case 'item':
                             $itemData[$prompt->property()->term()][] = [
                                 'type' => 'resource',
@@ -264,7 +271,12 @@ class IndexController extends AbstractActionController
         $body = new MimeMessage;
         $body->addPart($messagePart);
 
-        $message = $this->mailer()->createMessage()
+        $options = [];
+        $from = $this->siteSettings()->get('collecting_email');
+        if ($from) {
+            $options['from'] = $from;
+        }
+        $message = $this->mailer()->createMessage($options)
             ->addTo($cItem->userEmail(), $cItem->userName())
             ->setSubject($this->translate('Thank you for your submission'))
             ->setBody($body);

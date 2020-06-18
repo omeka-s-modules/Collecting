@@ -4,7 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Matti Lassila <matti.lassila@gmail.com>, 2018
+# mikasa254 <aferro2k6@gmail.com>, 2019
+# Darío Hereñú, 2019
+# Josu Aramberri <jaramberri@i2basque.es>, 2019
+# Carlos Rivera <Robertohernande9z9@hotmail.com>, 2019
 # 
 #, fuzzy
 msgid ""
@@ -13,204 +16,202 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 13:47-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Matti Lassila <matti.lassila@gmail.com>, 2018\n"
-"Language-Team: Finnish (Finland) (https://www.transifex.com/omeka/teams/14184/fi_FI/)\n"
+"Last-Translator: Carlos Rivera <Robertohernande9z9@hotmail.com>, 2019\n"
+"Language-Team: Spanish (https://www.transifex.com/omeka/teams/14184/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi_FI\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: Module.php:269
 msgid "Click here to view the collected data."
-msgstr "Näytä oheistiedot."
+msgstr "Haga clic aquí para ver la colección de datos "
 
 #: src/Api/Representation/CollectingFormRepresentation.php:290
 #, php-format
 msgid "I accept the %s"
-msgstr "Hyväksyn %s"
+msgstr "Acepto las %s"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:293
 msgid "Terms of Service"
-msgstr "käyttöehdot"
+msgstr "Condiciones de servicio"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:73
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
-msgstr "[yksityinen]"
+msgstr "[Privado]"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:80
 msgid "[unknown item]"
-msgstr "[tuntematon aineisto]"
+msgstr "[Item desconocido]"
 
 #: src/Controller/Site/IndexController.php:281
 msgid "Thank you for your submission"
-msgstr "Kiitokset osallistumisestasi"
+msgstr "Gracias por su envío"
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
-msgstr "Muokataan lomaketta: “%s”"
+msgstr "Modificar formulario: \"%s\""
 
 #: view/collecting/site-admin/form/form.phtml:10
 msgid "Add collecting form"
-msgstr "Lisää lomake"
+msgstr "Agregar formulario"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
-msgstr "Peru poisto"
+msgstr "Deshacer"
 
 #: view/collecting/site-admin/form/form.phtml:53
 #: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
-msgstr "Lomakkeen kentät"
+msgstr "Avisos"
 
 #: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
-msgstr "Lisää kenttä"
+msgstr "Agregar indicación"
 
 #: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
-msgstr "Kenttä"
+msgstr "Aviso"
 
 #: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
-msgstr "Tyyppi"
+msgstr "Tipo de aviso"
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr "Valitse kentän tyyppi"
+msgstr "Seleccionar un tipo de aviso"
 
 #: view/collecting/site-admin/form/form.phtml:93
 msgid "Media type"
-msgstr "Liitteen tyyppi"
+msgstr "Media"
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
-msgstr "Valitse liitteen tyyppi"
+msgstr "Seleccione un tipo de media"
 
 #: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
-msgstr "Kentän otsikko tai kysymys"
+msgstr "Texto de aviso"
 
 #: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
-msgstr "Kentän tyyppi"
+msgstr "Tipo de entrada"
 
 #: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
-msgstr "Valitse kentän tyyppi"
+msgstr "Seleccione un tipo de entrada"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr ""
+msgstr "(no disponible)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
-msgstr "Valikon kohdat"
+msgstr "Seleccione menú de opciones "
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
-msgstr "Haku-URL"
+msgstr "Filtrar consulta"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
-msgstr ""
-"Ylläpitonäkymän tarkennetun haun kysely-URL. Käytä osioita osoitteen admin/ "
-"-tekstin jälkeen."
+msgstr "Filtrar recursos introduciendo una búsqueda avanzada de URL"
 
 #: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
-msgstr ""
+msgstr "Vocabulario personalizado"
 
 #: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
-msgstr ""
+msgstr "Selecciona un vocabulario personalizado"
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
-msgstr "Lisää kenttä"
+msgstr "Agregar Cambios"
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
-msgstr "Lomakkeet"
+msgstr "Formularios"
 
 #: view/collecting/site-admin/form/index.phtml:7
 msgid "Add new form"
-msgstr "Lisää lomake"
+msgstr "Añadir nuevo formulario"
 
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
 msgid "This site has no collecting forms."
-msgstr "Sivustolla ei ole lomakkeita."
+msgstr "No hay formularios."
 
 #: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
-msgstr "Lomake: “%s”"
+msgstr "Formulario: \"%s\""
 
 #: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
-msgstr "[ei valittua kokoelmaa]"
+msgstr "[ninguno]"
 
 #: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
-msgstr "Muokkaa lomaketta"
+msgstr "Editar formulario"
 
 #: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
-msgstr "Palaa lomakelistaukseen"
+msgstr "Volver a la lista de formularios"
 
 #: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
-msgstr "Yksityisyys"
+msgstr "Tipo de anonimato"
 
 #: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
-msgstr "Lomakkeella ei ole kenttiä."
+msgstr "Este formulario no posee indicaciones."
 
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Needs review"
-msgstr "Odottaa moderointia"
+msgstr "Necesita revisión"
 
 #: view/collecting/site-admin/item/index.phtml:17
 msgid "Reviewed: public"
-msgstr "Moderoitu: julkinen"
+msgstr "Revisado: público"
 
 #: view/collecting/site-admin/item/index.phtml:18
 msgid "Reviewed: private"
-msgstr "Moderoitu: yksityinen"
+msgstr "Revisado: privado"
 
 #: view/collecting/site-admin/item/index.phtml:29
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Reviewed"
-msgstr "Moderoitu"
+msgstr "Revisado"
 
 #: view/collecting/site-admin/item/index.phtml:41
 msgid "Update statuses"
-msgstr "Päivitä tila"
+msgstr "Actualizar estados"
 
 #: view/collecting/site-admin/item/index.phtml:50
 msgid "Reviewed By"
-msgstr "Moderoija"
+msgstr "Revisado por"
 
 #: view/collecting/site-admin/item/index.phtml:64
 msgid "[not reviewed]"
-msgstr "[ei moderoitu]"
+msgstr "[No revisado]"
 
 #: view/collecting/site-admin/item/index.phtml:96
 msgid "No items found."
-msgstr "Ei valitussa tilassa olevia aineistoja."
+msgstr "No hay items"
 
 #: view/collecting/site-admin/item/show-details.phtml:19
 #: view/common/collecting-item-section.phtml:35
 msgid "User name"
-msgstr "Nimi"
+msgstr "Nombre de usuario"
 
 #: view/collecting/site-admin/item/show-details.phtml:22
 #: view/collecting/site-admin/item/show-details.phtml:29
@@ -219,168 +220,168 @@ msgstr "Nimi"
 #: view/common/collecting-item-section.phtml:45
 #: view/common/collecting-item-section.phtml:52
 msgid "[not asked]"
-msgstr "[ei tallennettu]"
+msgstr "[no preguntado]"
 
 #: view/collecting/site-admin/item/show-details.phtml:26
 #: view/common/collecting-item-section.phtml:42
 msgid "User email"
-msgstr "Sähköpostiosoite"
+msgstr "Correo electrónico de usuario"
 
 #: view/collecting/site-admin/item/show-details.phtml:33
 #: view/common/collecting-item-section.phtml:49
 msgid "Anonymous?"
-msgstr "Anonyymi?"
+msgstr "¿Anónimo?"
 
 #: view/collecting/site/index/item-show.phtml:2
 #, php-format
 msgid "Collected Item: “%s”"
-msgstr "Tallennettu lomake: “%s”"
+msgstr "Elemento: “%s”"
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr "Näytä aineisto"
+msgstr "Clic aquí para ver item correspondiente "
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr "Lomake on tallennettu!"
+msgstr "Formulario enviado satisfactoriamente "
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
-msgstr "Valitse käytettävissä olevat lomakkeet:"
+msgstr "Seleccione formularios que puede completar un usuario:"
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
-msgstr "Valitse lomake..."
+msgstr "Seleccione formulario"
 
 #: view/common/collecting-item-citation.phtml:6
 msgid "[anonymous user]"
-msgstr "[anonyymi]"
+msgstr "[Usuario anónimo]"
 
 #: view/common/collecting-item-citation.phtml:9
 #, php-format
 msgid ""
 "This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
 msgstr ""
-"Tallennuspäivä %s . Aineiston tallensi %s käyttäen “%s” -lomaketta “%s”: %s "
-"-sivustolla."
+"Este item fué enviado en %s por %s usando el formulario %s en el sitio %s: "
+"%s"
 
 #: view/common/collecting-item-section.phtml:3
 msgid "Collected Inputs"
-msgstr "Tallennetut kentät"
+msgstr "Valores recogidos"
 
 #: view/common/collecting-item-section.phtml:11
 msgid "User Input"
-msgstr "Tallennettu tieto"
+msgstr "Usuario"
 
 #: view/common/collecting-item-section.phtml:33
 msgid "User Information"
-msgstr "Käyttäjätiedot"
+msgstr "Información de usuario"
 
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
-msgstr "Viite"
+msgstr "Cita pública"
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
-msgstr "Kenttä"
+msgstr "Propiedad"
 
 #: src/Entity/CollectingPrompt.php:102
 msgid "Item Media"
-msgstr "Liite"
+msgstr "Media"
 
 #: src/Entity/CollectingPrompt.php:103
 msgid "Item Supplementary"
-msgstr "Oheistieto"
+msgstr "Item adicional"
 
 #: src/Entity/CollectingPrompt.php:104
 msgid "User Name"
-msgstr "Nimi"
+msgstr "Nombre de usuario"
 
 #: src/Entity/CollectingPrompt.php:105
 msgid "User Email"
-msgstr "Sähköposti"
+msgstr "Correo electrónico de usuario"
 
 #: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
-msgstr "Yksityinen lisätieto, ei julkaista"
+msgstr "Usuario privado"
 
 #: src/Entity/CollectingPrompt.php:107
 msgid "User Public"
-msgstr "Julkinen lisätieto, voi julkaista"
+msgstr "Usuario público"
 
 #: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
-msgstr "Tekstikenttä (yksi rivi)"
+msgstr "Caja de texto (una línea)"
 
 #: src/Entity/CollectingPrompt.php:116
 msgid "Text box (multiple line)"
-msgstr "Tekstikenttä (monirivinen)"
+msgstr "Caja de texto (multiples líneas)"
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
-msgstr "Pudotusvalikko"
+msgstr "Seleccione menú "
 
 #: src/Entity/CollectingPrompt.php:118
 msgid "Item resource"
-msgstr ""
+msgstr "Recurso"
 
 #: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
-msgstr ""
+msgstr "Marca de tiempo numérica"
 
 #: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
-msgstr ""
+msgstr "Intervalo numérico"
 
 #: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
-msgstr ""
+msgstr "Duración"
 
 #: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
-msgstr ""
+msgstr "Valor numérico"
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
-msgstr "Käyttäjän määrittämä yksityisyysasetus"
+msgstr "El usuarios establece si es anónimo"
 
 #: src/Entity/CollectingForm.php:91
 msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr "“Julkinen lisätieto” ja “Nimi” -kentät ovat julkisia"
+msgstr "\"Usuario público\" y \"Nombre de usuario\" son públicamente visibles"
 
 #: src/Entity/CollectingForm.php:92
 msgid "“User Public” and “User Name” inputs are private"
-msgstr "“Yksityinen lisätieto” ja “Nimi” -kentät ovat yksityisiä"
+msgstr "\"Usuario público\" y \"Nombre de usuario\" son privados"
 
 #: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
 msgid "Collecting"
-msgstr "Lomakkeet"
+msgstr "Recogiendo"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:153
 #: src/Api/Representation/CollectingFormRepresentation.php:160
 #: src/Api/Representation/CollectingFormRepresentation.php:180
 msgid "Please choose one..."
-msgstr "Valitse vaihtoehdoista"
+msgstr "Por favor elija uno "
 
 #: src/Api/Representation/CollectingFormRepresentation.php:260
 msgid "I want to submit anonymously"
-msgstr "Osallistun nimettömänä"
+msgstr "Quiero enviarlo de manera anónima "
 
 #: src/Api/Representation/CollectingFormRepresentation.php:270
 msgid "Email me my submission"
-msgstr "Lähetä lomakkeen tiedot sähköpostilla"
+msgstr "Remíteme por email  mi envío"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:55
 msgid "A collecting form must be assigned a site on creation."
-msgstr ""
+msgstr "El formulario debe de asignarse a un sitio al crearlo"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:192
 msgid "A property prompt must have a property."
-msgstr ""
+msgstr "Un aviso de propiedad tiene que tener un propietario"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:195
 msgid "A property prompt must have an input type."
-msgstr ""
+msgstr "Un aviso de propiedad tiene que tener un tipo de entrada"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:200
 #: src/Api/Adapter/CollectingFormAdapter.php:221
@@ -388,66 +389,68 @@ msgstr ""
 #: src/Api/Adapter/CollectingFormAdapter.php:247
 msgid "A custom_vocab input type must have a custom vocab."
 msgstr ""
+"Tipo de entrada vocavulario_personalizado debe tener un vocabulario "
+"personalizado."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:205
 msgid "A media prompt must have text."
-msgstr ""
+msgstr "Mensaje de medio debe tener texto."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:208
 msgid "A media prompt must have a media type."
-msgstr ""
+msgstr "Se debe indicar un tipo de medio para media"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:213
 msgid "An input prompt must have text."
-msgstr ""
+msgstr "Requerimiento de entrada debe tener texto."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:216
 msgid "An input prompt must have an input type."
-msgstr ""
+msgstr "Requerimiento debe tener un tipo de entrada."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:226
 msgid "A user_private prompt must have text."
-msgstr ""
+msgstr "Aviso usuario_privado debe tener texto."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:229
 msgid "A user_private prompt must have an input type."
-msgstr ""
+msgstr "Aviso usuario_privado debe tener un tipo de entrada."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:239
 msgid "A user_public prompt must have text."
-msgstr ""
+msgstr "Aviso usuario_publico debe tener texto."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:242
 msgid "A user_public prompt must have an input type."
-msgstr ""
+msgstr "Aviso usuario_público debe tener un tipo de entrada."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:252
 msgid "A user_name prompt must have text."
-msgstr ""
+msgstr "Aviso nombre_usuario debe tener texto."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:257
 msgid "A user_email prompt must have text."
-msgstr ""
+msgstr "Aviso correo_usuario debe tener texto."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:262
 msgid "A html prompt must have text."
-msgstr ""
+msgstr "Aviso html debe tener texto."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:266
 msgid "Prompts must have a type."
-msgstr ""
+msgstr "Aviso debe tener un tipo."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:278
 msgid "Invalid anonymity type."
-msgstr ""
+msgstr "Tipo de anonimato inválido"
 
 #: src/Api/Adapter/CollectingItemAdapter.php:132
 msgid "A collecting item must be assigned an item on creation."
-msgstr ""
+msgstr "Colección de item se le debe asignar un elemento en la creación."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:135
 msgid "A collecting item must be assigned a form on creation."
-msgstr ""
+msgstr "Colección de item debe de asignarse a un formulario al crearse."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:139
 msgid "A collecting input must be assigned a prompt on creation."
@@ -455,64 +458,66 @@ msgstr ""
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
-msgstr ""
+msgstr "Subir uno"
 
 #: src/MediaType/UploadMultiple.php:20
 msgid "Upload Multiple"
-msgstr ""
+msgstr "Subir múltiples"
 
 #: src/Controller/SiteAdmin/FormController.php:83
 msgid "Collecting form successfully updated"
-msgstr "Lomake päivitettiin"
+msgstr "Recopilación de formulario actualizado con éxito"
 
 #: src/Controller/SiteAdmin/FormController.php:84
 msgid "Collecting form successfully created"
-msgstr "Lomake on luotu"
+msgstr "Recopilación de formulario creada con éxito"
 
 #: src/Controller/SiteAdmin/FormController.php:118
 msgid "Collecting form successfully deleted"
-msgstr "Lomake on poistettu"
+msgstr "Recopilación de formulario borrado con éxito"
 
 #: src/Controller/SiteAdmin/ItemController.php:71
 msgid "Statuses successfully updated"
-msgstr "Tilatieto päivitettiin"
+msgstr "Estados satisfactoriamente actualizados"
 
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."
-msgstr "Liitä kaikki lomakkeella tallennetut aineistot  valittuun kokoelmaan."
+msgstr ""
+"Asigne todos los elementos creados por este formulario a este conjunto de "
+"elementos."
 
 #: src/Form/CollectingForm.php:29
 msgid "Select Item Set..."
-msgstr "Valitse kokoelma..."
+msgstr "Seleccionar conjunto de item"
 
 #: src/Form/CollectingForm.php:39
 msgid "Anonymity type"
-msgstr "Yksityisyys"
+msgstr "De tipo anónimo "
 
 #: src/Form/CollectingForm.php:40
 msgid ""
 "Control how to treat “User Public” and “User Name” input on public pages."
 msgstr ""
-"Valitse kuinka “Julkinen lisätieto” ja “Nimi” -kenttiä käsitellään "
-"julkisissa näkymissä."
+"Controlar como tratar \"Usuario público\" y \"Nombre de usuario\" en páginas"
+" públicas "
 
 #: src/Form/CollectingForm.php:48
 msgid "Success text"
-msgstr "Tallennuksen kuittaus"
+msgstr "Texto Satisfactorio "
 
 #: src/Form/CollectingForm.php:49
 msgid "Display this text after a user successfully submits a form."
-msgstr "Lomakkeen lähetyksen jälkeen näytettävä teksti."
+msgstr ""
+"Mostrar mensaje después que un usuario haya enviado un formulario de manera "
+"satisfactoria"
 
 #: src/Form/CollectingForm.php:60
 msgid "Email text"
-msgstr "Sähköpostiviesti"
+msgstr "Texto de correo electrónico "
 
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
-msgstr ""
-"Teksti joka liitetään käyttäjälle hänen halutessaan lähetettävään "
-"sähköpostiin."
+msgstr "Empezar todos los envíos de correo electrónico con este texto"
 
 #: Module.php:155
 msgid "Terms of service"
@@ -533,8 +538,8 @@ msgstr ""
 
 #: config/module.config.php:110
 msgid "Form Information"
-msgstr "Lomakkeen tiedot"
+msgstr "Información del formulario"
 
 #: config/module.config.php:116
 msgid "Collected Items"
-msgstr "Tallennetut tiedot"
+msgstr "Elementos acopiados"
