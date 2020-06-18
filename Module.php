@@ -387,18 +387,24 @@ class Module extends AbstractModule
         );
 
         // Discrete data permissions.
+        $assertion = new AssertionAggregate;
+        $assertion->addAssertions([
+            new HasInputTextPermissionAssertion,
+            new HasSitePermissionAssertion('editor'),
+        ]);
+        $assertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
             null,
             'Collecting\Entity\CollectingInput',
             'view-collecting-input-text',
-            new HasInputTextPermissionAssertion
+            $assertion
         );
         $assertion = new AssertionAggregate;
         $assertion->addAssertions([
-            new HasSitePermissionAssertion('editor'),
             new HasUserNamePermissionAssertion,
+            new HasSitePermissionAssertion('editor'),
         ]);
-        $assertion->setMode(AssertionAggregate::MODE_ALL);
+        $assertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
             null,
             'Collecting\Entity\CollectingItem',
@@ -407,10 +413,10 @@ class Module extends AbstractModule
         );
         $assertion = new AssertionAggregate;
         $assertion->addAssertions([
-            new HasSitePermissionAssertion('editor'),
             new HasUserEmailPermissionAssertion,
+            new HasSitePermissionAssertion('editor'),
         ]);
-        $assertion->setMode(AssertionAggregate::MODE_ALL);
+        $assertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
              null,
             'Collecting\Entity\CollectingItem',
