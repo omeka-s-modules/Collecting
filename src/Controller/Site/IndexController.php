@@ -37,7 +37,6 @@ class IndexController extends AbstractActionController
         $form = $cForm->getForm();
         $form->setData($this->params()->fromPost());
         if ($form->isValid()) {
-
             list($itemData, $cItemData) = $this->getPromptData($cForm);
 
             // Temporarily give the user permission to create the Omeka and
@@ -87,7 +86,6 @@ class IndexController extends AbstractActionController
 
             // Out of an abundance of caution, revert back to default permissions.
             $this->acl->removeAllow();
-
         } else {
             $this->messenger()->addErrors($form->getMessages());
         }

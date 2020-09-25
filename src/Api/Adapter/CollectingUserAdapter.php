@@ -55,11 +55,14 @@ class CollectingUserAdapter extends AbstractEntityAdapter
     }
 
     public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore)
-    {}
+    {
+    }
 
     public function validateEntity(EntityInterface $entity, ErrorStore $errorStore)
-    {}
+    {
+    }
 
     public function buildQuery(QueryBuilder $qb, array $query)
-    {}
+    {
+    }
 }

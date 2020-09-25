@@ -3,7 +3,6 @@ namespace Collecting\MediaType;
 
 use Collecting\Api\Representation\CollectingPromptRepresentation;
 use Laminas\Form\Form;
-use Laminas\Mvc\Controller\Plugin\Params;
 use Laminas\View\Renderer\PhpRenderer;
 
 interface MediaTypeInterface
@@ -23,7 +22,6 @@ interface MediaTypeInterface
      * @param PhpRenderer $view
      */
     public function prepareForm(PhpRenderer $view);
-
 
     /**
      * Add this media type to the collecting form.

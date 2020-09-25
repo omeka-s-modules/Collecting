@@ -3,7 +3,6 @@ namespace Collecting\Controller\SiteAdmin;
 
 use Collecting\Form\CollectingForm;
 use Omeka\Form\ConfirmForm;
-use Omeka\Mvc\Exception;
 use Laminas\View\Model\ViewModel;
 use Laminas\Mvc\Controller\AbstractActionController;
 
@@ -128,4 +127,3 @@ class FormController extends AbstractActionController
         );
     }
 }
-

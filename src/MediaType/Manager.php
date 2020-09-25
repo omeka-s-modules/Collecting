@@ -1,7 +1,6 @@
 <?php
 namespace Collecting\MediaType;
 
-use Omeka\Api\Exception;
 use Omeka\ServiceManager\AbstractPluginManager;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 

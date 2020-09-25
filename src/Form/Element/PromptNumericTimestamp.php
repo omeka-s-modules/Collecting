@@ -13,6 +13,5 @@ class PromptNumericTimestamp extends TimestampElement implements InputProviderIn
         return [
             'required' => $this->required,
         ];
-
     }
 }

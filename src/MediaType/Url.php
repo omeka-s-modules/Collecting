@@ -14,7 +14,8 @@ class Url implements MediaTypeInterface
     }
 
     public function prepareForm(PhpRenderer $view)
-    {}
+    {
+    }
 
     public function form(Form $form, CollectingPromptRepresentation $prompt, $name)
     {

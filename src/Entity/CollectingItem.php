@@ -109,7 +109,8 @@ class CollectingItem extends AbstractEntity
      */
     protected $inputs;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->inputs = new ArrayCollection;
     }
 

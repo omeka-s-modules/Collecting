@@ -13,6 +13,5 @@ class PromptNumericDuration extends DurationElement implements InputProviderInte
         return [
             'required' => $this->required,
         ];
-
     }
 }

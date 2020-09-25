@@ -61,7 +61,7 @@ return [
     ],
     'service_manager' => [
         'factories' => [
-            'Collecting\MediaTypeManager'  => 'Collecting\Service\MediaTypeManagerFactory',
+            'Collecting\MediaTypeManager' => 'Collecting\Service\MediaTypeManagerFactory',
         ],
     ],
     'collecting_media_types' => [
@@ -241,7 +241,7 @@ return [
                                             ],
                                         ],
                                     ],
-                                ]
+                                ],
                             ],
                         ],
                     ],

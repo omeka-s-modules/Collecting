@@ -101,7 +101,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     {
         $prompts = [];
         foreach ($this->resource->getPrompts() as $prompt) {
-            $prompts[]= new CollectingPromptRepresentation($prompt, $this->getServiceLocator());
+            $prompts[] = new CollectingPromptRepresentation($prompt, $this->getServiceLocator());
         }
         return $prompts;
     }

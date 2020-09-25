@@ -13,6 +13,5 @@ class PromptText extends Text implements InputProviderInterface
         return [
             'required' => $this->required,
         ];
-
     }
 }

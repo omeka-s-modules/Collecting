@@ -38,7 +38,8 @@ class CollectingFormAdapter extends AbstractEntityAdapter
         );
     }
 
-    public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore) {
+    public function hydrate(Request $request, EntityInterface $entity, ErrorStore $errorStore)
+    {
         $data = $request->getContent();
 
         // Hydrate the owner.
