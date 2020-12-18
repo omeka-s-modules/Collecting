@@ -171,6 +171,35 @@ class Module extends AbstractModule
             ],
         ]);
 
+        $fieldset->add([
+            'name' => 'collecting_notify',
+            'type' => 'checkbox',
+            'options' => [
+                'label' => 'Notify each contribution', // @translate
+            ],
+            'attributes' => [
+                'id' => 'collecting_notify',
+                'value' => $siteSettings->get('collecting_notify', false),
+            ],
+        ]);
+        $fieldset->add([
+            'name' => 'collecting_notify_recipients',
+            'type' => 'textarea',
+            'options' => [
+                'label' => 'Emails to notify', // @translate
+                'info' => 'The list of recipients to notify, one per line.', // @translate
+            ],
+            'attributes' => [
+                'id' => 'collecting_notify_recipients',
+                'required' => false,
+                'placeholder' => 'Let empty to use the site owner email.', // @translate
+                'rows' => 5,
+            ],
+        ]);
+
+        $recipients = $siteSettings->get('collecting_notify_recipients', '');
+        $fieldset->get('collecting_notify_recipients')->setValue($recipients);
+
         $form->add($fieldset);
     }
 

@@ -2,6 +2,7 @@
 namespace Collecting\Controller\Site;
 
 use Collecting\Api\Representation\CollectingFormRepresentation;
+use Collecting\Api\Representation\CollectingItemRepresentation;
 use Collecting\MediaType\Manager;
 use Omeka\Permissions\Acl;
 use Laminas\Mime\Message as MimeMessage;
@@ -78,6 +79,10 @@ class IndexController extends AbstractActionController
                     $sendEmail = $this->params()->fromPost(sprintf('email_send_%s', $cForm->id()), false);
                     if ($sendEmail && $cItem->userEmail()) {
                         $this->sendSubmissionEmail($cForm, $cItem);
+                    }
+
+                    if ($this->siteSettings()->get('collecting_notify', false)) {
+                        $this->sendNotificationEmail($cForm, $cItem);
                     }
 
                     return $this->redirect()->toRoute(null, ['action' => 'success'], true);
@@ -279,5 +284,56 @@ class IndexController extends AbstractActionController
             ->setSubject($this->translate('Thank you for your submission'))
             ->setBody($body);
         $this->mailer()->send($message);
+    }
+
+    protected function sendNotificationEmail(CollectingFormRepresentation $cForm, CollectingItemRepresentation $cItem)
+    {
+        $i18nHelper = $this->viewHelpers()->get('i18n');
+        $partialHelper = $this->viewHelpers()->get('partial');
+
+        $emails = $this->getNotifyRecipients();
+        if (empty($emails)) {
+            return;
+        }
+
+        $messageContent = sprintf(
+            '<p>'
+            . $this->translate('A user submitted the following data on %s using the form “%s” on the site “%s”: %s')
+            . '</p>',
+            $i18nHelper->dateFormat($cItem->item()->created(), 'long'),
+            $cItem->form()->label(),
+            $cItem->form()->site()->title(),
+            $cItem->form()->site()->siteUrl(null, true)
+        );
+        $messageContent .= $partialHelper('common/collecting-item-inputs', ['cItem' => $cItem]);
+
+        $messagePart = new MimePart($messageContent);
+        $messagePart->setType('text/html');
+
+        $body = new MimeMessage;
+        $body->addPart($messagePart);
+
+        $message = $this->mailer()->createMessage()
+            ->addTo($emails)
+            ->setSubject($this->translate('[Omeka Submission]')) // @translate
+            ->setBody($body);
+        $this->mailer()->send($message);
+    }
+
+    protected function getNotifyRecipients(): array
+    {
+        $recipientsSetting = $this->siteSettings()->get('collecting_notify_recipients', '');
+        $recipients = array_filter(array_map('trim', explode("\r\n", $recipientsSetting)));
+
+        if (empty($recipients)) {
+            $owner = $this->currentSite()->owner();
+            if ($owner) {
+                $recipients[] = $owner->email();
+            } else {
+                $recipients[] = $this->settings()->get('administrator_email');
+            }
+        }
+
+        return $recipients;
     }
 }
