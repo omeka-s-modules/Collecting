@@ -4,7 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Hong Zhang <zhangh@unlv.nevada.edu>, 2021
+# Angela-Marina Batarelo <angela-marina.batarelo@ericsson.com>, 2021
+# Josip Ilic <josip.ilic@ericsson.com>, 2021
 # 
 #, fuzzy
 msgid ""
@@ -13,202 +14,204 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-21 11:43-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2021\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
+"Last-Translator: Josip Ilic <josip.ilic@ericsson.com>, 2021\n"
+"Language-Team: Croatian (https://www.transifex.com/omeka/teams/14184/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: Module.php:269
 msgid "Click here to view the collected data."
-msgstr "点击此处查看收集到的数据。"
+msgstr "Kliknite ovdje da bi ste vidjeli prikupljene podatke."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:290
 #, php-format
 msgid "I accept the %s"
-msgstr "我接受%s"
+msgstr "Prihvaćam %s"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:293
 msgid "Terms of Service"
-msgstr "服务条款"
+msgstr "Uvjeti Pružanja Usluge"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:72
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
-msgstr "【私密的】"
+msgstr "[privatno]"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:79
 msgid "[unknown item]"
-msgstr "【未知条目】"
+msgstr "[nepoznati predmet]"
 
 #: src/Controller/Site/IndexController.php:282
 msgid "Thank you for your submission"
-msgstr "感谢您的提交"
+msgstr "Hvala vam na vašoj predaji"
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
-msgstr "编辑收藏表单：“%s”"
+msgstr "Uredi obrazac za prikupljanje: \"%s\""
 
 #: view/collecting/site-admin/form/form.phtml:10
 msgid "Add collecting form"
-msgstr "添加收藏表单"
+msgstr "Dodaj obrazac za prikupljenje"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
-msgstr "撤销删除"
+msgstr "Poništi brisanje"
 
 #: view/collecting/site-admin/form/form.phtml:53
 #: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
-msgstr "提示"
+msgstr "Upiti"
 
 #: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
-msgstr "添加提示"
+msgstr "Dodaj upit"
 
 #: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
-msgstr "提示"
+msgstr "Upit"
 
 #: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
-msgstr "提示类型"
+msgstr "Vrsta upita"
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr "选择一个提示类型"
+msgstr "Odaberi vrstu upita"
 
 #: view/collecting/site-admin/form/form.phtml:93
 msgid "Media type"
-msgstr "媒介类型"
+msgstr "Vrsta medija"
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
-msgstr "选择一个媒介类型"
+msgstr "Odaberi vrstu medija"
 
 #: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
-msgstr "提示文本"
+msgstr "Tekst upita"
 
 #: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
-msgstr "输入类型"
+msgstr "Vrsta unosa"
 
 #: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
-msgstr "选择一个输入类型"
+msgstr "Odaberite vrstu unosa"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr "（不可用）"
+msgstr "(nedostupno)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
-msgstr "选择菜单选项"
+msgstr "Odaberite opcije za izbornik"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
-msgstr "过滤查询"
+msgstr "Upit za filtriranje"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
-msgstr "输入一个高级搜索URL查询字符串以过滤资源。"
+msgstr "Filtriranje resursa unosom niza upita URL-a za napredno pretraživanje"
 
 #: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
-msgstr "定制词汇"
+msgstr "prilagođeni  rječnik"
 
 #: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
-msgstr "选择定制词汇"
+msgstr "Odaberite prilagođeni rječnik"
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
-msgstr "添加更改"
+msgstr "Dodaj promjene"
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
-msgstr "收藏表单"
+msgstr "Obrasci za Prikupljanje"
 
 #: view/collecting/site-admin/form/index.phtml:7
 msgid "Add new form"
-msgstr "添加新表单"
+msgstr "Dodaj novi obrazac"
 
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
 msgid "This site has no collecting forms."
-msgstr "该网站没有收藏表单"
+msgstr "Ovo web-mjesto nema obrazaca za prikupljenje."
 
 #: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
-msgstr "收藏表单：“%s”"
+msgstr "Obrazac za Prikupljanje: \"%s\""
 
 #: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
-msgstr "【无】"
+msgstr ""
+" \n"
+"[ništa]"
 
 #: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
-msgstr "编辑表单"
+msgstr "Uredi obrazac"
 
 #: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
-msgstr "返回收藏表单列表"
+msgstr "Povratak na popis obrazaca za prikupljenje"
 
 #: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
-msgstr "匿名类型"
+msgstr "Vtsta Anonimnosti"
 
 #: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
-msgstr "该表单没有提示符。"
+msgstr "Ovaj obrazac nema upita."
 
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Needs review"
-msgstr "需要审核"
+msgstr "Treba pregled"
 
 #: view/collecting/site-admin/item/index.phtml:17
 msgid "Reviewed: public"
-msgstr "已审核：公开的"
+msgstr "Pregledano: javno"
 
 #: view/collecting/site-admin/item/index.phtml:18
 msgid "Reviewed: private"
-msgstr "已审核：私密的"
+msgstr "Pregledano: privatno"
 
 #: view/collecting/site-admin/item/index.phtml:29
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Reviewed"
-msgstr "已审核"
+msgstr "Pregledano"
 
 #: view/collecting/site-admin/item/index.phtml:41
 msgid "Update statuses"
-msgstr "更新状态"
+msgstr "Ažuriraj statuse"
 
 #: view/collecting/site-admin/item/index.phtml:50
 msgid "Reviewed By"
-msgstr "审核员："
+msgstr "Pregledao"
 
 #: view/collecting/site-admin/item/index.phtml:64
 msgid "[not reviewed]"
-msgstr "【未审核】"
+msgstr "[nije pregledano]"
 
 #: view/collecting/site-admin/item/index.phtml:96
 msgid "No items found."
-msgstr "没有找到任何条目。"
+msgstr "Nema pronađenih predmeta."
 
 #: view/collecting/site-admin/item/show-details.phtml:19
 #: view/common/collecting-item-section.phtml:35
 msgid "User name"
-msgstr "用户名"
+msgstr "Korisničko ime"
 
 #: view/collecting/site-admin/item/show-details.phtml:22
 #: view/collecting/site-admin/item/show-details.phtml:29
@@ -217,316 +220,348 @@ msgstr "用户名"
 #: view/common/collecting-item-section.phtml:45
 #: view/common/collecting-item-section.phtml:52
 msgid "[not asked]"
-msgstr "【未询问】"
+msgstr "[nije pitano]"
 
 #: view/collecting/site-admin/item/show-details.phtml:26
 #: view/common/collecting-item-section.phtml:42
 msgid "User email"
-msgstr "用户电邮地址"
+msgstr "E-mail korisnika"
 
 #: view/collecting/site-admin/item/show-details.phtml:33
 #: view/common/collecting-item-section.phtml:49
 msgid "Anonymous?"
-msgstr "匿名？"
+msgstr "Anonimno?"
 
 #: view/collecting/site/index/item-show.phtml:2
 #, php-format
 msgid "Collected Item: “%s”"
-msgstr "收藏的条目：“%s”"
+msgstr "Prikupljeni predmet: \"%s\""
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr "点击此处查看相应条目。"
+msgstr "Kliknite ovdje da bi ste vidjeli odgovarajući predmet."
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr "表单已成功提交！"
+msgstr "Obrazac uspješno predan!"
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
-msgstr "选择哪个收藏表单可以让用户填写："
+msgstr "Odaberite koje obrasce za prikupljenje korisnik može ispuniti:"
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
-msgstr "选择一个表单 ......"
+msgstr "Odaberi obrazac..."
 
 #: view/common/collecting-item-citation.phtml:6
 msgid "[anonymous user]"
-msgstr "【匿名用户】"
+msgstr "[anonimni korisnik]"
 
 #: view/common/collecting-item-citation.phtml:9
 #, php-format
 msgid ""
 "This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
-msgstr "该条目于%s由%s使用表单“%s”在网站“%s”：%s提交"
+msgstr ""
+"Ovaj predmet je predan %s, a predali su ga %s koristeći ovaj obrazac \"%s\" "
+"na web-mjestu \"%s\": %s"
 
 #: view/common/collecting-item-section.phtml:3
 msgid "Collected Inputs"
-msgstr "收藏的输入"
+msgstr "Prikupljeni Unosi"
 
 #: view/common/collecting-item-section.phtml:11
 msgid "User Input"
-msgstr "用户输入"
+msgstr "Korisnički Unos"
 
 #: view/common/collecting-item-section.phtml:33
 msgid "User Information"
-msgstr "用户信息"
+msgstr "Korisničke Informacije"
 
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
-msgstr "公开引用"
+msgstr "Javni citat"
 
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."
-msgstr "把该表单创建的所有条目分配给该条目集。"
+msgstr ""
+"Dodijelite sve predmete stvorene putem ovog obrasca ovom setu predmeta."
 
 #: src/Form/CollectingForm.php:29
 msgid "Select Item Set..."
-msgstr "选择条目集 ......"
+msgstr "Odaberi Set Predmeta..."
 
 #: src/Form/CollectingForm.php:39
 msgid "Anonymity type"
-msgstr "匿名类型"
+msgstr "Vrsta anonimnosti"
 
 #: src/Form/CollectingForm.php:40
 msgid ""
 "Control how to treat “User Public” and “User Name” input on public pages."
-msgstr "在公共页面上控制如何对待“用户是公开的”和“用户名称”输入。"
+msgstr ""
+"Kontrolirajte način postupanja s unosima \"neregistrirani korisnik\" i "
+"\"korisničko ime\" na javnim stranicama."
 
 #: src/Form/CollectingForm.php:48
 msgid "Success text"
-msgstr "成功文本"
+msgstr "Tekst uspjeha"
 
 #: src/Form/CollectingForm.php:49
 msgid "Display this text after a user successfully submits a form."
-msgstr "用户成功提交表单后显示该文本。"
+msgstr "Prikažite ovaj tekst nakon što korisnik uspješno preda obrazac."
 
 #: src/Form/CollectingForm.php:60
 msgid "Email text"
-msgstr "电子邮件文本"
+msgstr "Sadržaj e-maila"
 
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
-msgstr "所有提交电邮都以此文本开头。"
+msgstr "Započnite sve e-mailove za predaju ovim tekstom."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:132
 msgid "A collecting item must be assigned an item on creation."
-msgstr "收藏条目在创建时就必须指定一个条目。"
+msgstr "Predmetu prikupljanja mora se dodijeliti predmet pri stvaranju."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:135
 msgid "A collecting item must be assigned a form on creation."
-msgstr "收藏条目在创建时就必须指定一个表单。"
+msgstr "Predmetu prikupljanja mora se dodijeliti obrazac prilikom stvaranja."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:139
 msgid "A collecting input must be assigned a prompt on creation."
-msgstr "收藏输入在创建时就必须指定一个提示。"
+msgstr ""
+"Inputu tijekom prikupljanja mora se dodijeliti mjesto za unos\n"
+" \n"
+"\n"
+" \n"
+" \n"
+" \n"
+" \n"
+" "
 
 #: src/Api/Adapter/CollectingFormAdapter.php:56
 msgid "A collecting form must be assigned a site on creation."
-msgstr "收藏表单在创建时就必须指定一个网站。"
+msgstr ""
+"Obrascu za prikupljanje mora biti dodijeljeno mjesto prilikom stvaranja"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:193
 msgid "A property prompt must have a property."
-msgstr "属性提示必须有属性。"
+msgstr "Polje za unos mora imati mjesto"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:196
 msgid "A property prompt must have an input type."
-msgstr "属性提示必须有输入类型。"
+msgstr "Polje za unos mora imati vrstu unosa."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:201
 #: src/Api/Adapter/CollectingFormAdapter.php:222
 #: src/Api/Adapter/CollectingFormAdapter.php:235
 #: src/Api/Adapter/CollectingFormAdapter.php:248
 msgid "A custom_vocab input type must have a custom vocab."
-msgstr "custom_vocab输入类型必须有定制词汇。"
+msgstr "Vrsta unosa prilagođeni_vokabular mora imati prilagođeni vokabular."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:206
 msgid "A media prompt must have text."
-msgstr "媒体提示必须有文本。"
+msgstr "Mjesto unosa \"media\" mora sadržavati tekst"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:209
 msgid "A media prompt must have a media type."
-msgstr "媒体提示必须有媒体类型。"
+msgstr "Mjesto unosa \"media\" mora sadržavati vrstu unosa"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:214
 msgid "An input prompt must have text."
-msgstr "输入提示必须有文本。"
+msgstr "Mjesto za unos mora sadržavati tekst."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:217
 msgid "An input prompt must have an input type."
-msgstr "输入提示必须有输入类型。"
+msgstr "Mjesto za unos mora imati vrstu unosa."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:227
 msgid "A user_private prompt must have text."
-msgstr "user_private提示必须有文本。"
+msgstr "Mjesto unosa \"registrirani_korisnik\" mora sadržavati tekst"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:230
 msgid "A user_private prompt must have an input type."
-msgstr "user_private提示必须有输入类型。"
+msgstr "Mjesto unosa \"registrirani_korisnik\" mora sadržavati vrstu unosa."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:240
 msgid "A user_public prompt must have text."
-msgstr "user_public提示必须有文本。"
+msgstr "Mjesto unosa \"neregistrirani_korisnik\" mora sadržavati tekst"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:243
 msgid "A user_public prompt must have an input type."
-msgstr "user_public提示必须有输入类型。"
+msgstr "Mjesto unosa \"neregistrirani_korisnik\" mora sadržavati vrstu unosa."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:253
 msgid "A user_name prompt must have text."
-msgstr "user_name提示必须有文本。"
+msgstr "Mjesto unosa korisničko_ime mora sadržavati tekst"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:258
 msgid "A user_email prompt must have text."
-msgstr "user_email提示必须有文本。"
+msgstr "Mjesto unosa \"e-mail_korisnika\" mora sadržavati tekst"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:263
 msgid "A html prompt must have text."
-msgstr "html提示必须有文本。"
+msgstr "Mjesto unosa html mora sadržavati tekst"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:267
 msgid "Prompts must have a type."
-msgstr "提示必须有一个类型。"
+msgstr "Mjesto unosa mora sadržavati vrstu unosa"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:279
 msgid "Invalid anonymity type."
-msgstr "无效的匿名类型。"
+msgstr "Nevažeća vrsta anonimnosti"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:153
 #: src/Api/Representation/CollectingFormRepresentation.php:160
 #: src/Api/Representation/CollectingFormRepresentation.php:180
 msgid "Please choose one..."
-msgstr "请选择一个 ......"
+msgstr "Molimo vas da izaberete jedan..."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:260
 msgid "I want to submit anonymously"
-msgstr "我希望匿名提交"
+msgstr "Želim predati anonimno."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:270
 msgid "Email me my submission"
-msgstr "把我提交的东西电邮给我"
+msgstr "E-mailiraj mi moju predaju"
 
 #: src/Controller/SiteAdmin/ItemController.php:71
 msgid "Statuses successfully updated"
-msgstr "状态已成功更新"
+msgstr "Statusi uspješno ažurirani"
 
 #: src/Controller/SiteAdmin/FormController.php:82
 msgid "Collecting form successfully updated"
-msgstr "收藏表单已成功更新"
+msgstr "Obrazac za prikupljenje uspješno ažuriran"
 
 #: src/Controller/SiteAdmin/FormController.php:83
 msgid "Collecting form successfully created"
-msgstr "收藏表单已成功创建"
+msgstr "Obrazac za prikupljenje uspješno stvoren"
 
 #: src/Controller/SiteAdmin/FormController.php:117
 msgid "Collecting form successfully deleted"
-msgstr "收藏表单已成功删除"
+msgstr "Obrazac za prikupljanje uspješno izbrisan"
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
-msgstr "用户设置自己的匿名属性"
+msgstr "Korisnik postavlja vlastitu anonimnost"
 
 #: src/Entity/CollectingForm.php:91
 msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr "“用户是公开的”和“用户名称”输入是公开可见的"
+msgstr ""
+"Unosi \"Neregistrirani korisnik\" i \"Korisničko ime\" javno su vidljivi\n"
+" \n"
+"\n"
+" \n"
+" \n"
+" \n"
+" \n"
+" "
 
 #: src/Entity/CollectingForm.php:92
 msgid "“User Public” and “User Name” inputs are private"
-msgstr "“用户是公开的”和“用户名称”输入是私密的"
+msgstr ""
+"Unosi \"Neregistrirani korisnik\" i \"Korisničko ime\" javno su vidljivi\n"
+" \n"
+"\n"
+" \n"
+" \n"
+" \n"
+" \n"
+" "
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
-msgstr "条目属性"
+msgstr "Svojstvo Predmeta"
 
 #: src/Entity/CollectingPrompt.php:102
 msgid "Item Media"
-msgstr "条目媒体"
+msgstr "Medij Predmeta"
 
 #: src/Entity/CollectingPrompt.php:103
 msgid "Item Supplementary"
-msgstr "条目增补"
+msgstr "Dopunska stavka"
 
 #: src/Entity/CollectingPrompt.php:104
 msgid "User Name"
-msgstr "用户名字"
+msgstr "Korisničko Ime"
 
 #: src/Entity/CollectingPrompt.php:105
 msgid "User Email"
-msgstr "用户电邮"
+msgstr "E-mail Korisnika"
 
 #: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
-msgstr "用户是私密的"
+msgstr "Registrirani korisnik"
 
 #: src/Entity/CollectingPrompt.php:107
 msgid "User Public"
-msgstr "用户是公开的"
+msgstr "Neregistrirani korisnik"
 
 #: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
-msgstr "文本框（一行）"
+msgstr "Okvir za tekst (jedan redak)"
 
 #: src/Entity/CollectingPrompt.php:116
 msgid "Text box (multiple line)"
-msgstr "文本框（多行）"
+msgstr "Okvir za tekst (više redaka)"
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
-msgstr "选择菜单"
+msgstr "Odaberi izbornik"
 
 #: src/Entity/CollectingPrompt.php:118
 msgid "Item resource"
-msgstr "条目资源"
+msgstr "Resurs stavke"
 
 #: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
-msgstr "数值时间戳"
+msgstr "Numerička vremenska oznaka"
 
 #: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
-msgstr "数值间隔"
+msgstr "numerički interval"
 
 #: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
-msgstr "数值持续时间"
+msgstr "numeričko trajanje"
 
 #: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
-msgstr "数字整数"
+msgstr "broj"
 
 #: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
 msgid "Collecting"
-msgstr "收藏"
+msgstr "Prikupljenje"
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
-msgstr "上传一个"
+msgstr "Jednostruki prijenos / upload"
 
 #: src/MediaType/UploadMultiple.php:20
 msgid "Upload Multiple"
-msgstr "上传多个"
+msgstr "Višestruki prijenos / upload"
 
 #: Module.php:155
 msgid "Terms of service"
-msgstr "服务条款"
+msgstr "Uvjeti pružanja usluge"
 
 #: Module.php:156
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
-msgstr "输入给此网站提交内容的用户的服务条款（TOS）。"
+msgstr ""
+"Unesite uvjete pružanja usluge (TOS) za korisnike koji pošalju sadržaj na "
+"ovu stranicu"
 
 #: Module.php:166
 msgid "Email address"
-msgstr "电子邮件地址"
+msgstr "e-mail adresa"
 
 #: Module.php:167
 msgid "Enter an email address from which submission emails will be sent."
-msgstr "输入一个提交电邮会被送达的电子邮件地址。"
+msgstr "Unesite e-mail adresu s koje će biti poslani e-malovi za prijavu"
 
 #: config/module.config.php:110
 msgid "Form Information"
-msgstr "表单信息"
+msgstr "Informacije o Obrascu"
 
 #: config/module.config.php:116
 msgid "Collected Items"
-msgstr "收藏的条目"
+msgstr "Prikupljeni Predmeti"

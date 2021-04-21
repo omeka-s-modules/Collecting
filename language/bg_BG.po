@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Hong Zhang <zhangh@unlv.nevada.edu>, 2021
+# Tzvetan Tzvetanski <ceibg.org@gmail.com>, 2021
 # 
 #, fuzzy
 msgid ""
@@ -13,202 +13,204 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-21 11:43-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2021\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
+"Last-Translator: Tzvetan Tzvetanski <ceibg.org@gmail.com>, 2021\n"
+"Language-Team: Bulgarian (Bulgaria) (https://www.transifex.com/omeka/teams/14184/bg_BG/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: Module.php:269
 msgid "Click here to view the collected data."
-msgstr "点击此处查看收集到的数据。"
+msgstr "Щракнете тук, за да видите събраните данни."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:290
 #, php-format
 msgid "I accept the %s"
-msgstr "我接受%s"
+msgstr "Приемам %s"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:293
 msgid "Terms of Service"
-msgstr "服务条款"
+msgstr "Условия за ползване"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:72
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
-msgstr "【私密的】"
+msgstr "[лично]"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:79
 msgid "[unknown item]"
-msgstr "【未知条目】"
+msgstr "[неизвестен елемент]"
 
 #: src/Controller/Site/IndexController.php:282
 msgid "Thank you for your submission"
-msgstr "感谢您的提交"
+msgstr "Благодарим за Вашия принос"
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
-msgstr "编辑收藏表单：“%s”"
+msgstr "Редактиране на шаблона за събиране: „%s”"
 
 #: view/collecting/site-admin/form/form.phtml:10
 msgid "Add collecting form"
-msgstr "添加收藏表单"
+msgstr "Добави шаблон за събиране"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
-msgstr "撤销删除"
+msgstr "Отмяна на изтриването"
 
 #: view/collecting/site-admin/form/form.phtml:53
 #: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
-msgstr "提示"
+msgstr "Напомни"
 
 #: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
-msgstr "添加提示"
+msgstr "Добавяне на напомняне"
 
 #: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
-msgstr "提示"
+msgstr "Напомняне"
 
 #: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
-msgstr "提示类型"
+msgstr "Вид на напомнянето"
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr "选择一个提示类型"
+msgstr "Изберете вида на напомняне"
 
 #: view/collecting/site-admin/form/form.phtml:93
 msgid "Media type"
-msgstr "媒介类型"
+msgstr "Вид медия"
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
-msgstr "选择一个媒介类型"
+msgstr "Изберете вида на медията"
 
 #: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
-msgstr "提示文本"
+msgstr "Текст на напомнянето"
 
 #: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
-msgstr "输入类型"
+msgstr "Вид на въвеждането"
 
 #: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
-msgstr "选择一个输入类型"
+msgstr "Изберете вида на въвеждането"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr "（不可用）"
+msgstr "(не е налично)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
-msgstr "选择菜单选项"
+msgstr "Изберете опциите на менюто"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
-msgstr "过滤查询"
+msgstr "Заявка за филтриране"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
-msgstr "输入一个高级搜索URL查询字符串以过滤资源。"
+msgstr ""
+"Филтрирайте ресурси, като въведете низ за заявка за URL за разширено "
+"търсене."
 
 #: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
-msgstr "定制词汇"
+msgstr "Персонализиран речник"
 
 #: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
-msgstr "选择定制词汇"
+msgstr "Изберете персонализиран речник"
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
-msgstr "添加更改"
+msgstr "Добавете промени"
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
-msgstr "收藏表单"
+msgstr "Форми за колектиране"
 
 #: view/collecting/site-admin/form/index.phtml:7
 msgid "Add new form"
-msgstr "添加新表单"
+msgstr "Добавете нова форма"
 
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
 msgid "This site has no collecting forms."
-msgstr "该网站没有收藏表单"
+msgstr "Този сайт няма форми за колектиране"
 
 #: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
-msgstr "收藏表单：“%s”"
+msgstr "Форма за колектиране: “%s”"
 
 #: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
-msgstr "【无】"
+msgstr "[нищо]"
 
 #: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
-msgstr "编辑表单"
+msgstr "Редактиране на формата"
 
 #: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
-msgstr "返回收藏表单列表"
+msgstr "Назад към списъка с форми за колектиране"
 
 #: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
-msgstr "匿名类型"
+msgstr "Тип Анонимност"
 
 #: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
-msgstr "该表单没有提示符。"
+msgstr "Този формуляр няма форма за напомняне"
 
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Needs review"
-msgstr "需要审核"
+msgstr "Нуждае се от преглед"
 
 #: view/collecting/site-admin/item/index.phtml:17
 msgid "Reviewed: public"
-msgstr "已审核：公开的"
+msgstr "Прегледано: публично"
 
 #: view/collecting/site-admin/item/index.phtml:18
 msgid "Reviewed: private"
-msgstr "已审核：私密的"
+msgstr "Прегледано: лично"
 
 #: view/collecting/site-admin/item/index.phtml:29
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Reviewed"
-msgstr "已审核"
+msgstr "Прегледани"
 
 #: view/collecting/site-admin/item/index.phtml:41
 msgid "Update statuses"
-msgstr "更新状态"
+msgstr "Актуализиране на статусите"
 
 #: view/collecting/site-admin/item/index.phtml:50
 msgid "Reviewed By"
-msgstr "审核员："
+msgstr "Прегледан от:"
 
 #: view/collecting/site-admin/item/index.phtml:64
 msgid "[not reviewed]"
-msgstr "【未审核】"
+msgstr "[непрегледан]"
 
 #: view/collecting/site-admin/item/index.phtml:96
 msgid "No items found."
-msgstr "没有找到任何条目。"
+msgstr "Няма намерени елементи"
 
 #: view/collecting/site-admin/item/show-details.phtml:19
 #: view/common/collecting-item-section.phtml:35
 msgid "User name"
-msgstr "用户名"
+msgstr "Потребителско име"
 
 #: view/collecting/site-admin/item/show-details.phtml:22
 #: view/collecting/site-admin/item/show-details.phtml:29
@@ -217,316 +219,329 @@ msgstr "用户名"
 #: view/common/collecting-item-section.phtml:45
 #: view/common/collecting-item-section.phtml:52
 msgid "[not asked]"
-msgstr "【未询问】"
+msgstr "[не е попитан]"
 
 #: view/collecting/site-admin/item/show-details.phtml:26
 #: view/common/collecting-item-section.phtml:42
 msgid "User email"
-msgstr "用户电邮地址"
+msgstr "Имеъл на потребителя"
 
 #: view/collecting/site-admin/item/show-details.phtml:33
 #: view/common/collecting-item-section.phtml:49
 msgid "Anonymous?"
-msgstr "匿名？"
+msgstr "Анонимен?"
 
 #: view/collecting/site/index/item-show.phtml:2
 #, php-format
 msgid "Collected Item: “%s”"
-msgstr "收藏的条目：“%s”"
+msgstr "Форма за колектиране: “%s”"
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr "点击此处查看相应条目。"
+msgstr "Щракнете тук, за да видите съответния елемент."
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr "表单已成功提交！"
+msgstr "Формата успешно е изпратена!"
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
-msgstr "选择哪个收藏表单可以让用户填写："
+msgstr "Изберете кои форми за колектиране може да попълни потребителят:"
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
-msgstr "选择一个表单 ......"
+msgstr "Изберете формата:"
 
 #: view/common/collecting-item-citation.phtml:6
 msgid "[anonymous user]"
-msgstr "【匿名用户】"
+msgstr "[анонимен потребител]"
 
 #: view/common/collecting-item-citation.phtml:9
 #, php-format
 msgid ""
 "This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
-msgstr "该条目于%s由%s使用表单“%s”在网站“%s”：%s提交"
+msgstr ""
+"Този елемент е изпратен на %s от %s като беше използвана формата %s от този "
+"сайт %s: %s"
 
 #: view/common/collecting-item-section.phtml:3
 msgid "Collected Inputs"
-msgstr "收藏的输入"
+msgstr "Колектирани материали"
 
 #: view/common/collecting-item-section.phtml:11
 msgid "User Input"
-msgstr "用户输入"
+msgstr "Принос на потребителя"
 
 #: view/common/collecting-item-section.phtml:33
 msgid "User Information"
-msgstr "用户信息"
+msgstr "Информация за потребителя"
 
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
-msgstr "公开引用"
+msgstr "Публично цитиране"
 
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."
-msgstr "把该表单创建的所有条目分配给该条目集。"
+msgstr ""
+"Задайте всички елементи, създадени от този формуляр, към този набор от "
+"елементи."
 
 #: src/Form/CollectingForm.php:29
 msgid "Select Item Set..."
-msgstr "选择条目集 ......"
+msgstr "Изберете набор от елементи..."
 
 #: src/Form/CollectingForm.php:39
 msgid "Anonymity type"
-msgstr "匿名类型"
+msgstr "Тип анонимност"
 
 #: src/Form/CollectingForm.php:40
 msgid ""
 "Control how to treat “User Public” and “User Name” input on public pages."
-msgstr "在公共页面上控制如何对待“用户是公开的”和“用户名称”输入。"
+msgstr ""
+"Контролирайте как да третирате въвеждането на „Public Public“ и „User Name“ "
+"на публични страници."
 
 #: src/Form/CollectingForm.php:48
 msgid "Success text"
-msgstr "成功文本"
+msgstr "Текст за успех"
 
 #: src/Form/CollectingForm.php:49
 msgid "Display this text after a user successfully submits a form."
-msgstr "用户成功提交表单后显示该文本。"
+msgstr ""
+"Показвайте този текст, след като потребителят успешно изпрати формуляр."
 
 #: src/Form/CollectingForm.php:60
 msgid "Email text"
-msgstr "电子邮件文本"
+msgstr "Текст на имейла"
 
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
-msgstr "所有提交电邮都以此文本开头。"
+msgstr "Започнете всички имейли за подаване с този текст."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:132
 msgid "A collecting item must be assigned an item on creation."
-msgstr "收藏条目在创建时就必须指定一个条目。"
+msgstr ""
+"На елемента за колектиране трябва да му бъде назначен реквизит при създаване"
 
 #: src/Api/Adapter/CollectingItemAdapter.php:135
 msgid "A collecting item must be assigned a form on creation."
-msgstr "收藏条目在创建时就必须指定一个表单。"
+msgstr ""
+"На елемента за колектиране трябва да бъде назначена форма при създаване"
 
 #: src/Api/Adapter/CollectingItemAdapter.php:139
 msgid "A collecting input must be assigned a prompt on creation."
-msgstr "收藏输入在创建时就必须指定一个提示。"
+msgstr ""
+"При създаването на вход за колектиране трябва да бъде зададена подкана"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:56
 msgid "A collecting form must be assigned a site on creation."
-msgstr "收藏表单在创建时就必须指定一个网站。"
+msgstr ""
+"Трябва да бъде зададен формуляр за колектиране при създаването на сайт"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:193
 msgid "A property prompt must have a property."
-msgstr "属性提示必须有属性。"
+msgstr "Формата за припомняне трябва да има зададени реквизити"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:196
 msgid "A property prompt must have an input type."
-msgstr "属性提示必须有输入类型。"
+msgstr "Формата на напомняне трябва да има вид на въвеждането"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:201
 #: src/Api/Adapter/CollectingFormAdapter.php:222
 #: src/Api/Adapter/CollectingFormAdapter.php:235
 #: src/Api/Adapter/CollectingFormAdapter.php:248
 msgid "A custom_vocab input type must have a custom vocab."
-msgstr "custom_vocab输入类型必须有定制词汇。"
+msgstr "Типът вход custom_vocab трябва да има персонализиран речник"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:206
 msgid "A media prompt must have text."
-msgstr "媒体提示必须有文本。"
+msgstr "Напомнянето за медия трябва да има текст."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:209
 msgid "A media prompt must have a media type."
-msgstr "媒体提示必须有媒体类型。"
+msgstr "В медийнийното напомняне трябва да има типа медия"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:214
 msgid "An input prompt must have text."
-msgstr "输入提示必须有文本。"
+msgstr "Напомнянето за въвеждане трябва да съдържа текст."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:217
 msgid "An input prompt must have an input type."
-msgstr "输入提示必须有输入类型。"
+msgstr "напомнянето за въвеждане трябва да има тип на въвеждане."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:227
 msgid "A user_private prompt must have text."
-msgstr "user_private提示必须有文本。"
+msgstr "Подканата user_private трябва да има текст."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:230
 msgid "A user_private prompt must have an input type."
-msgstr "user_private提示必须有输入类型。"
+msgstr "Подканата user_private трябва да има тип въвеждане."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:240
 msgid "A user_public prompt must have text."
-msgstr "user_public提示必须有文本。"
+msgstr "Подканата user_public трябва да има текст."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:243
 msgid "A user_public prompt must have an input type."
-msgstr "user_public提示必须有输入类型。"
+msgstr "Подканата user_public трябва да има тип на въвеждане."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:253
 msgid "A user_name prompt must have text."
-msgstr "user_name提示必须有文本。"
+msgstr "Подканата за потребителско име трябва да има текст."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:258
 msgid "A user_email prompt must have text."
-msgstr "user_email提示必须有文本。"
+msgstr "Подканата за потребителски имейл трябва да има текст."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:263
 msgid "A html prompt must have text."
-msgstr "html提示必须有文本。"
+msgstr "В HTML подканата трябва да има текст"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:267
 msgid "Prompts must have a type."
-msgstr "提示必须有一个类型。"
+msgstr "Подканите трябва да имат тип."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:279
 msgid "Invalid anonymity type."
-msgstr "无效的匿名类型。"
+msgstr "Невалиден тип анонимност"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:153
 #: src/Api/Representation/CollectingFormRepresentation.php:160
 #: src/Api/Representation/CollectingFormRepresentation.php:180
 msgid "Please choose one..."
-msgstr "请选择一个 ......"
+msgstr "Моля, изберете един ..."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:260
 msgid "I want to submit anonymously"
-msgstr "我希望匿名提交"
+msgstr "Искам да изпратя анонимно"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:270
 msgid "Email me my submission"
-msgstr "把我提交的东西电邮给我"
+msgstr "Уведомете ме по имейла за изпратеното от мен"
 
 #: src/Controller/SiteAdmin/ItemController.php:71
 msgid "Statuses successfully updated"
-msgstr "状态已成功更新"
+msgstr "Статусите бяха успешно актуализирани"
 
 #: src/Controller/SiteAdmin/FormController.php:82
 msgid "Collecting form successfully updated"
-msgstr "收藏表单已成功更新"
+msgstr "Формата за колектиране успешно е актуализирана"
 
 #: src/Controller/SiteAdmin/FormController.php:83
 msgid "Collecting form successfully created"
-msgstr "收藏表单已成功创建"
+msgstr "Форма за колектиране успешно е създадена"
 
 #: src/Controller/SiteAdmin/FormController.php:117
 msgid "Collecting form successfully deleted"
-msgstr "收藏表单已成功删除"
+msgstr "Форма за колектиране успешно е изтрита"
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
-msgstr "用户设置自己的匿名属性"
+msgstr "Потребителят задава своята анонимност"
 
 #: src/Entity/CollectingForm.php:91
 msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr "“用户是公开的”和“用户名称”输入是公开可见的"
+msgstr "„Потребителски публичен“ и „Потребителско име“ са публично видими"
 
 #: src/Entity/CollectingForm.php:92
 msgid "“User Public” and “User Name” inputs are private"
-msgstr "“用户是公开的”和“用户名称”输入是私密的"
+msgstr " „Потребителски публичен“ и „Потребителско име“ са частни"
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
-msgstr "条目属性"
+msgstr "Реквизити на елемента"
 
 #: src/Entity/CollectingPrompt.php:102
 msgid "Item Media"
-msgstr "条目媒体"
+msgstr "Елемент Медия"
 
 #: src/Entity/CollectingPrompt.php:103
 msgid "Item Supplementary"
-msgstr "条目增补"
+msgstr "Допълнителен елемент"
 
 #: src/Entity/CollectingPrompt.php:104
 msgid "User Name"
-msgstr "用户名字"
+msgstr "Потребителско име"
 
 #: src/Entity/CollectingPrompt.php:105
 msgid "User Email"
-msgstr "用户电邮"
+msgstr "Имейл на потребителя"
 
 #: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
-msgstr "用户是私密的"
+msgstr "Лична информация за потребителя"
 
 #: src/Entity/CollectingPrompt.php:107
 msgid "User Public"
-msgstr "用户是公开的"
+msgstr "Публична информация за потребителя"
 
 #: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
-msgstr "文本框（一行）"
+msgstr "Текстово поле (един ред)"
 
 #: src/Entity/CollectingPrompt.php:116
 msgid "Text box (multiple line)"
-msgstr "文本框（多行）"
+msgstr "Текстово поле (повече от един ред)"
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
-msgstr "选择菜单"
+msgstr "Изберете меню"
 
 #: src/Entity/CollectingPrompt.php:118
 msgid "Item resource"
-msgstr "条目资源"
+msgstr "Елемент Ресурс"
 
 #: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
-msgstr "数值时间戳"
+msgstr "Цифрова времева марка"
 
 #: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
-msgstr "数值间隔"
+msgstr "Цифров интервал"
 
 #: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
-msgstr "数值持续时间"
+msgstr "Числова продължителност"
 
 #: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
-msgstr "数字整数"
+msgstr "Числово цяло число"
 
 #: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
 msgid "Collecting"
-msgstr "收藏"
+msgstr "Колектиране"
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
-msgstr "上传一个"
+msgstr "Качване на един"
 
 #: src/MediaType/UploadMultiple.php:20
 msgid "Upload Multiple"
-msgstr "上传多个"
+msgstr "Качване на няколко"
 
 #: Module.php:155
 msgid "Terms of service"
-msgstr "服务条款"
+msgstr "Условия за ползване"
 
 #: Module.php:156
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
-msgstr "输入给此网站提交内容的用户的服务条款（TOS）。"
+msgstr ""
+"Въведете Общите условия (ОУ) за потребители, които изпращат съдържание на "
+"този сайт."
 
 #: Module.php:166
 msgid "Email address"
-msgstr "电子邮件地址"
+msgstr "Имейл адреси"
 
 #: Module.php:167
 msgid "Enter an email address from which submission emails will be sent."
-msgstr "输入一个提交电邮会被送达的电子邮件地址。"
+msgstr "Въведете имейл адрес, от който ще се изпращат имейли за изпращане."
 
 #: config/module.config.php:110
 msgid "Form Information"
-msgstr "表单信息"
+msgstr "Информационна форма"
 
 #: config/module.config.php:116
 msgid "Collected Items"
-msgstr "收藏的条目"
+msgstr "Колектирани единици"

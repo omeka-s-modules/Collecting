@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Rivo Zängov <eraser@eraser.ee>, 2019
+# Rivo Zängov <eraser@eraser.ee>, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:47-0400\n"
+"POT-Creation-Date: 2021-04-21 11:43-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Rivo Zängov <eraser@eraser.ee>, 2019\n"
+"Last-Translator: Rivo Zängov <eraser@eraser.ee>, 2020\n"
 "Language-Team: Estonian (https://www.transifex.com/omeka/teams/14184/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,17 +34,17 @@ msgstr "Ma nõustun %s"
 msgid "Terms of Service"
 msgstr "Kasutustingimustega"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:73
+#: src/Api/Representation/CollectingInputRepresentation.php:72
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
 msgstr "[privaatne]"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:80
+#: src/Api/Representation/CollectingInputRepresentation.php:79
 msgid "[unknown item]"
 msgstr "[tundmatu ühik]"
 
-#: src/Controller/Site/IndexController.php:281
+#: src/Controller/Site/IndexController.php:282
 msgid "Thank you for your submission"
 msgstr "Täname sind panuse eest"
 
@@ -105,7 +105,7 @@ msgstr "Vali sisendi liik"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr ""
+msgstr "(pole saadaval)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
@@ -276,6 +276,164 @@ msgstr "Kasutaja info"
 msgid "Public citation"
 msgstr "Avalik tsitaat"
 
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr "Lisa kõik läbi selle vormi lisatud ühikud sellesse ühikute kogusse."
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "Vali ühikute kogum..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "Anonüümsuse liik"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr ""
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "Eduka lisamise tekst"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "Kui vorm on edastatud, siis näidatakse seda teksti."
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "E-kirja tekst"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "Alusta kõiki lisamise e-kirju selle tekstiga."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:193
+msgid "A property prompt must have a property."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:196
+msgid "A property prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:201
+#: src/Api/Adapter/CollectingFormAdapter.php:222
+#: src/Api/Adapter/CollectingFormAdapter.php:235
+#: src/Api/Adapter/CollectingFormAdapter.php:248
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A media prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:209
+msgid "A media prompt must have a media type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:214
+msgid "An input prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:217
+msgid "An input prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "A user_private prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:230
+msgid "A user_private prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_public prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:243
+msgid "A user_public prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_name prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A user_email prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A html prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:267
+msgid "Prompts must have a type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:279
+msgid "Invalid anonymity type."
+msgstr ""
+
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:180
+msgid "Please choose one..."
+msgstr "Palun vali üks ..."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:260
+msgid "I want to submit anonymously"
+msgstr "Soovin lisada anonüümselt"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:270
+msgid "Email me my submission"
+msgstr "Saada minu lisatud info mulle e-postile"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "Staatused on uuendatud"
+
+#: src/Controller/SiteAdmin/FormController.php:82
+msgid "Collecting form successfully updated"
+msgstr "Kogusmisvormi on uuendatud"
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully created"
+msgstr "Kogumisvorm on loodud"
+
+#: src/Controller/SiteAdmin/FormController.php:117
+msgid "Collecting form successfully deleted"
+msgstr "Kogumisvorm on kustutatud"
+
+#: src/Entity/CollectingForm.php:90
+msgid "User sets own anonymity"
+msgstr "Kasutaja määrab ise oma anonüümsuse"
+
+#: src/Entity/CollectingForm.php:91
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr ""
+
+#: src/Entity/CollectingForm.php:92
+msgid "“User Public” and “User Name” inputs are private"
+msgstr ""
+
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
 msgstr "Ühiku omadus"
@@ -318,7 +476,7 @@ msgstr "Vali menüü"
 
 #: src/Entity/CollectingPrompt.php:118
 msgid "Item resource"
-msgstr ""
+msgstr "Kirje ressurss"
 
 #: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
@@ -336,118 +494,9 @@ msgstr ""
 msgid "Numeric integer"
 msgstr ""
 
-#: src/Entity/CollectingForm.php:90
-msgid "User sets own anonymity"
-msgstr "Kasutaja määrab ise oma anonüümsuse"
-
-#: src/Entity/CollectingForm.php:91
-msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr ""
-
-#: src/Entity/CollectingForm.php:92
-msgid "“User Public” and “User Name” inputs are private"
-msgstr ""
-
 #: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
 msgid "Collecting"
 msgstr "Kogumine"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:153
-#: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:180
-msgid "Please choose one..."
-msgstr "Palun vali üks ..."
-
-#: src/Api/Representation/CollectingFormRepresentation.php:260
-msgid "I want to submit anonymously"
-msgstr "Soovin lisada anonüümselt"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:270
-msgid "Email me my submission"
-msgstr "Saada minu lisatud info mulle e-postile"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:55
-msgid "A collecting form must be assigned a site on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:192
-msgid "A property prompt must have a property."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:195
-msgid "A property prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:200
-#: src/Api/Adapter/CollectingFormAdapter.php:221
-#: src/Api/Adapter/CollectingFormAdapter.php:234
-#: src/Api/Adapter/CollectingFormAdapter.php:247
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:205
-msgid "A media prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:208
-msgid "A media prompt must have a media type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:213
-msgid "An input prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:216
-msgid "An input prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:226
-msgid "A user_private prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:229
-msgid "A user_private prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:239
-msgid "A user_public prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:242
-msgid "A user_public prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:252
-msgid "A user_name prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:257
-msgid "A user_email prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:262
-msgid "A html prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:266
-msgid "Prompts must have a type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:278
-msgid "Invalid anonymity type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
-msgstr ""
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
@@ -457,58 +506,9 @@ msgstr "Laadi üles üks"
 msgid "Upload Multiple"
 msgstr "Laadi üles mitu"
 
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully updated"
-msgstr "Kogusmisvormi on uuendatud"
-
-#: src/Controller/SiteAdmin/FormController.php:84
-msgid "Collecting form successfully created"
-msgstr "Kogumisvorm on loodud"
-
-#: src/Controller/SiteAdmin/FormController.php:118
-msgid "Collecting form successfully deleted"
-msgstr "Kogumisvorm on kustutatud"
-
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "Staatused on uuendatud"
-
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
-msgstr "Lisa kõik läbi selle vormi lisatud ühikud sellesse ühikute kogusse."
-
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr "Vali ühikute kogum..."
-
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr "Anonüümsuse liik"
-
-#: src/Form/CollectingForm.php:40
-msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
-msgstr ""
-
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr "Eduka lisamise tekst"
-
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
-msgstr "Kui vorm on edastatud, siis näidatakse seda teksti."
-
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr "E-kirja tekst"
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr "Alusta kõiki lisamise e-kirju selle tekstiga."
-
 #: Module.php:155
 msgid "Terms of service"
-msgstr ""
+msgstr "Teenusetingimused"
 
 #: Module.php:156
 msgid ""
@@ -517,7 +517,7 @@ msgstr ""
 
 #: Module.php:166
 msgid "Email address"
-msgstr ""
+msgstr "E-posti aadress"
 
 #: Module.php:167
 msgid "Enter an email address from which submission emails will be sent."

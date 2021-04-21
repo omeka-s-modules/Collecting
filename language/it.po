@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-18 13:47-0400\n"
+"POT-Creation-Date: 2021-04-21 11:43-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/omeka/teams/14184/it/)\n"
@@ -36,17 +36,17 @@ msgstr "Accetto %s"
 msgid "Terms of Service"
 msgstr "Condizioni d'utilizzo"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:73
+#: src/Api/Representation/CollectingInputRepresentation.php:72
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
 msgstr "[riservato]"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:80
+#: src/Api/Representation/CollectingInputRepresentation.php:79
 msgid "[unknown item]"
 msgstr "[contenuto sconosciuto]"
 
-#: src/Controller/Site/IndexController.php:281
+#: src/Controller/Site/IndexController.php:282
 msgid "Thank you for your submission"
 msgstr "Grazie per il vostro contributo"
 
@@ -280,6 +280,173 @@ msgstr "Informazione utente"
 msgid "Public citation"
 msgstr "Citazione pubblica"
 
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr "Assegna tutti i contenuti creati a questa collezione."
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "Seleziona collezione..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "Carattere anonimato"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr ""
+"Controlla come trattare input del \"Pubblico utente\" e \"Nome utente\" "
+"nelle pagine pubbliche."
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "Testo di conferma"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "Mostra questo testo dopo che utente invia correttamente un modulo."
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "Testo dell'email"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "Comincia tutte le presentazioni degli emails con questo testo."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+"Una collezione di contenuti deve essere assegnata ad un contenuto durante la"
+" sua creazione."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+"Un contenuto di raccolta deve essere assegnato ad un modulo alla creazione."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+"Un contenuto in ingresso deve essere assegnato ad una segnalazione alla "
+"creazione."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr "Modulo di raccolta deve assegnare il sito di creazione"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:193
+msgid "A property prompt must have a property."
+msgstr "La proprietà immediata deve avere la proprietà."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:196
+msgid "A property prompt must have an input type."
+msgstr "La proprietà immediata deve avere un input"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:201
+#: src/Api/Adapter/CollectingFormAdapter.php:222
+#: src/Api/Adapter/CollectingFormAdapter.php:235
+#: src/Api/Adapter/CollectingFormAdapter.php:248
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr ""
+"Input del vocabolario personalizzato deve avere un vocabolario "
+"personalizzato."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A media prompt must have text."
+msgstr "Il materiale deve avere un testo."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:209
+msgid "A media prompt must have a media type."
+msgstr "Il materiale  deve avere un carattere media."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:214
+msgid "An input prompt must have text."
+msgstr "Input immediato deve avere testo."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:217
+msgid "An input prompt must have an input type."
+msgstr "Input immediato deve avere un input."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "A user_private prompt must have text."
+msgstr "Prompt del utente privato deve avere testo."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:230
+msgid "A user_private prompt must have an input type."
+msgstr "Prompt del utente privato deve avere un input."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_public prompt must have text."
+msgstr "Prompt del utente pubblico deve avere testo."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:243
+msgid "A user_public prompt must have an input type."
+msgstr "Prompt del utente pubblico deve avere un input."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_name prompt must have text."
+msgstr "Prompt del nome utente deve avere testo."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A user_email prompt must have text."
+msgstr "Prompt del email utente deve avere testo."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A html prompt must have text."
+msgstr "Prompt html deve avere testo."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:267
+msgid "Prompts must have a type."
+msgstr "Prompts devono avere un carattere."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:279
+msgid "Invalid anonymity type."
+msgstr "Carattere anonimato non valido."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:180
+msgid "Please choose one..."
+msgstr "Selezionare una risposta"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:260
+msgid "I want to submit anonymously"
+msgstr "Voglio inviare in forma anonima"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:270
+msgid "Email me my submission"
+msgstr "Mandami la mia presentazione"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "Gli status sono stati aggiornati correttamente"
+
+#: src/Controller/SiteAdmin/FormController.php:82
+msgid "Collecting form successfully updated"
+msgstr "Modulo di raccolta aggiornato correttamente"
+
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully created"
+msgstr "Modulo di raccolta creato correttamente"
+
+#: src/Controller/SiteAdmin/FormController.php:117
+msgid "Collecting form successfully deleted"
+msgstr "Modulo di raccolta eliminato correttamente"
+
+#: src/Entity/CollectingForm.php:90
+msgid "User sets own anonymity"
+msgstr "Utente fissa il proprio anonimato"
+
+#: src/Entity/CollectingForm.php:91
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr "“Utente pubblico” e “Nome utente” sono pubblicamente visibili"
+
+#: src/Entity/CollectingForm.php:92
+msgid "“User Public” and “User Name” inputs are private"
+msgstr "\"Utente pubblico\" e \"Nome utente\" sono riservati"
+
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
 msgstr "Proprietà del contenuto"
@@ -340,125 +507,9 @@ msgstr "Durata numerica"
 msgid "Numeric integer"
 msgstr "Numero intero"
 
-#: src/Entity/CollectingForm.php:90
-msgid "User sets own anonymity"
-msgstr "Utente fissa il proprio anonimato"
-
-#: src/Entity/CollectingForm.php:91
-msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr "“Utente pubblico” e “Nome utente” sono pubblicamente visibili"
-
-#: src/Entity/CollectingForm.php:92
-msgid "“User Public” and “User Name” inputs are private"
-msgstr "\"Utente pubblico\" e \"Nome utente\" sono riservati"
-
 #: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
 msgid "Collecting"
 msgstr "Raccolta"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:153
-#: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:180
-msgid "Please choose one..."
-msgstr "Selezionare una risposta"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:260
-msgid "I want to submit anonymously"
-msgstr "Voglio inviare in forma anonima"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:270
-msgid "Email me my submission"
-msgstr "Mandami la mia presentazione"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:55
-msgid "A collecting form must be assigned a site on creation."
-msgstr "Modulo di raccolta deve assegnare il sito di creazione"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:192
-msgid "A property prompt must have a property."
-msgstr "La proprietà immediata deve avere la proprietà."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:195
-msgid "A property prompt must have an input type."
-msgstr "La proprietà immediata deve avere un input"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:200
-#: src/Api/Adapter/CollectingFormAdapter.php:221
-#: src/Api/Adapter/CollectingFormAdapter.php:234
-#: src/Api/Adapter/CollectingFormAdapter.php:247
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr ""
-"Input del vocabolario personalizzato deve avere un vocabolario "
-"personalizzato."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:205
-msgid "A media prompt must have text."
-msgstr "Il materiale deve avere un testo."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:208
-msgid "A media prompt must have a media type."
-msgstr "Il materiale  deve avere un carattere media."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:213
-msgid "An input prompt must have text."
-msgstr "Input immediato deve avere testo."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:216
-msgid "An input prompt must have an input type."
-msgstr "Input immediato deve avere un input."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:226
-msgid "A user_private prompt must have text."
-msgstr "Prompt del utente privato deve avere testo."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:229
-msgid "A user_private prompt must have an input type."
-msgstr "Prompt del utente privato deve avere un input."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:239
-msgid "A user_public prompt must have text."
-msgstr "Prompt del utente pubblico deve avere testo."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:242
-msgid "A user_public prompt must have an input type."
-msgstr "Prompt del utente pubblico deve avere un input."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:252
-msgid "A user_name prompt must have text."
-msgstr "Prompt del nome utente deve avere testo."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:257
-msgid "A user_email prompt must have text."
-msgstr "Prompt del email utente deve avere testo."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:262
-msgid "A html prompt must have text."
-msgstr "Prompt html deve avere testo."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:266
-msgid "Prompts must have a type."
-msgstr "Prompts devono avere un carattere."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:278
-msgid "Invalid anonymity type."
-msgstr "Carattere anonimato non valido."
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
-msgstr ""
-"Una collezione di contenuti deve essere assegnata ad un contenuto durante la"
-" sua creazione."
-
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
-msgstr ""
-"Un contenuto di raccolta deve essere assegnato ad un modulo alla creazione."
-
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
-msgstr ""
-"Un contenuto in ingresso deve essere assegnato ad una segnalazione alla "
-"creazione."
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
@@ -467,57 +518,6 @@ msgstr "Caricamento singolo"
 #: src/MediaType/UploadMultiple.php:20
 msgid "Upload Multiple"
 msgstr "Caricamento multiplo"
-
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully updated"
-msgstr "Modulo di raccolta aggiornato correttamente"
-
-#: src/Controller/SiteAdmin/FormController.php:84
-msgid "Collecting form successfully created"
-msgstr "Modulo di raccolta creato correttamente"
-
-#: src/Controller/SiteAdmin/FormController.php:118
-msgid "Collecting form successfully deleted"
-msgstr "Modulo di raccolta eliminato correttamente"
-
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "Gli status sono stati aggiornati correttamente"
-
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
-msgstr "Assegna tutti i contenuti creati a questa collezione."
-
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr "Seleziona collezione..."
-
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr "Carattere anonimato"
-
-#: src/Form/CollectingForm.php:40
-msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
-msgstr ""
-"Controlla come trattare input del \"Pubblico utente\" e \"Nome utente\" "
-"nelle pagine pubbliche."
-
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr "Testo di conferma"
-
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
-msgstr "Mostra questo testo dopo che utente invia correttamente un modulo."
-
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr "Testo dell'email"
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr "Comincia tutte le presentazioni degli emails con questo testo."
 
 #: Module.php:155
 msgid "Terms of service"
