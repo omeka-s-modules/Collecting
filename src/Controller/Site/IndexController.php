@@ -82,6 +82,11 @@ class IndexController extends AbstractActionController
                     if ($sendEmail && $cItem->userEmail()) {
                         $this->sendSubmissionEmail($cForm, $cItem);
                     }
+                    // Send a notification email if configured to do so.
+                    $sendEmailNotify = $this->siteSettings()->get('collecting_email_notify');
+                    if ($sendEmailNotify) {
+                        $this->sendNotificationEmail($cForm, $cItem);
+                    }
 
                     return $this->redirect()->toRoute(null, ['action' => 'success'], true);
                 }
@@ -283,4 +288,55 @@ class IndexController extends AbstractActionController
             ->setBody($body);
         $this->mailer()->send($message);
     }
+
+    /**
+     * Send a notification email.
+     *
+     * @param CollectingFormRepresentation $cForm
+     * @param CollectingItemRepresentation $cItem
+     */
+    protected function sendNotificationEmail($cForm, $cItem)
+    {
+        $i18nHelper = $this->viewHelpers()->get('i18n');
+        $partialHelper = $this->viewHelpers()->get('partial');
+        $urlHelper = $this->viewHelpers()->get('url');
+
+        $messageContent = '';
+        if ($cForm->emailText()) {
+            $messageContent .= $cForm->emailText();
+        }
+        $messageContent .= sprintf(
+            '<p>A user submitted the following data on %s using the form “%s” on the site “%s”: %s</p>',
+            $i18nHelper->dateFormat($cItem->item()->created(), 'long'),
+            $cItem->form()->label(),
+            $cItem->form()->site()->title(),
+            $cItem->form()->site()->siteUrl(null, true)
+        );
+        $messageContent .= $partialHelper('common/collecting-item-inputs', ['cItem' => $cItem]);
+        $messageContent .= sprintf(
+            '<p><a href="%s">%s</a></p>',
+            $urlHelper('admin/site/slug/collecting/item', ['item-id' => $cItem->id()], true),
+            'Go here to administer the submitted item.'
+        );
+
+        $messagePart = new MimePart($messageContent);
+        $messagePart->setType('text/html');
+
+        $body = new MimeMessage;
+        $body->addPart($messagePart);
+
+        $options = [];
+        $from = $this->siteSettings()->get('collecting_email');
+        $to = $this->siteSettings()->get('collecting_email_notify');
+        if ($from) {
+            $options['from'] = $from;
+        }
+        $message = $this->mailer()->createMessage($options)
+            ->addTo($to)
+            ->setSubject($this->translate('Collecting submission notification'))
+            ->setBody($body);
+        $this->mailer()->send($message);
+    }
+
+
 }

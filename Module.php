@@ -174,11 +174,22 @@ class Module extends AbstractModule
             'type' => 'email',
             'name' => 'collecting_email',
             'options' => [
-                'label' => 'Email address', // @translate
-                'info' => 'Enter an email address from which submission emails will be sent.', // @translate
+                'label' => 'Submission email address', // @translate
+                'info' => 'Enter an email address from which user submission emails will be sent.', // @translate
             ],
             'attributes' => [
                 'value' => $siteSettings->get('collecting_email'),
+            ],
+        ]);
+        $fieldset->add([
+            'type' => 'email',
+            'name' => 'collecting_email_notify',
+            'options' => [
+                'label' => 'Notification email address', // @translate
+                'info' => 'Enter an email address to which admin notification emails will be sent.', // @translate
+            ],
+            'attributes' => [
+                'value' => $siteSettings->get('collecting_email_notify'),
             ],
         ]);
 
@@ -200,6 +211,11 @@ class Module extends AbstractModule
         ]);
         $inputFilter->get('collecting')->add([
             'name' => 'collecting_email',
+            'required' => false,
+            'allow_empty' => true,
+        ]);
+        $inputFilter->get('collecting')->add([
+            'name' => 'collecting_email_notify',
             'required' => false,
             'allow_empty' => true,
         ]);
