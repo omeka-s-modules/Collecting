@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:43-0400\n"
+"POT-Creation-Date: 2021-07-20 10:27-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Josip Ilic <josip.ilic@ericsson.com>, 2021\n"
 "Language-Team: Croatian (https://www.transifex.com/omeka/teams/14184/hr/)\n"
@@ -22,16 +22,16 @@ msgstr ""
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: Module.php:269
+#: Module.php:285
 msgid "Click here to view the collected data."
-msgstr "Kliknite ovdje da bi ste vidjeli prikupljene podatke."
+msgstr "Kliknite ovdje da biste vidjeli prikupljene podatke."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:290
+#: src/Api/Representation/CollectingFormRepresentation.php:291
 #, php-format
 msgid "I accept the %s"
 msgstr "Prihvaćam %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:293
+#: src/Api/Representation/CollectingFormRepresentation.php:294
 msgid "Terms of Service"
 msgstr "Uvjeti Pružanja Usluge"
 
@@ -239,7 +239,7 @@ msgstr "Prikupljeni predmet: \"%s\""
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr "Kliknite ovdje da bi ste vidjeli odgovarajući predmet."
+msgstr "Kliknite ovdje da biste vidjeli odgovarajući predmet."
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
@@ -281,163 +281,46 @@ msgstr "Korisničke Informacije"
 msgid "Public citation"
 msgstr "Javni citat"
 
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
-msgstr ""
-"Dodijelite sve predmete stvorene putem ovog obrasca ovom setu predmeta."
+#: Module.php:155
+msgid "Terms of service"
+msgstr "Uvjeti pružanja usluge"
 
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr "Odaberi Set Predmeta..."
-
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr "Vrsta anonimnosti"
-
-#: src/Form/CollectingForm.php:40
+#: Module.php:156
 msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
+"Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
-"Kontrolirajte način postupanja s unosima \"neregistrirani korisnik\" i "
-"\"korisničko ime\" na javnim stranicama."
+"Unesite uvjete pružanja usluge (TOS) za korisnike koji pošalju sadržaj na "
+"ovu stranicu"
 
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr "Tekst uspjeha"
-
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
-msgstr "Prikažite ovaj tekst nakon što korisnik uspješno preda obrazac."
-
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr "Sadržaj e-maila"
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr "Započnite sve e-mailove za predaju ovim tekstom."
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
-msgstr "Predmetu prikupljanja mora se dodijeliti predmet pri stvaranju."
-
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
-msgstr "Predmetu prikupljanja mora se dodijeliti obrazac prilikom stvaranja."
-
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
+#: Module.php:166
+msgid "Terms of service URL"
 msgstr ""
-"Inputu tijekom prikupljanja mora se dodijeliti mjesto za unos\n"
-" \n"
-"\n"
-" \n"
-" \n"
-" \n"
-" \n"
-" "
 
-#: src/Api/Adapter/CollectingFormAdapter.php:56
-msgid "A collecting form must be assigned a site on creation."
+#: Module.php:167
+msgid ""
+"Enter the URL to the terms of service (TOS) for users who submit content to "
+"this site."
 msgstr ""
-"Obrascu za prikupljanje mora biti dodijeljeno mjesto prilikom stvaranja"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:193
-msgid "A property prompt must have a property."
-msgstr "Polje za unos mora imati mjesto"
+#: Module.php:177
+msgid "Email address"
+msgstr "e-mail adresa"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:196
-msgid "A property prompt must have an input type."
-msgstr "Polje za unos mora imati vrstu unosa."
+#: Module.php:178
+msgid "Enter an email address from which submission emails will be sent."
+msgstr "Unesite e-mail adresu s koje će biti poslani e-malovi za prijavu"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:201
-#: src/Api/Adapter/CollectingFormAdapter.php:222
-#: src/Api/Adapter/CollectingFormAdapter.php:235
-#: src/Api/Adapter/CollectingFormAdapter.php:248
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr "Vrsta unosa prilagođeni_vokabular mora imati prilagođeni vokabular."
+#: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
+msgid "Collecting"
+msgstr "Prikupljenje"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:206
-msgid "A media prompt must have text."
-msgstr "Mjesto unosa \"media\" mora sadržavati tekst"
+#: config/module.config.php:110
+msgid "Form Information"
+msgstr "Informacije o Obrascu"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:209
-msgid "A media prompt must have a media type."
-msgstr "Mjesto unosa \"media\" mora sadržavati vrstu unosa"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:214
-msgid "An input prompt must have text."
-msgstr "Mjesto za unos mora sadržavati tekst."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:217
-msgid "An input prompt must have an input type."
-msgstr "Mjesto za unos mora imati vrstu unosa."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:227
-msgid "A user_private prompt must have text."
-msgstr "Mjesto unosa \"registrirani_korisnik\" mora sadržavati tekst"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:230
-msgid "A user_private prompt must have an input type."
-msgstr "Mjesto unosa \"registrirani_korisnik\" mora sadržavati vrstu unosa."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:240
-msgid "A user_public prompt must have text."
-msgstr "Mjesto unosa \"neregistrirani_korisnik\" mora sadržavati tekst"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:243
-msgid "A user_public prompt must have an input type."
-msgstr "Mjesto unosa \"neregistrirani_korisnik\" mora sadržavati vrstu unosa."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:253
-msgid "A user_name prompt must have text."
-msgstr "Mjesto unosa korisničko_ime mora sadržavati tekst"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:258
-msgid "A user_email prompt must have text."
-msgstr "Mjesto unosa \"e-mail_korisnika\" mora sadržavati tekst"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:263
-msgid "A html prompt must have text."
-msgstr "Mjesto unosa html mora sadržavati tekst"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:267
-msgid "Prompts must have a type."
-msgstr "Mjesto unosa mora sadržavati vrstu unosa"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:279
-msgid "Invalid anonymity type."
-msgstr "Nevažeća vrsta anonimnosti"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:153
-#: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:180
-msgid "Please choose one..."
-msgstr "Molimo vas da izaberete jedan..."
-
-#: src/Api/Representation/CollectingFormRepresentation.php:260
-msgid "I want to submit anonymously"
-msgstr "Želim predati anonimno."
-
-#: src/Api/Representation/CollectingFormRepresentation.php:270
-msgid "Email me my submission"
-msgstr "E-mailiraj mi moju predaju"
-
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "Statusi uspješno ažurirani"
-
-#: src/Controller/SiteAdmin/FormController.php:82
-msgid "Collecting form successfully updated"
-msgstr "Obrazac za prikupljenje uspješno ažuriran"
-
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully created"
-msgstr "Obrazac za prikupljenje uspješno stvoren"
-
-#: src/Controller/SiteAdmin/FormController.php:117
-msgid "Collecting form successfully deleted"
-msgstr "Obrazac za prikupljanje uspješno izbrisan"
+#: config/module.config.php:116
+msgid "Collected Items"
+msgstr "Prikupljeni Predmeti"
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
@@ -527,9 +410,147 @@ msgstr "numeričko trajanje"
 msgid "Numeric integer"
 msgstr "broj"
 
-#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
-msgid "Collecting"
-msgstr "Prikupljenje"
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:180
+msgid "Please choose one..."
+msgstr "Molimo vas da izaberete jedan..."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:260
+msgid "I want to submit anonymously"
+msgstr "Želim predati anonimno."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:270
+msgid "Email me my submission"
+msgstr "E-mailiraj mi moju predaju"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr ""
+"Obrascu za prikupljanje mora biti dodijeljeno mjesto prilikom stvaranja"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:193
+msgid "A property prompt must have a property."
+msgstr "Polje za unos mora imati mjesto"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:196
+msgid "A property prompt must have an input type."
+msgstr "Polje za unos mora imati vrstu unosa."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:201
+#: src/Api/Adapter/CollectingFormAdapter.php:222
+#: src/Api/Adapter/CollectingFormAdapter.php:235
+#: src/Api/Adapter/CollectingFormAdapter.php:248
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr "Vrsta unosa prilagođeni_vokabular mora imati prilagođeni vokabular."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A media prompt must have text."
+msgstr "Mjesto unosa \"media\" mora sadržavati tekst"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:209
+msgid "A media prompt must have a media type."
+msgstr "Mjesto unosa \"media\" mora sadržavati vrstu unosa"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:214
+msgid "An input prompt must have text."
+msgstr "Mjesto za unos mora sadržavati tekst."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:217
+msgid "An input prompt must have an input type."
+msgstr "Mjesto za unos mora imati vrstu unosa."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "A user_private prompt must have text."
+msgstr "Mjesto unosa \"registrirani_korisnik\" mora sadržavati tekst"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:230
+msgid "A user_private prompt must have an input type."
+msgstr "Mjesto unosa \"registrirani_korisnik\" mora sadržavati vrstu unosa."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_public prompt must have text."
+msgstr "Mjesto unosa \"neregistrirani_korisnik\" mora sadržavati tekst"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:243
+msgid "A user_public prompt must have an input type."
+msgstr "Mjesto unosa \"neregistrirani_korisnik\" mora sadržavati vrstu unosa."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_name prompt must have text."
+msgstr "Mjesto unosa korisničko_ime mora sadržavati tekst"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A user_email prompt must have text."
+msgstr "Mjesto unosa \"e-mail_korisnika\" mora sadržavati tekst"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A html prompt must have text."
+msgstr "Mjesto unosa html mora sadržavati tekst"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:267
+msgid "Prompts must have a type."
+msgstr "Mjesto unosa mora sadržavati vrstu unosa"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:279
+msgid "Invalid anonymity type."
+msgstr "Nevažeća vrsta anonimnosti"
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr "Predmetu prikupljanja mora se dodijeliti predmet pri stvaranju."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr "Predmetu prikupljanja mora se dodijeliti obrazac prilikom stvaranja."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+"Inputu tijekom prikupljanja mora se dodijeliti mjesto za unos\n"
+" \n"
+"\n"
+" \n"
+" \n"
+" \n"
+" \n"
+" "
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr ""
+"Dodijelite sve predmete stvorene putem ovog obrasca ovom setu predmeta."
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "Odaberi Set Predmeta..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "Vrsta anonimnosti"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr ""
+"Kontrolirajte način postupanja s unosima \"neregistrirani korisnik\" i "
+"\"korisničko ime\" na javnim stranicama."
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "Tekst uspjeha"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "Prikažite ovaj tekst nakon što korisnik uspješno preda obrazac."
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "Sadržaj e-maila"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "Započnite sve e-mailove za predaju ovim tekstom."
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
@@ -539,29 +560,18 @@ msgstr "Jednostruki prijenos / upload"
 msgid "Upload Multiple"
 msgstr "Višestruki prijenos / upload"
 
-#: Module.php:155
-msgid "Terms of service"
-msgstr "Uvjeti pružanja usluge"
+#: src/Controller/SiteAdmin/FormController.php:82
+msgid "Collecting form successfully updated"
+msgstr "Obrazac za prikupljenje uspješno ažuriran"
 
-#: Module.php:156
-msgid ""
-"Enter the terms of service (TOS) for users who submit content to this site."
-msgstr ""
-"Unesite uvjete pružanja usluge (TOS) za korisnike koji pošalju sadržaj na "
-"ovu stranicu"
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully created"
+msgstr "Obrazac za prikupljenje uspješno stvoren"
 
-#: Module.php:166
-msgid "Email address"
-msgstr "e-mail adresa"
+#: src/Controller/SiteAdmin/FormController.php:117
+msgid "Collecting form successfully deleted"
+msgstr "Obrazac za prikupljanje uspješno izbrisan"
 
-#: Module.php:167
-msgid "Enter an email address from which submission emails will be sent."
-msgstr "Unesite e-mail adresu s koje će biti poslani e-malovi za prijavu"
-
-#: config/module.config.php:110
-msgid "Form Information"
-msgstr "Informacije o Obrascu"
-
-#: config/module.config.php:116
-msgid "Collected Items"
-msgstr "Prikupljeni Predmeti"
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "Statusi uspješno ažurirani"

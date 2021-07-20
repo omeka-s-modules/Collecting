@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:43-0400\n"
+"POT-Creation-Date: 2021-07-20 10:27-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Daniel Berthereau <daniel.transifex@berthereau.net>, 2020\n"
 "Language-Team: French (https://www.transifex.com/omeka/teams/14184/fr/)\n"
@@ -22,16 +22,16 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: Module.php:269
+#: Module.php:285
 msgid "Click here to view the collected data."
 msgstr "Cliquer ici pour voir les données collectées."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:290
+#: src/Api/Representation/CollectingFormRepresentation.php:291
 #, php-format
 msgid "I accept the %s"
 msgstr "J'accepte les %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:293
+#: src/Api/Representation/CollectingFormRepresentation.php:294
 msgid "Terms of Service"
 msgstr "Termes et conditions"
 
@@ -281,160 +281,48 @@ msgstr "Information de l’utilisateur"
 msgid "Public citation"
 msgstr "Citation publique"
 
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
-msgstr ""
-"Assigner tous les contenus créés par ce formulaire à cette collection."
+#: Module.php:155
+msgid "Terms of service"
+msgstr "Termes et conditions"
 
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr "Choisir une collection…"
-
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr "Type d’anonymat"
-
-#: src/Form/CollectingForm.php:40
+#: Module.php:156
 msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
+"Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
-"Permet de contrôler comment afficher les valeurs \"Info utilisateur "
-"publique\" et \"Nom d'utilisateur\" sur les pages publiques."
+"Indiquer les termes et conditions d’utilisation du service pour les "
+"utilisateurs qui déposent des contenus sur ce site."
 
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr "Texte affiché en cas de succès"
-
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
+#: Module.php:166
+msgid "Terms of service URL"
 msgstr ""
-"Message à afficher lorsqu’un utilisateur soumet le formulaire correctement."
 
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr "Label du mail"
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr "Commencer tous les emails de confirmation avec ce texte."
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
+#: Module.php:167
+msgid ""
+"Enter the URL to the terms of service (TOS) for users who submit content to "
+"this site."
 msgstr ""
-"Un contenu collecté doit être assigné à un contenu lors de sa création."
 
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
+#: Module.php:177
+msgid "Email address"
+msgstr "Adresse mail"
+
+#: Module.php:178
+msgid "Enter an email address from which submission emails will be sent."
 msgstr ""
-"Un contenu collecté doit être assigné à un formulaire lors de sa création."
+"Indiquer l’adresse mail qui sera utilisée pour envoyer les mails après un "
+"dépôt."
 
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
-msgstr ""
-"Un champ d’entrée doit être assigné à un formulaire lors de sa création."
+#: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
+msgid "Collecting"
+msgstr "Collectes"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:56
-msgid "A collecting form must be assigned a site on creation."
-msgstr "Un formulaire de collecte doit être assigné."
+#: config/module.config.php:110
+msgid "Form Information"
+msgstr "Information sur le formulaire"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:193
-msgid "A property prompt must have a property."
-msgstr "Un champ de propriété doit avoir un nom de propriété."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:196
-msgid "A property prompt must have an input type."
-msgstr "Un champ de propriété doit avoir un type d’entrée."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:201
-#: src/Api/Adapter/CollectingFormAdapter.php:222
-#: src/Api/Adapter/CollectingFormAdapter.php:235
-#: src/Api/Adapter/CollectingFormAdapter.php:248
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr ""
-"Un champ de vocabulaire personnalisé doit être associé à un vocabulaire "
-"personnalisé."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:206
-msgid "A media prompt must have text."
-msgstr "Un champ média doit avoir un label."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:209
-msgid "A media prompt must have a media type."
-msgstr "Un champ média doit avoir un type de média."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:214
-msgid "An input prompt must have text."
-msgstr "Un champ d’entrée doit avoir un label."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:217
-msgid "An input prompt must have an input type."
-msgstr "Un champ d’entrée doit avoir un type d’entrée."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:227
-msgid "A user_private prompt must have text."
-msgstr "Un champ Utilisateur privé doit avoir un label."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:230
-msgid "A user_private prompt must have an input type."
-msgstr "Un champ Utilisateur privé doit avoir un type d’entrée."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:240
-msgid "A user_public prompt must have text."
-msgstr "Un champ Utilisateur public doit avoir un label."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:243
-msgid "A user_public prompt must have an input type."
-msgstr "Un champ Utilisateur public doit avoir un type d’entrée."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:253
-msgid "A user_name prompt must have text."
-msgstr "Un champ Nom d’utilisateur doit avoir un label."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:258
-msgid "A user_email prompt must have text."
-msgstr "Un champ Mail utilisateur doit avoir un label."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:263
-msgid "A html prompt must have text."
-msgstr "Un champ html doit avoir un label."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:267
-msgid "Prompts must have a type."
-msgstr "Les champs doivent avoir un type."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:279
-msgid "Invalid anonymity type."
-msgstr "Type d’anonymat invalide."
-
-#: src/Api/Representation/CollectingFormRepresentation.php:153
-#: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:180
-msgid "Please choose one..."
-msgstr "Merci de choisir…"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:260
-msgid "I want to submit anonymously"
-msgstr "Je veux déposer anonymement"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:270
-msgid "Email me my submission"
-msgstr "M’envoyer le dépôt par mail"
-
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "Mise à jour des statuts effectuée"
-
-#: src/Controller/SiteAdmin/FormController.php:82
-msgid "Collecting form successfully updated"
-msgstr "Formulaire de collecte mis à jour avec succès"
-
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully created"
-msgstr "Formulaire de collecte créé avec succès"
-
-#: src/Controller/SiteAdmin/FormController.php:117
-msgid "Collecting form successfully deleted"
-msgstr "Formulaire de collecte supprimé avec succès"
+#: config/module.config.php:116
+msgid "Collected Items"
+msgstr "Contenus collectés"
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
@@ -510,9 +398,144 @@ msgstr "Durée"
 msgid "Numeric integer"
 msgstr "Entier"
 
-#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
-msgid "Collecting"
-msgstr "Collectes"
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:180
+msgid "Please choose one..."
+msgstr "Merci de choisir…"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:260
+msgid "I want to submit anonymously"
+msgstr "Je veux déposer anonymement"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:270
+msgid "Email me my submission"
+msgstr "M’envoyer le dépôt par mail"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr "Un formulaire de collecte doit être assigné."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:193
+msgid "A property prompt must have a property."
+msgstr "Un champ de propriété doit avoir un nom de propriété."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:196
+msgid "A property prompt must have an input type."
+msgstr "Un champ de propriété doit avoir un type d’entrée."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:201
+#: src/Api/Adapter/CollectingFormAdapter.php:222
+#: src/Api/Adapter/CollectingFormAdapter.php:235
+#: src/Api/Adapter/CollectingFormAdapter.php:248
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr ""
+"Un champ de vocabulaire personnalisé doit être associé à un vocabulaire "
+"personnalisé."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A media prompt must have text."
+msgstr "Un champ média doit avoir un label."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:209
+msgid "A media prompt must have a media type."
+msgstr "Un champ média doit avoir un type de média."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:214
+msgid "An input prompt must have text."
+msgstr "Un champ d’entrée doit avoir un label."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:217
+msgid "An input prompt must have an input type."
+msgstr "Un champ d’entrée doit avoir un type d’entrée."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "A user_private prompt must have text."
+msgstr "Un champ Utilisateur privé doit avoir un label."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:230
+msgid "A user_private prompt must have an input type."
+msgstr "Un champ Utilisateur privé doit avoir un type d’entrée."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_public prompt must have text."
+msgstr "Un champ Utilisateur public doit avoir un label."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:243
+msgid "A user_public prompt must have an input type."
+msgstr "Un champ Utilisateur public doit avoir un type d’entrée."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_name prompt must have text."
+msgstr "Un champ Nom d’utilisateur doit avoir un label."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A user_email prompt must have text."
+msgstr "Un champ Mail utilisateur doit avoir un label."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A html prompt must have text."
+msgstr "Un champ html doit avoir un label."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:267
+msgid "Prompts must have a type."
+msgstr "Les champs doivent avoir un type."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:279
+msgid "Invalid anonymity type."
+msgstr "Type d’anonymat invalide."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+"Un contenu collecté doit être assigné à un contenu lors de sa création."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+"Un contenu collecté doit être assigné à un formulaire lors de sa création."
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+"Un champ d’entrée doit être assigné à un formulaire lors de sa création."
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr ""
+"Assigner tous les contenus créés par ce formulaire à cette collection."
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "Choisir une collection…"
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "Type d’anonymat"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr ""
+"Permet de contrôler comment afficher les valeurs \"Info utilisateur "
+"publique\" et \"Nom d'utilisateur\" sur les pages publiques."
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "Texte affiché en cas de succès"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr ""
+"Message à afficher lorsqu’un utilisateur soumet le formulaire correctement."
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "Label du mail"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "Commencer tous les emails de confirmation avec ce texte."
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
@@ -522,31 +545,18 @@ msgstr "Téléversement simple"
 msgid "Upload Multiple"
 msgstr "Téléversement multiple"
 
-#: Module.php:155
-msgid "Terms of service"
-msgstr "Termes et conditions"
+#: src/Controller/SiteAdmin/FormController.php:82
+msgid "Collecting form successfully updated"
+msgstr "Formulaire de collecte mis à jour avec succès"
 
-#: Module.php:156
-msgid ""
-"Enter the terms of service (TOS) for users who submit content to this site."
-msgstr ""
-"Indiquer les termes et conditions d’utilisation du service pour les "
-"utilisateurs qui déposent des contenus sur ce site."
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully created"
+msgstr "Formulaire de collecte créé avec succès"
 
-#: Module.php:166
-msgid "Email address"
-msgstr "Adresse mail"
+#: src/Controller/SiteAdmin/FormController.php:117
+msgid "Collecting form successfully deleted"
+msgstr "Formulaire de collecte supprimé avec succès"
 
-#: Module.php:167
-msgid "Enter an email address from which submission emails will be sent."
-msgstr ""
-"Indiquer l’adresse mail qui sera utilisée pour envoyer les mails après un "
-"dépôt."
-
-#: config/module.config.php:110
-msgid "Form Information"
-msgstr "Information sur le formulaire"
-
-#: config/module.config.php:116
-msgid "Collected Items"
-msgstr "Contenus collectés"
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "Mise à jour des statuts effectuée"

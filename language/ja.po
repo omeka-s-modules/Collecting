@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-21 11:43-0400\n"
+"POT-Creation-Date: 2021-07-20 10:27-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Naosuke Okamoto, 2019\n"
 "Language-Team: Japanese (https://www.transifex.com/omeka/teams/14184/ja/)\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: Module.php:269
+#: Module.php:285
 msgid "Click here to view the collected data."
 msgstr "入力されたデータを見るにはここをクリックしてください。"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:290
+#: src/Api/Representation/CollectingFormRepresentation.php:291
 #, php-format
 msgid "I accept the %s"
 msgstr "%sに同意します"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:293
+#: src/Api/Representation/CollectingFormRepresentation.php:294
 msgid "Terms of Service"
 msgstr "利用規約"
 
@@ -276,151 +276,44 @@ msgstr "ユーザー情報"
 msgid "Public citation"
 msgstr "公開引用"
 
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
+#: Module.php:155
+msgid "Terms of service"
+msgstr ""
+
+#: Module.php:156
+msgid ""
+"Enter the terms of service (TOS) for users who submit content to this site."
+msgstr ""
+
+#: Module.php:166
+msgid "Terms of service URL"
+msgstr ""
+
+#: Module.php:167
+msgid ""
+"Enter the URL to the terms of service (TOS) for users who submit content to "
+"this site."
+msgstr ""
+
+#: Module.php:177
+msgid "Email address"
+msgstr ""
+
+#: Module.php:178
+msgid "Enter an email address from which submission emails will be sent."
+msgstr ""
+
+#: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
+msgid "Collecting"
 msgstr "このフォームで作成されたすべてのアイテムをこのアイテムセットに割り当てます。"
 
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr "アイテムセットを選択..."
+#: config/module.config.php:110
+msgid "Form Information"
+msgstr "フォーム情報"
 
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr "匿名性タイプ"
-
-#: src/Form/CollectingForm.php:40
-msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
-msgstr "公開ページの \"User Public\"と \"User Name\"の入力を扱う方法を制御します。"
-
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr "成功時のテキスト"
-
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
-msgstr "ユーザーがフォームを正常に送信した後に、このテキストを表示します。"
-
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr "Eメールテキスト"
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr "すべての送信メールをこのテキストで開始します。"
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:56
-msgid "A collecting form must be assigned a site on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:193
-msgid "A property prompt must have a property."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:196
-msgid "A property prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:201
-#: src/Api/Adapter/CollectingFormAdapter.php:222
-#: src/Api/Adapter/CollectingFormAdapter.php:235
-#: src/Api/Adapter/CollectingFormAdapter.php:248
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr "custom_vocab入力タイプにはカスタム語彙が必要です。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:206
-msgid "A media prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:209
-msgid "A media prompt must have a media type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:214
-msgid "An input prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:217
-msgid "An input prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:227
-msgid "A user_private prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:230
-msgid "A user_private prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:240
-msgid "A user_public prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:243
-msgid "A user_public prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:253
-msgid "A user_name prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:258
-msgid "A user_email prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:263
-msgid "A html prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:267
-msgid "Prompts must have a type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:279
-msgid "Invalid anonymity type."
-msgstr ""
-
-#: src/Api/Representation/CollectingFormRepresentation.php:153
-#: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:180
-msgid "Please choose one..."
-msgstr "１つを選択してください..."
-
-#: src/Api/Representation/CollectingFormRepresentation.php:260
-msgid "I want to submit anonymously"
-msgstr "匿名で送信する"
-
-#: src/Api/Representation/CollectingFormRepresentation.php:270
-msgid "Email me my submission"
-msgstr "送信内容をメールする"
-
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "状態を更新しました"
-
-#: src/Controller/SiteAdmin/FormController.php:82
-msgid "Collecting form successfully updated"
-msgstr "入力フォームを更新しました"
-
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully created"
-msgstr "入力フォームを作成しました"
-
-#: src/Controller/SiteAdmin/FormController.php:117
-msgid "Collecting form successfully deleted"
-msgstr "入力フォームを削除しました"
+#: config/module.config.php:116
+msgid "Collected Items"
+msgstr "入力されたアイテム一覧"
 
 #: src/Entity/CollectingForm.php:90
 msgid "User sets own anonymity"
@@ -494,9 +387,135 @@ msgstr "期間"
 msgid "Numeric integer"
 msgstr "整数"
 
-#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
-msgid "Collecting"
+#: src/Api/Representation/CollectingFormRepresentation.php:153
+#: src/Api/Representation/CollectingFormRepresentation.php:160
+#: src/Api/Representation/CollectingFormRepresentation.php:180
+msgid "Please choose one..."
+msgstr "１つを選択してください..."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:260
+msgid "I want to submit anonymously"
+msgstr "匿名で送信する"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:270
+msgid "Email me my submission"
+msgstr "送信内容をメールする"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:193
+msgid "A property prompt must have a property."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:196
+msgid "A property prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:201
+#: src/Api/Adapter/CollectingFormAdapter.php:222
+#: src/Api/Adapter/CollectingFormAdapter.php:235
+#: src/Api/Adapter/CollectingFormAdapter.php:248
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr "custom_vocab入力タイプにはカスタム語彙が必要です。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A media prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:209
+msgid "A media prompt must have a media type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:214
+msgid "An input prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:217
+msgid "An input prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "A user_private prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:230
+msgid "A user_private prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_public prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:243
+msgid "A user_public prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_name prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A user_email prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A html prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:267
+msgid "Prompts must have a type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:279
+msgid "Invalid anonymity type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
 msgstr "このフォームで作成されたすべてのアイテムをこのアイテムセットに割り当てます。"
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "アイテムセットを選択..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "匿名性タイプ"
+
+#: src/Form/CollectingForm.php:40
+msgid ""
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr "公開ページの \"User Public\"と \"User Name\"の入力を扱う方法を制御します。"
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "成功時のテキスト"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "ユーザーがフォームを正常に送信した後に、このテキストを表示します。"
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "Eメールテキスト"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "すべての送信メールをこのテキストで開始します。"
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
@@ -506,27 +525,18 @@ msgstr ""
 msgid "Upload Multiple"
 msgstr ""
 
-#: Module.php:155
-msgid "Terms of service"
-msgstr ""
+#: src/Controller/SiteAdmin/FormController.php:82
+msgid "Collecting form successfully updated"
+msgstr "入力フォームを更新しました"
 
-#: Module.php:156
-msgid ""
-"Enter the terms of service (TOS) for users who submit content to this site."
-msgstr ""
+#: src/Controller/SiteAdmin/FormController.php:83
+msgid "Collecting form successfully created"
+msgstr "入力フォームを作成しました"
 
-#: Module.php:166
-msgid "Email address"
-msgstr ""
+#: src/Controller/SiteAdmin/FormController.php:117
+msgid "Collecting form successfully deleted"
+msgstr "入力フォームを削除しました"
 
-#: Module.php:167
-msgid "Enter an email address from which submission emails will be sent."
-msgstr ""
-
-#: config/module.config.php:110
-msgid "Form Information"
-msgstr "フォーム情報"
-
-#: config/module.config.php:116
-msgid "Collected Items"
-msgstr "入力されたアイテム一覧"
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "状態を更新しました"
