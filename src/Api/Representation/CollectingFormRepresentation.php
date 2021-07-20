@@ -274,8 +274,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
 
         // Add the terms of service if provided in site settings.
         $tos = $siteSettings->get('collecting_tos');
-        if ($tos) {
-            $tosUrl = $url('site/collecting', [
+        $tosUrl = $siteSettings->get('collecting_tos_url');
+        if ($tos || $tosUrl) {
+            $tosUrl = $tosUrl ?: $url('site/collecting', [
                 'form-id' => $this->id(),
                 'action' => 'tos',
             ], true);

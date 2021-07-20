@@ -160,6 +160,17 @@ class Module extends AbstractModule
             ],
         ]);
         $fieldset->add([
+            'type' => 'url',
+            'name' => 'collecting_tos_url',
+            'options' => [
+                'label' => 'Terms of service URL', // @translate
+                'info' => 'Enter the URL to the terms of service (TOS) for users who submit content to this site.', // @translate
+            ],
+            'attributes' => [
+                'value' => $siteSettings->get('collecting_tos_url'),
+            ],
+        ]);
+        $fieldset->add([
             'type' => 'email',
             'name' => 'collecting_email',
             'options' => [
@@ -182,6 +193,11 @@ class Module extends AbstractModule
     public function addSiteSettingsInputFilters(Event $event)
     {
         $inputFilter = $event->getParam('inputFilter');
+        $inputFilter->get('collecting')->add([
+            'name' => 'collecting_tos_url',
+            'required' => false,
+            'allow_empty' => true,
+        ]);
         $inputFilter->get('collecting')->add([
             'name' => 'collecting_email',
             'required' => false,
