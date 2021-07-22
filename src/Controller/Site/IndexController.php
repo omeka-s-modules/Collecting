@@ -315,7 +315,7 @@ class IndexController extends AbstractActionController
         $messageContent .= $partialHelper('common/collecting-item-inputs', ['cItem' => $cItem]);
         $messageContent .= sprintf(
             '<p><a href="%s">%s</a></p>',
-            $urlHelper('admin/site/slug/collecting/item', ['item-id' => $cItem->id()], true),
+            $urlHelper('admin/site/slug/collecting/item', ['item-id' => $cItem->id()], ['force_canonical' => true], true),
             'Go here to administer the submitted item.'
         );
 
@@ -337,6 +337,4 @@ class IndexController extends AbstractActionController
             ->setBody($body);
         $this->mailer()->send($message);
     }
-
-
 }
