@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 10:27-0400\n"
+"POT-Creation-Date: 2021-08-27 12:22-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Tzvetan Tzvetanski <ceibg.org@gmail.com>, 2021\n"
 "Language-Team: Bulgarian (Bulgaria) (https://www.transifex.com/omeka/teams/14184/bg_BG/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:285
+#: Module.php:301
 msgid "Click here to view the collected data."
 msgstr "Щракнете тук, за да видите събраните данни."
 
@@ -44,9 +44,13 @@ msgstr "[лично]"
 msgid "[unknown item]"
 msgstr "[неизвестен елемент]"
 
-#: src/Controller/Site/IndexController.php:282
+#: src/Controller/Site/IndexController.php:287
 msgid "Thank you for your submission"
 msgstr "Благодарим за Вашия принос"
+
+#: src/Controller/Site/IndexController.php:336
+msgid "Collecting submission notification"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
@@ -82,10 +86,6 @@ msgstr "Вид на напомнянето"
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
 msgstr "Изберете вида на напомняне"
-
-#: view/collecting/site-admin/form/form.phtml:93
-msgid "Media type"
-msgstr "Вид медия"
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
@@ -302,12 +302,21 @@ msgid ""
 msgstr ""
 
 #: Module.php:177
-msgid "Email address"
-msgstr "Имейл адреси"
+msgid "Submission email address"
+msgstr ""
 
 #: Module.php:178
-msgid "Enter an email address from which submission emails will be sent."
-msgstr "Въведете имейл адрес, от който ще се изпращат имейли за изпращане."
+msgid "Enter an email address from which user submission emails will be sent."
+msgstr ""
+
+#: Module.php:188
+msgid "Notification email address"
+msgstr ""
+
+#: Module.php:189
+msgid ""
+"Enter an email address to which admin notification emails will be sent."
+msgstr ""
 
 #: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"

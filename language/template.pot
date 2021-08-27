@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 10:27-0400\n"
+"POT-Creation-Date: 2021-08-27 12:22-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Module.php:285
+#: Module.php:301
 msgid "Click here to view the collected data."
 msgstr ""
 
@@ -40,8 +40,12 @@ msgstr ""
 msgid "[unknown item]"
 msgstr ""
 
-#: src/Controller/Site/IndexController.php:282
+#: src/Controller/Site/IndexController.php:287
 msgid "Thank you for your submission"
+msgstr ""
+
+#: src/Controller/Site/IndexController.php:336
+msgid "Collecting submission notification"
 msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:9
@@ -77,10 +81,6 @@ msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr ""
-
-#: view/collecting/site-admin/form/form.phtml:93
-msgid "Media type"
 msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:95
@@ -292,11 +292,19 @@ msgid ""
 msgstr ""
 
 #: Module.php:177
-msgid "Email address"
+msgid "Submission email address"
 msgstr ""
 
 #: Module.php:178
-msgid "Enter an email address from which submission emails will be sent."
+msgid "Enter an email address from which user submission emails will be sent."
+msgstr ""
+
+#: Module.php:188
+msgid "Notification email address"
+msgstr ""
+
+#: Module.php:189
+msgid "Enter an email address to which admin notification emails will be sent."
 msgstr ""
 
 #: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
