@@ -5,15 +5,16 @@
 # 
 # Translators:
 # Matti Lassila <matti.lassila@gmail.com>, 2018
+# Kai Metsävainio <kai.metsavainio@gmail.com>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-27 12:22-0400\n"
+"POT-Creation-Date: 2021-12-01 18:11-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Matti Lassila <matti.lassila@gmail.com>, 2018\n"
+"Last-Translator: Kai Metsävainio <kai.metsavainio@gmail.com>, 2021\n"
 "Language-Team: Finnish (Finland) (https://www.transifex.com/omeka/teams/14184/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,16 +22,16 @@ msgstr ""
 "Language: fi_FI\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:301
+#: Module.php:304
 msgid "Click here to view the collected data."
 msgstr "Näytä oheistiedot."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:291
+#: src/Api/Representation/CollectingFormRepresentation.php:297
 #, php-format
 msgid "I accept the %s"
 msgstr "Hyväksyn %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:294
+#: src/Api/Representation/CollectingFormRepresentation.php:300
 msgid "Terms of Service"
 msgstr "käyttöehdot"
 
@@ -44,13 +45,15 @@ msgstr "[yksityinen]"
 msgid "[unknown item]"
 msgstr "[tuntematon aineisto]"
 
-#: src/Controller/Site/IndexController.php:287
+#: src/Controller/Site/IndexController.php:297
 msgid "Thank you for your submission"
 msgstr "Kiitokset osallistumisestasi"
 
-#: src/Controller/Site/IndexController.php:336
+#: src/Controller/Site/IndexController.php:346
 msgid "Collecting submission notification"
 msgstr ""
+"Lisää käyttöehdot niille käyttäjille, jotka lisäävät aineistoa tälle "
+"sivustolle."
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
@@ -105,7 +108,7 @@ msgstr "Valitse kentän tyyppi"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr ""
+msgstr "(ei saatavissa)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
@@ -123,11 +126,11 @@ msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
-msgstr ""
+msgstr "Oma sanasto"
 
 #: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
-msgstr ""
+msgstr "Valitse oma sanasto"
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
@@ -280,41 +283,46 @@ msgstr "Käyttäjätiedot"
 msgid "Public citation"
 msgstr "Viite"
 
-#: Module.php:155
+#: Module.php:158
 msgid "Terms of service"
-msgstr ""
+msgstr "Käyttöehdot"
 
-#: Module.php:156
+#: Module.php:159
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
+"Lisää käyttöehdot niille käyttäjille, jotka lisäävät aineistoa tälle "
+"sivustolle."
 
-#: Module.php:166
+#: Module.php:169
 msgid "Terms of service URL"
-msgstr ""
+msgstr "Käyttöehtojen url-osoite"
 
-#: Module.php:167
+#: Module.php:170
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
+"Lisää käyttöehtojen URL-osoite niille käyttäjille, jotka lisäävät sisältöä "
+"sivustolle."
 
-#: Module.php:177
+#: Module.php:180
 msgid "Submission email address"
-msgstr ""
+msgstr "Lisäysten sähköpostiosoite"
 
-#: Module.php:178
+#: Module.php:181
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
+"Lisää sähköpostiosoite, johon tieto käyttäjien lisäyksistä lähetetään."
 
-#: Module.php:188
+#: Module.php:191
 msgid "Notification email address"
-msgstr ""
+msgstr "Ilmoitusten sähköpostiosoite"
 
-#: Module.php:189
+#: Module.php:192
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
-msgstr ""
+msgstr "Lisää sähköpostiosoite mihin ylläpitäjän ilmoitukset lähetetään."
 
 #: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
@@ -328,15 +336,15 @@ msgstr "Lomakkeen tiedot"
 msgid "Collected Items"
 msgstr "Tallennetut tiedot"
 
-#: src/Entity/CollectingForm.php:90
+#: src/Entity/CollectingForm.php:95
 msgid "User sets own anonymity"
 msgstr "Käyttäjän määrittämä yksityisyysasetus"
 
-#: src/Entity/CollectingForm.php:91
+#: src/Entity/CollectingForm.php:96
 msgid "“User Public” and “User Name” inputs are publicly visible"
 msgstr "“Julkinen lisätieto” ja “Nimi” -kentät ovat julkisia"
 
-#: src/Entity/CollectingForm.php:92
+#: src/Entity/CollectingForm.php:97
 msgid "“User Public” and “User Name” inputs are private"
 msgstr "“Yksityinen lisätieto” ja “Nimi” -kentät ovat yksityisiä"
 
@@ -386,31 +394,31 @@ msgstr ""
 
 #: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
-msgstr ""
+msgstr "Numeerinen aikaleima"
 
 #: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
-msgstr ""
+msgstr "Numerinen intervalli"
 
 #: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
-msgstr ""
+msgstr "Numeerinen kesto"
 
 #: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
-msgstr ""
+msgstr "Numeerinen kokonaisluku"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:153
-#: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:180
+#: src/Api/Representation/CollectingFormRepresentation.php:159
+#: src/Api/Representation/CollectingFormRepresentation.php:166
+#: src/Api/Representation/CollectingFormRepresentation.php:186
 msgid "Please choose one..."
 msgstr "Valitse vaihtoehdoista"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:260
+#: src/Api/Representation/CollectingFormRepresentation.php:266
 msgid "I want to submit anonymously"
 msgstr "Osallistun nimettömänä"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:270
+#: src/Api/Representation/CollectingFormRepresentation.php:276
 msgid "Email me my submission"
 msgstr "Lähetä lomakkeen tiedot sähköpostilla"
 
@@ -418,70 +426,70 @@ msgstr "Lähetä lomakkeen tiedot sähköpostilla"
 msgid "A collecting form must be assigned a site on creation."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:193
+#: src/Api/Adapter/CollectingFormAdapter.php:197
 msgid "A property prompt must have a property."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:196
+#: src/Api/Adapter/CollectingFormAdapter.php:200
 msgid "A property prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:201
-#: src/Api/Adapter/CollectingFormAdapter.php:222
-#: src/Api/Adapter/CollectingFormAdapter.php:235
-#: src/Api/Adapter/CollectingFormAdapter.php:248
+#: src/Api/Adapter/CollectingFormAdapter.php:205
+#: src/Api/Adapter/CollectingFormAdapter.php:226
+#: src/Api/Adapter/CollectingFormAdapter.php:239
+#: src/Api/Adapter/CollectingFormAdapter.php:252
 msgid "A custom_vocab input type must have a custom vocab."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:206
+#: src/Api/Adapter/CollectingFormAdapter.php:210
 msgid "A media prompt must have text."
-msgstr ""
+msgstr "Tiedostokehoitteessa on oltava tekstiä."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:209
+#: src/Api/Adapter/CollectingFormAdapter.php:213
 msgid "A media prompt must have a media type."
-msgstr ""
+msgstr "Tiedostokehoitteessa on oltava tiedostotyyppi."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:214
+#: src/Api/Adapter/CollectingFormAdapter.php:218
 msgid "An input prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:217
+#: src/Api/Adapter/CollectingFormAdapter.php:221
 msgid "An input prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:227
+#: src/Api/Adapter/CollectingFormAdapter.php:231
 msgid "A user_private prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:230
+#: src/Api/Adapter/CollectingFormAdapter.php:234
 msgid "A user_private prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:240
+#: src/Api/Adapter/CollectingFormAdapter.php:244
 msgid "A user_public prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:243
+#: src/Api/Adapter/CollectingFormAdapter.php:247
 msgid "A user_public prompt must have an input type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:253
+#: src/Api/Adapter/CollectingFormAdapter.php:257
 msgid "A user_name prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:258
+#: src/Api/Adapter/CollectingFormAdapter.php:262
 msgid "A user_email prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:263
+#: src/Api/Adapter/CollectingFormAdapter.php:267
 msgid "A html prompt must have text."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:267
+#: src/Api/Adapter/CollectingFormAdapter.php:271
 msgid "Prompts must have a type."
 msgstr ""
 
-#: src/Api/Adapter/CollectingFormAdapter.php:279
+#: src/Api/Adapter/CollectingFormAdapter.php:283
 msgid "Invalid anonymity type."
 msgstr ""
 
@@ -534,13 +542,23 @@ msgstr ""
 "Teksti joka liitetään käyttäjälle hänen halutessaan lähetettävään "
 "sähköpostiin."
 
+#: src/Form/CollectingForm.php:72
+msgid "Use default site assignments"
+msgstr ""
+
+#: src/Form/CollectingForm.php:73
+msgid ""
+"Check this to use default site assignments for collected items. If not "
+"checked, all items created by this form are assigned to this site only."
+msgstr ""
+
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
-msgstr ""
+msgstr "Lataa yksi"
 
 #: src/MediaType/UploadMultiple.php:20
 msgid "Upload Multiple"
-msgstr ""
+msgstr "Lataa useita"
 
 #: src/Controller/SiteAdmin/FormController.php:82
 msgid "Collecting form successfully updated"

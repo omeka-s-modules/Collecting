@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-27 12:22-0400\n"
+"POT-Creation-Date: 2021-12-01 18:11-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2020\n"
 "Language-Team: Italian (https://www.transifex.com/omeka/teams/14184/it/)\n"
@@ -23,16 +23,16 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:301
+#: Module.php:304
 msgid "Click here to view the collected data."
 msgstr "Clicca qui per visualizzare i dati raccolti"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:291
+#: src/Api/Representation/CollectingFormRepresentation.php:297
 #, php-format
 msgid "I accept the %s"
 msgstr "Accetto %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:294
+#: src/Api/Representation/CollectingFormRepresentation.php:300
 msgid "Terms of Service"
 msgstr "Condizioni d'utilizzo"
 
@@ -46,11 +46,11 @@ msgstr "[riservato]"
 msgid "[unknown item]"
 msgstr "[contenuto sconosciuto]"
 
-#: src/Controller/Site/IndexController.php:287
+#: src/Controller/Site/IndexController.php:297
 msgid "Thank you for your submission"
 msgstr "Grazie per il vostro contributo"
 
-#: src/Controller/Site/IndexController.php:336
+#: src/Controller/Site/IndexController.php:346
 msgid "Collecting submission notification"
 msgstr ""
 
@@ -280,40 +280,40 @@ msgstr "Informazione utente"
 msgid "Public citation"
 msgstr "Citazione pubblica"
 
-#: Module.php:155
+#: Module.php:158
 msgid "Terms of service"
 msgstr "Condizioni d'utilizzo"
 
-#: Module.php:156
+#: Module.php:159
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Inserisci le condizioni d'utilizzo (TOS) per gli utenti che inseriranno "
 "contenuti in questo sito"
 
-#: Module.php:166
+#: Module.php:169
 msgid "Terms of service URL"
 msgstr ""
 
-#: Module.php:167
+#: Module.php:170
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
 
-#: Module.php:177
+#: Module.php:180
 msgid "Submission email address"
 msgstr ""
 
-#: Module.php:178
+#: Module.php:181
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 
-#: Module.php:188
+#: Module.php:191
 msgid "Notification email address"
 msgstr ""
 
-#: Module.php:189
+#: Module.php:192
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
@@ -330,15 +330,15 @@ msgstr "Informazione sul modulo"
 msgid "Collected Items"
 msgstr "Contenuti raccolti"
 
-#: src/Entity/CollectingForm.php:90
+#: src/Entity/CollectingForm.php:95
 msgid "User sets own anonymity"
 msgstr "Utente fissa il proprio anonimato"
 
-#: src/Entity/CollectingForm.php:91
+#: src/Entity/CollectingForm.php:96
 msgid "“User Public” and “User Name” inputs are publicly visible"
 msgstr "“Utente pubblico” e “Nome utente” sono pubblicamente visibili"
 
-#: src/Entity/CollectingForm.php:92
+#: src/Entity/CollectingForm.php:97
 msgid "“User Public” and “User Name” inputs are private"
 msgstr "\"Utente pubblico\" e \"Nome utente\" sono riservati"
 
@@ -402,17 +402,17 @@ msgstr "Durata numerica"
 msgid "Numeric integer"
 msgstr "Numero intero"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:153
-#: src/Api/Representation/CollectingFormRepresentation.php:160
-#: src/Api/Representation/CollectingFormRepresentation.php:180
+#: src/Api/Representation/CollectingFormRepresentation.php:159
+#: src/Api/Representation/CollectingFormRepresentation.php:166
+#: src/Api/Representation/CollectingFormRepresentation.php:186
 msgid "Please choose one..."
 msgstr "Selezionare una risposta"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:260
+#: src/Api/Representation/CollectingFormRepresentation.php:266
 msgid "I want to submit anonymously"
 msgstr "Voglio inviare in forma anonima"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:270
+#: src/Api/Representation/CollectingFormRepresentation.php:276
 msgid "Email me my submission"
 msgstr "Mandami la mia presentazione"
 
@@ -420,72 +420,72 @@ msgstr "Mandami la mia presentazione"
 msgid "A collecting form must be assigned a site on creation."
 msgstr "Modulo di raccolta deve assegnare il sito di creazione"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:193
+#: src/Api/Adapter/CollectingFormAdapter.php:197
 msgid "A property prompt must have a property."
 msgstr "La proprietà immediata deve avere la proprietà."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:196
+#: src/Api/Adapter/CollectingFormAdapter.php:200
 msgid "A property prompt must have an input type."
 msgstr "La proprietà immediata deve avere un input"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:201
-#: src/Api/Adapter/CollectingFormAdapter.php:222
-#: src/Api/Adapter/CollectingFormAdapter.php:235
-#: src/Api/Adapter/CollectingFormAdapter.php:248
+#: src/Api/Adapter/CollectingFormAdapter.php:205
+#: src/Api/Adapter/CollectingFormAdapter.php:226
+#: src/Api/Adapter/CollectingFormAdapter.php:239
+#: src/Api/Adapter/CollectingFormAdapter.php:252
 msgid "A custom_vocab input type must have a custom vocab."
 msgstr ""
 "Input del vocabolario personalizzato deve avere un vocabolario "
 "personalizzato."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:206
+#: src/Api/Adapter/CollectingFormAdapter.php:210
 msgid "A media prompt must have text."
 msgstr "Il materiale deve avere un testo."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:209
+#: src/Api/Adapter/CollectingFormAdapter.php:213
 msgid "A media prompt must have a media type."
 msgstr "Il materiale  deve avere un carattere media."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:214
+#: src/Api/Adapter/CollectingFormAdapter.php:218
 msgid "An input prompt must have text."
 msgstr "Input immediato deve avere testo."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:217
+#: src/Api/Adapter/CollectingFormAdapter.php:221
 msgid "An input prompt must have an input type."
 msgstr "Input immediato deve avere un input."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:227
+#: src/Api/Adapter/CollectingFormAdapter.php:231
 msgid "A user_private prompt must have text."
 msgstr "Prompt del utente privato deve avere testo."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:230
+#: src/Api/Adapter/CollectingFormAdapter.php:234
 msgid "A user_private prompt must have an input type."
 msgstr "Prompt del utente privato deve avere un input."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:240
+#: src/Api/Adapter/CollectingFormAdapter.php:244
 msgid "A user_public prompt must have text."
 msgstr "Prompt del utente pubblico deve avere testo."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:243
+#: src/Api/Adapter/CollectingFormAdapter.php:247
 msgid "A user_public prompt must have an input type."
 msgstr "Prompt del utente pubblico deve avere un input."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:253
+#: src/Api/Adapter/CollectingFormAdapter.php:257
 msgid "A user_name prompt must have text."
 msgstr "Prompt del nome utente deve avere testo."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:258
+#: src/Api/Adapter/CollectingFormAdapter.php:262
 msgid "A user_email prompt must have text."
 msgstr "Prompt del email utente deve avere testo."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:263
+#: src/Api/Adapter/CollectingFormAdapter.php:267
 msgid "A html prompt must have text."
 msgstr "Prompt html deve avere testo."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:267
+#: src/Api/Adapter/CollectingFormAdapter.php:271
 msgid "Prompts must have a type."
 msgstr "Prompts devono avere un carattere."
 
-#: src/Api/Adapter/CollectingFormAdapter.php:279
+#: src/Api/Adapter/CollectingFormAdapter.php:283
 msgid "Invalid anonymity type."
 msgstr "Carattere anonimato non valido."
 
@@ -540,6 +540,16 @@ msgstr "Testo dell'email"
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
 msgstr "Comincia tutte le presentazioni degli emails con questo testo."
+
+#: src/Form/CollectingForm.php:72
+msgid "Use default site assignments"
+msgstr ""
+
+#: src/Form/CollectingForm.php:73
+msgid ""
+"Check this to use default site assignments for collected items. If not "
+"checked, all items created by this form are assigned to this site only."
+msgstr ""
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
