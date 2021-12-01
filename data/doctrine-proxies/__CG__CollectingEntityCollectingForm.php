@@ -12,39 +12,41 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
      *      three parameters, being respectively the proxy object to be initialized, the method that triggered the
      *      initialization process and an array of ordered parameters that were passed to that method.
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__setInitializer
+     * @see \Doctrine\Common\Proxy\Proxy::__setInitializer
      */
     public $__initializer__;
 
     /**
      * @var \Closure the callback responsible of loading properties that need to be copied in the cloned object
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__setCloner
+     * @see \Doctrine\Common\Proxy\Proxy::__setCloner
      */
     public $__cloner__;
 
     /**
      * @var boolean flag indicating if this object was already initialized
      *
-     * @see \Doctrine\Common\Persistence\Proxy::__isInitialized
+     * @see \Doctrine\Persistence\Proxy::__isInitialized
      */
     public $__isInitialized__ = false;
 
     /**
-     * @var array properties to be lazy loaded, with keys being the property
-     *            names and values being their default values
-     *
-     * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
+     * @var array<string, null> properties to be lazy loaded, indexed by property name
      */
-    public static $lazyPropertiesDefaults = [];
-
-
+    public static $lazyPropertiesNames = array (
+);
 
     /**
-     * @param \Closure $initializer
-     * @param \Closure $cloner
+     * @var array<string, mixed> default values of properties to be lazy loaded, with keys being the property names
+     *
+     * @see \Doctrine\Common\Proxy\Proxy::__getLazyProperties
      */
-    public function __construct($initializer = null, $cloner = null)
+    public static $lazyPropertiesDefaults = array (
+);
+
+
+
+    public function __construct(?\Closure $initializer = null, ?\Closure $cloner = null)
     {
 
         $this->__initializer__ = $initializer;
@@ -64,10 +66,10 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'emailText', 'site', 'owner', 'prompts'];
+            return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'emailText', 'defaultSiteAssign', 'site', 'owner', 'prompts'];
         }
 
-        return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'emailText', 'site', 'owner', 'prompts'];
+        return ['__isInitialized__', 'id', 'label', 'anonType', 'itemSet', 'successText', 'emailText', 'defaultSiteAssign', 'site', 'owner', 'prompts'];
     }
 
     /**
@@ -82,7 +84,7 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
 
                 $existingProperties = get_object_vars($proxy);
 
-                foreach ($proxy->__getLazyProperties() as $property => $defaultValue) {
+                foreach ($proxy::$lazyPropertiesDefaults as $property => $defaultValue) {
                     if ( ! array_key_exists($property, $existingProperties)) {
                         $proxy->$property = $defaultValue;
                     }
@@ -165,6 +167,7 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
     /**
      * {@inheritDoc}
      * @internal generated method: use only when explicitly handling proxy specific loading logic
+     * @deprecated no longer in use - generated code now relies on internal components rather than generated public API
      * @static
      */
     public function __getLazyProperties()
@@ -296,6 +299,28 @@ class CollectingForm extends \Collecting\Entity\CollectingForm implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailText', []);
 
         return parent::getEmailText();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDefaultSiteAssign($defaultSiteAssign)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDefaultSiteAssign', [$defaultSiteAssign]);
+
+        return parent::setDefaultSiteAssign($defaultSiteAssign);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDefaultSiteAssign()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDefaultSiteAssign', []);
+
+        return parent::getDefaultSiteAssign();
     }
 
     /**

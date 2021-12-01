@@ -38,6 +38,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
             'o-module-collecting:anon_type' => $this->anonType(),
             'o-module-collecting:success_text' => $this->successText(),
             'o-module-collecting:email_text' => $this->emailText(),
+            'o-module-collecting:default_site_assign' => $this->defaultSiteAssign(),
             'o:site' => $site,
             'o:item_set' => $itemSet,
             'o-module-collecting:prompt' => $this->prompts(),
@@ -83,6 +84,11 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
     public function emailText()
     {
         return $this->resource->getEmailText();
+    }
+
+    public function defaultSiteAssign()
+    {
+        return $this->resource->getDefaultSiteAssign();
     }
 
     public function owner()

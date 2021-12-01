@@ -65,6 +65,17 @@ class CollectingForm extends Form
                 'id' => 'form-email-text',
             ],
         ]);
+        $this->add([
+            'name' => 'o-module-collecting:default_site_assign',
+            'type' => 'checkbox',
+            'options' => [
+                'label' => 'Use default site assignments', // @translate
+                'info' => 'Check this to use default site assignments for collected items. If not checked, all items created by this form are assigned to this site only.', // @translate
+            ],
+            'attributes' => [
+                'required' => false,
+            ],
+        ]);
 
         $filter = $this->getInputFilter();
         $filter->add([

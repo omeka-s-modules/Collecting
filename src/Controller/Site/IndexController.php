@@ -44,15 +44,25 @@ class IndexController extends AbstractActionController
             // resources, which _should_ be safe since we're only passing
             // mediated data.
             $this->acl->allow();
+            // Allow the can-assign-items privilege so the IndexController can
+            // assign the current o:site to the item. This is needed becuase,
+            // for some reason, the ACL does not ignore can-assign-items, even
+            // with the above allow().
+            $this->acl->allow(null, 'Omeka\Entity\Site', 'can-assign-items');
 
             // Create the Omeka item.
             $itemData['o:is_public'] = false;
             $itemData['o:item_set'] = [
                 'o:id' => $cForm->itemSet() ? $cForm->itemSet()->id() : null,
             ];
-            $itemData['o:site'] = [
-                'o:id' => $this->currentSite()->id(),
-            ];
+            // Nothing needs to be done for the default site assignment. The
+            // item adapter will automatically assign the proper sites.
+            if (!$cForm->defaultSiteAssign()) {
+                // Otherwise, assign the current site only.
+                $itemData['o:site'] = [
+                    'o:id' => $this->currentSite()->id(),
+                ];
+            }
             $response = $this->api($form)
                 ->create('items', $itemData, $this->params()->fromFiles());
 

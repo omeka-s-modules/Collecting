@@ -82,6 +82,10 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             $entity->setEmailText('' === $emailText ? null : $emailText);
         }
 
+        if ($this->shouldHydrate($request, 'o-module-collecting:default_site_assign')) {
+            $entity->setDefaultSiteAssign($request->getValue('o-module-collecting:default_site_assign'));
+        }
+
         // Hydrate the form prompts.
         if ($this->shouldHydrate($request, 'o-module-collecting:prompt')) {
             $position = 1;

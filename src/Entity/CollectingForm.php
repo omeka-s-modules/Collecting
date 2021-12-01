@@ -51,6 +51,11 @@ class CollectingForm extends AbstractEntity
     protected $emailText;
 
     /**
+     * @Column(type="boolean", nullable=true)
+     */
+    protected $defaultSiteAssign;
+
+    /**
      * @ManyToOne(
      *     targetEntity="Omeka\Entity\Site"
      * )
@@ -151,6 +156,16 @@ class CollectingForm extends AbstractEntity
     public function getEmailText()
     {
         return $this->emailText;
+    }
+
+    public function setDefaultSiteAssign($defaultSiteAssign)
+    {
+        $this->defaultSiteAssign = isset($defaultSiteAssign) ? (bool) $defaultSiteAssign : null;
+    }
+
+    public function getDefaultSiteAssign()
+    {
+        return $this->defaultSiteAssign;
     }
 
     public function setOwner(User $owner = null)
