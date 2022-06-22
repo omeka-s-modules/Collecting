@@ -283,6 +283,7 @@ class IndexController extends AbstractActionController
 
         $messagePart = new MimePart($messageContent);
         $messagePart->setType('text/html');
+        $messagePart->setCharset('UTF-8');
 
         $body = new MimeMessage;
         $body->addPart($messagePart);
@@ -331,6 +332,7 @@ class IndexController extends AbstractActionController
 
         $messagePart = new MimePart($messageContent);
         $messagePart->setType('text/html');
+        $messagePart->setCharset('UTF-8');
 
         $body = new MimeMessage;
         $body->addPart($messagePart);
