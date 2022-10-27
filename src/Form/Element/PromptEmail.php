@@ -8,7 +8,7 @@ class PromptEmail extends Email implements InputProviderInterface
 {
     use PromptIsRequiredTrait;
 
-    public function getInputSpecification()
+    public function getInputSpecification() : array
     {
         return [
             'required' => $this->required,

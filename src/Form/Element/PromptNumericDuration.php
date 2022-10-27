@@ -8,7 +8,7 @@ class PromptNumericDuration extends DurationElement implements InputProviderInte
 {
     use PromptIsRequiredTrait;
 
-    public function getInputSpecification()
+    public function getInputSpecification() : array
     {
         return [
             'required' => $this->required,

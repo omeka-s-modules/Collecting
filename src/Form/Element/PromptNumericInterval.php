@@ -8,7 +8,7 @@ class PromptNumericInterval extends IntervalElement implements InputProviderInte
 {
     use PromptIsRequiredTrait;
 
-    public function getInputSpecification()
+    public function getInputSpecification() : array
     {
         return [
             'required' => $this->required,
