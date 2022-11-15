@@ -7,13 +7,15 @@ use Laminas\ServiceManager\ServiceLocatorInterface;
 
 class CollectingPromptRepresentation extends AbstractRepresentation
 {
+    protected $resource;
+
     public function __construct(CollectingPrompt $resource, ServiceLocatorInterface $serviceLocator)
     {
         $this->resource = $resource;
         $this->setServiceLocator($serviceLocator);
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize() : array
     {
         if ($property = $this->property()) {
             $property = $property->getReference();
