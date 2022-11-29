@@ -162,7 +162,7 @@ class CollectingItemRepresentation extends AbstractEntityRepresentation
     public function inputsByType($type)
     {
         $this->cacheInputs();
-        return isset($this->inputsByType[$type]) ? $this->inputsByType[$type] : [];
+        return $this->inputsByType[$type] ?? [];
     }
 
     /**
