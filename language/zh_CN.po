@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 18:11-0500\n"
+"POT-Creation-Date: 2022-11-29 10:59-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/omeka/teams/14184/zh_CN/)\n"
@@ -34,21 +34,21 @@ msgstr "我接受%s"
 msgid "Terms of Service"
 msgstr "服务条款"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:72
+#: src/Api/Representation/CollectingInputRepresentation.php:74
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
 msgstr "【私密的】"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:79
+#: src/Api/Representation/CollectingInputRepresentation.php:81
 msgid "[unknown item]"
 msgstr "【未知条目】"
 
-#: src/Controller/Site/IndexController.php:297
+#: src/Controller/Site/IndexController.php:298
 msgid "Thank you for your submission"
 msgstr "感谢您的提交"
 
-#: src/Controller/Site/IndexController.php:346
+#: src/Controller/Site/IndexController.php:348
 msgid "Collecting submission notification"
 msgstr ""
 

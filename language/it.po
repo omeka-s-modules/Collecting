@@ -5,23 +5,23 @@
 # 
 # Translators:
 # Tommaso Vitale, 2019
-# Pietro Valocchi <pietro_valocchi@yahoo.it>, 2019
-# Giorgio Comai <g@giorgiocomai.eu>, 2020
+# Pietro <pietro_valocchi@yahoo.it>, 2019
+# Giorgio Comai <g@giorgiocomai.eu>, 2021
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 18:11-0500\n"
+"POT-Creation-Date: 2022-11-29 10:59-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2020\n"
+"Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/omeka/teams/14184/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: Module.php:304
 msgid "Click here to view the collected data."
@@ -36,23 +36,23 @@ msgstr "Accetto %s"
 msgid "Terms of Service"
 msgstr "Condizioni d'utilizzo"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:72
+#: src/Api/Representation/CollectingInputRepresentation.php:74
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
 msgstr "[riservato]"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:79
+#: src/Api/Representation/CollectingInputRepresentation.php:81
 msgid "[unknown item]"
 msgstr "[contenuto sconosciuto]"
 
-#: src/Controller/Site/IndexController.php:297
+#: src/Controller/Site/IndexController.php:298
 msgid "Thank you for your submission"
 msgstr "Grazie per il vostro contributo"
 
-#: src/Controller/Site/IndexController.php:346
+#: src/Controller/Site/IndexController.php:348
 msgid "Collecting submission notification"
-msgstr ""
+msgstr "Raccolta della notifica di invio"
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
@@ -293,30 +293,36 @@ msgstr ""
 
 #: Module.php:169
 msgid "Terms of service URL"
-msgstr ""
+msgstr "URL delle condizioni d'uso"
 
 #: Module.php:170
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
+"Inserisci l'URL alle condizioni d'uso per gli utenti che inviano contenuti a"
+" questo sito"
 
 #: Module.php:180
 msgid "Submission email address"
-msgstr ""
+msgstr "Indirizzo email per l'invio"
 
 #: Module.php:181
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
+"Inserisci un indirizzo email da cui le email di contributo degli utenti "
+"saranno inviate"
 
 #: Module.php:191
 msgid "Notification email address"
-msgstr ""
+msgstr "Indirizzo email per le notifiche"
 
 #: Module.php:192
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
+"Inserisci un indirizzo email a cui verranno inviate email di notifica per "
+"amministratori"
 
 #: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
@@ -543,13 +549,16 @@ msgstr "Comincia tutte le presentazioni degli emails con questo testo."
 
 #: src/Form/CollectingForm.php:72
 msgid "Use default site assignments"
-msgstr ""
+msgstr "Usa l'assegnazione a siti predefinita"
 
 #: src/Form/CollectingForm.php:73
 msgid ""
 "Check this to use default site assignments for collected items. If not "
 "checked, all items created by this form are assigned to this site only."
 msgstr ""
+"Abilita questa opzione per utilizzare gli assegnamenti di siti predefiniti "
+"per i contenuti raccolti. Se quest'opzione non è selezionata, tutti i "
+"contenuti creati da questo modulo saranno assegnati solo a questo sito."
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"

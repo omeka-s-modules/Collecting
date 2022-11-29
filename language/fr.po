@@ -6,22 +6,22 @@
 # Translators:
 # Laurent Thomas, 2019
 # Daniel Berthereau <daniel.transifex@berthereau.net>, 2020
-# Pols12 <poltron54@gmail.com>, 2021
+# Pols12 <poltron54@gmail.com>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 18:11-0500\n"
+"POT-Creation-Date: 2022-11-29 10:59-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Pols12 <poltron54@gmail.com>, 2021\n"
+"Last-Translator: Pols12 <poltron54@gmail.com>, 2022\n"
 "Language-Team: French (https://www.transifex.com/omeka/teams/14184/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: Module.php:304
 msgid "Click here to view the collected data."
@@ -36,21 +36,21 @@ msgstr "J'accepte les %s"
 msgid "Terms of Service"
 msgstr "Conditions d'utilisation"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:72
+#: src/Api/Representation/CollectingInputRepresentation.php:74
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
 msgstr "[privé]"
 
-#: src/Api/Representation/CollectingInputRepresentation.php:79
+#: src/Api/Representation/CollectingInputRepresentation.php:81
 msgid "[unknown item]"
 msgstr "[contenu inconnu]"
 
-#: src/Controller/Site/IndexController.php:297
+#: src/Controller/Site/IndexController.php:298
 msgid "Thank you for your submission"
 msgstr "Merci de votre contribution"
 
-#: src/Controller/Site/IndexController.php:346
+#: src/Controller/Site/IndexController.php:348
 msgid "Collecting submission notification"
 msgstr "Notification de dépôt d’une collecte"
 
@@ -553,13 +553,16 @@ msgstr "Commencer tous les emails de confirmation avec ce texte."
 
 #: src/Form/CollectingForm.php:72
 msgid "Use default site assignments"
-msgstr ""
+msgstr "Utiliser les sites assignés par défaut"
 
 #: src/Form/CollectingForm.php:73
 msgid ""
 "Check this to use default site assignments for collected items. If not "
 "checked, all items created by this form are assigned to this site only."
 msgstr ""
+"Cochez cette case pour assigner les sites par défauts aux contenus "
+"collectés. Sinon, tous les contenus créés avec ce formulaire seront assigné "
+"à ce site uniquement."
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
