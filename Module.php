@@ -147,14 +147,16 @@ class Module extends AbstractModule
         $siteSettings = $services->get('Omeka\Settings\Site');
         $form = $event->getTarget();
 
-        $fieldset = new Fieldset('collecting');
-        $fieldset->setLabel('Collecting');
+        $groups = $form->getOption('element_groups');
+        $groups['collecting'] = 'Collecting'; // @translate
+        $form->setOption('element_groups', $groups);
 
         // Add the terms of service and email address to the form.
-        $fieldset->add([
+        $form->add([
             'type' => 'textarea',
             'name' => 'collecting_tos',
             'options' => [
+                'element_group' => 'collecting',
                 'label' => 'Terms of service', // @translate
                 'info' => 'Enter the terms of service (TOS) for users who submit content to this site.', // @translate
             ],
@@ -162,10 +164,11 @@ class Module extends AbstractModule
                 'value' => $siteSettings->get('collecting_tos'),
             ],
         ]);
-        $fieldset->add([
+        $form->add([
             'type' => 'url',
             'name' => 'collecting_tos_url',
             'options' => [
+                'element_group' => 'collecting',
                 'label' => 'Terms of service URL', // @translate
                 'info' => 'Enter the URL to the terms of service (TOS) for users who submit content to this site.', // @translate
             ],
@@ -173,10 +176,11 @@ class Module extends AbstractModule
                 'value' => $siteSettings->get('collecting_tos_url'),
             ],
         ]);
-        $fieldset->add([
+        $form->add([
             'type' => 'email',
             'name' => 'collecting_email',
             'options' => [
+                'element_group' => 'collecting',
                 'label' => 'Submission email address', // @translate
                 'info' => 'Enter an email address from which user submission emails will be sent.', // @translate
             ],
@@ -184,10 +188,11 @@ class Module extends AbstractModule
                 'value' => $siteSettings->get('collecting_email'),
             ],
         ]);
-        $fieldset->add([
+        $form->add([
             'type' => 'email',
             'name' => 'collecting_email_notify',
             'options' => [
+                'element_group' => 'collecting',
                 'label' => 'Notification email address', // @translate
                 'info' => 'Enter an email address to which admin notification emails will be sent.', // @translate
             ],
@@ -195,8 +200,6 @@ class Module extends AbstractModule
                 'value' => $siteSettings->get('collecting_email_notify'),
             ],
         ]);
-
-        $form->add($fieldset);
     }
 
     /**
@@ -207,17 +210,17 @@ class Module extends AbstractModule
     public function addSiteSettingsInputFilters(Event $event)
     {
         $inputFilter = $event->getParam('inputFilter');
-        $inputFilter->get('collecting')->add([
+        $inputFilter->add([
             'name' => 'collecting_tos_url',
             'required' => false,
             'allow_empty' => true,
         ]);
-        $inputFilter->get('collecting')->add([
+        $inputFilter->add([
             'name' => 'collecting_email',
             'required' => false,
             'allow_empty' => true,
         ]);
-        $inputFilter->get('collecting')->add([
+        $inputFilter->add([
             'name' => 'collecting_email_notify',
             'required' => false,
             'allow_empty' => true,
