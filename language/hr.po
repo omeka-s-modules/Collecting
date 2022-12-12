@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 10:59-0500\n"
+"POT-Creation-Date: 2022-12-12 11:48-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Josip Ilic <josip.ilic@ericsson.com>, 2021\n"
 "Language-Team: Croatian (https://www.transifex.com/omeka/teams/14184/hr/)\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: Module.php:304
+#: Module.php:307
 msgid "Click here to view the collected data."
 msgstr "Kliknite ovdje da biste vidjeli prikupljene podatke."
 
@@ -281,47 +281,48 @@ msgstr "Korisničke Informacije"
 msgid "Public citation"
 msgstr "Javni citat"
 
-#: Module.php:158
+#: Module.php:151 config/module.config.php:80
+#: src/Site/BlockLayout/Collecting.php:18
+msgid "Collecting"
+msgstr "Prikupljenje"
+
+#: Module.php:160
 msgid "Terms of service"
 msgstr "Uvjeti pružanja usluge"
 
-#: Module.php:159
+#: Module.php:161
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Unesite uvjete pružanja usluge (TOS) za korisnike koji pošalju sadržaj na "
 "ovu stranicu"
 
-#: Module.php:169
+#: Module.php:172
 msgid "Terms of service URL"
 msgstr ""
 
-#: Module.php:170
+#: Module.php:173
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
 
-#: Module.php:180
+#: Module.php:184
 msgid "Submission email address"
 msgstr ""
 
-#: Module.php:181
+#: Module.php:185
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 
-#: Module.php:191
+#: Module.php:196
 msgid "Notification email address"
 msgstr ""
 
-#: Module.php:192
+#: Module.php:197
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
-
-#: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
-msgid "Collecting"
-msgstr "Prikupljenje"
 
 #: config/module.config.php:110
 msgid "Form Information"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-29 10:59-0500\n"
+"POT-Creation-Date: 2022-12-12 11:48-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Daniel Alves <daniel_r_alves@hotmail.com>, 2020\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/omeka/teams/14184/pt_PT/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: Module.php:304
+#: Module.php:307
 msgid "Click here to view the collected data."
 msgstr "Clique aqui para ver a informação recolhida."
 
@@ -280,47 +280,48 @@ msgstr "Informação do utilizador"
 msgid "Public citation"
 msgstr "Citação pública"
 
-#: Module.php:158
+#: Module.php:151 config/module.config.php:80
+#: src/Site/BlockLayout/Collecting.php:18
+msgid "Collecting"
+msgstr "Recolha"
+
+#: Module.php:160
 msgid "Terms of service"
 msgstr "Termos de serviço"
 
-#: Module.php:159
+#: Module.php:161
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Indicar os termos de serviço (TDS) para os utilizadores que submetem "
 "conteúdos para este site."
 
-#: Module.php:169
+#: Module.php:172
 msgid "Terms of service URL"
 msgstr ""
 
-#: Module.php:170
+#: Module.php:173
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
 
-#: Module.php:180
+#: Module.php:184
 msgid "Submission email address"
 msgstr ""
 
-#: Module.php:181
+#: Module.php:185
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 
-#: Module.php:191
+#: Module.php:196
 msgid "Notification email address"
 msgstr ""
 
-#: Module.php:192
+#: Module.php:197
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
-
-#: config/module.config.php:80 src/Site/BlockLayout/Collecting.php:18
-msgid "Collecting"
-msgstr "Recolha"
 
 #: config/module.config.php:110
 msgid "Form Information"
