@@ -173,7 +173,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             break;
                         case 'custom_vocab':
                             try {
-                                $response = $api->read('custom_vocabs', $prompt->customVocab());
+                                $customVocab = $api->read('custom_vocabs', $prompt->customVocab())->getContent();
                             } catch (NotFoundException $e) {
                                 // The custom vocab does not exist.
                                 continue 3;
@@ -181,10 +181,34 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                                 // The CustomVocab module is not installed or active.
                                 continue 3;
                             }
-                            $terms = array_map('trim', explode(PHP_EOL, $response->getContent()->terms()));
+                            $isNewerVersion = method_exists($customVocab, 'uris');
+                            if ($isNewerVersion) {
+                                // This is a newer version of CustomVocab. Use the
+                                // original heuristic to determine which vocab type
+                                // is used.
+                                if ($customVocab->itemSet()) {
+                                    // "Items" type not implemented
+                                    continue 3;
+                                } elseif ($customVocab->uris()) {
+                                    // "Uris" type not implemented
+                                    continue 3;
+                                } elseif ($customVocab->terms()) {
+                                    // On newer versions, terms could be a newline
+                                    // -delimited string or an array.
+                                    $customVocabValues = is_string($customVocab->terms())
+                                        ? array_map('trim', explode(PHP_EOL, $customVocab->terms()))
+                                        : $customVocab->terms();
+                                } else {
+                                    // Invalid type.
+                                    continue 3;
+                                }
+                            } else {
+                                // This is an older version of CustomVocab.
+                                $customVocabValues = array_map('trim', explode(PHP_EOL, $customVocab->terms()));
+                            }
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one...') // @translate
-                                ->setValueOptions(array_combine($terms, $terms));
+                                ->setValueOptions(array_combine($customVocabValues, $customVocabValues));
                             break;
                         case 'numeric:timestamp':
                             if (!$collecting->inputTypeIsAvailable('numeric:timestamp')) {
