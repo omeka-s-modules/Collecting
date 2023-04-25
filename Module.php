@@ -11,7 +11,6 @@ use Omeka\Permissions\Assertion\OwnsEntityAssertion;
 use Omeka\Permissions\Assertion\SiteIsPublicAssertion;
 use Laminas\EventManager\Event;
 use Laminas\EventManager\SharedEventManagerInterface;
-use Laminas\Form\Fieldset;
 use Laminas\Mvc\MvcEvent;
 use Laminas\Permissions\Acl\Assertion\AssertionAggregate;
 use Laminas\ServiceManager\ServiceLocatorInterface;

@@ -4,9 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Tommaso Vitale, 2019
-# Pietro <pietro_valocchi@yahoo.it>, 2019
-# Giorgio Comai <g@giorgiocomai.eu>, 2021
+# Deidson Rafael Trindade <drafael@usp.br>, 2023
 # 
 #, fuzzy
 msgid ""
@@ -15,202 +13,204 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-25 11:27-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2021\n"
-"Language-Team: Italian (https://app.transifex.com/omeka/teams/14184/it/)\n"
+"Last-Translator: Deidson Rafael Trindade <drafael@usp.br>, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/omeka/teams/14184/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: Module.php:307
 msgid "Click here to view the collected data."
-msgstr "Clicca qui per visualizzare i dati raccolti"
+msgstr "Clique aqui para visualizar os dados coletados."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:304
 #, php-format
 msgid "I accept the %s"
-msgstr "Accetto %s"
+msgstr "Eu aceito o %s"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:307
 msgid "Terms of Service"
-msgstr "Condizioni d'utilizzo"
+msgstr "Terms of Service"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:74
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
-msgstr "[riservato]"
+msgstr "[privado]"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:81
 msgid "[unknown item]"
-msgstr "[contenuto sconosciuto]"
+msgstr "[item desconhecido]"
 
 #: src/Controller/Site/IndexController.php:298
 msgid "Thank you for your submission"
-msgstr "Grazie per il vostro contributo"
+msgstr "Obrigado pela sua submissão"
 
 #: src/Controller/Site/IndexController.php:348
 msgid "Collecting submission notification"
-msgstr "Raccolta della notifica di invio"
+msgstr "Coletando notificação de envio"
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
-msgstr "Modifica il modulo di raccolta: “%s”"
+msgstr "Editar formulário de coleta: “%s”"
 
 #: view/collecting/site-admin/form/form.phtml:10
 msgid "Add collecting form"
-msgstr "Aggiungi modulo di raccolta:"
+msgstr "Adicionar formulário de coleta"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
-msgstr "Annulla elimina"
+msgstr "Desfazer exclusão"
 
 #: view/collecting/site-admin/form/form.phtml:53
 #: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
-msgstr "Suggerimenti"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
-msgstr "Aggiungi suggerimento"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
-msgstr "Suggerimento"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
-msgstr "Tipo di suggerimento"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr "Seleziona tipo di suggerimento"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
-msgstr "Seleziona tipo di media"
+msgstr "Selecione um tipo de mídia"
 
 #: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
-msgstr "Testo del suggerimento"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
-msgstr "Tipo di input"
+msgstr "Tipo de entrada"
 
 #: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
-msgstr "Seleziona tipo di input"
+msgstr "Selecione um tipo de entrada"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr "(non disponibile)"
+msgstr "(não disponível)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
-msgstr "Seleziona le opzioni del menu"
+msgstr "Selecione as opções do menu"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
-msgstr "Filtra query"
+msgstr "Filtrar consulta"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
-msgstr "Filtra le risorse inserendo una URL di ricerca avanzato."
+msgstr ""
+"Filtre recursos inserindo uma string de consulta de URL de pesquisa "
+"avançada."
 
 #: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
-msgstr "Volcabolario personalizzato"
+msgstr "Vocabulário personalizado"
 
 #: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
-msgstr "Seleziona un vocabolario personalizzato"
+msgstr "Selecione um vocabulário personalizado"
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
-msgstr "Aggiungi modifiche"
+msgstr ""
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
-msgstr "Moduli di raccolta"
+msgstr ""
 
 #: view/collecting/site-admin/form/index.phtml:7
 msgid "Add new form"
-msgstr "Aggiungi nuovo modulo"
+msgstr ""
 
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
 msgid "This site has no collecting forms."
-msgstr "Questo sito non ha moduli di raccolta"
+msgstr "Este site não possui formulários de coleta."
 
 #: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
-msgstr "Modulo di raccolta: “%s”"
+msgstr "Formulário de coleta: “%s”"
 
 #: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
-msgstr "[nessuno]"
+msgstr "[nenhum]"
 
 #: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
-msgstr "Modifica modulo"
+msgstr "Editar formulário"
 
 #: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
-msgstr "Ritorna alla lista dei moduli di raccolta"
+msgstr "Voltar para a lista de formulários de coleta"
 
 #: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
-msgstr "Carattere anonimato"
+msgstr "Tipo de anonimato"
 
 #: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
-msgstr "Questo modulo non ha suggerimenti"
+msgstr ""
 
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Needs review"
-msgstr "Necessita revisione"
+msgstr "Precisa de revisão"
 
 #: view/collecting/site-admin/item/index.phtml:17
 msgid "Reviewed: public"
-msgstr "Revisione: pubblica"
+msgstr "Avaliado: público"
 
 #: view/collecting/site-admin/item/index.phtml:18
 msgid "Reviewed: private"
-msgstr "Revisione: privata"
+msgstr "Avaliado: privado"
 
 #: view/collecting/site-admin/item/index.phtml:29
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Reviewed"
-msgstr "Revisionato"
+msgstr "Revisado"
 
 #: view/collecting/site-admin/item/index.phtml:41
 msgid "Update statuses"
-msgstr "Aggiornare lo stato"
+msgstr "Atualizar status"
 
 #: view/collecting/site-admin/item/index.phtml:50
 msgid "Reviewed By"
-msgstr "Revisionato da"
+msgstr "Revisados ​​pela"
 
 #: view/collecting/site-admin/item/index.phtml:64
 msgid "[not reviewed]"
-msgstr "[non controllato]"
+msgstr "[Não revisado]"
 
 #: view/collecting/site-admin/item/index.phtml:96
 msgid "No items found."
-msgstr "Nessun contenuto trovato."
+msgstr "Nenhum item encontrado."
 
 #: view/collecting/site-admin/item/show-details.phtml:19
 #: view/common/collecting-item-section.phtml:35
 msgid "User name"
-msgstr "Nome utente"
+msgstr "Nome de usuário"
 
 #: view/collecting/site-admin/item/show-details.phtml:22
 #: view/collecting/site-admin/item/show-details.phtml:29
@@ -219,221 +219,212 @@ msgstr "Nome utente"
 #: view/common/collecting-item-section.phtml:45
 #: view/common/collecting-item-section.phtml:52
 msgid "[not asked]"
-msgstr "[non chiesto]"
+msgstr "[não perguntou]"
 
 #: view/collecting/site-admin/item/show-details.phtml:26
 #: view/common/collecting-item-section.phtml:42
 msgid "User email"
-msgstr "Email utente"
+msgstr "e-mail do usuário"
 
 #: view/collecting/site-admin/item/show-details.phtml:33
 #: view/common/collecting-item-section.phtml:49
 msgid "Anonymous?"
-msgstr "Anonimo?"
+msgstr "Anônimo?"
 
 #: view/collecting/site/index/item-show.phtml:2
 #, php-format
 msgid "Collected Item: “%s”"
-msgstr "Contenuto raccolto %s"
+msgstr "Item coletado: “%s”"
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr "Clicca qui per visualizzare il contenuto corrispondente."
+msgstr "Clique aqui para visualizar o item correspondente."
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr "Modulo inviato correttamente!"
+msgstr "Formulário enviado com sucesso!"
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
-msgstr "Seleziona quale modulo raccolto utilizzatore può completare"
+msgstr "Selecione quais formulários de coleta o usuário pode preencher:"
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
-msgstr "Seleziona un modulo"
+msgstr "Selecione um formulário..."
 
 #: view/common/collecting-item-citation.phtml:6
 msgid "[anonymous user]"
-msgstr "[utente anonimo]"
+msgstr "[usuário anônimo]"
 
 #: view/common/collecting-item-citation.phtml:9
 #, php-format
 msgid ""
 "This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
 msgstr ""
-"Questo contenuto è stato inviato su %sda%s usando il modulo%s sul sito “%s”:"
-" %s"
+"Este item foi enviado %s por meio %sdo formulário “%s” no site “%s”: %s"
 
 #: view/common/collecting-item-section.phtml:3
 msgid "Collected Inputs"
-msgstr "Input raccolti"
+msgstr "Entradas coletadas"
 
 #: view/common/collecting-item-section.phtml:11
 msgid "User Input"
-msgstr "Inserimento utente"
+msgstr ""
 
 #: view/common/collecting-item-section.phtml:33
 msgid "User Information"
-msgstr "Informazione utente"
+msgstr ""
 
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
-msgstr "Citazione pubblica"
+msgstr ""
 
 #: Module.php:151 config/module.config.php:80
 #: src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
-msgstr "Raccolta"
+msgstr ""
 
 #: Module.php:160
 msgid "Terms of service"
-msgstr "Condizioni d'utilizzo"
+msgstr ""
 
 #: Module.php:161
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
-"Inserisci le condizioni d'utilizzo (TOS) per gli utenti che inseriranno "
-"contenuti in questo sito"
 
 #: Module.php:172
 msgid "Terms of service URL"
-msgstr "URL delle condizioni d'uso"
+msgstr ""
 
 #: Module.php:173
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
-"Inserisci l'URL alle condizioni d'uso per gli utenti che inviano contenuti a"
-" questo sito"
 
 #: Module.php:184
 msgid "Submission email address"
-msgstr "Indirizzo email per l'invio"
+msgstr ""
 
 #: Module.php:185
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
-"Inserisci un indirizzo email da cui le email di contributo degli utenti "
-"saranno inviate"
 
 #: Module.php:196
 msgid "Notification email address"
-msgstr "Indirizzo email per le notifiche"
+msgstr ""
 
 #: Module.php:197
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
-"Inserisci un indirizzo email a cui verranno inviate email di notifica per "
-"amministratori"
 
 #: config/module.config.php:110
 msgid "Form Information"
-msgstr "Informazione sul modulo"
+msgstr ""
 
 #: config/module.config.php:116
 msgid "Collected Items"
-msgstr "Contenuti raccolti"
+msgstr ""
 
 #: src/Entity/CollectingForm.php:95
 msgid "User sets own anonymity"
-msgstr "Utente fissa il proprio anonimato"
+msgstr ""
 
 #: src/Entity/CollectingForm.php:96
 msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr "“Utente pubblico” e “Nome utente” sono pubblicamente visibili"
+msgstr ""
 
 #: src/Entity/CollectingForm.php:97
 msgid "“User Public” and “User Name” inputs are private"
-msgstr "\"Utente pubblico\" e \"Nome utente\" sono riservati"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
-msgstr "Proprietà del contenuto"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:102
 msgid "Item Media"
-msgstr "Media del contenuto"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:103
 msgid "Item Supplementary"
-msgstr "Contenuto supplementare"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:104
 msgid "User Name"
-msgstr "Nome utente"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:105
 msgid "User Email"
-msgstr "Email utente"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
-msgstr "Utente privato"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:107
 msgid "User Public"
-msgstr "Utente pubblico"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
-msgstr "Blocco di testo (una riga)"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:116
 msgid "Text box (multiple line)"
-msgstr "Blocco di testo (più righe)"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
-msgstr "Seleziona menu"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:118
 msgid "Item resource"
-msgstr "Risorsa del contenuto"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
-msgstr "Marca temporale numerica"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
-msgstr "Intervallo numerico "
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
-msgstr "Durata numerica"
+msgstr ""
 
 #: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
-msgstr "Numero intero"
+msgstr ""
 
 #: src/Api/Representation/CollectingFormRepresentation.php:164
 #: src/Api/Representation/CollectingFormRepresentation.php:171
 #: src/Api/Representation/CollectingFormRepresentation.php:193
 msgid "Please choose one..."
-msgstr "Selezionare una risposta"
+msgstr ""
 
 #: src/Api/Representation/CollectingFormRepresentation.php:273
 msgid "I want to submit anonymously"
-msgstr "Voglio inviare in forma anonima"
+msgstr ""
 
 #: src/Api/Representation/CollectingFormRepresentation.php:283
 msgid "Email me my submission"
-msgstr "Mandami la mia presentazione"
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:56
 msgid "A collecting form must be assigned a site on creation."
-msgstr "Modulo di raccolta deve assegnare il sito di creazione"
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:197
 msgid "A property prompt must have a property."
-msgstr "La proprietà immediata deve avere la proprietà."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:200
 msgid "A property prompt must have an input type."
-msgstr "La proprietà immediata deve avere un input"
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:205
 #: src/Api/Adapter/CollectingFormAdapter.php:226
@@ -441,146 +432,134 @@ msgstr "La proprietà immediata deve avere un input"
 #: src/Api/Adapter/CollectingFormAdapter.php:252
 msgid "A custom_vocab input type must have a custom vocab."
 msgstr ""
-"Input del vocabolario personalizzato deve avere un vocabolario "
-"personalizzato."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:210
 msgid "A media prompt must have text."
-msgstr "Il materiale deve avere un testo."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:213
 msgid "A media prompt must have a media type."
-msgstr "Il materiale  deve avere un carattere media."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:218
 msgid "An input prompt must have text."
-msgstr "Input immediato deve avere testo."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:221
 msgid "An input prompt must have an input type."
-msgstr "Input immediato deve avere un input."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:231
 msgid "A user_private prompt must have text."
-msgstr "Prompt del utente privato deve avere testo."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:234
 msgid "A user_private prompt must have an input type."
-msgstr "Prompt del utente privato deve avere un input."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:244
 msgid "A user_public prompt must have text."
-msgstr "Prompt del utente pubblico deve avere testo."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:247
 msgid "A user_public prompt must have an input type."
-msgstr "Prompt del utente pubblico deve avere un input."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:257
 msgid "A user_name prompt must have text."
-msgstr "Prompt del nome utente deve avere testo."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:262
 msgid "A user_email prompt must have text."
-msgstr "Prompt del email utente deve avere testo."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:267
 msgid "A html prompt must have text."
-msgstr "Prompt html deve avere testo."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:271
 msgid "Prompts must have a type."
-msgstr "Prompts devono avere un carattere."
+msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:283
 msgid "Invalid anonymity type."
-msgstr "Carattere anonimato non valido."
+msgstr ""
 
 #: src/Api/Adapter/CollectingItemAdapter.php:132
 msgid "A collecting item must be assigned an item on creation."
 msgstr ""
-"Una collezione di contenuti deve essere assegnata ad un contenuto durante la"
-" sua creazione."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:135
 msgid "A collecting item must be assigned a form on creation."
 msgstr ""
-"Un contenuto di raccolta deve essere assegnato ad un modulo alla creazione."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:139
 msgid "A collecting input must be assigned a prompt on creation."
 msgstr ""
-"Un contenuto in ingresso deve essere assegnato ad una segnalazione alla "
-"creazione."
 
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."
-msgstr "Assegna tutti i contenuti creati a questa collezione."
+msgstr ""
 
 #: src/Form/CollectingForm.php:29
 msgid "Select Item Set..."
-msgstr "Seleziona collezione..."
+msgstr ""
 
 #: src/Form/CollectingForm.php:39
 msgid "Anonymity type"
-msgstr "Carattere anonimato"
+msgstr ""
 
 #: src/Form/CollectingForm.php:40
 msgid ""
 "Control how to treat “User Public” and “User Name” input on public pages."
 msgstr ""
-"Controlla come trattare input del \"Pubblico utente\" e \"Nome utente\" "
-"nelle pagine pubbliche."
 
 #: src/Form/CollectingForm.php:48
 msgid "Success text"
-msgstr "Testo di conferma"
+msgstr ""
 
 #: src/Form/CollectingForm.php:49
 msgid "Display this text after a user successfully submits a form."
-msgstr "Mostra questo testo dopo che utente invia correttamente un modulo."
+msgstr ""
 
 #: src/Form/CollectingForm.php:60
 msgid "Email text"
-msgstr "Testo dell'email"
+msgstr ""
 
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
-msgstr "Comincia tutte le presentazioni degli emails con questo testo."
+msgstr ""
 
 #: src/Form/CollectingForm.php:72
 msgid "Use default site assignments"
-msgstr "Usa l'assegnazione a siti predefinita"
+msgstr ""
 
 #: src/Form/CollectingForm.php:73
 msgid ""
 "Check this to use default site assignments for collected items. If not "
 "checked, all items created by this form are assigned to this site only."
 msgstr ""
-"Abilita questa opzione per utilizzare gli assegnamenti di siti predefiniti "
-"per i contenuti raccolti. Se quest'opzione non è selezionata, tutti i "
-"contenuti creati da questo modulo saranno assegnati solo a questo sito."
 
 #: src/MediaType/Upload.php:20
 msgid "Upload One"
-msgstr "Caricamento singolo"
+msgstr ""
 
 #: src/MediaType/UploadMultiple.php:20
 msgid "Upload Multiple"
-msgstr "Caricamento multiplo"
+msgstr ""
 
 #: src/Controller/SiteAdmin/FormController.php:82
 msgid "Collecting form successfully updated"
-msgstr "Modulo di raccolta aggiornato correttamente"
+msgstr ""
 
 #: src/Controller/SiteAdmin/FormController.php:83
 msgid "Collecting form successfully created"
-msgstr "Modulo di raccolta creato correttamente"
+msgstr ""
 
 #: src/Controller/SiteAdmin/FormController.php:117
 msgid "Collecting form successfully deleted"
-msgstr "Modulo di raccolta eliminato correttamente"
+msgstr ""
 
 #: src/Controller/SiteAdmin/ItemController.php:71
 msgid "Statuses successfully updated"
-msgstr "Gli status sono stati aggiornati correttamente"
+msgstr ""

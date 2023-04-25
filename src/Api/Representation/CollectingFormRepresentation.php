@@ -2,7 +2,6 @@
 namespace Collecting\Api\Representation;
 
 use Collecting\Form\Element;
-use Omeka\Api\Exception\BadRequestException;
 use Omeka\Api\Exception\NotFoundException;
 use Omeka\Api\Representation\AbstractEntityRepresentation;
 use Omeka\Module\Manager as ModuleManager;
