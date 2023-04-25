@@ -2,9 +2,11 @@
 namespace Collecting\Api\Representation;
 
 use Collecting\Form\Element;
+use Composer\Semver\Comparator;
 use Omeka\Api\Exception\BadRequestException;
 use Omeka\Api\Exception\NotFoundException;
 use Omeka\Api\Representation\AbstractEntityRepresentation;
+use Omeka\Module\Manager as ModuleManager;
 use Laminas\Form\Form;
 use Laminas\Http\PhpEnvironment\RemoteAddress;
 
@@ -127,7 +129,12 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $mediaTypes = $this->getServiceLocator()->get('Collecting\MediaTypeManager');
         $api = $this->getServiceLocator()->get('Omeka\ApiManager');
         $auth = $this->getServiceLocator()->get('Omeka\AuthenticationService');
+        $modules = $this->getServiceLocator()->get('Omeka\ModuleManager');
         $user = $auth->getIdentity(); // returns a User entity or null
+
+        $customVocabModule = $modules->getModule('CustomVocab');
+        $customVocabVersion = $customVocabModule ? $customVocabModule->getDb('version') : null;
+        $customVocabActive = $customVocabModule && ModuleManager::STATE_ACTIVE === $customVocabModule->getState();
 
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
         $this->form = $form; // cache the form
@@ -172,43 +179,29 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             $element = new Element\PromptUrl($name);
                             break;
                         case 'custom_vocab':
+                            if (!$customVocabActive) {
+                                continue 3; // CustomVocab module must be active
+                            }
                             try {
                                 $customVocab = $api->read('custom_vocabs', $prompt->customVocab())->getContent();
                             } catch (NotFoundException $e) {
-                                // The custom vocab does not exist.
-                                continue 3;
-                            } catch (BadRequestException $e) {
-                                // The CustomVocab module is not installed or active.
-                                continue 3;
+                                continue 3; // The custom vocab does not exist
                             }
-                            $isNewerVersion = method_exists($customVocab, 'uris');
-                            if ($isNewerVersion) {
-                                // This is a newer version of CustomVocab. Use the
-                                // original heuristic to determine which vocab type
-                                // is used.
-                                if ($customVocab->itemSet()) {
-                                    // "Items" type not implemented
-                                    continue 3;
-                                } elseif ($customVocab->uris()) {
-                                    // "Uris" type not implemented
-                                    continue 3;
-                                } elseif ($customVocab->terms()) {
-                                    // On newer versions, terms could be a newline
-                                    // -delimited string or an array.
-                                    $customVocabValues = is_string($customVocab->terms())
-                                        ? array_map('trim', explode(PHP_EOL, $customVocab->terms()))
-                                        : $customVocab->terms();
-                                } else {
-                                    // Invalid type.
-                                    continue 3;
-                                }
+                            // Adjust handling as new CustomVocab features were introduced.
+                            //   - Items type introduced in v1.2.0
+                            //   - URIs type introduced in v1.4.0
+                            //   - Type methods return arrays in v1.7.0
+                            if (!$customVocab->terms()) {
+                                continue 3; // URIs and Items vocab types not implemented
+                            }
+                            if (Comparator::lessThan($customVocabVersion, '1.7.0')) {
+                                $customVocabTerms = array_map('trim', explode(PHP_EOL, $customVocab->terms()));
                             } else {
-                                // This is an older version of CustomVocab.
-                                $customVocabValues = array_map('trim', explode(PHP_EOL, $customVocab->terms()));
+                                $customVocabTerms = $customVocab->terms();
                             }
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one...') // @translate
-                                ->setValueOptions(array_combine($customVocabValues, $customVocabValues));
+                                ->setValueOptions(array_combine($customVocabTerms, $customVocabTerms));
                             break;
                         case 'numeric:timestamp':
                             if (!$collecting->inputTypeIsAvailable('numeric:timestamp')) {

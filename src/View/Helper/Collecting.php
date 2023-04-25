@@ -161,10 +161,8 @@ class Collecting extends AbstractHelper
                 $response = $this->getView()->api()->search('custom_vocabs');
                 $this->customVocabs = [];
                 foreach ($response->getContent() as $customVocab) {
-                    $isNewerVersion = method_exists($customVocab, 'uris');
-                    if ($isNewerVersion && !$customVocab->terms()) {
-                        // The newer "URIs" and "Items" vocab types are not implemented.
-                        continue;
+                    if (!$customVocab->terms()) {
+                        continue; // URIs and Items vocab types not implemented
                     }
                     $this->customVocabs[$customVocab->id()] = $customVocab->label();
                 }
