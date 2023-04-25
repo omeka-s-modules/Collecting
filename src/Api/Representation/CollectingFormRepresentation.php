@@ -2,7 +2,6 @@
 namespace Collecting\Api\Representation;
 
 use Collecting\Form\Element;
-use Composer\Semver\Comparator;
 use Omeka\Api\Exception\BadRequestException;
 use Omeka\Api\Exception\NotFoundException;
 use Omeka\Api\Representation\AbstractEntityRepresentation;
@@ -133,7 +132,6 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
         $user = $auth->getIdentity(); // returns a User entity or null
 
         $customVocabModule = $modules->getModule('CustomVocab');
-        $customVocabVersion = $customVocabModule ? $customVocabModule->getDb('version') : null;
         $customVocabActive = $customVocabModule && ModuleManager::STATE_ACTIVE === $customVocabModule->getState();
 
         $form = new Form(sprintf('collecting_form_%s', $this->id()));
@@ -187,17 +185,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             } catch (NotFoundException $e) {
                                 continue 3; // The custom vocab does not exist
                             }
-                            // Adjust handling as new CustomVocab features were introduced.
-                            //   - Items type introduced in v1.2.0
-                            //   - URIs type introduced in v1.4.0
-                            //   - Type methods return arrays in v1.7.0
-                            if (!$customVocab->terms()) {
+                            $customVocabTerms = $customVocab->terms();
+                            if (!$customVocabTerms) {
                                 continue 3; // URIs and Items vocab types not implemented
-                            }
-                            if (Comparator::lessThan($customVocabVersion, '1.7.0')) {
-                                $customVocabTerms = array_map('trim', explode(PHP_EOL, $customVocab->terms()));
-                            } else {
-                                $customVocabTerms = $customVocab->terms();
                             }
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one...') // @translate
