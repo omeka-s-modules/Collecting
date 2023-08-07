@@ -199,6 +199,18 @@ class Module extends AbstractModule
                 'value' => $siteSettings->get('collecting_email_notify'),
             ],
         ]);
+        $form->add([
+            'type' => 'checkbox',
+            'name' => 'collecting_hide_collected_data',
+            'options' => [
+                'element_group' => 'collecting',
+                'label' => 'Hide collected data', // @translate
+                'info' => 'Hide the link to and prevent direct linking to collected data.', // @translate
+            ],
+            'attributes' => [
+                'value' => $siteSettings->get('collecting_hide_collected_data'),
+            ],
+        ]);
     }
 
     /**
@@ -294,6 +306,10 @@ class Module extends AbstractModule
     public function handlePublicShowAfter(Event $event)
     {
         $view = $event->getTarget();
+        if ($view->siteSetting('collecting_hide_collected_data')) {
+            // Don't render the link if configured to hide it.
+            return;
+        }
         $cItem = $view->api()
             ->searchOne('collecting_items', ['item_id' => $view->item->id()])
             ->getContent();

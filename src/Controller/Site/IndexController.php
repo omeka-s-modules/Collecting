@@ -133,6 +133,10 @@ class IndexController extends AbstractActionController
 
     public function itemShowAction()
     {
+        if ($this->siteSettings()->get('collecting_hide_collected_data')) {
+            // Don't render the page if configured to hide it.
+            return $this->redirect()->toRoute('site', [], true);
+        }
         $site = $this->currentSite();
         $cItem = $this->api()
             ->read('collecting_items', $this->params('item-id'))->getContent();
