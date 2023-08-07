@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 11:27-0400\n"
+"POT-Creation-Date: 2023-08-07 11:18-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2021\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/omeka/teams/14184/zh_CN/)\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: Module.php:307
+#: Module.php:322
 msgid "Click here to view the collected data."
 msgstr "点击此处查看收集到的数据。"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:304
+#: src/Api/Representation/CollectingFormRepresentation.php:303
 #, php-format
 msgid "I accept the %s"
 msgstr "我接受%s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:307
+#: src/Api/Representation/CollectingFormRepresentation.php:306
 msgid "Terms of Service"
 msgstr "服务条款"
 
@@ -44,11 +44,11 @@ msgstr "【私密的】"
 msgid "[unknown item]"
 msgstr "【未知条目】"
 
-#: src/Controller/Site/IndexController.php:298
+#: src/Controller/Site/IndexController.php:302
 msgid "Thank you for your submission"
 msgstr "感谢您的提交"
 
-#: src/Controller/Site/IndexController.php:348
+#: src/Controller/Site/IndexController.php:352
 msgid "Collecting submission notification"
 msgstr ""
 
@@ -276,45 +276,53 @@ msgstr "用户信息"
 msgid "Public citation"
 msgstr "公开引用"
 
-#: Module.php:151 config/module.config.php:80
+#: Module.php:150 config/module.config.php:80
 #: src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
 msgstr "收藏"
 
-#: Module.php:160
+#: Module.php:159
 msgid "Terms of service"
 msgstr "服务条款"
 
-#: Module.php:161
+#: Module.php:160
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr "输入给此网站提交内容的用户的服务条款（TOS）。"
 
-#: Module.php:172
+#: Module.php:171
 msgid "Terms of service URL"
 msgstr ""
 
-#: Module.php:173
+#: Module.php:172
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
 
-#: Module.php:184
+#: Module.php:183
 msgid "Submission email address"
 msgstr ""
 
-#: Module.php:185
+#: Module.php:184
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 
-#: Module.php:196
+#: Module.php:195
 msgid "Notification email address"
 msgstr ""
 
-#: Module.php:197
+#: Module.php:196
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
+msgstr ""
+
+#: Module.php:207
+msgid "Hide collected data"
+msgstr ""
+
+#: Module.php:208
+msgid "Hide the link to and prevent direct linking to collected data."
 msgstr ""
 
 #: config/module.config.php:110
@@ -397,17 +405,17 @@ msgstr "数值持续时间"
 msgid "Numeric integer"
 msgstr "数字整数"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:164
-#: src/Api/Representation/CollectingFormRepresentation.php:171
-#: src/Api/Representation/CollectingFormRepresentation.php:193
+#: src/Api/Representation/CollectingFormRepresentation.php:163
+#: src/Api/Representation/CollectingFormRepresentation.php:170
+#: src/Api/Representation/CollectingFormRepresentation.php:192
 msgid "Please choose one..."
 msgstr "请选择一个 ......"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:273
+#: src/Api/Representation/CollectingFormRepresentation.php:272
 msgid "I want to submit anonymously"
 msgstr "我希望匿名提交"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:283
+#: src/Api/Representation/CollectingFormRepresentation.php:282
 msgid "Email me my submission"
 msgstr "把我提交的东西电邮给我"
 

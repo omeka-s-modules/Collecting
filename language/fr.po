@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 11:27-0400\n"
+"POT-Creation-Date: 2023-08-07 11:18-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Pols12 <poltron54@gmail.com>, 2022\n"
 "Language-Team: French (https://app.transifex.com/omeka/teams/14184/fr/)\n"
@@ -23,16 +23,16 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: Module.php:307
+#: Module.php:322
 msgid "Click here to view the collected data."
 msgstr "Cliquer ici pour voir les données collectées."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:304
+#: src/Api/Representation/CollectingFormRepresentation.php:303
 #, php-format
 msgid "I accept the %s"
 msgstr "J'accepte les %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:307
+#: src/Api/Representation/CollectingFormRepresentation.php:306
 msgid "Terms of Service"
 msgstr "Conditions d'utilisation"
 
@@ -46,11 +46,11 @@ msgstr "[privé]"
 msgid "[unknown item]"
 msgstr "[contenu inconnu]"
 
-#: src/Controller/Site/IndexController.php:298
+#: src/Controller/Site/IndexController.php:302
 msgid "Thank you for your submission"
 msgstr "Merci de votre contribution"
 
-#: src/Controller/Site/IndexController.php:348
+#: src/Controller/Site/IndexController.php:352
 msgid "Collecting submission notification"
 msgstr "Notification de dépôt d’une collecte"
 
@@ -282,27 +282,27 @@ msgstr "Information de l’utilisateur"
 msgid "Public citation"
 msgstr "Citation publique"
 
-#: Module.php:151 config/module.config.php:80
+#: Module.php:150 config/module.config.php:80
 #: src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
 msgstr "Collectes"
 
-#: Module.php:160
+#: Module.php:159
 msgid "Terms of service"
 msgstr "Termes et conditions"
 
-#: Module.php:161
+#: Module.php:160
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Indiquer les conditions d’utilisation du service pour les utilisateurs qui "
 "déposent des contenus sur ce site."
 
-#: Module.php:172
+#: Module.php:171
 msgid "Terms of service URL"
 msgstr "URL des conditions d’utilisation"
 
-#: Module.php:173
+#: Module.php:172
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
@@ -310,26 +310,34 @@ msgstr ""
 "Indiquer l’URL des conditions d’utilisation pour les utilisateurs qui "
 "déposent du contenu sur ce site."
 
-#: Module.php:184
+#: Module.php:183
 msgid "Submission email address"
 msgstr "Adresse électronique d’envoi"
 
-#: Module.php:185
+#: Module.php:184
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 "Indiquer une adresse électronique expéditrice des courriels de dépôt des "
 "utilisateurs seront envoyés."
 
-#: Module.php:196
+#: Module.php:195
 msgid "Notification email address"
 msgstr "Adresse électronique de notification"
 
-#: Module.php:197
+#: Module.php:196
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
 "Indiquer une adresse électronique à laquelle seront envoyés les courriels de"
 " notification de l’admin."
+
+#: Module.php:207
+msgid "Hide collected data"
+msgstr ""
+
+#: Module.php:208
+msgid "Hide the link to and prevent direct linking to collected data."
+msgstr ""
 
 #: config/module.config.php:110
 msgid "Form Information"
@@ -413,17 +421,17 @@ msgstr "Durée"
 msgid "Numeric integer"
 msgstr "Entier"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:164
-#: src/Api/Representation/CollectingFormRepresentation.php:171
-#: src/Api/Representation/CollectingFormRepresentation.php:193
+#: src/Api/Representation/CollectingFormRepresentation.php:163
+#: src/Api/Representation/CollectingFormRepresentation.php:170
+#: src/Api/Representation/CollectingFormRepresentation.php:192
 msgid "Please choose one..."
 msgstr "Merci de choisir…"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:273
+#: src/Api/Representation/CollectingFormRepresentation.php:272
 msgid "I want to submit anonymously"
 msgstr "Je veux déposer anonymement"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:283
+#: src/Api/Representation/CollectingFormRepresentation.php:282
 msgid "Email me my submission"
 msgstr "M’envoyer le dépôt par mail"
 

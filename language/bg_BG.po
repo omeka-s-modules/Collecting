@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 11:27-0400\n"
+"POT-Creation-Date: 2023-08-07 11:18-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Tzvetan Tzvetanski <ceibg.org@gmail.com>, 2021\n"
 "Language-Team: Bulgarian (Bulgaria) (https://app.transifex.com/omeka/teams/14184/bg_BG/)\n"
@@ -21,16 +21,16 @@ msgstr ""
 "Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:307
+#: Module.php:322
 msgid "Click here to view the collected data."
 msgstr "Щракнете тук, за да видите събраните данни."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:304
+#: src/Api/Representation/CollectingFormRepresentation.php:303
 #, php-format
 msgid "I accept the %s"
 msgstr "Приемам %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:307
+#: src/Api/Representation/CollectingFormRepresentation.php:306
 msgid "Terms of Service"
 msgstr "Условия за ползване"
 
@@ -44,11 +44,11 @@ msgstr "[лично]"
 msgid "[unknown item]"
 msgstr "[неизвестен елемент]"
 
-#: src/Controller/Site/IndexController.php:298
+#: src/Controller/Site/IndexController.php:302
 msgid "Thank you for your submission"
 msgstr "Благодарим за Вашия принос"
 
-#: src/Controller/Site/IndexController.php:348
+#: src/Controller/Site/IndexController.php:352
 msgid "Collecting submission notification"
 msgstr ""
 
@@ -280,47 +280,55 @@ msgstr "Информация за потребителя"
 msgid "Public citation"
 msgstr "Публично цитиране"
 
-#: Module.php:151 config/module.config.php:80
+#: Module.php:150 config/module.config.php:80
 #: src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
 msgstr "Колектиране"
 
-#: Module.php:160
+#: Module.php:159
 msgid "Terms of service"
 msgstr "Условия за ползване"
 
-#: Module.php:161
+#: Module.php:160
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Въведете Общите условия (ОУ) за потребители, които изпращат съдържание на "
 "този сайт."
 
-#: Module.php:172
+#: Module.php:171
 msgid "Terms of service URL"
 msgstr ""
 
-#: Module.php:173
+#: Module.php:172
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
 
-#: Module.php:184
+#: Module.php:183
 msgid "Submission email address"
 msgstr ""
 
-#: Module.php:185
+#: Module.php:184
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 
-#: Module.php:196
+#: Module.php:195
 msgid "Notification email address"
 msgstr ""
 
-#: Module.php:197
+#: Module.php:196
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
+msgstr ""
+
+#: Module.php:207
+msgid "Hide collected data"
+msgstr ""
+
+#: Module.php:208
+msgid "Hide the link to and prevent direct linking to collected data."
 msgstr ""
 
 #: config/module.config.php:110
@@ -403,17 +411,17 @@ msgstr "Числова продължителност"
 msgid "Numeric integer"
 msgstr "Числово цяло число"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:164
-#: src/Api/Representation/CollectingFormRepresentation.php:171
-#: src/Api/Representation/CollectingFormRepresentation.php:193
+#: src/Api/Representation/CollectingFormRepresentation.php:163
+#: src/Api/Representation/CollectingFormRepresentation.php:170
+#: src/Api/Representation/CollectingFormRepresentation.php:192
 msgid "Please choose one..."
 msgstr "Моля, изберете един ..."
 
-#: src/Api/Representation/CollectingFormRepresentation.php:273
+#: src/Api/Representation/CollectingFormRepresentation.php:272
 msgid "I want to submit anonymously"
 msgstr "Искам да изпратя анонимно"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:283
+#: src/Api/Representation/CollectingFormRepresentation.php:282
 msgid "Email me my submission"
 msgstr "Уведомете ме по имейла за изпратеното от мен"
 
