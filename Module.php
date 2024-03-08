@@ -133,6 +133,40 @@ class Module extends AbstractModule
             'api.context',
             [$this, 'filterApiContext']
         );
+        // Copy collecting-related data for the CopyResources module.
+        $sharedEventManager->attach(
+            '*',
+            'copy_resources.copy_site',
+            function (Event $event) {
+                $api = $this->getServiceLocator()->get('Omeka\ApiManager');
+                $site = $event->getParam('resource');
+                $siteCopy = $event->getParam('resource_copy');
+                $copyResources = $event->getParam('copy_resources');
+
+                $copyResources->revertSiteBlockLayouts($siteCopy->id(), 'collecting');
+
+                // Copy collecting forms.
+                $collectingForms = $api->search('collecting_forms', ['site_id' => $site->id()])->getContent();
+                $collectingFormMap = [];
+                foreach ($collectingForms as $collectingForm) {
+                    $callback = function (&$jsonLd) use ($siteCopy){
+                        $jsonLd['o:site']['o:id'] = $siteCopy->id();
+                    };
+                    $collectingFormCopy = $copyResources->createResourceCopy('collecting_forms', $collectingForm, $callback);
+                    $collectingFormMap[$collectingForm->id()] = $collectingFormCopy->id();
+                }
+
+                // Modify block data.
+                $callback = function (&$data) use ($collectingFormMap) {
+                    if (isset($data['forms']) && is_array($data['forms'])) {
+                        foreach ($data['forms'] as $index => $id) {
+                            $data['forms'][$index] = array_key_exists($id, $collectingFormMap) ? $collectingFormMap[$id] : $id;
+                        }
+                    }
+                };
+                $copyResources->modifySiteBlockData($siteCopy->id(), 'collecting', $callback);
+            }
+        );
     }
 
     /**
