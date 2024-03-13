@@ -150,6 +150,7 @@ class Module extends AbstractModule
                 $collectingFormMap = [];
                 foreach ($collectingForms as $collectingForm) {
                     $callback = function (&$jsonLd) use ($siteCopy){
+                        unset($jsonLd['o:owner']);
                         $jsonLd['o:site']['o:id'] = $siteCopy->id();
                     };
                     $collectingFormCopy = $copyResources->createResourceCopy('collecting_forms', $collectingForm, $callback);
