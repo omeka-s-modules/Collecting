@@ -158,7 +158,7 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             $element = new Element\PromptTextarea($name);
                             break;
                         case 'select':
-                            $selectOptions = explode(PHP_EOL, $prompt->selectOptions());
+                            $selectOptions = explode("\n", $prompt->selectOptions());
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one...') // @translate
                                 ->setValueOptions(array_combine($selectOptions, $selectOptions));
