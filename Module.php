@@ -133,10 +133,10 @@ class Module extends AbstractModule
             'api.context',
             [$this, 'filterApiContext']
         );
-        // Copy collecting-related data for the CopyResources module.
+        // Copy Collecting-related data for the CopyResources module.
         $sharedEventManager->attach(
             '*',
-            'copy_resources.copy_site',
+            'copy_resources.sites.post',
             function (Event $event) {
                 $api = $this->getServiceLocator()->get('Omeka\ApiManager');
                 $site = $event->getParam('resource');
