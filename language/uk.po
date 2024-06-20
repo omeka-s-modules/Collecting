@@ -2,209 +2,214 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
+# Translators:
+# tanya chorna <tanya.chorna@gmail.com>, 2024
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-20 14:14-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-09-14 20:14+0000\n"
+"Last-Translator: tanya chorna <tanya.chorna@gmail.com>, 2024\n"
+"Language-Team: Ukrainian (https://app.transifex.com/omeka/teams/14184/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 #: Module.php:357
 msgid "Click here to view the collected data."
-msgstr ""
+msgstr "Натисніть тут, щоб переглянути зібрані дані."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:303
 #, php-format
 msgid "I accept the %s"
-msgstr ""
+msgstr "Приймаю %s"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:306
 msgid "Terms of Service"
-msgstr ""
+msgstr "Умови використання"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:74
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
-msgstr ""
+msgstr "[закритий]"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:81
 msgid "[unknown item]"
-msgstr ""
+msgstr "[невідомий]"
 
 #: src/Controller/Site/IndexController.php:302
 msgid "Thank you for your submission"
-msgstr ""
+msgstr "Дякуємо за вашу заявку"
 
 #: src/Controller/Site/IndexController.php:352
 msgid "Collecting submission notification"
-msgstr ""
+msgstr "Сповіщення про збір заявок"
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
-msgstr ""
+msgstr "Редагувати форму збору: “%s”"
 
 #: view/collecting/site-admin/form/form.phtml:10
 msgid "Add collecting form"
-msgstr ""
+msgstr "Додати форму збору"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
-msgstr ""
+msgstr "Скасувати видалення"
 
 #: view/collecting/site-admin/form/form.phtml:53
 #: view/collecting/site-admin/form/show.phtml:39
 msgid "Prompts"
-msgstr ""
+msgstr "Підказки"
 
 #: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
-msgstr ""
+msgstr "Додати підказку"
 
 #: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
-msgstr ""
+msgstr "Підказка"
 
 #: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
-msgstr ""
+msgstr "Тип підказки"
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr ""
+msgstr "Оберіть тип підказки"
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
-msgstr ""
+msgstr "Виберіть тип медіа"
 
 #: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
-msgstr ""
+msgstr "Текст підказки"
 
 #: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
-msgstr ""
+msgstr "Тип введення"
 
 #: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
-msgstr ""
+msgstr "Оберіть тип введення"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr ""
+msgstr "(недоступний)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
-msgstr ""
+msgstr "Оберіть опції меню"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
-msgstr ""
+msgstr "Фільтр запиту"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
 msgstr ""
+"Фільтруйте ресурси, ввівши рядок запиту URL-адреси розширеного пошуку."
 
 #: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
-msgstr ""
+msgstr "Користувацький словник"
 
 #: view/collecting/site-admin/form/form.phtml:136
 msgid "Select a custom vocab"
-msgstr ""
+msgstr "Оберіть користувацький словник"
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
-msgstr ""
+msgstr "Додайте зміни"
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
-msgstr ""
+msgstr "Форма збору інформації"
 
 #: view/collecting/site-admin/form/index.phtml:7
 msgid "Add new form"
-msgstr ""
+msgstr "Додайте нову форму"
 
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
 msgid "This site has no collecting forms."
-msgstr ""
+msgstr "Цей сайт не містить форму збору інформації."
 
 #: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
-msgstr ""
+msgstr "Форма: “%s”"
 
 #: view/collecting/site-admin/form/show.phtml:6
 msgid "[none]"
-msgstr ""
+msgstr "[жодної]"
 
 #: view/collecting/site-admin/form/show.phtml:11
 msgid "Edit form"
-msgstr ""
+msgstr "Редагувати форму"
 
 #: view/collecting/site-admin/form/show.phtml:16
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
-msgstr ""
+msgstr "Повернутись назад до списку форм"
 
 #: view/collecting/site-admin/form/show.phtml:29
 msgid "Anonymity Type"
-msgstr ""
+msgstr "Тип анонімності"
 
 #: view/collecting/site-admin/form/show.phtml:64
 msgid "This form has no prompts."
-msgstr ""
+msgstr "Ця форма не містить підказок."
 
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Needs review"
-msgstr ""
+msgstr "Потребує перегляду"
 
 #: view/collecting/site-admin/item/index.phtml:17
 msgid "Reviewed: public"
-msgstr ""
+msgstr "Переглянуто: публічно"
 
 #: view/collecting/site-admin/item/index.phtml:18
 msgid "Reviewed: private"
-msgstr ""
+msgstr "Переглянуто: приватно"
 
 #: view/collecting/site-admin/item/index.phtml:29
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Reviewed"
-msgstr ""
+msgstr "Переглянуто"
 
 #: view/collecting/site-admin/item/index.phtml:41
 msgid "Update statuses"
-msgstr ""
+msgstr "Статуси оновлення"
 
 #: view/collecting/site-admin/item/index.phtml:50
 msgid "Reviewed By"
-msgstr ""
+msgstr "Переглянуто"
 
 #: view/collecting/site-admin/item/index.phtml:64
 msgid "[not reviewed]"
-msgstr ""
+msgstr "[не переглянуто]"
 
 #: view/collecting/site-admin/item/index.phtml:96
 msgid "No items found."
-msgstr ""
+msgstr "Не знайдено документів."
 
 #: view/collecting/site-admin/item/show-details.phtml:19
 #: view/common/collecting-item-section.phtml:35
 msgid "User name"
-msgstr ""
+msgstr "Ім'я користувача"
 
 #: view/collecting/site-admin/item/show-details.phtml:22
 #: view/collecting/site-admin/item/show-details.phtml:29
@@ -213,156 +218,170 @@ msgstr ""
 #: view/common/collecting-item-section.phtml:45
 #: view/common/collecting-item-section.phtml:52
 msgid "[not asked]"
-msgstr ""
+msgstr "[без запиту]"
 
 #: view/collecting/site-admin/item/show-details.phtml:26
 #: view/common/collecting-item-section.phtml:42
 msgid "User email"
-msgstr ""
+msgstr "Пошта користувача"
 
 #: view/collecting/site-admin/item/show-details.phtml:33
 #: view/common/collecting-item-section.phtml:49
 msgid "Anonymous?"
-msgstr ""
+msgstr "Анонім?"
 
 #: view/collecting/site/index/item-show.phtml:2
 #, php-format
 msgid "Collected Item: “%s”"
-msgstr ""
+msgstr "Зібрано: “%s”"
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr ""
+msgstr "Натисніть тут, щоб переглянути відповідний документ."
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr ""
+msgstr "Форму успішно надіслано!"
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
-msgstr ""
+msgstr "Виберіть, які форми може заповнювати користувач:"
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
-msgstr ""
+msgstr "Оберіть форму..."
 
 #: view/common/collecting-item-citation.phtml:6
 msgid "[anonymous user]"
-msgstr ""
+msgstr "[анонімний користувач]"
 
 #: view/common/collecting-item-citation.phtml:9
 #, php-format
 msgid ""
 "This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
 msgstr ""
+"Цей документ було надіслано на %s %s використовуючи форму “%s” на сайті "
+"“%s”: %s"
 
 #: view/common/collecting-item-section.phtml:3
 msgid "Collected Inputs"
-msgstr ""
+msgstr "Зібрано вхідні дані"
 
 #: view/common/collecting-item-section.phtml:11
 msgid "User Input"
-msgstr ""
+msgstr "Внесення користувача"
 
 #: view/common/collecting-item-section.phtml:33
 msgid "User Information"
-msgstr ""
+msgstr "Інформація користувача"
 
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
-msgstr ""
+msgstr "Цитування"
 
 #: Module.php:185 config/module.config.php:80
 #: src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
-msgstr ""
+msgstr "Збір"
 
 #: Module.php:194
 msgid "Terms of service"
-msgstr ""
+msgstr "Умови використання"
 
 #: Module.php:195
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
+"Введіть умови використання (УВ) для користувачів, які надсилають інформацію "
+"на цей сайт."
 
 #: Module.php:206
 msgid "Terms of service URL"
-msgstr ""
+msgstr "Умови використання URL"
 
 #: Module.php:207
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
+"Введіть URL умов використання (УВ) для користувачів, які надсилають "
+"інформацію на цей сайт."
 
 #: Module.php:218
 msgid "Submission email address"
-msgstr ""
+msgstr "Електронна адреса"
 
 #: Module.php:219
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
+"Введіть адресу електронної пошти, з якої надсилатимуться електронні листи з "
+"повідомленнями користувачів."
 
 #: Module.php:230
 msgid "Notification email address"
-msgstr ""
+msgstr "Електронна адреса для сповіщень"
 
 #: Module.php:231
-msgid "Enter an email address to which admin notification emails will be sent."
+msgid ""
+"Enter an email address to which admin notification emails will be sent."
 msgstr ""
+"Введіть електронну адресу, на яку надсилатимуться сповіщення адміністратора."
 
 #: Module.php:242
 msgid "Hide collected data"
-msgstr ""
+msgstr "Приховати зібрані дані"
 
 #: Module.php:243
 msgid "Hide the link to and prevent direct linking to collected data."
 msgstr ""
+"Приховати посилання на зібрані дані та заборонити пряме посилання на них."
 
 #: config/module.config.php:110
 msgid "Form Information"
-msgstr ""
+msgstr "Інформація форми"
 
 #: config/module.config.php:116
 msgid "Collected Items"
-msgstr ""
+msgstr "Зібрані документи"
 
 #: src/Entity/CollectingForm.php:95
 msgid "User sets own anonymity"
-msgstr ""
+msgstr "Користувач сам встановлює анонімність"
 
 #: src/Entity/CollectingForm.php:96
 msgid "“User Public” and “User Name” inputs are publicly visible"
 msgstr ""
+"Введення “Загальнодоступний користувач” і “Ім’я користувача” - "
+"загальнодоступні"
 
 #: src/Entity/CollectingForm.php:97
 msgid "“User Public” and “User Name” inputs are private"
 msgstr ""
+"Введення “Загальнодоступний користувач” і “Ім’я користувача” - закриті"
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
-msgstr ""
+msgstr "Властивості документа"
 
 #: src/Entity/CollectingPrompt.php:102
 msgid "Item Media"
-msgstr ""
+msgstr "Медіа елемент"
 
 #: src/Entity/CollectingPrompt.php:103
 msgid "Item Supplementary"
-msgstr ""
+msgstr "Додатковий документ"
 
 #: src/Entity/CollectingPrompt.php:104
 msgid "User Name"
-msgstr ""
+msgstr "Ім'я користувача"
 
 #: src/Entity/CollectingPrompt.php:105
 msgid "User Email"
-msgstr ""
+msgstr "Поштова адреса користувача"
 
 #: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
-msgstr ""
+msgstr "Особиста інформація про користувача"
 
 #: src/Entity/CollectingPrompt.php:107
 msgid "User Public"
@@ -378,7 +397,7 @@ msgstr ""
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
-msgstr ""
+msgstr "Оберіть меню"
 
 #: src/Entity/CollectingPrompt.php:118
 msgid "Item resource"
@@ -435,11 +454,11 @@ msgstr ""
 
 #: src/Api/Adapter/CollectingFormAdapter.php:210
 msgid "A media prompt must have text."
-msgstr ""
+msgstr "Медіа-підказка повинна мати текст."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:213
 msgid "A media prompt must have a media type."
-msgstr ""
+msgstr "Медіа-підказка повинна мати тип медіа."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:218
 msgid "An input prompt must have text."

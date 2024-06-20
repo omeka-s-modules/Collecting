@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 17:27-0400\n"
+"POT-Creation-Date: 2024-06-20 14:14-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Pols12 <poltron54@gmail.com>, 2022\n"
 "Language-Team: French (https://app.transifex.com/omeka/teams/14184/fr/)\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: Module.php:322
+#: Module.php:357
 msgid "Click here to view the collected data."
 msgstr "Cliquer ici pour voir les données collectées."
 
@@ -282,27 +282,27 @@ msgstr "Information de l’utilisateur"
 msgid "Public citation"
 msgstr "Citation publique"
 
-#: Module.php:150 config/module.config.php:80
+#: Module.php:185 config/module.config.php:80
 #: src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
 msgstr "Collectes"
 
-#: Module.php:159
+#: Module.php:194
 msgid "Terms of service"
 msgstr "Termes et conditions"
 
-#: Module.php:160
+#: Module.php:195
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Indiquer les conditions d’utilisation du service pour les utilisateurs qui "
 "déposent des contenus sur ce site."
 
-#: Module.php:171
+#: Module.php:206
 msgid "Terms of service URL"
 msgstr "URL des conditions d’utilisation"
 
-#: Module.php:172
+#: Module.php:207
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
@@ -310,32 +310,32 @@ msgstr ""
 "Indiquer l’URL des conditions d’utilisation pour les utilisateurs qui "
 "déposent du contenu sur ce site."
 
-#: Module.php:183
+#: Module.php:218
 msgid "Submission email address"
 msgstr "Adresse électronique d’envoi"
 
-#: Module.php:184
+#: Module.php:219
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 "Indiquer une adresse électronique expéditrice des courriels de dépôt des "
 "utilisateurs seront envoyés."
 
-#: Module.php:195
+#: Module.php:230
 msgid "Notification email address"
 msgstr "Adresse électronique de notification"
 
-#: Module.php:196
+#: Module.php:231
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
 "Indiquer une adresse électronique à laquelle seront envoyés les courriels de"
 " notification de l’admin."
 
-#: Module.php:207
+#: Module.php:242
 msgid "Hide collected data"
 msgstr ""
 
-#: Module.php:208
+#: Module.php:243
 msgid "Hide the link to and prevent direct linking to collected data."
 msgstr ""
 

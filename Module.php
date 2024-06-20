@@ -149,7 +149,7 @@ class Module extends AbstractModule
                 $collectingForms = $api->search('collecting_forms', ['site_id' => $site->id()])->getContent();
                 $collectingFormMap = [];
                 foreach ($collectingForms as $collectingForm) {
-                    $callback = function (&$jsonLd) use ($siteCopy){
+                    $callback = function (&$jsonLd) use ($siteCopy) {
                         unset($jsonLd['o:owner']);
                         $jsonLd['o:site']['o:id'] = $siteCopy->id();
                     };

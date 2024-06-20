@@ -6,16 +6,16 @@
 # Translators:
 # Tommaso Vitale, 2019
 # Pietro <pietro_valocchi@yahoo.it>, 2019
-# Giorgio Comai <g@giorgiocomai.eu>, 2021
+# Giorgio Comai <g@giorgiocomai.eu>, 2023
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-28 17:27-0400\n"
+"POT-Creation-Date: 2024-06-20 14:14-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2021\n"
+"Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/omeka/teams/14184/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: Module.php:322
+#: Module.php:357
 msgid "Click here to view the collected data."
 msgstr "Clicca qui per visualizzare i dati raccolti"
 
@@ -280,27 +280,27 @@ msgstr "Informazione utente"
 msgid "Public citation"
 msgstr "Citazione pubblica"
 
-#: Module.php:150 config/module.config.php:80
+#: Module.php:185 config/module.config.php:80
 #: src/Site/BlockLayout/Collecting.php:18
 msgid "Collecting"
 msgstr "Raccolta"
 
-#: Module.php:159
+#: Module.php:194
 msgid "Terms of service"
 msgstr "Condizioni d'utilizzo"
 
-#: Module.php:160
+#: Module.php:195
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 "Inserisci le condizioni d'utilizzo (TOS) per gli utenti che inseriranno "
 "contenuti in questo sito"
 
-#: Module.php:171
+#: Module.php:206
 msgid "Terms of service URL"
 msgstr "URL delle condizioni d'uso"
 
-#: Module.php:172
+#: Module.php:207
 msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
@@ -308,34 +308,36 @@ msgstr ""
 "Inserisci l'URL alle condizioni d'uso per gli utenti che inviano contenuti a"
 " questo sito"
 
-#: Module.php:183
+#: Module.php:218
 msgid "Submission email address"
 msgstr "Indirizzo email per l'invio"
 
-#: Module.php:184
+#: Module.php:219
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 "Inserisci un indirizzo email da cui le email di contributo degli utenti "
 "saranno inviate"
 
-#: Module.php:195
+#: Module.php:230
 msgid "Notification email address"
 msgstr "Indirizzo email per le notifiche"
 
-#: Module.php:196
+#: Module.php:231
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
 "Inserisci un indirizzo email a cui verranno inviate email di notifica per "
 "amministratori"
 
-#: Module.php:207
+#: Module.php:242
 msgid "Hide collected data"
-msgstr ""
+msgstr "Nascondi i dati raccolti"
 
-#: Module.php:208
+#: Module.php:243
 msgid "Hide the link to and prevent direct linking to collected data."
 msgstr ""
+"Nascondi il collegamento per prevenire il collegamento diretto ai dati "
+"raccolti"
 
 #: config/module.config.php:110
 msgid "Form Information"
