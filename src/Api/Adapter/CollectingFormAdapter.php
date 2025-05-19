@@ -65,10 +65,16 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             $entity->setAnonType($request->getValue('o-module-collecting:anon_type'));
         }
         if ($this->shouldHydrate($request, 'o:item_set')) {
-            $itemSet = (isset($data['o:item_set']['o:id']) && is_numeric($data['o:item_set']['o:id']))
-                ? $this->getAdapter('item_sets')->findEntity($data['o:item_set']['o:id'])
-                : null;
-            $entity->setItemSet($itemSet);
+            $itemSetId = $data['o:item_set']['o:id'] ?? null;
+            $itemSetId = is_numeric($itemSetId) ? $itemSetId : null;
+            try {
+                $itemSet = $itemSetId ? $this->getAdapter('item_sets')->findEntity($itemSetId) : null;
+                $entity->setItemSet($itemSet);
+            } catch (\Omeka\Api\Exception\NotFoundException $e) {
+                // The item set could not be found. Do nothing. The passed ID
+                // could be invalid or the user does not have permission to view
+                // the item set.
+            }
         }
 
         $htmlPurifier = $this->getServiceLocator()->get('Omeka\HtmlPurifier');

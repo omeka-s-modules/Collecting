@@ -1,9 +1,12 @@
 <?php
 $this->headLink()->appendStylesheet($this->assetUrl('css/collecting.css', 'Collecting'));
 echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cForm->label()));
-$itemSetLabel = $cForm->itemSet()
-    ? $cForm->itemSet()->displayTitle()
-    : $this->translate('[none]');
+
+try {
+    $itemSetLabel = $cForm->itemSet() ? $cForm->itemSet()->displayTitle() : $this->translate('[none]');
+} catch (\Doctrine\ORM\EntityNotFoundException) {
+    $itemSetLabel = $this->translate('[none]');
+}
 ?>
 
 <div id="page-actions">

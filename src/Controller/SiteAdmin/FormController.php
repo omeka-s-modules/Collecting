@@ -57,12 +57,28 @@ class FormController extends AbstractActionController
         $view->setVariable('form', $form);
         $view->setVariable('isEdit', $isEdit);
 
+        $userCanUpdateItemSet = true;
+
         if ($isEdit) {
             $cForm = $this->collectingCurrentForm();
-            $data = $cForm->jsonSerialize();
-            $form->setData($data);
-            if ($data['o:item_set']) {
-                $form->get('item_set_id')->setValue($data['o:item_set']->id());
+            $cFormData = $cForm->jsonSerialize();
+            if ($cFormData['o:item_set']) {
+                try {
+                    // Check to see if the user can view the item set.
+                    $this->api()->read('item_sets', $cFormData['o:item_set']->id());
+                } catch (\Omeka\Api\Exception\NotFoundException $e) {
+                    // The item set is probably set to private and the user does
+                    // not have permission to view it. Remove the item set element
+                    // from the form to prevent the user from accidentally unassigning
+                    // it from the collecting form.
+                    $userCanUpdateItemSet = false;
+                    $form->remove('item_set_id');
+                }
+            }
+            $form->setData($cFormData);
+            if ($userCanUpdateItemSet && $cFormData['o:item_set']) {
+                // Set the existing item set to the form.
+                $form->get('item_set_id')->setValue($cFormData['o:item_set']->id());
             }
             $view->setVariable('cForm', $cForm);
         }
@@ -70,7 +86,13 @@ class FormController extends AbstractActionController
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
             $data['o:site']['o:id'] = $site->id();
-            $data['o:item_set']['o:id'] = $this->params()->fromPost('item_set_id');
+            if ($userCanUpdateItemSet) {
+                // Set the posted item set to the API request data.
+                $data['o:item_set']['o:id'] = $this->params()->fromPost('item_set_id');
+            } else {
+                // Set the existing item set to the API request data.
+                $data['o:item_set']['o:id'] = $cFormData['o:item_set'] ? $cFormData['o:item_set']->id() : null;
+            }
             $form->setData($data);
             if ($form->isValid()) {
                 $response = $isEdit

@@ -26,6 +26,11 @@ class Module extends AbstractModule
     {
         parent::onBootstrap($event);
         $this->addAclRules();
+
+        // Set the corresponding visibility rules on Collecting resources.
+        $em = $this->getServiceLocator()->get('Omeka\EntityManager');
+        $filter = $em->getFilters()->getFilter('resource_visibility');
+        $filter->addRelatedEntity('Collecting\Entity\CollectingItem', 'item_id');
     }
 
     public function install(ServiceLocatorInterface $services)
