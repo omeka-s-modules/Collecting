@@ -8,7 +8,7 @@ class PromptText extends Text implements InputProviderInterface
 {
     use PromptIsRequiredTrait;
 
-    public function getInputSpecification() : array
+    public function getInputSpecification(): array
     {
         return [
             'required' => $this->required,

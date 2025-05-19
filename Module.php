@@ -510,7 +510,7 @@ class Module extends AbstractModule
         ]);
         $assertion->setMode(AssertionAggregate::MODE_AT_LEAST_ONE);
         $acl->allow(
-             null,
+            null,
             'Collecting\Entity\CollectingItem',
             'view-collecting-user-email',
             $assertion

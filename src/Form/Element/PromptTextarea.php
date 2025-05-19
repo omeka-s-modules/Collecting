@@ -8,7 +8,7 @@ class PromptTextarea extends Textarea implements InputProviderInterface
 {
     use PromptIsRequiredTrait;
 
-    public function getInputSpecification() : array
+    public function getInputSpecification(): array
     {
         return [
             'required' => $this->required,

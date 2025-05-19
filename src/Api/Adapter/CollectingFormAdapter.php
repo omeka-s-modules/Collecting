@@ -268,7 +268,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
                     $errorStore->addError('o-module-collecting:text', 'A user_email prompt must have text.'); // @translate
                 }
                 break;
-            case  'html':
+            case 'html':
                 if (null === $validatedData['o-module-collecting:text']) {
                     $errorStore->addError('o-module-collecting:text', 'A html prompt must have text.'); // @translate
                 }

@@ -7,7 +7,7 @@ class PromptSelect extends Select
 {
     use PromptIsRequiredTrait;
 
-    public function getInputSpecification() : array
+    public function getInputSpecification(): array
     {
         $spec = parent::getInputSpecification();
         $spec['required'] = $this->required;

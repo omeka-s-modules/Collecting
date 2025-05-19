@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2023
+# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 14:14-0400\n"
+"POT-Creation-Date: 2025-05-19 14:37-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2023\n"
+"Last-Translator: Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2024\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/omeka/teams/14184/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,18 +21,18 @@ msgstr ""
 "Language: ca_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Module.php:357
+#: Module.php:362
 msgid "Click here to view the collected data."
 msgstr ""
 
 #: src/Api/Representation/CollectingFormRepresentation.php:303
 #, php-format
 msgid "I accept the %s"
-msgstr ""
+msgstr "Accepto la %s"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:306
 msgid "Terms of Service"
-msgstr ""
+msgstr "Condicions d'ús"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:74
 #: src/Api/Representation/CollectingItemRepresentation.php:125
@@ -42,31 +42,31 @@ msgstr "[privat]"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:81
 msgid "[unknown item]"
-msgstr ""
+msgstr "[recurs desconegut]"
 
 #: src/Controller/Site/IndexController.php:302
 msgid "Thank you for your submission"
-msgstr ""
+msgstr "Gràcies per l'enviament"
 
 #: src/Controller/Site/IndexController.php:352
 msgid "Collecting submission notification"
-msgstr ""
+msgstr "Notificació d'enviament"
 
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
-msgstr ""
+msgstr "Edita el formulari de captació: “%s”"
 
 #: view/collecting/site-admin/form/form.phtml:10
 msgid "Add collecting form"
-msgstr ""
+msgstr "Afegeix un formulari de captació"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
 msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:53
-#: view/collecting/site-admin/form/show.phtml:39
+#: view/collecting/site-admin/form/show.phtml:42
 msgid "Prompts"
 msgstr "Prompts"
 
@@ -133,11 +133,11 @@ msgstr ""
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
-msgstr ""
+msgstr "Formularis de captació"
 
 #: view/collecting/site-admin/form/index.phtml:7
 msgid "Add new form"
-msgstr ""
+msgstr "Afegeix un nou formulari"
 
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
@@ -148,33 +148,34 @@ msgstr "No hi ha cap formulari de recollida."
 #: view/collecting/site-admin/item/index.phtml:3
 #, php-format
 msgid "Collecting Form: “%s”"
-msgstr ""
+msgstr "Formulari: “%s”"
 
 #: view/collecting/site-admin/form/show.phtml:6
+#: view/collecting/site-admin/form/show.phtml:8
 msgid "[none]"
 msgstr "[cap]"
 
-#: view/collecting/site-admin/form/show.phtml:11
+#: view/collecting/site-admin/form/show.phtml:14
 msgid "Edit form"
-msgstr ""
+msgstr "Edita el formulari"
 
-#: view/collecting/site-admin/form/show.phtml:16
+#: view/collecting/site-admin/form/show.phtml:19
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
-msgstr ""
+msgstr "Torna a la llista de formularis"
 
-#: view/collecting/site-admin/form/show.phtml:29
+#: view/collecting/site-admin/form/show.phtml:32
 msgid "Anonymity Type"
-msgstr ""
+msgstr "Tipus d'anonimat"
 
-#: view/collecting/site-admin/form/show.phtml:64
+#: view/collecting/site-admin/form/show.phtml:67
 msgid "This form has no prompts."
 msgstr ""
 
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Needs review"
-msgstr ""
+msgstr "Pendent de revisió"
 
 #: view/collecting/site-admin/item/index.phtml:17
 msgid "Reviewed: public"
@@ -182,7 +183,7 @@ msgstr "Revisat: públic"
 
 #: view/collecting/site-admin/item/index.phtml:18
 msgid "Reviewed: private"
-msgstr ""
+msgstr "Revisat: privat"
 
 #: view/collecting/site-admin/item/index.phtml:29
 #: view/collecting/site-admin/item/index.phtml:76
@@ -203,7 +204,7 @@ msgstr "[sense revisar]"
 
 #: view/collecting/site-admin/item/index.phtml:96
 msgid "No items found."
-msgstr ""
+msgstr "No s'ha trobat cap recurs."
 
 #: view/collecting/site-admin/item/show-details.phtml:19
 #: view/common/collecting-item-section.phtml:35
@@ -232,7 +233,7 @@ msgstr "Anònim?"
 #: view/collecting/site/index/item-show.phtml:2
 #, php-format
 msgid "Collected Item: “%s”"
-msgstr ""
+msgstr "Recurs captat: “%s”"
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
@@ -276,74 +277,176 @@ msgstr "Informació de l'usuari"
 msgid "Public citation"
 msgstr ""
 
-#: Module.php:185 config/module.config.php:80
-#: src/Site/BlockLayout/Collecting.php:18
+#: src/Api/Representation/CollectingFormRepresentation.php:163
+#: src/Api/Representation/CollectingFormRepresentation.php:170
+#: src/Api/Representation/CollectingFormRepresentation.php:192
+msgid "Please choose one..."
+msgstr "Seleccioneu una.."
+
+#: src/Api/Representation/CollectingFormRepresentation.php:272
+msgid "I want to submit anonymously"
+msgstr "Vull fer l'enviament de forma anònima"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:282
+msgid "Email me my submission"
+msgstr "Envia'm per correu electrònic la meva tramesa"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:203
+msgid "A property prompt must have a property."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A property prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:211
+#: src/Api/Adapter/CollectingFormAdapter.php:232
+#: src/Api/Adapter/CollectingFormAdapter.php:245
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:216
+msgid "A media prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:219
+msgid "A media prompt must have a media type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:224
+msgid "An input prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "An input prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:237
+msgid "A user_private prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_private prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:250
+msgid "A user_public prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_public prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A user_name prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:268
+msgid "A user_email prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:273
+msgid "A html prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:277
+msgid "Prompts must have a type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:289
+msgid "Invalid anonymity type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+
+#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
+#: Module.php:190
 msgid "Collecting"
+msgstr "Collecting"
+
+#: src/Controller/SiteAdmin/FormController.php:104
+msgid "Collecting form successfully updated"
 msgstr ""
 
-#: Module.php:194
-msgid "Terms of service"
+#: src/Controller/SiteAdmin/FormController.php:105
+msgid "Collecting form successfully created"
 msgstr ""
 
-#: Module.php:195
+#: src/Controller/SiteAdmin/FormController.php:139
+msgid "Collecting form successfully deleted"
+msgstr ""
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr ""
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr ""
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "Seleccioneu el conjunt de recursos..."
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "Tipus d'anonimat"
+
+#: src/Form/CollectingForm.php:40
 msgid ""
-"Enter the terms of service (TOS) for users who submit content to this site."
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr ""
+"Controla com tractar l'entrada \"User Public\" i \"User Name\" a les pàgines"
+" públiques."
+
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
 msgstr ""
 
-#: Module.php:206
-msgid "Terms of service URL"
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
 msgstr ""
 
-#: Module.php:207
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "Text del correu electrònic"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "Comença tots els emails amb aquest text."
+
+#: src/Form/CollectingForm.php:72
+msgid "Use default site assignments"
+msgstr ""
+
+#: src/Form/CollectingForm.php:73
 msgid ""
-"Enter the URL to the terms of service (TOS) for users who submit content to "
-"this site."
+"Check this to use default site assignments for collected items. If not "
+"checked, all items created by this form are assigned to this site only."
 msgstr ""
 
-#: Module.php:218
-msgid "Submission email address"
-msgstr ""
+#: src/MediaType/UploadMultiple.php:20
+msgid "Upload Multiple"
+msgstr "Carrega diversos"
 
-#: Module.php:219
-msgid "Enter an email address from which user submission emails will be sent."
-msgstr ""
-
-#: Module.php:230
-msgid "Notification email address"
-msgstr ""
-
-#: Module.php:231
-msgid ""
-"Enter an email address to which admin notification emails will be sent."
-msgstr ""
-
-#: Module.php:242
-msgid "Hide collected data"
-msgstr ""
-
-#: Module.php:243
-msgid "Hide the link to and prevent direct linking to collected data."
-msgstr ""
-
-#: config/module.config.php:110
-msgid "Form Information"
-msgstr ""
-
-#: config/module.config.php:116
-msgid "Collected Items"
-msgstr ""
-
-#: src/Entity/CollectingForm.php:95
-msgid "User sets own anonymity"
-msgstr ""
-
-#: src/Entity/CollectingForm.php:96
-msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr ""
-
-#: src/Entity/CollectingForm.php:97
-msgid "“User Public” and “User Name” inputs are private"
-msgstr ""
+#: src/MediaType/Upload.php:20
+msgid "Upload One"
+msgstr "Carrega un"
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
@@ -363,7 +466,7 @@ msgstr "Nom d'usuari"
 
 #: src/Entity/CollectingPrompt.php:105
 msgid "User Email"
-msgstr ""
+msgstr "Correu electrònic de l'usuari"
 
 #: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
@@ -375,11 +478,11 @@ msgstr ""
 
 #: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
-msgstr ""
+msgstr "Quadre de text (una línia)"
 
 #: src/Entity/CollectingPrompt.php:116
 msgid "Text box (multiple line)"
-msgstr ""
+msgstr "Quadre de text (més d'una línia)"
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
@@ -405,166 +508,66 @@ msgstr ""
 msgid "Numeric integer"
 msgstr "Numèric sencer"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:163
-#: src/Api/Representation/CollectingFormRepresentation.php:170
-#: src/Api/Representation/CollectingFormRepresentation.php:192
-msgid "Please choose one..."
+#: src/Entity/CollectingForm.php:95
+msgid "User sets own anonymity"
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:272
-msgid "I want to submit anonymously"
-msgstr ""
+#: src/Entity/CollectingForm.php:96
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr "Les entrades \"User Public\" i \"User Name\" són públiques"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:282
-msgid "Email me my submission"
-msgstr ""
+#: src/Entity/CollectingForm.php:97
+msgid "“User Public” and “User Name” inputs are private"
+msgstr "Les entrades \"User Public\" i \"User Name\" són privades"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:56
-msgid "A collecting form must be assigned a site on creation."
-msgstr ""
+#: config/module.config.php:110
+msgid "Form Information"
+msgstr "Informació del formulari"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:197
-msgid "A property prompt must have a property."
-msgstr ""
+#: config/module.config.php:116
+msgid "Collected Items"
+msgstr "Recursos captats"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:200
-msgid "A property prompt must have an input type."
-msgstr ""
+#: Module.php:199
+msgid "Terms of service"
+msgstr "Condicions del servei"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:205
-#: src/Api/Adapter/CollectingFormAdapter.php:226
-#: src/Api/Adapter/CollectingFormAdapter.php:239
-#: src/Api/Adapter/CollectingFormAdapter.php:252
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:210
-msgid "A media prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:213
-msgid "A media prompt must have a media type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:218
-msgid "An input prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:221
-msgid "An input prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:231
-msgid "A user_private prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:234
-msgid "A user_private prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:244
-msgid "A user_public prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:247
-msgid "A user_public prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:257
-msgid "A user_name prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:262
-msgid "A user_email prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:267
-msgid "A html prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:271
-msgid "Prompts must have a type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:283
-msgid "Invalid anonymity type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
-msgstr ""
-
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
-msgstr ""
-
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr ""
-
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr ""
-
-#: src/Form/CollectingForm.php:40
+#: Module.php:200
 msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
+"Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
 
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr ""
+#: Module.php:211
+msgid "Terms of service URL"
+msgstr "URL de les condicions d'ús"
 
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
-msgstr ""
-
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr ""
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr "Comença tots els emails amb aquest text."
-
-#: src/Form/CollectingForm.php:72
-msgid "Use default site assignments"
-msgstr ""
-
-#: src/Form/CollectingForm.php:73
+#: Module.php:212
 msgid ""
-"Check this to use default site assignments for collected items. If not "
-"checked, all items created by this form are assigned to this site only."
+"Enter the URL to the terms of service (TOS) for users who submit content to "
+"this site."
 msgstr ""
 
-#: src/MediaType/Upload.php:20
-msgid "Upload One"
-msgstr "Carrega un"
-
-#: src/MediaType/UploadMultiple.php:20
-msgid "Upload Multiple"
-msgstr "Carrega diversos"
-
-#: src/Controller/SiteAdmin/FormController.php:82
-msgid "Collecting form successfully updated"
+#: Module.php:223
+msgid "Submission email address"
 msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully created"
+#: Module.php:224
+msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:117
-msgid "Collecting form successfully deleted"
+#: Module.php:235
+msgid "Notification email address"
 msgstr ""
 
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
+#: Module.php:236
+msgid ""
+"Enter an email address to which admin notification emails will be sent."
+msgstr ""
+
+#: Module.php:247
+msgid "Hide collected data"
+msgstr "Oculta les dades recollides"
+
+#: Module.php:248
+msgid "Hide the link to and prevent direct linking to collected data."
 msgstr ""

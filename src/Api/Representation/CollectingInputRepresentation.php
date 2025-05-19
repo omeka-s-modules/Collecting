@@ -15,7 +15,7 @@ class CollectingInputRepresentation extends AbstractRepresentation
         $this->setServiceLocator($serviceLocator);
     }
 
-    public function jsonSerialize() : array
+    public function jsonSerialize(): array
     {
         if ($item = $this->item()) {
             $item = $item->getReference();

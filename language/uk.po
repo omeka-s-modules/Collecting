@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 14:14-0400\n"
+"POT-Creation-Date: 2025-05-19 14:37-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: tanya chorna <tanya.chorna@gmail.com>, 2024\n"
 "Language-Team: Ukrainian (https://app.transifex.com/omeka/teams/14184/uk/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: Module.php:357
+#: Module.php:362
 msgid "Click here to view the collected data."
 msgstr "Натисніть тут, щоб переглянути зібрані дані."
 
@@ -66,7 +66,7 @@ msgid "Undo delete"
 msgstr "Скасувати видалення"
 
 #: view/collecting/site-admin/form/form.phtml:53
-#: view/collecting/site-admin/form/show.phtml:39
+#: view/collecting/site-admin/form/show.phtml:42
 msgid "Prompts"
 msgstr "Підказки"
 
@@ -152,23 +152,24 @@ msgid "Collecting Form: “%s”"
 msgstr "Форма: “%s”"
 
 #: view/collecting/site-admin/form/show.phtml:6
+#: view/collecting/site-admin/form/show.phtml:8
 msgid "[none]"
 msgstr "[жодної]"
 
-#: view/collecting/site-admin/form/show.phtml:11
+#: view/collecting/site-admin/form/show.phtml:14
 msgid "Edit form"
 msgstr "Редагувати форму"
 
-#: view/collecting/site-admin/form/show.phtml:16
+#: view/collecting/site-admin/form/show.phtml:19
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
 msgstr "Повернутись назад до списку форм"
 
-#: view/collecting/site-admin/form/show.phtml:29
+#: view/collecting/site-admin/form/show.phtml:32
 msgid "Anonymity Type"
 msgstr "Тип анонімності"
 
-#: view/collecting/site-admin/form/show.phtml:64
+#: view/collecting/site-admin/form/show.phtml:67
 msgid "This form has no prompts."
 msgstr "Ця форма не містить підказок."
 
@@ -279,85 +280,174 @@ msgstr "Інформація користувача"
 msgid "Public citation"
 msgstr "Цитування"
 
-#: Module.php:185 config/module.config.php:80
-#: src/Site/BlockLayout/Collecting.php:18
+#: src/Api/Representation/CollectingFormRepresentation.php:163
+#: src/Api/Representation/CollectingFormRepresentation.php:170
+#: src/Api/Representation/CollectingFormRepresentation.php:192
+msgid "Please choose one..."
+msgstr ""
+
+#: src/Api/Representation/CollectingFormRepresentation.php:272
+msgid "I want to submit anonymously"
+msgstr ""
+
+#: src/Api/Representation/CollectingFormRepresentation.php:282
+msgid "Email me my submission"
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:203
+msgid "A property prompt must have a property."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A property prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:211
+#: src/Api/Adapter/CollectingFormAdapter.php:232
+#: src/Api/Adapter/CollectingFormAdapter.php:245
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:216
+msgid "A media prompt must have text."
+msgstr "Медіа-підказка повинна мати текст."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:219
+msgid "A media prompt must have a media type."
+msgstr "Медіа-підказка повинна мати тип медіа."
+
+#: src/Api/Adapter/CollectingFormAdapter.php:224
+msgid "An input prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "An input prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:237
+msgid "A user_private prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_private prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:250
+msgid "A user_public prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_public prompt must have an input type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A user_name prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:268
+msgid "A user_email prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:273
+msgid "A html prompt must have text."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:277
+msgid "Prompts must have a type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingFormAdapter.php:289
+msgid "Invalid anonymity type."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr ""
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr ""
+
+#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
+#: Module.php:190
 msgid "Collecting"
 msgstr "Збір"
 
-#: Module.php:194
-msgid "Terms of service"
-msgstr "Умови використання"
+#: src/Controller/SiteAdmin/FormController.php:104
+msgid "Collecting form successfully updated"
+msgstr ""
 
-#: Module.php:195
+#: src/Controller/SiteAdmin/FormController.php:105
+msgid "Collecting form successfully created"
+msgstr ""
+
+#: src/Controller/SiteAdmin/FormController.php:139
+msgid "Collecting form successfully deleted"
+msgstr ""
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr ""
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr ""
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr ""
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr ""
+
+#: src/Form/CollectingForm.php:40
 msgid ""
-"Enter the terms of service (TOS) for users who submit content to this site."
+"Control how to treat “User Public” and “User Name” input on public pages."
 msgstr ""
-"Введіть умови використання (УВ) для користувачів, які надсилають інформацію "
-"на цей сайт."
 
-#: Module.php:206
-msgid "Terms of service URL"
-msgstr "Умови використання URL"
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr ""
 
-#: Module.php:207
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr ""
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr ""
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr ""
+
+#: src/Form/CollectingForm.php:72
+msgid "Use default site assignments"
+msgstr ""
+
+#: src/Form/CollectingForm.php:73
 msgid ""
-"Enter the URL to the terms of service (TOS) for users who submit content to "
-"this site."
+"Check this to use default site assignments for collected items. If not "
+"checked, all items created by this form are assigned to this site only."
 msgstr ""
-"Введіть URL умов використання (УВ) для користувачів, які надсилають "
-"інформацію на цей сайт."
 
-#: Module.php:218
-msgid "Submission email address"
-msgstr "Електронна адреса"
-
-#: Module.php:219
-msgid "Enter an email address from which user submission emails will be sent."
+#: src/MediaType/UploadMultiple.php:20
+msgid "Upload Multiple"
 msgstr ""
-"Введіть адресу електронної пошти, з якої надсилатимуться електронні листи з "
-"повідомленнями користувачів."
 
-#: Module.php:230
-msgid "Notification email address"
-msgstr "Електронна адреса для сповіщень"
-
-#: Module.php:231
-msgid ""
-"Enter an email address to which admin notification emails will be sent."
+#: src/MediaType/Upload.php:20
+msgid "Upload One"
 msgstr ""
-"Введіть електронну адресу, на яку надсилатимуться сповіщення адміністратора."
-
-#: Module.php:242
-msgid "Hide collected data"
-msgstr "Приховати зібрані дані"
-
-#: Module.php:243
-msgid "Hide the link to and prevent direct linking to collected data."
-msgstr ""
-"Приховати посилання на зібрані дані та заборонити пряме посилання на них."
-
-#: config/module.config.php:110
-msgid "Form Information"
-msgstr "Інформація форми"
-
-#: config/module.config.php:116
-msgid "Collected Items"
-msgstr "Зібрані документи"
-
-#: src/Entity/CollectingForm.php:95
-msgid "User sets own anonymity"
-msgstr "Користувач сам встановлює анонімність"
-
-#: src/Entity/CollectingForm.php:96
-msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr ""
-"Введення “Загальнодоступний користувач” і “Ім’я користувача” - "
-"загальнодоступні"
-
-#: src/Entity/CollectingForm.php:97
-msgid "“User Public” and “User Name” inputs are private"
-msgstr ""
-"Введення “Загальнодоступний користувач” і “Ім’я користувача” - закриті"
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
@@ -419,166 +509,77 @@ msgstr ""
 msgid "Numeric integer"
 msgstr ""
 
-#: src/Api/Representation/CollectingFormRepresentation.php:163
-#: src/Api/Representation/CollectingFormRepresentation.php:170
-#: src/Api/Representation/CollectingFormRepresentation.php:192
-msgid "Please choose one..."
+#: src/Entity/CollectingForm.php:95
+msgid "User sets own anonymity"
+msgstr "Користувач сам встановлює анонімність"
+
+#: src/Entity/CollectingForm.php:96
+msgid "“User Public” and “User Name” inputs are publicly visible"
 msgstr ""
+"Введення “Загальнодоступний користувач” і “Ім’я користувача” - "
+"загальнодоступні"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:272
-msgid "I want to submit anonymously"
+#: src/Entity/CollectingForm.php:97
+msgid "“User Public” and “User Name” inputs are private"
 msgstr ""
+"Введення “Загальнодоступний користувач” і “Ім’я користувача” - закриті"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:282
-msgid "Email me my submission"
-msgstr ""
+#: config/module.config.php:110
+msgid "Form Information"
+msgstr "Інформація форми"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:56
-msgid "A collecting form must be assigned a site on creation."
-msgstr ""
+#: config/module.config.php:116
+msgid "Collected Items"
+msgstr "Зібрані документи"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:197
-msgid "A property prompt must have a property."
-msgstr ""
+#: Module.php:199
+msgid "Terms of service"
+msgstr "Умови використання"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:200
-msgid "A property prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:205
-#: src/Api/Adapter/CollectingFormAdapter.php:226
-#: src/Api/Adapter/CollectingFormAdapter.php:239
-#: src/Api/Adapter/CollectingFormAdapter.php:252
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:210
-msgid "A media prompt must have text."
-msgstr "Медіа-підказка повинна мати текст."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:213
-msgid "A media prompt must have a media type."
-msgstr "Медіа-підказка повинна мати тип медіа."
-
-#: src/Api/Adapter/CollectingFormAdapter.php:218
-msgid "An input prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:221
-msgid "An input prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:231
-msgid "A user_private prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:234
-msgid "A user_private prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:244
-msgid "A user_public prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:247
-msgid "A user_public prompt must have an input type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:257
-msgid "A user_name prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:262
-msgid "A user_email prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:267
-msgid "A html prompt must have text."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:271
-msgid "Prompts must have a type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingFormAdapter.php:283
-msgid "Invalid anonymity type."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
-msgstr ""
-
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
-msgstr ""
-
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
-msgstr ""
-
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr ""
-
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr ""
-
-#: src/Form/CollectingForm.php:40
+#: Module.php:200
 msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
+"Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
+"Введіть умови використання (УВ) для користувачів, які надсилають інформацію "
+"на цей сайт."
 
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr ""
+#: Module.php:211
+msgid "Terms of service URL"
+msgstr "Умови використання URL"
 
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
-msgstr ""
-
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr ""
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr ""
-
-#: src/Form/CollectingForm.php:72
-msgid "Use default site assignments"
-msgstr ""
-
-#: src/Form/CollectingForm.php:73
+#: Module.php:212
 msgid ""
-"Check this to use default site assignments for collected items. If not "
-"checked, all items created by this form are assigned to this site only."
+"Enter the URL to the terms of service (TOS) for users who submit content to "
+"this site."
 msgstr ""
+"Введіть URL умов використання (УВ) для користувачів, які надсилають "
+"інформацію на цей сайт."
 
-#: src/MediaType/Upload.php:20
-msgid "Upload One"
-msgstr ""
+#: Module.php:223
+msgid "Submission email address"
+msgstr "Електронна адреса"
 
-#: src/MediaType/UploadMultiple.php:20
-msgid "Upload Multiple"
+#: Module.php:224
+msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
+"Введіть адресу електронної пошти, з якої надсилатимуться електронні листи з "
+"повідомленнями користувачів."
 
-#: src/Controller/SiteAdmin/FormController.php:82
-msgid "Collecting form successfully updated"
-msgstr ""
+#: Module.php:235
+msgid "Notification email address"
+msgstr "Електронна адреса для сповіщень"
 
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully created"
+#: Module.php:236
+msgid ""
+"Enter an email address to which admin notification emails will be sent."
 msgstr ""
+"Введіть електронну адресу, на яку надсилатимуться сповіщення адміністратора."
 
-#: src/Controller/SiteAdmin/FormController.php:117
-msgid "Collecting form successfully deleted"
-msgstr ""
+#: Module.php:247
+msgid "Hide collected data"
+msgstr "Приховати зібрані дані"
 
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
+#: Module.php:248
+msgid "Hide the link to and prevent direct linking to collected data."
 msgstr ""
+"Приховати посилання на зібрані дані та заборонити пряме посилання на них."

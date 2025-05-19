@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 14:14-0400\n"
+"POT-Creation-Date: 2025-05-19 14:37-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2021\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/omeka/teams/14184/zh_CN/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: Module.php:357
+#: Module.php:362
 msgid "Click here to view the collected data."
 msgstr "点击此处查看收集到的数据。"
 
@@ -66,7 +66,7 @@ msgid "Undo delete"
 msgstr "撤销删除"
 
 #: view/collecting/site-admin/form/form.phtml:53
-#: view/collecting/site-admin/form/show.phtml:39
+#: view/collecting/site-admin/form/show.phtml:42
 msgid "Prompts"
 msgstr "提示"
 
@@ -151,23 +151,24 @@ msgid "Collecting Form: “%s”"
 msgstr "收藏表单：“%s”"
 
 #: view/collecting/site-admin/form/show.phtml:6
+#: view/collecting/site-admin/form/show.phtml:8
 msgid "[none]"
 msgstr "【无】"
 
-#: view/collecting/site-admin/form/show.phtml:11
+#: view/collecting/site-admin/form/show.phtml:14
 msgid "Edit form"
 msgstr "编辑表单"
 
-#: view/collecting/site-admin/form/show.phtml:16
+#: view/collecting/site-admin/form/show.phtml:19
 #: view/collecting/site-admin/item/index.phtml:7
 msgid "Back to collecting forms list"
 msgstr "返回收藏表单列表"
 
-#: view/collecting/site-admin/form/show.phtml:29
+#: view/collecting/site-admin/form/show.phtml:32
 msgid "Anonymity Type"
 msgstr "匿名类型"
 
-#: view/collecting/site-admin/form/show.phtml:64
+#: view/collecting/site-admin/form/show.phtml:67
 msgid "This form has no prompts."
 msgstr "该表单没有提示符。"
 
@@ -276,74 +277,174 @@ msgstr "用户信息"
 msgid "Public citation"
 msgstr "公开引用"
 
-#: Module.php:185 config/module.config.php:80
-#: src/Site/BlockLayout/Collecting.php:18
+#: src/Api/Representation/CollectingFormRepresentation.php:163
+#: src/Api/Representation/CollectingFormRepresentation.php:170
+#: src/Api/Representation/CollectingFormRepresentation.php:192
+msgid "Please choose one..."
+msgstr "请选择一个 ......"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:272
+msgid "I want to submit anonymously"
+msgstr "我希望匿名提交"
+
+#: src/Api/Representation/CollectingFormRepresentation.php:282
+msgid "Email me my submission"
+msgstr "把我提交的东西电邮给我"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:56
+msgid "A collecting form must be assigned a site on creation."
+msgstr "收藏表单在创建时就必须指定一个网站。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:203
+msgid "A property prompt must have a property."
+msgstr "属性提示必须有一个属性。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:206
+msgid "A property prompt must have an input type."
+msgstr "属性提示必须有输入类型。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:211
+#: src/Api/Adapter/CollectingFormAdapter.php:232
+#: src/Api/Adapter/CollectingFormAdapter.php:245
+#: src/Api/Adapter/CollectingFormAdapter.php:258
+msgid "A custom_vocab input type must have a custom vocab."
+msgstr "custom_vocab输入类型必须有定制词汇。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:216
+msgid "A media prompt must have text."
+msgstr "媒体提示必须有文本。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:219
+msgid "A media prompt must have a media type."
+msgstr "媒体提示必须有媒体类型。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:224
+msgid "An input prompt must have text."
+msgstr "输入提示必须有文本。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:227
+msgid "An input prompt must have an input type."
+msgstr "输入提示必须有输入类型。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:237
+msgid "A user_private prompt must have text."
+msgstr "user_private提示必须有文本。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:240
+msgid "A user_private prompt must have an input type."
+msgstr "user_private提示必须有输入类型。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:250
+msgid "A user_public prompt must have text."
+msgstr "user_public提示必须有文本。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:253
+msgid "A user_public prompt must have an input type."
+msgstr "user_public提示必须有输入类型。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:263
+msgid "A user_name prompt must have text."
+msgstr "user_name提示必须有文本。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:268
+msgid "A user_email prompt must have text."
+msgstr "user_email提示必须有文本。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:273
+msgid "A html prompt must have text."
+msgstr "html提示必须有文本。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:277
+msgid "Prompts must have a type."
+msgstr "提示必须有一个类型。"
+
+#: src/Api/Adapter/CollectingFormAdapter.php:289
+msgid "Invalid anonymity type."
+msgstr "无效的匿名类型。"
+
+#: src/Api/Adapter/CollectingItemAdapter.php:132
+msgid "A collecting item must be assigned an item on creation."
+msgstr "收藏条目在创建时就必须指定一个条目。"
+
+#: src/Api/Adapter/CollectingItemAdapter.php:135
+msgid "A collecting item must be assigned a form on creation."
+msgstr "收藏条目在创建时就必须指定一个表单。"
+
+#: src/Api/Adapter/CollectingItemAdapter.php:139
+msgid "A collecting input must be assigned a prompt on creation."
+msgstr "收藏输入在创建时就必须指定一个提示。"
+
+#: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
+#: Module.php:190
 msgid "Collecting"
 msgstr "收藏"
 
-#: Module.php:194
-msgid "Terms of service"
-msgstr "服务条款"
+#: src/Controller/SiteAdmin/FormController.php:104
+msgid "Collecting form successfully updated"
+msgstr "收藏表单已成功更新"
 
-#: Module.php:195
+#: src/Controller/SiteAdmin/FormController.php:105
+msgid "Collecting form successfully created"
+msgstr "收藏表单已成功创建"
+
+#: src/Controller/SiteAdmin/FormController.php:139
+msgid "Collecting form successfully deleted"
+msgstr "收藏表单已成功删除"
+
+#: src/Controller/SiteAdmin/ItemController.php:71
+msgid "Statuses successfully updated"
+msgstr "状态已成功更新"
+
+#: src/Form/CollectingForm.php:28
+msgid "Assign all items created by this form to this item set."
+msgstr "把该表单创建的所有条目分配给该条目集。"
+
+#: src/Form/CollectingForm.php:29
+msgid "Select Item Set..."
+msgstr "选择条目集 ......"
+
+#: src/Form/CollectingForm.php:39
+msgid "Anonymity type"
+msgstr "匿名类型"
+
+#: src/Form/CollectingForm.php:40
 msgid ""
-"Enter the terms of service (TOS) for users who submit content to this site."
-msgstr "输入给此网站提交内容的用户的服务条款（TOS）。"
+"Control how to treat “User Public” and “User Name” input on public pages."
+msgstr "在公共页面上控制如何对待“用户是公开的”和“用户名称”输入。"
 
-#: Module.php:206
-msgid "Terms of service URL"
+#: src/Form/CollectingForm.php:48
+msgid "Success text"
+msgstr "成功文本"
+
+#: src/Form/CollectingForm.php:49
+msgid "Display this text after a user successfully submits a form."
+msgstr "用户成功提交表单后显示该文本。"
+
+#: src/Form/CollectingForm.php:60
+msgid "Email text"
+msgstr "电子邮件文本"
+
+#: src/Form/CollectingForm.php:61
+msgid "Begin all submission emails with this text."
+msgstr "所有提交电邮都以此文本开头。"
+
+#: src/Form/CollectingForm.php:72
+msgid "Use default site assignments"
 msgstr ""
 
-#: Module.php:207
+#: src/Form/CollectingForm.php:73
 msgid ""
-"Enter the URL to the terms of service (TOS) for users who submit content to "
-"this site."
+"Check this to use default site assignments for collected items. If not "
+"checked, all items created by this form are assigned to this site only."
 msgstr ""
 
-#: Module.php:218
-msgid "Submission email address"
-msgstr ""
+#: src/MediaType/UploadMultiple.php:20
+msgid "Upload Multiple"
+msgstr "上传多个"
 
-#: Module.php:219
-msgid "Enter an email address from which user submission emails will be sent."
-msgstr ""
-
-#: Module.php:230
-msgid "Notification email address"
-msgstr ""
-
-#: Module.php:231
-msgid ""
-"Enter an email address to which admin notification emails will be sent."
-msgstr ""
-
-#: Module.php:242
-msgid "Hide collected data"
-msgstr ""
-
-#: Module.php:243
-msgid "Hide the link to and prevent direct linking to collected data."
-msgstr ""
-
-#: config/module.config.php:110
-msgid "Form Information"
-msgstr "表单信息"
-
-#: config/module.config.php:116
-msgid "Collected Items"
-msgstr "收藏的条目"
-
-#: src/Entity/CollectingForm.php:95
-msgid "User sets own anonymity"
-msgstr "用户设置自己的匿名属性"
-
-#: src/Entity/CollectingForm.php:96
-msgid "“User Public” and “User Name” inputs are publicly visible"
-msgstr "“用户是公开的”和“用户名称”输入是公开可见的"
-
-#: src/Entity/CollectingForm.php:97
-msgid "“User Public” and “User Name” inputs are private"
-msgstr "“用户是公开的”和“用户名称”输入是私密的"
+#: src/MediaType/Upload.php:20
+msgid "Upload One"
+msgstr "上传一个"
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
@@ -405,166 +506,66 @@ msgstr "数值持续时间"
 msgid "Numeric integer"
 msgstr "数字整数"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:163
-#: src/Api/Representation/CollectingFormRepresentation.php:170
-#: src/Api/Representation/CollectingFormRepresentation.php:192
-msgid "Please choose one..."
-msgstr "请选择一个 ......"
+#: src/Entity/CollectingForm.php:95
+msgid "User sets own anonymity"
+msgstr "用户设置自己的匿名属性"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:272
-msgid "I want to submit anonymously"
-msgstr "我希望匿名提交"
+#: src/Entity/CollectingForm.php:96
+msgid "“User Public” and “User Name” inputs are publicly visible"
+msgstr "“用户是公开的”和“用户名称”输入是公开可见的"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:282
-msgid "Email me my submission"
-msgstr "把我提交的东西电邮给我"
+#: src/Entity/CollectingForm.php:97
+msgid "“User Public” and “User Name” inputs are private"
+msgstr "“用户是公开的”和“用户名称”输入是私密的"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:56
-msgid "A collecting form must be assigned a site on creation."
-msgstr "收藏表单在创建时就必须指定一个网站。"
+#: config/module.config.php:110
+msgid "Form Information"
+msgstr "表单信息"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:197
-msgid "A property prompt must have a property."
-msgstr "属性提示必须有一个属性。"
+#: config/module.config.php:116
+msgid "Collected Items"
+msgstr "收藏的条目"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:200
-msgid "A property prompt must have an input type."
-msgstr "属性提示必须有输入类型。"
+#: Module.php:199
+msgid "Terms of service"
+msgstr "服务条款"
 
-#: src/Api/Adapter/CollectingFormAdapter.php:205
-#: src/Api/Adapter/CollectingFormAdapter.php:226
-#: src/Api/Adapter/CollectingFormAdapter.php:239
-#: src/Api/Adapter/CollectingFormAdapter.php:252
-msgid "A custom_vocab input type must have a custom vocab."
-msgstr "custom_vocab输入类型必须有定制词汇。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:210
-msgid "A media prompt must have text."
-msgstr "媒体提示必须有文本。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:213
-msgid "A media prompt must have a media type."
-msgstr "媒体提示必须有媒体类型。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:218
-msgid "An input prompt must have text."
-msgstr "输入提示必须有文本。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:221
-msgid "An input prompt must have an input type."
-msgstr "输入提示必须有输入类型。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:231
-msgid "A user_private prompt must have text."
-msgstr "user_private提示必须有文本。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:234
-msgid "A user_private prompt must have an input type."
-msgstr "user_private提示必须有输入类型。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:244
-msgid "A user_public prompt must have text."
-msgstr "user_public提示必须有文本。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:247
-msgid "A user_public prompt must have an input type."
-msgstr "user_public提示必须有输入类型。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:257
-msgid "A user_name prompt must have text."
-msgstr "user_name提示必须有文本。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:262
-msgid "A user_email prompt must have text."
-msgstr "user_email提示必须有文本。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:267
-msgid "A html prompt must have text."
-msgstr "html提示必须有文本。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:271
-msgid "Prompts must have a type."
-msgstr "提示必须有一个类型。"
-
-#: src/Api/Adapter/CollectingFormAdapter.php:283
-msgid "Invalid anonymity type."
-msgstr "无效的匿名类型。"
-
-#: src/Api/Adapter/CollectingItemAdapter.php:132
-msgid "A collecting item must be assigned an item on creation."
-msgstr "收藏条目在创建时就必须指定一个条目。"
-
-#: src/Api/Adapter/CollectingItemAdapter.php:135
-msgid "A collecting item must be assigned a form on creation."
-msgstr "收藏条目在创建时就必须指定一个表单。"
-
-#: src/Api/Adapter/CollectingItemAdapter.php:139
-msgid "A collecting input must be assigned a prompt on creation."
-msgstr "收藏输入在创建时就必须指定一个提示。"
-
-#: src/Form/CollectingForm.php:28
-msgid "Assign all items created by this form to this item set."
-msgstr "把该表单创建的所有条目分配给该条目集。"
-
-#: src/Form/CollectingForm.php:29
-msgid "Select Item Set..."
-msgstr "选择条目集 ......"
-
-#: src/Form/CollectingForm.php:39
-msgid "Anonymity type"
-msgstr "匿名类型"
-
-#: src/Form/CollectingForm.php:40
+#: Module.php:200
 msgid ""
-"Control how to treat “User Public” and “User Name” input on public pages."
-msgstr "在公共页面上控制如何对待“用户是公开的”和“用户名称”输入。"
+"Enter the terms of service (TOS) for users who submit content to this site."
+msgstr "输入给此网站提交内容的用户的服务条款（TOS）。"
 
-#: src/Form/CollectingForm.php:48
-msgid "Success text"
-msgstr "成功文本"
-
-#: src/Form/CollectingForm.php:49
-msgid "Display this text after a user successfully submits a form."
-msgstr "用户成功提交表单后显示该文本。"
-
-#: src/Form/CollectingForm.php:60
-msgid "Email text"
-msgstr "电子邮件文本"
-
-#: src/Form/CollectingForm.php:61
-msgid "Begin all submission emails with this text."
-msgstr "所有提交电邮都以此文本开头。"
-
-#: src/Form/CollectingForm.php:72
-msgid "Use default site assignments"
+#: Module.php:211
+msgid "Terms of service URL"
 msgstr ""
 
-#: src/Form/CollectingForm.php:73
+#: Module.php:212
 msgid ""
-"Check this to use default site assignments for collected items. If not "
-"checked, all items created by this form are assigned to this site only."
+"Enter the URL to the terms of service (TOS) for users who submit content to "
+"this site."
 msgstr ""
 
-#: src/MediaType/Upload.php:20
-msgid "Upload One"
-msgstr "上传一个"
+#: Module.php:223
+msgid "Submission email address"
+msgstr ""
 
-#: src/MediaType/UploadMultiple.php:20
-msgid "Upload Multiple"
-msgstr "上传多个"
+#: Module.php:224
+msgid "Enter an email address from which user submission emails will be sent."
+msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:82
-msgid "Collecting form successfully updated"
-msgstr "收藏表单已成功更新"
+#: Module.php:235
+msgid "Notification email address"
+msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:83
-msgid "Collecting form successfully created"
-msgstr "收藏表单已成功创建"
+#: Module.php:236
+msgid ""
+"Enter an email address to which admin notification emails will be sent."
+msgstr ""
 
-#: src/Controller/SiteAdmin/FormController.php:117
-msgid "Collecting form successfully deleted"
-msgstr "收藏表单已成功删除"
+#: Module.php:247
+msgid "Hide collected data"
+msgstr ""
 
-#: src/Controller/SiteAdmin/ItemController.php:71
-msgid "Statuses successfully updated"
-msgstr "状态已成功更新"
+#: Module.php:248
+msgid "Hide the link to and prevent direct linking to collected data."
+msgstr ""

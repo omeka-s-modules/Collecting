@@ -15,7 +15,7 @@ class CollectingPromptRepresentation extends AbstractRepresentation
         $this->setServiceLocator($serviceLocator);
     }
 
-    public function jsonSerialize() : array
+    public function jsonSerialize(): array
     {
         if ($property = $this->property()) {
             $property = $property->getReference();
