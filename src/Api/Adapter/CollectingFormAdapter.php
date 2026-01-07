@@ -99,7 +99,7 @@ class CollectingFormAdapter extends AbstractEntityAdapter
             $propertyAdapter = $this->getAdapter('properties');
             foreach ($request->getValue('o-module-collecting:prompt', []) as $promptData) {
                 $promptData = $this->validatePromptData($promptData, $errorStore);
-                if ($entity->getPrompts()->containsKey($promptData['o:id'])) {
+                if (null !== $promptData['o:id'] && $entity->getPrompts()->containsKey($promptData['o:id'])) {
                     // Update an existing prompt.
                     $prompt = $entity->getPrompts()->get($promptData['o:id']);
                 } else {
