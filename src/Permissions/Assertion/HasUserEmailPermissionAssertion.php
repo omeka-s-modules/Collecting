@@ -11,8 +11,8 @@ use Laminas\Permissions\Acl\Role\RoleInterface;
  */
 class HasUserEmailPermissionAssertion implements AssertionInterface
 {
-    public function assert(Acl $acl, RoleInterface $role = null,
-        ResourceInterface $resource = null, $privilege = null
+    public function assert(Acl $acl, ?RoleInterface $role = null,
+        ?ResourceInterface $resource = null, $privilege = null
     ) {
         return false;
     }

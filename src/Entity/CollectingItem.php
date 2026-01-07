@@ -119,7 +119,7 @@ class CollectingItem extends AbstractEntity
         return $this->id;
     }
 
-    public function setItem(Item $item = null)
+    public function setItem(?Item $item = null)
     {
         $this->item = $item;
     }
@@ -149,7 +149,7 @@ class CollectingItem extends AbstractEntity
         return $this->collectingUser;
     }
 
-    public function setReviewer(User $reviewer = null)
+    public function setReviewer(?User $reviewer = null)
     {
         $this->reviewer = $reviewer;
     }

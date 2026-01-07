@@ -237,7 +237,7 @@ class CollectingPrompt extends AbstractEntity
         return $this->required;
     }
 
-    public function setProperty(Property $property = null)
+    public function setProperty(?Property $property = null)
     {
         $this->property = $property;
     }

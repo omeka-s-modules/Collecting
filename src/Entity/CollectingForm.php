@@ -128,7 +128,7 @@ class CollectingForm extends AbstractEntity
         return $this->anonType;
     }
 
-    public function setItemSet(ItemSet $itemSet = null)
+    public function setItemSet(?ItemSet $itemSet = null)
     {
         $this->itemSet = $itemSet;
     }
@@ -168,7 +168,7 @@ class CollectingForm extends AbstractEntity
         return $this->defaultSiteAssign;
     }
 
-    public function setOwner(User $owner = null)
+    public function setOwner(?User $owner = null)
     {
         $this->owner = $owner;
     }
@@ -178,7 +178,7 @@ class CollectingForm extends AbstractEntity
         return $this->owner;
     }
 
-    public function setSite(Site $site = null)
+    public function setSite(?Site $site = null)
     {
         $this->site = $site;
     }

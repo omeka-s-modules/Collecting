@@ -11,8 +11,8 @@ use Laminas\Permissions\Acl\Role\RoleInterface;
  */
 class HasUserNamePermissionAssertion implements AssertionInterface
 {
-    public function assert(Acl $acl, RoleInterface $role = null,
-        ResourceInterface $resource = null, $privilege = null
+    public function assert(Acl $acl, ?RoleInterface $role = null,
+        ?ResourceInterface $resource = null, $privilege = null
     ) {
         if ('private' === $resource->getForm()->getAnonType()) {
             // The collecting form restricts user name.

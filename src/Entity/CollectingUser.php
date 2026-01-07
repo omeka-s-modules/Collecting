@@ -48,7 +48,7 @@ class CollectingUser extends AbstractEntity
         return $this->id;
     }
 
-    public function setUser(User $user = null)
+    public function setUser(?User $user = null)
     {
         $this->user = $user;
     }

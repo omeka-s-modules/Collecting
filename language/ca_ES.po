@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2024
+# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-19 14:37-0400\n"
+"POT-Creation-Date: 2026-01-06 20:09-0500\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2024\n"
+"Last-Translator: Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2025\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/omeka/teams/14184/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: Module.php:362
 msgid "Click here to view the collected data."
-msgstr ""
+msgstr "Feu clic aquí per veure les dades recollides."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:303
 #, php-format
@@ -63,7 +63,7 @@ msgstr "Afegeix un formulari de captació"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
-msgstr ""
+msgstr "Desfés la supressió"
 
 #: view/collecting/site-admin/form/form.phtml:53
 #: view/collecting/site-admin/form/show.phtml:42
@@ -72,7 +72,7 @@ msgstr "Prompts"
 
 #: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
-msgstr ""
+msgstr "Afegeix un missatge"
 
 #: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
@@ -81,19 +81,19 @@ msgstr "Prompt"
 
 #: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
-msgstr ""
+msgstr "Tipus de missatge"
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr ""
+msgstr "Seleccioneu un tipus de missatge"
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
-msgstr ""
+msgstr "Seleccioneu un tipus de recurs multimèdia"
 
 #: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
-msgstr ""
+msgstr "Text del missatge"
 
 #: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
@@ -101,7 +101,7 @@ msgstr "Tipus d'entrada"
 
 #: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
-msgstr ""
+msgstr "Seleccioneu un tipus d’entrada"
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
@@ -109,15 +109,17 @@ msgstr "(no disponible)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
-msgstr ""
+msgstr "Seleccioneu opcions del menú"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
-msgstr ""
+msgstr "Filtra la consulta"
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
 msgstr ""
+"Filtreu els recursos introduint una cadena de consulta URL de cerca "
+"avançada."
 
 #: view/collecting/site-admin/form/form.phtml:134
 msgid "Custom vocab"
@@ -129,7 +131,7 @@ msgstr "Selecciona un vocabulari personalitzat"
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
-msgstr ""
+msgstr "Afegeix els canvis"
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
@@ -142,7 +144,7 @@ msgstr "Afegeix un nou formulari"
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
 msgid "This site has no collecting forms."
-msgstr "No hi ha cap formulari de recollida."
+msgstr "No hi ha cap formulari de captació."
 
 #: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
@@ -170,7 +172,7 @@ msgstr "Tipus d'anonimat"
 
 #: view/collecting/site-admin/form/show.phtml:67
 msgid "This form has no prompts."
-msgstr ""
+msgstr "Aquest formulari no conté indicacions."
 
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
@@ -192,7 +194,7 @@ msgstr "Revisat"
 
 #: view/collecting/site-admin/item/index.phtml:41
 msgid "Update statuses"
-msgstr ""
+msgstr "Actualitza els estats"
 
 #: view/collecting/site-admin/item/index.phtml:50
 msgid "Reviewed By"
@@ -218,7 +220,7 @@ msgstr "Nom d'usuari"
 #: view/common/collecting-item-section.phtml:45
 #: view/common/collecting-item-section.phtml:52
 msgid "[not asked]"
-msgstr ""
+msgstr "[no sol·licitat]"
 
 #: view/collecting/site-admin/item/show-details.phtml:26
 #: view/common/collecting-item-section.phtml:42
@@ -237,15 +239,15 @@ msgstr "Recurs captat: “%s”"
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr ""
+msgstr "Feu clic aquí per veure el recurs corresponent."
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr ""
+msgstr "El formulari s'ha enviat amb èxit!"
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
-msgstr ""
+msgstr "Seleccioneu quins formularis de recollida pot completar l’usuari:\""
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
@@ -260,14 +262,16 @@ msgstr "[usuari anònim]"
 msgid ""
 "This item was submitted on %s by %s using the form “%s” on the site “%s”: %s"
 msgstr ""
+"Aquest recurs es va enviar el %s per %s mitjançant el formulari \"%s\" en el"
+" lloc \"%s\": %s"
 
 #: view/common/collecting-item-section.phtml:3
 msgid "Collected Inputs"
-msgstr ""
+msgstr "Entrades recollides"
 
 #: view/common/collecting-item-section.phtml:11
 msgid "User Input"
-msgstr ""
+msgstr "Resposta de l’usuari"
 
 #: view/common/collecting-item-section.phtml:33
 msgid "User Information"
@@ -275,7 +279,7 @@ msgstr "Informació de l'usuari"
 
 #: view/common/collecting-item-section.phtml:61
 msgid "Public citation"
-msgstr ""
+msgstr "Citació pública"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:163
 #: src/Api/Representation/CollectingFormRepresentation.php:170
@@ -293,15 +297,18 @@ msgstr "Envia'm per correu electrònic la meva tramesa"
 
 #: src/Api/Adapter/CollectingFormAdapter.php:56
 msgid "A collecting form must be assigned a site on creation."
-msgstr ""
+msgstr "Cal assignar un lloc a un formulari de recollida en crear-lo."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:203
 msgid "A property prompt must have a property."
 msgstr ""
+"Un text d'instrucció per a la propietat ha d'estar associat a una propietat."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:206
 msgid "A property prompt must have an input type."
 msgstr ""
+"Un text d'instrucció per a la propietat ha d'estar associat a un tipus "
+"d'entrada de dades."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:211
 #: src/Api/Adapter/CollectingFormAdapter.php:232
@@ -309,70 +316,78 @@ msgstr ""
 #: src/Api/Adapter/CollectingFormAdapter.php:258
 msgid "A custom_vocab input type must have a custom vocab."
 msgstr ""
+"La instrucció per a custom_vocab ha d'estar associada a un vocabulari."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:216
 msgid "A media prompt must have text."
 msgstr ""
+"La instrucció per a la captació de fitxers multimèdia ha de tenir text."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:219
 msgid "A media prompt must have a media type."
 msgstr ""
+"La instrucció per a la captació de fitxers multimèdia ha de tenir un tipus "
+"de format."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:224
 msgid "An input prompt must have text."
-msgstr ""
+msgstr "La instrucció per a l'entrada de dades ha de tenir text."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:227
 msgid "An input prompt must have an input type."
 msgstr ""
+"La instrucció per a l'entrada de dades ha d'estar associada a un tipus "
+"d'entrada de dades."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:237
 msgid "A user_private prompt must have text."
-msgstr ""
+msgstr "La instrucció per a user_private ha de contenir text."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:240
 msgid "A user_private prompt must have an input type."
 msgstr ""
+"La instrucció per a user_private ha d'estar associada a un tipus d'entrada "
+"de dades."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:250
 msgid "A user_public prompt must have text."
-msgstr ""
+msgstr "La instrucció per a user_public ha de contenir text."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:253
 msgid "A user_public prompt must have an input type."
-msgstr ""
+msgstr "La instrucció per a user_public ha de comptar amb un tipus d'entrada."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:263
 msgid "A user_name prompt must have text."
-msgstr ""
+msgstr "La instrucció per a user_name ha de contenir text."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:268
 msgid "A user_email prompt must have text."
-msgstr ""
+msgstr "La instrucció per a user_email ha de contenir text."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:273
 msgid "A html prompt must have text."
-msgstr ""
+msgstr "Un missatge HTML ha de tenir text."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:277
 msgid "Prompts must have a type."
-msgstr ""
+msgstr "Els missatges han de tenir un tipus."
 
 #: src/Api/Adapter/CollectingFormAdapter.php:289
 msgid "Invalid anonymity type."
-msgstr ""
+msgstr "Tipus d'anonimat no vàlid."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:132
 msgid "A collecting item must be assigned an item on creation."
-msgstr ""
+msgstr "Cal assignar un recurs al recurs recollit en crear-lo."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:135
 msgid "A collecting item must be assigned a form on creation."
-msgstr ""
+msgstr "Cal assignar un formulari al recurs  recollit en crear-lo."
 
 #: src/Api/Adapter/CollectingItemAdapter.php:139
 msgid "A collecting input must be assigned a prompt on creation."
-msgstr ""
+msgstr "Cal assignar un text d'instrucció al camp de recollida en crear-lo."
 
 #: src/Site/BlockLayout/Collecting.php:18 config/module.config.php:80
 #: Module.php:190
@@ -381,23 +396,25 @@ msgstr "Collecting"
 
 #: src/Controller/SiteAdmin/FormController.php:104
 msgid "Collecting form successfully updated"
-msgstr ""
+msgstr "El formulari de recollida s'ha actualitzat correctament"
 
 #: src/Controller/SiteAdmin/FormController.php:105
 msgid "Collecting form successfully created"
-msgstr ""
+msgstr "El formulari de recollida s'ha creat correctament"
 
 #: src/Controller/SiteAdmin/FormController.php:139
 msgid "Collecting form successfully deleted"
-msgstr ""
+msgstr "El formulari de recollida s'ha suprimit correctament"
 
 #: src/Controller/SiteAdmin/ItemController.php:71
 msgid "Statuses successfully updated"
-msgstr ""
+msgstr "Estats actualitzats correctament"
 
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."
 msgstr ""
+"Assigneu tots els recursos creats per aquest formulari a aquest conjunt de "
+"recursos."
 
 #: src/Form/CollectingForm.php:29
 msgid "Select Item Set..."
@@ -411,16 +428,17 @@ msgstr "Tipus d'anonimat"
 msgid ""
 "Control how to treat “User Public” and “User Name” input on public pages."
 msgstr ""
-"Controla com tractar l'entrada \"User Public\" i \"User Name\" a les pàgines"
-" públiques."
+"Controleu com tractar l'entrada \"User Public\" i \"User Name\" a les "
+"pàgines públiques."
 
 #: src/Form/CollectingForm.php:48
 msgid "Success text"
-msgstr ""
+msgstr "Missatge d’èxit"
 
 #: src/Form/CollectingForm.php:49
 msgid "Display this text after a user successfully submits a form."
 msgstr ""
+"Mostreu aquest text després que un usuari enviï correctament un formulari."
 
 #: src/Form/CollectingForm.php:60
 msgid "Email text"
@@ -428,17 +446,20 @@ msgstr "Text del correu electrònic"
 
 #: src/Form/CollectingForm.php:61
 msgid "Begin all submission emails with this text."
-msgstr "Comença tots els emails amb aquest text."
+msgstr "Comenceu tots els emails amb aquest text."
 
 #: src/Form/CollectingForm.php:72
 msgid "Use default site assignments"
-msgstr ""
+msgstr "Utilitza les assignacions de lloc predeterminades"
 
 #: src/Form/CollectingForm.php:73
 msgid ""
 "Check this to use default site assignments for collected items. If not "
 "checked, all items created by this form are assigned to this site only."
 msgstr ""
+"Marqueu aquesta opció per utilitzar les assignacions de lloc predeterminades"
+" per als recursos recollits. Si no està marcada, tots els recursos creats "
+"per aquest formulari s’assignen només a aquest lloc."
 
 #: src/MediaType/UploadMultiple.php:20
 msgid "Upload Multiple"
@@ -450,15 +471,15 @@ msgstr "Carrega un"
 
 #: src/Entity/CollectingPrompt.php:101
 msgid "Item Property"
-msgstr ""
+msgstr "Propietat del recurs"
 
 #: src/Entity/CollectingPrompt.php:102
 msgid "Item Media"
-msgstr ""
+msgstr "Fitxer multimèdia del recurs"
 
 #: src/Entity/CollectingPrompt.php:103
 msgid "Item Supplementary"
-msgstr ""
+msgstr "Recurs complementari"
 
 #: src/Entity/CollectingPrompt.php:104
 msgid "User Name"
@@ -470,11 +491,11 @@ msgstr "Correu electrònic de l'usuari"
 
 #: src/Entity/CollectingPrompt.php:106
 msgid "User Private"
-msgstr ""
+msgstr "Usuari Privat"
 
 #: src/Entity/CollectingPrompt.php:107
 msgid "User Public"
-msgstr ""
+msgstr "Usuari Públic"
 
 #: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
@@ -486,15 +507,15 @@ msgstr "Quadre de text (més d'una línia)"
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
-msgstr ""
+msgstr "Menú desplegable"
 
 #: src/Entity/CollectingPrompt.php:118
 msgid "Item resource"
-msgstr ""
+msgstr "Recurs com a valor"
 
 #: src/Entity/CollectingPrompt.php:121
 msgid "Numeric timestamp"
-msgstr ""
+msgstr "Marca temporal numèrica"
 
 #: src/Entity/CollectingPrompt.php:122
 msgid "Numeric interval"
@@ -502,7 +523,7 @@ msgstr "Interval numèric"
 
 #: src/Entity/CollectingPrompt.php:123
 msgid "Numeric duration"
-msgstr ""
+msgstr "Durada numèrica"
 
 #: src/Entity/CollectingPrompt.php:124
 msgid "Numeric integer"
@@ -510,7 +531,7 @@ msgstr "Numèric sencer"
 
 #: src/Entity/CollectingForm.php:95
 msgid "User sets own anonymity"
-msgstr ""
+msgstr "L'usuari estableix la seva pròpia anonimitat"
 
 #: src/Entity/CollectingForm.php:96
 msgid "“User Public” and “User Name” inputs are publicly visible"
@@ -536,6 +557,8 @@ msgstr "Condicions del servei"
 msgid ""
 "Enter the terms of service (TOS) for users who submit content to this site."
 msgstr ""
+"Introduïu els termes de servei per als usuaris que envien contingut a aquest"
+" lloc."
 
 #: Module.php:211
 msgid "Terms of service URL"
@@ -546,23 +569,29 @@ msgid ""
 "Enter the URL to the terms of service (TOS) for users who submit content to "
 "this site."
 msgstr ""
+"Introduïu la URL dels termes de servei per als usuaris que envien contingut "
+"a aquest lloc."
 
 #: Module.php:223
 msgid "Submission email address"
-msgstr ""
+msgstr "Adreça de correu electrònic per als enviaments"
 
 #: Module.php:224
 msgid "Enter an email address from which user submission emails will be sent."
 msgstr ""
+"Introduïu una adreça de correu electrònic des de la qual s'enviaran els "
+"correus d'enviament dels usuaris."
 
 #: Module.php:235
 msgid "Notification email address"
-msgstr ""
+msgstr "Adreça de correu electrònic per a les notificacions"
 
 #: Module.php:236
 msgid ""
 "Enter an email address to which admin notification emails will be sent."
 msgstr ""
+"Introduïu una adreça de correu electrònic a la qual s’enviaran els correus "
+"de notificació a l’administrador."
 
 #: Module.php:247
 msgid "Hide collected data"
@@ -570,4 +599,4 @@ msgstr "Oculta les dades recollides"
 
 #: Module.php:248
 msgid "Hide the link to and prevent direct linking to collected data."
-msgstr ""
+msgstr "Amaga l'enllaç i impedeix l'enllaç directe a les dades recollides."

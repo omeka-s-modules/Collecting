@@ -9,8 +9,8 @@ use Laminas\Permissions\Acl\Role\RoleInterface;
 
 class HasSitePermissionAssertion extends OmekaHasSitePermissionAssertion
 {
-    public function assert(Acl $acl, RoleInterface $role = null,
-        ResourceInterface $resource = null, $privilege = null
+    public function assert(Acl $acl, ?RoleInterface $role = null,
+        ?ResourceInterface $resource = null, $privilege = null
     ) {
         if ($resource instanceof CollectingInput) {
             // A collecting input inherits the site from its collecting item.
