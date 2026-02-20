@@ -59,10 +59,6 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
             <img src="<?php echo $this->escapeHtml($media->thumbnailUrl('square')); ?>" style="width:2.25em;">
             <?php endif; ?>
             <?php echo $this->hyperlink($cItem->item()->displayTitle(), $cItem->item()->url() . '#collecting-section'); ?>
-        </td>
-        <td><?php echo $this->escapeHtml($this->i18n()->dateFormat($cItem->created(), 'medium', 'short')); ?></td>
-        <td><?php echo $cItem->reviewer() ? $cItem->reviewer()->link($cItem->reviewer()->name()) : $this->translate('[not reviewed]'); ?></td>
-        <td>
             <ul class="actions">
                 <li><a href="#"
                     data-sidebar-content-url="<?php echo $this->escapeHtml($cItem->url('show-details')); ?>"
@@ -70,6 +66,10 @@ echo $this->pageTitle(sprintf($this->translate('Collecting Form: “%s”'), $cF
                     aria-label="<?php echo $this->escapeHtml($this->translate('Details')); ?>"
                     title="<?php echo $this->escapeHtml($this->translate('Details')); ?>"></a></li>
             </ul>
+        </td>
+        <td><?php echo $this->escapeHtml($this->i18n()->dateFormat($cItem->created(), 'medium', 'short')); ?></td>
+        <td><?php echo $cItem->reviewer() ? $cItem->reviewer()->link($cItem->reviewer()->name()) : $this->translate('[not reviewed]'); ?></td>
+        <td>
             <?php if ($cItem->userIsAllowed('update') && $cItem->item()->userIsAllowed('update')): ?>
             <?php echo $this->formSelect($cItem->statusSelect()); ?>
             <?php else: ?>

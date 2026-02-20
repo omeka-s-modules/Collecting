@@ -11,35 +11,31 @@
         </div>
         <?php endforeach; ?>
     </div>
+    <?php echo $cItem->displayInputs(); ?>
     <div class="meta-group">
-        <?php echo $cItem->displayInputs(); ?>
+        <h4><?php echo $this->translate('User name'); ?></h4>
+        <div class="value"><?php
+        $name = $cItem->displayUserName();
+        echo null === $name ? $this->translate('[not asked]') : $name;
+        ?></div>
     </div>
     <div class="meta-group">
-        <div>
-            <h4><?php echo $this->translate('User name'); ?></h4>
-            <div><?php
-            $name = $cItem->displayUserName();
-            echo null === $name ? $this->translate('[not asked]') : $name;
-            ?></div>
-        </div>
-        <div class="property">
-            <h4><?php echo $this->translate('User email'); ?></h4>
-            <div class="value"><?php
-            $email = $cItem->displayUserEmail();
-            echo null === $email ? $this->translate('[not asked]') : $email;
-            ?></div>
-        </div>
-        <div class="property">
-            <h4><?php echo $this->translate('Anonymous?'); ?></h4>
-            <div class="value"><?php
-            if (null === $cItem->anon()) {
-                echo $this->translate('[not asked]');
-            } elseif ($cItem->anon()) {
-                echo $this->translate('Yes');
-            } else {
-                echo $this->translate('No');
-            }
-            ?></div>
-        </div>
+        <h4><?php echo $this->translate('User email'); ?></h4>
+        <div class="value"><?php
+        $email = $cItem->displayUserEmail();
+        echo null === $email ? $this->translate('[not asked]') : $email;
+        ?></div>
+    </div>
+    <div class="meta-group">
+        <h4><?php echo $this->translate('Anonymous?'); ?></h4>
+        <div class="value"><?php
+        if (null === $cItem->anon()) {
+            echo $this->translate('[not asked]');
+        } elseif ($cItem->anon()) {
+            echo $this->translate('Yes');
+        } else {
+            echo $this->translate('No');
+        }
+        ?></div>
     </div>
 </div>
