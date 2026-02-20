@@ -219,6 +219,34 @@ class IndexController extends AbstractActionController
                                 '@value' => $postedPrompts[$prompt->id()],
                             ];
                             break;
+                        case 'custom_vocab':
+                            $customVocab = $this->api()->read('custom_vocabs', $prompt->customVocab())->getContent();
+                            $customVocabValues = $customVocab->listValues();
+                            switch ($customVocab->type()) {
+                                case 'literal':
+                                    $itemData[$prompt->property()->term()][] = [
+                                        'type' => 'literal',
+                                        'property_id' => $prompt->property()->id(),
+                                        '@value' => $postedPrompts[$prompt->id()],
+                                    ];
+                                    break;
+                                case 'uri':
+                                    $itemData[$prompt->property()->term()][] = [
+                                        'type' => 'uri',
+                                        'property_id' => $prompt->property()->id(),
+                                        '@id' => $postedPrompts[$prompt->id()],
+                                        'o:label' => $customVocabValues[$postedPrompts[$prompt->id()]],
+                                    ];
+                                    break;
+                                case 'resource':
+                                    $itemData[$prompt->property()->term()][] = [
+                                        'type' => 'resource',
+                                        'property_id' => $prompt->property()->id(),
+                                        'value_resource_id' => $postedPrompts[$prompt->id()],
+                                    ];
+                                    break;
+                            }
+                            break;
                         default:
                             $itemData[$prompt->property()->term()][] = [
                                 'type' => 'literal',

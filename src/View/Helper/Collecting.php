@@ -161,9 +161,6 @@ class Collecting extends AbstractHelper
                 $response = $this->getView()->api()->search('custom_vocabs');
                 $this->customVocabs = [];
                 foreach ($response->getContent() as $customVocab) {
-                    if (!$customVocab->terms()) {
-                        continue; // URIs and Items vocab types not implemented
-                    }
                     $this->customVocabs[$customVocab->id()] = $customVocab->label();
                 }
             } catch (BadRequestException $e) {
