@@ -31,34 +31,36 @@
     <?php endif; ?>
 
     <h3><?php echo $this->translate('User Information'); ?></h3>
-    <div class="property">
-        <h4><?php echo $this->translate('User name'); ?></h4>
-        <div class="value"><?php
-        $name = $cItem->displayUserName();
-        echo null === $name ? $this->translate('[not asked]') : $name;
-        ?></div>
-    </div>
-    <div class="property">
-        <h4><?php echo $this->translate('User email'); ?></h4>
-        <div class="value"><?php
-        $email = $cItem->displayUserEmail();
-        echo null === $email ? $this->translate('[not asked]') : $email;
-        ?></div>
-    </div>
-    <div class="property">
-        <h4><?php echo $this->translate('Anonymous?'); ?></h4>
-        <div class="value"><?php
-        if (null === $cItem->anon()) {
-            echo $this->translate('[not asked]');
-        } elseif ($cItem->anon()) {
-            echo $this->translate('Yes');
-        } else {
-            echo $this->translate('No');
-        }
-        ?></div>
-    </div>
-    <div class="property">
-        <h4><?php echo $this->translate('Public citation') ?></h4>
-        <div class="value"><?php echo $cItem->displayCitation(); ?></div>
-    </div>
+    <dl>
+        <div class="property">
+            <dt><?php echo $this->translate('User name'); ?></dt>
+            <dd class="value"><?php
+            $name = $cItem->displayUserName();
+            echo null === $name ? $this->translate('[not asked]') : $name;
+            ?></dd>
+        </div>
+        <div class="property">
+            <dt><?php echo $this->translate('User email'); ?></dt>
+            <dd class="value"><?php
+            $email = $cItem->displayUserEmail();
+            echo null === $email ? $this->translate('[not asked]') : $email;
+            ?></dd>
+        </div>
+        <div class="property">
+            <dt><?php echo $this->translate('Anonymous?'); ?></dt>
+            <dd class="value"><?php
+            if (null === $cItem->anon()) {
+                echo $this->translate('[not asked]');
+            } elseif ($cItem->anon()) {
+                echo $this->translate('Yes');
+            } else {
+                echo $this->translate('No');
+            }
+            ?></dd>
+        </div>
+        <div class="property">
+            <dt><?php echo $this->translate('Public citation') ?></dt>
+            <dd class="value"><?php echo $cItem->displayCitation(); ?></dd>
+        </div>
+    </dl>
 </div>
