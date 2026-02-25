@@ -88,11 +88,14 @@ class Collecting extends AbstractHelper
     {
         switch ($inputType) {
             case 'custom_vocab':
-                // Available when the CustomVocab module is active.
+                // Available when the CustomVocab module is active and the
+                // version >= 2.0.0 (when `CustomVocabRepresentation::type()`
+                // first became available).
                 $module = $this->moduleManager->getModule('CustomVocab');
                 return (
                     $module
                     && ModuleManager::STATE_ACTIVE === $module->getState()
+                    && Comparator::greaterThanOrEqualTo($module->getDb('version'), '2.0.0')
                 );
             case 'numeric:timestamp':
             case 'numeric:interval':
