@@ -221,18 +221,19 @@ class IndexController extends AbstractActionController
                             break;
                         case 'custom_vocab':
                             $customVocab = $this->api()->read('custom_vocabs', $prompt->customVocab())->getContent();
-                            $customVocabValues = $customVocab->listValues();
+                            $customVocabDataType = sprintf('customvocab:%s', $customVocab->id());
                             switch ($customVocab->type()) {
                                 case 'literal':
                                     $itemData[$prompt->property()->term()][] = [
-                                        'type' => 'literal',
+                                        'type' => $customVocabDataType,
                                         'property_id' => $prompt->property()->id(),
                                         '@value' => $postedPrompts[$prompt->id()],
                                     ];
                                     break;
                                 case 'uri':
+                                    $customVocabValues = $customVocab->listValues();
                                     $itemData[$prompt->property()->term()][] = [
-                                        'type' => 'uri',
+                                        'type' => $customVocabDataType,
                                         'property_id' => $prompt->property()->id(),
                                         '@id' => $postedPrompts[$prompt->id()],
                                         'o:label' => $customVocabValues[$postedPrompts[$prompt->id()]],
@@ -240,7 +241,7 @@ class IndexController extends AbstractActionController
                                     break;
                                 case 'resource':
                                     $itemData[$prompt->property()->term()][] = [
-                                        'type' => 'resource',
+                                        'type' => $customVocabDataType,
                                         'property_id' => $prompt->property()->id(),
                                         'value_resource_id' => $postedPrompts[$prompt->id()],
                                     ];
