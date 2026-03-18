@@ -184,13 +184,9 @@ class CollectingFormRepresentation extends AbstractEntityRepresentation
                             } catch (NotFoundException $e) {
                                 continue 3; // The custom vocab does not exist
                             }
-                            $customVocabTerms = $customVocab->terms();
-                            if (!$customVocabTerms) {
-                                continue 3; // URIs and Items vocab types not implemented
-                            }
                             $element = new Element\PromptSelect($name);
                             $element->setEmptyOption('Please choose one...') // @translate
-                                ->setValueOptions(array_combine($customVocabTerms, $customVocabTerms));
+                                ->setValueOptions($customVocab->listValues());
                             break;
                         case 'numeric:timestamp':
                             if (!$collecting->inputTypeIsAvailable('numeric:timestamp')) {

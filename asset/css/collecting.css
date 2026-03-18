@@ -14,3 +14,7 @@
 #prompts-table .actions {
     padding-left: 0;
 }
+
+.block-collecting select {
+    max-width: 100%;
+}
