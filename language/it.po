@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-06 20:09-0500\n"
+"POT-Creation-Date: 2026-03-18 14:11-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Giorgio Comai <g@giorgiocomai.eu>, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/omeka/teams/14184/it/)\n"
@@ -27,12 +27,12 @@ msgstr ""
 msgid "Click here to view the collected data."
 msgstr "Clicca qui per visualizzare i dati raccolti"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:303
+#: src/Api/Representation/CollectingFormRepresentation.php:299
 #, php-format
 msgid "I accept the %s"
 msgstr "Accetto %s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:306
+#: src/Api/Representation/CollectingFormRepresentation.php:302
 msgid "Terms of Service"
 msgstr "Condizioni d'utilizzo"
 
@@ -46,11 +46,11 @@ msgstr "[riservato]"
 msgid "[unknown item]"
 msgstr "[contenuto sconosciuto]"
 
-#: src/Controller/Site/IndexController.php:302
+#: src/Controller/Site/IndexController.php:331
 msgid "Thank you for your submission"
 msgstr "Grazie per il vostro contributo"
 
-#: src/Controller/Site/IndexController.php:352
+#: src/Controller/Site/IndexController.php:381
 msgid "Collecting submission notification"
 msgstr "Raccolta della notifica di invio"
 
@@ -200,7 +200,7 @@ msgstr "Aggiornare lo stato"
 msgid "Reviewed By"
 msgstr "Revisionato da"
 
-#: view/collecting/site-admin/item/index.phtml:64
+#: view/collecting/site-admin/item/index.phtml:71
 msgid "[not reviewed]"
 msgstr "[non controllato]"
 
@@ -208,27 +208,27 @@ msgstr "[non controllato]"
 msgid "No items found."
 msgstr "Nessun contenuto trovato."
 
-#: view/collecting/site-admin/item/show-details.phtml:19
-#: view/common/collecting-item-section.phtml:35
+#: view/collecting/site-admin/item/show-details.phtml:16
+#: view/common/collecting-item-section.phtml:36
 msgid "User name"
 msgstr "Nome utente"
 
-#: view/collecting/site-admin/item/show-details.phtml:22
-#: view/collecting/site-admin/item/show-details.phtml:29
-#: view/collecting/site-admin/item/show-details.phtml:36
-#: view/common/collecting-item-section.phtml:38
-#: view/common/collecting-item-section.phtml:45
-#: view/common/collecting-item-section.phtml:52
+#: view/collecting/site-admin/item/show-details.phtml:19
+#: view/collecting/site-admin/item/show-details.phtml:26
+#: view/collecting/site-admin/item/show-details.phtml:33
+#: view/common/collecting-item-section.phtml:39
+#: view/common/collecting-item-section.phtml:46
+#: view/common/collecting-item-section.phtml:53
 msgid "[not asked]"
 msgstr "[non chiesto]"
 
-#: view/collecting/site-admin/item/show-details.phtml:26
-#: view/common/collecting-item-section.phtml:42
+#: view/collecting/site-admin/item/show-details.phtml:23
+#: view/common/collecting-item-section.phtml:43
 msgid "User email"
 msgstr "Email utente"
 
-#: view/collecting/site-admin/item/show-details.phtml:33
-#: view/common/collecting-item-section.phtml:49
+#: view/collecting/site-admin/item/show-details.phtml:30
+#: view/common/collecting-item-section.phtml:50
 msgid "Anonymous?"
 msgstr "Anonimo?"
 
@@ -277,21 +277,21 @@ msgstr "Inserimento utente"
 msgid "User Information"
 msgstr "Informazione utente"
 
-#: view/common/collecting-item-section.phtml:61
+#: view/common/collecting-item-section.phtml:62
 msgid "Public citation"
 msgstr "Citazione pubblica"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:163
 #: src/Api/Representation/CollectingFormRepresentation.php:170
-#: src/Api/Representation/CollectingFormRepresentation.php:192
+#: src/Api/Representation/CollectingFormRepresentation.php:188
 msgid "Please choose one..."
 msgstr "Selezionare una risposta"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:272
+#: src/Api/Representation/CollectingFormRepresentation.php:268
 msgid "I want to submit anonymously"
 msgstr "Voglio inviare in forma anonima"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:282
+#: src/Api/Representation/CollectingFormRepresentation.php:278
 msgid "Email me my submission"
 msgstr "Mandami la mia presentazione"
 

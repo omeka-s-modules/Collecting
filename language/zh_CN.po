@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-06 20:09-0500\n"
+"POT-Creation-Date: 2026-03-18 14:11-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
 "Last-Translator: Hong Zhang <zhangh@unlv.nevada.edu>, 2021\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/omeka/teams/14184/zh_CN/)\n"
@@ -25,12 +25,12 @@ msgstr ""
 msgid "Click here to view the collected data."
 msgstr "点击此处查看收集到的数据。"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:303
+#: src/Api/Representation/CollectingFormRepresentation.php:299
 #, php-format
 msgid "I accept the %s"
 msgstr "我接受%s"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:306
+#: src/Api/Representation/CollectingFormRepresentation.php:302
 msgid "Terms of Service"
 msgstr "服务条款"
 
@@ -44,11 +44,11 @@ msgstr "【私密的】"
 msgid "[unknown item]"
 msgstr "【未知条目】"
 
-#: src/Controller/Site/IndexController.php:302
+#: src/Controller/Site/IndexController.php:331
 msgid "Thank you for your submission"
 msgstr "感谢您的提交"
 
-#: src/Controller/Site/IndexController.php:352
+#: src/Controller/Site/IndexController.php:381
 msgid "Collecting submission notification"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgstr "更新状态"
 msgid "Reviewed By"
 msgstr "审核者："
 
-#: view/collecting/site-admin/item/index.phtml:64
+#: view/collecting/site-admin/item/index.phtml:71
 msgid "[not reviewed]"
 msgstr "【未审核】"
 
@@ -206,27 +206,27 @@ msgstr "【未审核】"
 msgid "No items found."
 msgstr "没有找到任何条目。"
 
-#: view/collecting/site-admin/item/show-details.phtml:19
-#: view/common/collecting-item-section.phtml:35
+#: view/collecting/site-admin/item/show-details.phtml:16
+#: view/common/collecting-item-section.phtml:36
 msgid "User name"
 msgstr "用户名"
 
-#: view/collecting/site-admin/item/show-details.phtml:22
-#: view/collecting/site-admin/item/show-details.phtml:29
-#: view/collecting/site-admin/item/show-details.phtml:36
-#: view/common/collecting-item-section.phtml:38
-#: view/common/collecting-item-section.phtml:45
-#: view/common/collecting-item-section.phtml:52
+#: view/collecting/site-admin/item/show-details.phtml:19
+#: view/collecting/site-admin/item/show-details.phtml:26
+#: view/collecting/site-admin/item/show-details.phtml:33
+#: view/common/collecting-item-section.phtml:39
+#: view/common/collecting-item-section.phtml:46
+#: view/common/collecting-item-section.phtml:53
 msgid "[not asked]"
 msgstr "【未询问】"
 
-#: view/collecting/site-admin/item/show-details.phtml:26
-#: view/common/collecting-item-section.phtml:42
+#: view/collecting/site-admin/item/show-details.phtml:23
+#: view/common/collecting-item-section.phtml:43
 msgid "User email"
 msgstr "用户电邮地址"
 
-#: view/collecting/site-admin/item/show-details.phtml:33
-#: view/common/collecting-item-section.phtml:49
+#: view/collecting/site-admin/item/show-details.phtml:30
+#: view/common/collecting-item-section.phtml:50
 msgid "Anonymous?"
 msgstr "匿名？"
 
@@ -273,21 +273,21 @@ msgstr "用户输入"
 msgid "User Information"
 msgstr "用户信息"
 
-#: view/common/collecting-item-section.phtml:61
+#: view/common/collecting-item-section.phtml:62
 msgid "Public citation"
 msgstr "公开引用"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:163
 #: src/Api/Representation/CollectingFormRepresentation.php:170
-#: src/Api/Representation/CollectingFormRepresentation.php:192
+#: src/Api/Representation/CollectingFormRepresentation.php:188
 msgid "Please choose one..."
 msgstr "请选择一个 ......"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:272
+#: src/Api/Representation/CollectingFormRepresentation.php:268
 msgid "I want to submit anonymously"
 msgstr "我希望匿名提交"
 
-#: src/Api/Representation/CollectingFormRepresentation.php:282
+#: src/Api/Representation/CollectingFormRepresentation.php:278
 msgid "Email me my submission"
 msgstr "把我提交的东西电邮给我"
 

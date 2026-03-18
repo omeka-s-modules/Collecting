@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 志帆 徐 <billxu0521@gmail.com>, 2020
+# Ik Jij, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,40 +13,40 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-18 14:11-0400\n"
 "PO-Revision-Date: 2017-09-14 20:14+0000\n"
-"Last-Translator: 志帆 徐 <billxu0521@gmail.com>, 2020\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/omeka/teams/14184/zh_TW/)\n"
+"Last-Translator: Ik Jij, 2026\n"
+"Language-Team: Dutch (Netherlands) (https://app.transifex.com/omeka/teams/14184/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: Module.php:362
 msgid "Click here to view the collected data."
-msgstr "點擊並且檢視收集資料"
+msgstr "Klik hier om verzamelde gegevens te bekijken."
 
 #: src/Api/Representation/CollectingFormRepresentation.php:299
 #, php-format
 msgid "I accept the %s"
-msgstr "我同意%s"
+msgstr "Ik aanvaard de %s"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:302
 msgid "Terms of Service"
-msgstr "服務用語"
+msgstr "Gebruiksvoorwaarden"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:74
 #: src/Api/Representation/CollectingItemRepresentation.php:125
 #: src/Api/Representation/CollectingItemRepresentation.php:140
 msgid "[private]"
-msgstr "[私人]"
+msgstr "[privé]"
 
 #: src/Api/Representation/CollectingInputRepresentation.php:81
 msgid "[unknown item]"
-msgstr "[不明條目]"
+msgstr "[onbekend object]"
 
 #: src/Controller/Site/IndexController.php:331
 msgid "Thank you for your submission"
-msgstr "感謝您的使用"
+msgstr "Bedankt voor je inzending"
 
 #: src/Controller/Site/IndexController.php:381
 msgid "Collecting submission notification"
@@ -55,65 +55,65 @@ msgstr ""
 #: view/collecting/site-admin/form/form.phtml:9
 #, php-format
 msgid "Edit collecting form: “%s”"
-msgstr "編輯收集表格:%s"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:10
 msgid "Add collecting form"
-msgstr "新增編輯表格"
+msgstr "Voeg inzamelingsformulier toe"
 
 #: view/collecting/site-admin/form/form.phtml:33
 msgid "Undo delete"
-msgstr "取消刪除"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:53
 #: view/collecting/site-admin/form/show.phtml:42
 msgid "Prompts"
-msgstr "提示"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:55
 msgid "Add prompt"
-msgstr "新稱提示"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:75
 #: view/common/collecting-item-section.phtml:10
 msgid "Prompt"
-msgstr "提示"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:78
 msgid "Prompt type"
-msgstr "提示型態"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:80
 msgid "Select a prompt type"
-msgstr "選擇一個提示型態"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:95
 msgid "Select a media type"
-msgstr "選擇一個媒體型態"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:103
 msgid "Prompt text"
-msgstr "提示文字"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:108
 msgid "Input type"
-msgstr "輸入型態"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:110
 msgid "Select an input type"
-msgstr "選擇一個輸入型態"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:114
 msgid "(unavailable)"
-msgstr "(不存在)"
+msgstr "(niet beschikbaar)"
 
 #: view/collecting/site-admin/form/form.phtml:122
 msgid "Select menu options"
-msgstr "選擇選單選項"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter query"
-msgstr "過濾查詢"
+msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:127
 msgid "Filter resources by entering an advanced search URL query string."
@@ -129,7 +129,7 @@ msgstr ""
 
 #: view/collecting/site-admin/form/form.phtml:149
 msgid "Add changes"
-msgstr "新增更動"
+msgstr "Wijzigingen toevoegen"
 
 #: view/collecting/site-admin/form/index.phtml:2
 msgid "Collecting Forms"
@@ -137,12 +137,12 @@ msgstr ""
 
 #: view/collecting/site-admin/form/index.phtml:7
 msgid "Add new form"
-msgstr ""
+msgstr "Nieuw formulier toevoegen"
 
 #: view/collecting/site-admin/form/index.phtml:55
 #: view/common/block-layout/collecting-block-form.phtml:5
 msgid "This site has no collecting forms."
-msgstr ""
+msgstr "Deze site heeft geen verzamelformulieren."
 
 #: view/collecting/site-admin/form/show.phtml:3
 #: view/collecting/site-admin/item/index.phtml:3
@@ -153,11 +153,11 @@ msgstr ""
 #: view/collecting/site-admin/form/show.phtml:6
 #: view/collecting/site-admin/form/show.phtml:8
 msgid "[none]"
-msgstr ""
+msgstr "[geen]"
 
 #: view/collecting/site-admin/form/show.phtml:14
 msgid "Edit form"
-msgstr ""
+msgstr "Formulier bewerken"
 
 #: view/collecting/site-admin/form/show.phtml:19
 #: view/collecting/site-admin/item/index.phtml:7
@@ -175,20 +175,20 @@ msgstr ""
 #: view/collecting/site-admin/item/index.phtml:16
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Needs review"
-msgstr ""
+msgstr "Behoeft beoordeling"
 
 #: view/collecting/site-admin/item/index.phtml:17
 msgid "Reviewed: public"
-msgstr ""
+msgstr "Beoordeeld: openbaar"
 
 #: view/collecting/site-admin/item/index.phtml:18
 msgid "Reviewed: private"
-msgstr ""
+msgstr "Beoordeeld: privé"
 
 #: view/collecting/site-admin/item/index.phtml:29
 #: view/collecting/site-admin/item/index.phtml:76
 msgid "Reviewed"
-msgstr ""
+msgstr "Beoordeeld"
 
 #: view/collecting/site-admin/item/index.phtml:41
 msgid "Update statuses"
@@ -196,15 +196,15 @@ msgstr ""
 
 #: view/collecting/site-admin/item/index.phtml:50
 msgid "Reviewed By"
-msgstr ""
+msgstr "Beoordeeld door"
 
 #: view/collecting/site-admin/item/index.phtml:71
 msgid "[not reviewed]"
-msgstr ""
+msgstr "[niet beoordeeld]"
 
 #: view/collecting/site-admin/item/index.phtml:96
 msgid "No items found."
-msgstr ""
+msgstr "Geen objecten gevonden."
 
 #: view/collecting/site-admin/item/show-details.phtml:16
 #: view/common/collecting-item-section.phtml:36
@@ -228,7 +228,7 @@ msgstr ""
 #: view/collecting/site-admin/item/show-details.phtml:30
 #: view/common/collecting-item-section.phtml:50
 msgid "Anonymous?"
-msgstr ""
+msgstr "Anoniem?"
 
 #: view/collecting/site/index/item-show.phtml:2
 #, php-format
@@ -237,11 +237,11 @@ msgstr ""
 
 #: view/collecting/site/index/item-show.phtml:5
 msgid "Click here to view the corresponding item."
-msgstr ""
+msgstr "Klik hier om het bijbehorende object te bekijken."
 
 #: view/collecting/site/index/success.phtml:5
 msgid "Form successfully submitted!"
-msgstr ""
+msgstr "Formulier succesvol ingediend!"
 
 #: view/common/block-layout/collecting-block-form.phtml:2
 msgid "Select which collecting forms the user can complete:"
@@ -249,11 +249,11 @@ msgstr ""
 
 #: view/common/block-layout/collecting-block-multiple.phtml:3
 msgid "Select a form..."
-msgstr ""
+msgstr "Selecteer een formulier..."
 
 #: view/common/collecting-item-citation.phtml:6
 msgid "[anonymous user]"
-msgstr ""
+msgstr "[anonieme gebruiker]"
 
 #: view/common/collecting-item-citation.phtml:9
 #, php-format
@@ -271,7 +271,7 @@ msgstr ""
 
 #: view/common/collecting-item-section.phtml:33
 msgid "User Information"
-msgstr ""
+msgstr "Gebruikersinformatie"
 
 #: view/common/collecting-item-section.phtml:62
 msgid "Public citation"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: src/Api/Representation/CollectingFormRepresentation.php:268
 msgid "I want to submit anonymously"
-msgstr ""
+msgstr "Ik wil anoniem inzenden"
 
 #: src/Api/Representation/CollectingFormRepresentation.php:278
 msgid "Email me my submission"
@@ -381,19 +381,19 @@ msgstr ""
 
 #: src/Controller/SiteAdmin/FormController.php:104
 msgid "Collecting form successfully updated"
-msgstr ""
+msgstr "Verzamelformulier succesvol bijgewerkt"
 
 #: src/Controller/SiteAdmin/FormController.php:105
 msgid "Collecting form successfully created"
-msgstr ""
+msgstr "Verzamelformulier succesvol aangemaakt"
 
 #: src/Controller/SiteAdmin/FormController.php:139
 msgid "Collecting form successfully deleted"
-msgstr ""
+msgstr "Verzamelformulier succesvol verwijderd"
 
 #: src/Controller/SiteAdmin/ItemController.php:71
 msgid "Statuses successfully updated"
-msgstr ""
+msgstr "Statussen succesvol bijgewerkt"
 
 #: src/Form/CollectingForm.php:28
 msgid "Assign all items created by this form to this item set."
@@ -401,7 +401,7 @@ msgstr ""
 
 #: src/Form/CollectingForm.php:29
 msgid "Select Item Set..."
-msgstr ""
+msgstr "Selecteer collectie..."
 
 #: src/Form/CollectingForm.php:39
 msgid "Anonymity type"
@@ -476,11 +476,11 @@ msgstr ""
 
 #: src/Entity/CollectingPrompt.php:115
 msgid "Text box (one line)"
-msgstr ""
+msgstr "Tekstvak (een regel)"
 
 #: src/Entity/CollectingPrompt.php:116
 msgid "Text box (multiple line)"
-msgstr ""
+msgstr "Tekstvak (meerdere regels)"
 
 #: src/Entity/CollectingPrompt.php:117
 msgid "Select menu"
@@ -508,7 +508,7 @@ msgstr ""
 
 #: src/Entity/CollectingForm.php:95
 msgid "User sets own anonymity"
-msgstr ""
+msgstr "Gebruiker stelt anonimiteit zelf in"
 
 #: src/Entity/CollectingForm.php:96
 msgid "“User Public” and “User Name” inputs are publicly visible"
@@ -520,7 +520,7 @@ msgstr ""
 
 #: config/module.config.php:110
 msgid "Form Information"
-msgstr ""
+msgstr "Formulierinformatie"
 
 #: config/module.config.php:116
 msgid "Collected Items"
@@ -528,7 +528,7 @@ msgstr ""
 
 #: Module.php:199
 msgid "Terms of service"
-msgstr ""
+msgstr "Gebruiksvoorwaarden"
 
 #: Module.php:200
 msgid ""
@@ -537,7 +537,7 @@ msgstr ""
 
 #: Module.php:211
 msgid "Terms of service URL"
-msgstr ""
+msgstr "Gebruiksvoorwaarden URL"
 
 #: Module.php:212
 msgid ""
